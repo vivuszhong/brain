@@ -1,0 +1,520 @@
+                    Servlet 3.0 实战：异步 Servlet 与 Comet 风格应用程序
+跳转到主要内容   •   登录 (或注册) 
+  •   中文 
+  •     PHOTO [userid] 
+  •     IBM®  
+IBM ID： 密码：  保持登录。 
+单击提交则表示您同意developerWorks 的条款和条件。 查看条款和条件.
+  提交    •  需要一个 IBM ID？
+  •  忘记 IBM ID？
+  •  忘记密码？
+  •  更改您的密码
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息。您在 developerWorks 概要信息中选择公开的信息将公开显示给其他人，但您可以随时修改这些信息的显示状态。您的姓名（除非选择隐藏）和昵称将和您在 developerWorks 发布的内容一同显示。
+所有提交的信息确保安全。
+  •    关闭 [x]  
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。
+昵称长度在 3 至 31 个字符之间。 您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。
+昵称： 单击提交则表示您同意developerWorks 的条款和条件。 查看条款和条件.
+  提交  所有提交的信息确保安全。
+  •    关闭 [x]  
+My developerWorks:
+  •  我的概要信息
+  •  我的首页
+  •  我的群组
+我的通知：
+  •  {[num_notify] 个新通知}([num_notify] 个新通知)
+  •  {[num_invite] 个网络请求}([num_invite] 个网络请求)
+  •  退出
+  •    关闭 [x]  
+选择语言：
+  •  English
+  •  中文
+  •  日本語
+  •  Русский
+  •  Português (Brasil)
+  •  Español
+  •  Việt
+  •    关闭 [x]  
+  •  IBM 主页
+  •  解决方案
+  •  软件
+  •  支持门户
+  •  产品文档
+  •  Redbooks（英文）
+  •    关闭 [x]  
+  •     developerWorks®  
+  •  技术主题
+  •  软件下载
+  •  社区
+  •  技术讲座
+  dw    zh    CN    utf    20    cndw    zh    查询:    搜索 developerWorks    搜索  
+技术主题
+  •  Agile transformation
+  •  AIX and UNIX
+  •  Big data
+  •  Cloud computing
+  •  IBM i
+  •  Information management
+  •  Java technology
+  •  Linux
+  •  Lotus
+  •  Mobile development
+  •  Open source
+  •  Rational
+  •  SOA and web services
+  •  Web development
+  •  WebSphere
+  •  XML
+  •  文档库
+  •  产品 A - Z
+  •    关闭 [x]  
+软件下载
+  •  Information management
+  •  Lotus
+  •  Rational
+  •  Tivoli
+  •  WebSphere
+  •    关闭 [x]  
+社区
+  •  我的首页
+  •  概要信息
+  •  群组
+  •  博客
+  •  书签
+  •  Wiki
+  •  文件
+  •  活动
+  •    关闭 [x]  
+技术讲座
+  •  技术讲座
+  •  多媒体课堂
+  •  网络广播（英文）
+  •  查找活动（技术讲座，网络广播，会议等）（英文）
+  •    关闭 [x]  
+  •  developerWorks 中国
+  •  Java technology
+  •  文档库
+Servlet 3.0 实战：异步 Servlet 与 Comet 风格应用程序
+周 志明, 架构师, 远光软件股份有限公司周志明，软件工程硕士，就职于远光软件股份有限公司，担任平台架构师，参与过中国国家电网 SG186 工程等大型 ERP 项目的平台架构工作。目前主要技术方向为企业级平台、工作流、SOA、OSGi 等。 
+
+简介： 自 JSR 315 规范（即 Servlet 3.0）的草案公开发布以来，最新一代 Servlet 规范的各种新特性被越来越多的开发人员所关注。规范中提到的一系列高级目标：如可插拔的 Web 框架、便捷开发特性、增强安全性支持等都令人期待。但其中关注程度最高的，毫无疑问是异步 Servlet。本文将详细介绍 Comet 风格应用的实现方式，以及 Servlet 3.0 中的异步处理特性在 Comet 风格程序中的实际应用。
+发布日期： 2010 年 11 月 26 日 
+级别： 中级 
+访问情况 ： 18151 次浏览 
+评论：  
+
+概述
+作为 Java EE 6 体系中重要成员的 JSR 315 规范，将 Servlet API 最新的版本从 2.5 提升到了 3.0，这是近 10 年来 Servlet 版本号最大的一次升级，此次升级中引入了若干项令开发人员兴奋的特性，如：
+  •  可插拔的 Web 架构（Web framework pluggability）。
+  •  通过 Annotations 代替传统 web.xml 配置文件的 EOD 易于开发特性（ease of development）。
+  •  Serlvet 异步处理支持。
+  •  安全性提升，如 Http Only Cookies、login/logout 机制。
+  •  其它改进，如文件上传的直接支持等。
+其中，在开源社区中讨论得最多的就是 Servlet 异步处理的支持，所谓 Servlet 异步处理，包括了非阻塞的输入/输出、异步事件通知、延迟 request 处理以及延迟 response 输出等几种特性。这些特性大多并非 JSR 315 规范首次提出，譬如非阻塞输入/输出，在 Tomcat 6.0 中就提供了 Advanced NIO 技术以便一个 Servlet 线程能处理多个 Http Request，Jetty、GlassFish 也曾经有过类似的支持。但是使用这些 Web 容器提供的高级特性时，因为现有的 Servlet API 没有对这类应用的支持，所以都必须引入一些 Web 容器专有的类、接口或者 Annotations，导致使用了这部分高级特性，就必须与特定的容器耦合在一起，这对很多项目来说都是无法接受的。因此 JSR 315 将这些特性写入规范，提供统一的 API 支持后，这类异步处理特性才真正具备广泛意义上的实用性，只要支持 Servlet 3.0 的 Web 容器，就可以不加修改的运行这些 Web 程序。
+JSR 315 中的 Servlet 异步处理系列特性在很多场合都有用武之地，但人们最先看到的，是它们在“服务端推”（Server-Side Push）方式 —— 也称为 Comet 方式的交互模型中的价值。在 JCP（Java Community Process）网站上提出的 JSR 315 规范目标列表，关于异步处理这个章节的标题就直接定为了“Async and Comet support”（异步与 Comet 支持）。
+本文将详细介绍 Comet 风格应用的实现方式，以及 Servlet 3.0 中的异步处理特性在 Comet 风格程序中的实际应用。
+回页首
+经典 Request-Response 交互模型的突破
+“Comet 技术”、“服务端推技术（Server-Side Push）”、“反向 Ajax 技术”这几个名称说的是同一件事情，可能您已经听说过其中的一项或者几项。但没听说过也没有关系，一句话就足以表达它们全部的意思：“在没有客户端请求的情况下，服务端向客户端发送数据”。
+这句话听起来很简单很好理解，但是任何一个长期从事 B/S 应用程序开发的程序都清楚，这实现起来并不简单，甚至很长一段时间内，人们认为这是并不可能的。因为这种做法完全不符合传统基于 HTTP 协议的交互思想：只有基于 Socket 层次的应用才能做到 Server 和 Client 端双方对等通讯，而基于 HTTP 的应用中，Server 只是对来自 Client 的请求进行回应，不关心客户端的状态，不主动向客户端请求信息，因此 Http 协议被称为无状态、单向性协议，这种交互方式称为 Request-Response 交互模型。
+无状态、单向的经典 Request-Response 交互模型有很多优点，譬如高效率、高可伸缩等。对于被动响应用户请求为主的应用，像 CMS、MIS、ERP 等非常适合，但是对于另外一些需要服务端主动发送的需求，像聊天室（用户不发言的时候也需要把其它用户的发言传送回来）、日志系统（客户端没有请求，当服务端有日志输出时主动发送到客户端）则处理起来很困难，或者说这类应用根本不适合使用经典的 Request-Response 交互模型来处理。当“不适合”与“有需求”同时存在时，人们就开始不断寻找突破这种限制的方法。
+回页首
+Comet 实现的方法
+  •  简单轮询 
+最早期的 Web 应用中，主要通过 JavaScript 或者 Meta HTML 标签等手段，定时刷新页面来检测服务端的变化。显然定时刷新页面服务端仍然在被动响应客户端的请求，只不过客户端的请求是连续、频繁的，让用户看起来产生有服务端自动将信息发过来的错觉。这种方式简单易行，但缺陷也非常明显：可能大部分请求都是无意义的，因为服务端期待的事件没有发生，实际上并没有需要发送的信息，而不得不重复的回应着页面上所有内容给浏览器；另外就是当服务端发生变化时，并不能“实时”的返回，刷新的间隔太短，产生很大的性能浪费，间隔太长，事件通知又可能晚于用户期望的时间到达。
+当绝大部分浏览器提供了 XHR（XmlHttpRequest）对象支持后，Ajax 技术出现并迅速流行，这一阶段做的轮询就不必每次都返回都返回整个页面中所有的内容，如果服务端没有事件产生，只需要返回极少量内容的 http 报文体。Ajax 可以节省轮询传输中大量的带宽浪费，但它无法减少请求的次数，因此 Ajax 实现的简单轮询仍然有轮询的局限性，对其缺陷只能一定程度缓解，而无法达到质变。
+  •  长轮询（混合轮询） 
+长轮询与简单轮询的最大区别就是连接时间的长短：简单轮询时当页面输出完连接就关闭了，而长轮询一般会保持 30 秒乃至更长时间，当服务器上期待的事件发生，将会立刻输出事件通知到客户端，接着关闭连接，同时建立下一个连接开始一次新的长轮询。
+长轮询的实现方式优势在于当服务端期待事件发生，数据便立即返回到客户端，期间没有数据返回，再较长的等待时间内也没有新的请求发生，这样可以让发送的请求减少很多，而事件通知的灵敏度却大幅提高到几乎是“实时”的程度。
+  •  Comet 流（Forever Frame） 
+Comet 流是按照长轮询的实现思路进一步发展的产物。令长轮询将事件通知发送回客户端后不再关闭连接，而是一直保持直到超时事件发生才重新建立新的连接，这种变体我们就称为 Comet 流。客户端可以使用 XmlHttpRequest 对象中的 readyState 属性来判断是 Receiving 还是 Loaded。Comet 流理论上可以使用一个链接来处理若干次服务端事件通知，更进一步节省了发送到服务端的请求次数。
+无论是长轮询还是 Comet 流，在服务端和客户端都需要维持一个比较长时间的连接状态，这一点在客户端不算什么太大的负担，但是服务端是要同时对多个客户端服务的，按照经典 Request-Response 交互模型，每一个请求都占用一个 Web 线程不释放的话，Web 容器的线程则会很快消耗殆尽，而这些线程大部分时间处于空闲等待的状态。这也就是为什么 Comet 风格服务非常期待异步处理的原因，希望 Web 线程不需要同步的、一对一的处理客户端请求，能做到一个 Web 线程处理多个客户端请求。
+回页首
+实战 Servlet 异步处理
+当前已经有不少支持 Servlet API 3.0 的 Web 容器，如 GlassFish v3、Tomcat 7.0、Jetty 8.0 等，在本文撰写时，Tomcat 7 和 Jetty 8 都仍然处于测试阶段，虽然支持 Servlet 3.0，但是提供的样例代码仍然是与容器耦合的 NIO 实现，GlassFish v3 提供的样例（玻璃鱼聊天室）则是完全标准的 Servlet 3.0 实现，如果读者需要做找参考样例，不妨优先查看 GlassFish 的 example 目录。本文后一部分会提供另外一个更具备实用性的例子“Web 日志系统”作为 Servlet API 3.0 的实战演示进行讲解。
+Web 日志系统实战
+Apache Log4j 是当前最主流的日志处理器，它有许多不同的 Appender 可以将日志输出到控制台、文件、数据库、Email 等等。在大部分应用中用户都不可能查看服务器的控制台或者日志文件，如果能直接在浏览器上“实时”的查看日志将会是给开发维护带来方便，在本例中将实现一个日志输出到浏览器的 Appender 实现。
+
+清单 1. Log4j 异步 Web Appender
+
+    
+ /** 
+ * 基于 AsyncContext 支持的 Appender 
+ * @author zzm 
+ */ 
+ public class WebLogAppender extends WriterAppender { 
+     /** 
+     * 异步 Servlet 上下文队列
+     */ 
+     public static final Queue<AsyncContext> ASYNC_CONTEXT_QUEUE 
+     = new ConcurrentLinkedQueue<AsyncContext>(); 
+
+     /** 
+     * AsyncContextQueue Writer 
+     */ 
+     private Writer writer = new AsyncContextQueueWriter(ASYNC_CONTEXT_QUEUE); 
+
+     public WebLogAppender() { 
+         setWriter(writer); 
+     } 
+
+     public WebLogAppender(Layout layout) { 
+         this(); 
+         super.layout = layout; 
+     } 
+ } 
+     	
+
+上面是 Appender 类的代码模版，派生自 org.apache.log4j.WriterAppender，Log4j 默认提供的所有 Appender 都从此类继承，子类代码执行的逻辑仅仅是告知 WriterAppender 如何获取 Writer。而我们最关心的如何异步将日志信息输出至浏览器，则在 AsyncContextQueueWriter 中完成。
+
+清单 2：异步上下文队列 Writer
+
+    
+ /** 
+ * 向一个 Queue<AsyncContext> 中每个 Context 的 Writer 进行输出
+ * @author zzm 
+ */ 
+ public class AsyncContextQueueWriter extends Writer { 
+
+     /** 
+     * AsyncContext 队列
+     */ 
+     private Queue<AsyncContext> queue; 
+
+     /** 
+     * 消息队列
+     */ 
+     private static final BlockingQueue<String> MESSAGE_QUEUE 
+     = new LinkedBlockingQueue<String>(); 
+
+     /** 
+     * 发送消息到异步线程，最终输出到 http response 流
+     * @param cbuf 
+     * @param off 
+     * @param len 
+     * @throws IOException 
+     */ 
+     private void sendMessage(char[] cbuf, int off, int len) throws IOException { 
+         try { 
+             MESSAGE_QUEUE.put(new String(cbuf, off, len)); 
+         } catch (Exception ex) { 
+             IOException t = new IOException(); 
+             t.initCause(ex); 
+             throw t; 
+         } 
+     } 
+
+     /** 
+     * 异步线程，当消息队列中被放入数据，将释放 take 方法的阻塞，将数据发送到 http response 流上
+     */ 
+     private Runnable notifierRunnable = new Runnable() { 
+        public void run() { 
+            boolean done = false; 
+            while (!done) { 
+                String message = null; 
+                try { 
+                    message = MESSAGE_QUEUE.take(); 
+                    for (AsyncContext ac : queue) { 
+                        try { 
+                            PrintWriter acWriter = ac.getResponse().getWriter(); 
+                            acWriter.println(htmlEscape(message)); 
+                            acWriter.flush(); 
+                        } catch (IOException ex) { 
+                            System.out.println(ex); 
+                            queue.remove(ac); 
+                        } 
+                    } 
+                } catch (InterruptedException iex) { 
+                    done = true; 
+                    System.out.println(iex); 
+                } 
+            } 
+        } 
+     }; 
+
+     /** 
+     * @param message 
+     * @return 
+     */ 
+     private String htmlEscape(String message) { 
+         return "<script type='text/javascript'>\nwindow.parent.update(\""
+         + message.replaceAll("\n", "").replaceAll("\r", "") + "\");</script>\n"; 
+     } 
+
+     /** 
+     * 保持一个默认的 writer，输出至控制台
+     * 这个 writer 是同步输出，其它输出到 response 流的 writer 是异步输出
+     */ 
+     private static final Writer DEFAULT_WRITER = new OutputStreamWriter(System.out); 
+
+     /** 
+     * 构造 AsyncContextQueueWriter 
+     * @param queue 
+     */ 
+     AsyncContextQueueWriter(Queue<AsyncContext> queue) { 
+         this.queue = queue; 
+         Thread notifierThread = new Thread(notifierRunnable); 
+         notifierThread.start(); 
+     } 
+
+     @Override 
+     public void write(char[] cbuf, int off, int len) throws IOException { 
+         DEFAULT_WRITER.write(cbuf, off, len); 
+         sendMessage(cbuf, off, len); 
+     } 
+
+     @Override 
+     public void flush() throws IOException { 
+         DEFAULT_WRITER.flush(); 
+     } 
+
+     @Override 
+     public void close() throws IOException { 
+         DEFAULT_WRITER.close(); 
+         for (AsyncContext ac : queue) { 
+             ac.getResponse().getWriter().close(); 
+         } 
+     } 
+ } 
+	
+
+这个类是 Web 日志实现的关键类之一，它继承至 Writer，实际上是一组 Writer 的集合，其中包含至少一个默认 Writer 将数据输出至控制台，另包含零至若干个由 Queue<AsyncContext> 所决定的 Response Writer 将数据输出至客户端。输出过程中，控制台的 Writer 是同步的直接输出，输出至 http 客户端的则由线程 notifierRunnable 进行异步输出。具体实现方式是信息放置在阻塞队列 MESSAGE_QUEUE 中，子线程循环时使用到这个队列的 take() 方法，当队列没有数据这个方法将会阻塞线程直到等到新数据放入队列为止。
+我们在 Log4j.xml 中修改一下配置，将 Appender 切换为 WebLogAppender，那对 Log4j 本身的扩展就算完成了：
+
+清单 3：Log4j.xml 配置
+
+    
+   <appender name="CONSOLE" class="org.fenixsoft.log.WebLogAppender"> 
+      <param name="Threshold" value="DEBUG"/> 
+      <layout class="org.apache.log4j.PatternLayout"> 
+         <!-- The default pattern: Date Priority [Category] Message\n --> 
+         <param name="ConversionPattern" value="%d %p [%c] %m%n"/> 
+      </layout> 
+   </appender>	
+
+接着，建立一个支持异步的 Servlet，目的是每个访问这个 Servlet 的客户端，都在 ASYNC_CONTEXT_QUEUE 中注册一个异步上下文对象，这样当有 Logger 信息发生时，就会输出到这些客户端。同时，将建立一个针对这个异步上下文对象的监听器，当产生超时、错误等事件时，将此上下文从队列中移除。
+
+清单 4：Web 日志注册 Servlet
+
+    
+ /** 
+ * Servlet implementation class WebLogServlet 
+ */ 
+ @WebServlet(urlPatterns = { "/WebLogServlet" }, asyncSupported = true) 
+ public class WebLogServlet extends HttpServlet { 
+
+    /** 
+     * serialVersionUID 
+     */ 
+    private static final long serialVersionUID = -260157400324419618L; 
+
+    /** 
+     * 将客户端注册到监听 Logger 的消息队列中
+     */ 
+    @Override 
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) 
+    throws ServletException, IOException { 
+        res.setContentType("text/html;charset=UTF-8"); 
+        res.setHeader("Cache-Control", "private"); 
+        res.setHeader("Pragma", "no-cache"); 
+        req.setCharacterEncoding("UTF-8"); 
+        PrintWriter writer = res.getWriter(); 
+        // for IE 
+        writer.println("<!-- Comet is a programming technique that enables web 
+        servers to send data to the client without having any need for the client 
+        to request it. -->\n"); 
+        writer.flush(); 
+
+        final AsyncContext ac = req.startAsync(); 
+        ac.setTimeout(10 * 60 * 1000); 
+        ac.addListener(new AsyncListener() { 
+            public void onComplete(AsyncEvent event) throws IOException { 
+                WebLogAppender.ASYNC_CONTEXT_QUEUE.remove(ac); 
+            } 
+
+            public void onTimeout(AsyncEvent event) throws IOException { 
+                WebLogAppender.ASYNC_CONTEXT_QUEUE.remove(ac); 
+            } 
+
+            public void onError(AsyncEvent event) throws IOException { 
+                WebLogAppender.ASYNC_CONTEXT_QUEUE.remove(ac); 
+            } 
+
+            public void onStartAsync(AsyncEvent event) throws IOException { 
+            } 
+        }); 
+        WebLogAppender.ASYNC_CONTEXT_QUEUE.add(ac); 
+    } 
+ } 
+	
+
+服务端处理到此为止差不多就结束了，我们再看看客户端的实现。其实客户端我们直接访问这个 Servlet 就可以看到浏览器不断的有日志输出，并且这个页面的滚动条会一直持续，显示 http 连接并没有关闭。为了显示，我们还是对客户端进行了包装，通过一个隐藏的 frame 去读取 WebLogServlet 发出的信息，既 Comet 流方式实现。
+
+清单 5：客户端页面
+
+    
+ <html> 
+ <head></head> 
+ <script type="text/javascript" src="js/jquery-1.4.min.js"></script> 
+ <script type="text/javascript" src="js/application.js"></script> 
+ <style> 
+     .consoleFont{font-size:9; color:#DDDDDD; font-family:Fixedsys} 
+     .inputStyle{font-size:9; color:#DDDDDD; font-family:Fixedsys; width:100%; 
+            height:100%; border:0; background-color:#000000;} 
+ </style> 
+ <body style="margin:0; overflow:hidden" > 
+ <table width="100%" height="100%" border="0" cellpadding="0" 
+     cellspacing="0" bgcolor="#000000"> 
+  <tr> 
+    <td colspan="2"><textarea name="result" id="result" readonly="true" wrap="off" 
+         style="padding: 10; overflow:auto" class="inputStyle" ></textarea></td> 
+  </tr> 
+ </table> 
+ <iframe id="comet-frame" style="display: none;"></iframe> 
+ </body> 
+ </html>	
+
+
+清单 6：客户端引用的 application.js
+
+    
+ $(document).ready(function() { 
+     var url = '/AsyncServlet/WebLogServlet'; 
+     $('#comet-frame')[0].src = url; 
+ }); 
+
+ function update(data) { 
+     var resultArea = $('#result')[0]; 
+     resultArea.value = resultArea.value + data + '\n'; 
+ } 
+	
+
+为了模拟日志输出，我们读取了一个已有的日志文件，将内容调用 Logger 输出到浏览器，读者在调试时直接运行源码包中的 TestServlet 即可，运行后整体效果如下所示：
+
+图 1. 运行效果
+  运行效果  
+回页首
+结束语
+Comet 的出现为 Web 交互带来了全新的体验，而 Servlet 3.0 和异步 IO 则为 Comet 实现过程中服务端 Web 线程占用的问题提供了规范的解决方案。随着各种支持 Servlet 3.0 容器的出现，Comet 的应用将越来越频繁，目前开发 Comet 应用还是具有一定的挑战性，但随着需求推动技术的发展，相信 Comet 的应用会变得和 AJAX 一样普及。
+
+回页首
+下载
+描述名字大小下载方法
+本文用到的示例程序源码	AsyncServlet.rar	377 KB	HTTP	
+关于下载方法的信息
+
+参考资料 
+学习
+  •   Comet：基于 HTTP 长连接的“服务器推”技术：本文介绍、比较了常用的“服务器推”方案。
+
+
+  •   使用 Java 实现 Comet 风格的 Web 应用：Comet 在 Tomcat 和 Jetty 服务器中的实现方式。
+
+
+  •   Comet 的诱惑：发现更多关于 Comet 背后的历史和动机的信息。
+
+
+  •   通过 Tomcat Advanced I/O 获得高性能的 Ajax：Direct Web Remoting（DWR）可以让 Ajax 对于 Java 开发人员来说容易得多，并且可以为 Comet 做同样的事情。可通过这篇 developerWorks 文章详细了解。
+
+
+  •   Servlet 3.0 新特性详解：本文主要介绍了 Servlet 3.0 引入的若干重要新特性，包括异步处理、新增的注解支持、可插性支持等等。
+
+
+  •   Comet_(programming)：提供了很多开源 Comet 框架的链接。
+
+
+  •   developerWorks Ajax 技术资源中心：能找到更多关于 Ajax 技术的文章和教程。 
+
+
+  •   developerWorks Web 开发技术专区：提供了关于 Web 开发和架构方面的大量文章。 
+
+
+  •   developerWorks Java 技术专区：提供了关于 Java 编程各个方面的数百篇文章。 
+
+
+讨论
+  •   加入：My developerWorks 中文社区。 
+
+
+关于作者
+周志明，软件工程硕士，就职于远光软件股份有限公司，担任平台架构师，参与过中国国家电网 SG186 工程等大型 ERP 项目的平台架构工作。目前主要技术方向为企业级平台、工作流、SOA、OSGi 等。
+关闭 [x]
+关于报告滥用的帮助 报告滥用
+谢谢! 此内容已经标识给管理员注意。
+  关闭  关闭 [x]
+关于报告滥用的帮助 报告滥用
+报告滥用提交失败。 请稍后重试。
+  关闭  关闭 [x]
+developerWorks：登录
+IBM ID： 
+需要一个 IBM ID？ 
+忘记 IBM ID？ 
+密码：
+忘记密码？
+更改您的密码
+ 保持登录。 
+单击提交则表示您同意developerWorks 的条款和条件。 使用条款
+  提交      取消  
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息。您在 developerWorks 概要信息中选择公开的信息将公开显示给其他人，但您可以随时修改这些信息的显示状态。您的姓名（除非选择隐藏）和昵称将和您在 developerWorks 发布的内容一同显示。
+所有提交的信息确保安全。
+关闭 [x]
+请选择您的昵称：
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。
+昵称长度在 3 至 31 个字符之间。 您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。
+昵称：（长度在 3 至 31 个字符之间） 
+单击提交则表示您同意developerWorks 的条款和条件。 使用条款.
+  提交      取消  
+所有提交的信息确保安全。
+为本文评分
+  0  评论
+回页首
+static.content.url=http://www.ibm.com/developerworks/js/artrating/SITE_ID=10Zone=Java technology, Web developmentArticleID=591760ArticleTitle=Servlet 3.0 实战：异步 Servlet 与 Comet 风格应用程序publish-date=11262010author1-email=icyfenix_cnnew1@gmail.comauthor1-email-cc= 内容
+  •  概述
+  •  经典 Request-Response 交互模型的突破
+  •  Comet 实现的方法
+  •  实战 Servlet 异步处理
+  •  结束语
+  •  下载
+  •  参考资料 
+  •  关于作者
+  •  建议
+  •  打印此页面
+  •  分享此页面
+  •  关注 developerWorks
+分享此页面：
+  •  新浪微博
+  •  人人网
+  •  腾讯微博
+  •  搜狐微博
+  •  网易微博
+  •  Facebook
+  •  LinkedIn
+  •  Twitter
+  •  Delicious
+  •  Digg
+  •  发送此页面
+  •    关闭 [x]  
+关注 developerWorks 中国网站：
+  •  新浪微博
+  •    关闭 [x]  
+  •  帮助
+  •  联系编辑
+  •  提交内容
+  •  网站导航
+  •  订阅源
+  •  在线浏览每周时事通讯
+  •  报告滥用
+  •  使用条款
+  •  隐私条约
+  •  浏览辅助
+  •  IBM 教育学院教育培养计划
+  •  ISV 资源 (英语)
+选择语言：
+  •  English
+  •  中文
+  •  日本語
+  •  Русский
+  •  Português (Brasil)
+  •  Español
+  •  Việt
+    

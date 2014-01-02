@@ -1,0 +1,154 @@
+                    Performance tips for the Java final keyword
+Java Performance Tuning
+Java(TM) - see bottom of page
+	
+|	home	|	services	|	training	|	newsletter	|	tuning tips	|	tool reports	|	articles	|	resources	|	about us	|	site map	|	contact us	|	
+
+Our valued sponsors who help make this site possible 
+AppDynamics PRO: Java Performance Troubleshooting Tool. FREE TRIAL! 
+
+New Relic: Try free w/ production profiling and get a free shirt! 
+
+ManageEngine: End-to-End Java Performance Management. Download Product Now! 
+
+Performance tips for the Java final keyword
+	
+	
+JProfiler 	
+ Get rid of your performance problems and memory leaks! 	
+
+Chart Java Jitter with jHiccup 	
+ Monitor and identify pauses in your Java apps. Download now 	
+
+Supercharge Application Logging 	
+ Attend a TechTalk on tracking transactions using log files 	
+
+	
+	
+
+Java Performance Training Courses 	
+ COURSES AVAILABLE NOW. We can provide training courses to handle all your Java performance needs 	
+
+See Your Message Here 	
+ You could have your tool advertised here, to be seen by thousands of potential customers 	
+
+Java Performance Tuning, 2nd ed 	
+ The classic and most comprehensive book on tuning Java 	
+
+Java Performance Tuning Newsletter 	
+ Your source of Java performance news. Subscribe now!  Enter email:   Subscribe  	
+
+	
+	
+
+AppDynamics 	
+ AppDynamics PRO: Java Performance Troubleshooting Tool. FREE TRIAL! 	
+
+New Relic 	
+ New Relic: Try free w/ production profiling and get a free shirt! 	
+
+ManageEngine 	
+ ManageEngine: End-to-End Java Performance Management. Download Product Now! 	
+
+	
+	
+
+JProfiler 	
+ Get rid of your performance problems and memory leaks! 	
+
+Chart Java Jitter with jHiccup 	
+ Monitor and identify pauses in your Java apps. Download now 	
+
+Supercharge Application Logging 	
+ Attend a TechTalk on tracking transactions using log files 	
+
+
+ Contrary to the implication of many tips, methods declared as final cannot be safely inlined by the compiler, because the method could have a non-final declaration at runtime. 
+ To see why, suppose the compiler looks at class A and subclass B, and sub-subclass C and sees a final method in A which it inlines into C. But then at runtime the versions loaded for A and B are different and the method is not final in A, and overridden in B. Then C uses the incorrectly inlined version. This was a bug in some of the early compilers when used with the -O option. So tips suggesting using final and the -O option are not valid tips. 
+ On the other hand, final methods can be inlined after being loaded into the JVM, because at that point the JVM knows definitely that the method is final. So compilers that operate after class loading, such as JIT compilers, can take advantage of final methods. Consequently, methods declared final could have some performance benefit. 
+ Generally, I wouldn't go out of my way to declare a method or class final purely for performance reasons. Only after you've definitely identified a performance problem is this even worth considering. 
+ On the other hand, final variables, especially static final variables, are well worth using as standard. 
+The following pages have their detailed tips extracted below 
+
+  •  Chapter 4 of "Java Performance Tuning", "Object Creation". 
+  •  For years, Jonathan Hardwick's old but classic site was the only coherent Java performance tuning site on the web 
+  •  "Cutting Edge Java Game Programming" 
+  •  Glen McCluskey's paper with 30 tuning tips, now free. 
+  •  Using the Syslog class for logging 
+  •  Performance tuning report in German 
+  •  An assortment of tips 
+  •  Performance tuning 
+  •  Both Java specific and Java on OS/390 tips. 
+  •  Tuning the IBM JVM and Linux 
+  •  Peter Haggar's Practical Java Programming Language Guide. 
+  •  Finalizers 
+  •  Various tips. 
+  •  Good Java practices, some of which are good for performance. 
+  •  IBM's list of Java performance tuning tips (same page, two URLs). 
+  •  Some IBM Java performance tips 
+
+The following detailed tips have been extracted from the raw tips page 
+http://www.oreilly.com/catalog/javapt/chapter/ch04.html
+ Chapter 4 of "Java Performance Tuning", "Object Creation". (Page last updated September 2000, Added 2000-10-23, Author Jack Shirazi, Publisher O'Reilly). Tips: 
+  •  Use the final modifier on instance-variable definitions to create immutable internally accessible objects. 
+http://www.cs.cmu.edu/~jch/java/optimization.html
+ For years, Jonathan Hardwick's old but classic site was the only coherent Java performance tuning site on the web. He built it while doing his PhD. It wasn't updated beyond March 1998, when he moved to Microsoft, but most tips are still useful and valid. The URL is for the top page, there are another eight pages. Thanks Jonathan. (Page last updated March 1998, Added 2000-10-23, Author Jonathan Hardwick, Publisher Hardwick). Tips: 
+  •  Use private and static methods, and final classes, to encourage inlining by the compiler. 
+http://library.cs.tuiasi.ro/programming/java/cutting_edge_java_game_programming/ewtoc.html
+ "Cutting Edge Java Game Programming". Oldish but still useful intro book to games programming using Java. (Page last updated 1996, Added 2001-06-18, Author Neil Bartlett, Steve Simkin , Publisher Coriolis). Tips: 
+  •  Take advantage of inlining where possible (using final, private and static keywords, and compiling with javac -O) 
+http://www.glenmccl.com/jperf/
+ Glen McCluskey's paper with 30 tuning tips, now free. (Page last updated October 1999, Added 2000-10-23, Author Glen McCluskey, Publisher McCluskey). Tips: 
+  •  final classes can be faster. 
+http://www.javaworld.com/javaworld/jw-04-2001/jw-0406-syslog.html
+ Using the Syslog class for logging (Page last updated April 2001, Added 2001-04-20, Author Nate Sammons, Publisher JavaWorld). Tips: 
+  •  Use static final booleans to wrap logging statements so that they can be easily turned off or eliminated. 
+http://www.bastie.de/resource/res/mjp.pdf and http://www.bastie.de/java/mjperformance/contents.html
+ Performance tuning report in German. Thanks to Peter Kofler for extracting the tips. (Page last updated November 2001, Added 2001-07-20, Author Sebastian Ritter, Publisher Ritter). Tips: 
+  •  use the right access modifier: static > private > final > protected > public 
+  •  use the "private final" modifier 
+  •  use methods in order: static > final > instance > interface > synchronized 
+http://jsl.jcon.org/javaperformance.html
+ An assortment of tips (Page last updated 2000, Added 2000-10-23, Author Curt Smith, Publisher Smith). Tips: 
+  •  Declare method arguments final if they are not modified in the method. In general declare all variables final if they are not modified after being initialized or set to some value. 
+  •  Declare methods private and/or final whenever that makes sense. This can help the compiler inline methods. [final methods are of dubious value] 
+http://www.sys-con.com/java/article.cfm?id=1149
+ Performance tuning (Page last updated September 2001, Added 2001-10-22, Author James McGovern, Publisher Java Developers Journal). Tips: 
+  •  Make classes final. 
+http://www-1.ibm.com/servers/eserver/zseries/software/java/perform.html
+ Both Java specific and Java on OS/390 tips. (Page last updated 2000, Added 2000-10-23, Author ?, Publisher IBM). Tips: 
+  •  Declare methods as final [dubious tip]. 
+  •  Use static final when creating constants 
+http://www-106.ibm.com/developerworks/ibm/library/i-tuning/?open
+ Tuning the IBM JVM and Linux (Page last updated May 2001, Added 2001-10-22, Authors Duc Vianney and James Phelan, Publisher IBM). Tips: 
+  •  Declare methods as final. Classes and methods that aren't going to be redefined should be declared as final. 
+  •  Declare constants as static final. 
+http://www.awlonline.com/product/0,2627,0201616467,00.html
+ Peter Haggar's Practical Java Programming Language Guide. (Page last updated 2000, Added 2001-01-19, Author Peter Haggar, Publisher Addison-Wesley). Tips: 
+  •  Use static, final, and private methods to allow inlining. 
+http://www-106.ibm.com/developerworks/java/library/j-jtctips/j-jtc0319a.html
+ Finalizers (Page last updated March 2002, Added 2002-04-26, Author Phil Vickers, Publisher IBM). Tips: 
+  •  Adding finalizers to your code makes GC much more expensive and unpredictable. 
+  •  Finalizers are not executed at a predictable time. 
+http://www.protomatter.com/nate/java-optimization/
+ Various tips. (Page last updated 1999?, Added 2000-10-23, Author Nate Sammons, Publisher Sammons). Tips: 
+  •  Method call times: static 220ns; final 300ns; instance 550ns; interface methods 750ns; synchronized methods 1,500ns. [But times vary enormously depending on the VM and context]. 
+  •  Use static final methods where possible. [And do functional programming too ;-)] 
+http://www.joot.com/articles/practices.html
+ Good Java practices, some of which are good for performance. (Page last updated January 2001, Added 2001-01-19, Author Dave Jarvis, Publisher JOOT). Tips: 
+  •  Use final classes. 
+http://www-4.ibm.com/software/os/warp/performance/javatip.htm
+ IBM's list of Java performance tuning tips (same page, two URLs). (Page last updated 2000, Added 2000-10-23, Author ?, Publisher IBM). Tips: 
+  •  When possible, declare methods as final. 
+  •  Use static final when creating constants. 
+http://www.as400.ibm.com/developer/java/faq/perffaq.html
+ Some IBM Java performance tips. Although intended for AS/400 Java, many tips are generally applicable (Page last updated ?, Added 2000-10-23, Author ?, Publisher IBM). Tips: 
+  •  Use static final when creating constants. 
+ Last Updated: 2013-12-01
+ Copyright © 2000-2013 Fasterj.com. All Rights Reserved.
+ All trademarks and registered trademarks appearing on JavaPerformanceTuning.com are the property of their respective owners.
+ Java is a trademark or registered trademark of Oracle Corporation in the United States and other countries. JavaPerformanceTuning.com is not connected to Oracle Corporation and is not sponsored by Oracle Corporation.
+ URL: http://www.JavaPerformanceTuning.com/tips/final.shtml
+ RSS Feed: http://www.JavaPerformanceTuning.com/newsletters.rss
+ Trouble with this page? Please contact us
+    

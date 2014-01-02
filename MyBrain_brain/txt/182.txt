@@ -1,0 +1,90 @@
+                    X/Open XA - Wikipedia, the free encyclopedia
+X/Open XA
+From Wikipedia, the free encyclopedia  Jump to: navigation, search What is XA
+XA stands for "eXtended Architecture" and is an X/Open group standard for executing a "global transaction" that accesses more than one back-end data-store. XA specifies how a transaction manager will roll up the transactions against the different data-stores into an "atomic" transaction and execute this with the two-phase commit (2PC) protocol for the transaction. Thus, XA is a type of transaction coordination, often among databases. ACID Transactions are a key feature of databases, but typically databases only provide the ACID guarantees for activities that happen inside a single database. XA coordination allows many resources (again, often databases) to participate in a single, coordinated, atomic update operation.
+	This article provides insufficient context for those unfamiliar with the subject. Please help improve the article with a good introductory style. (November 2011)	
+In computing, the XA standard is a specification by The Open Group for distributed transaction processing (DTP). It describes the interface between the global transaction manager and the local resource manager. The goal of XA is to allow multiple resources (such as databases, application servers, message queues, transactional caches, etc.) to be accessed within the same transaction, thereby preserving the ACID properties across applications. XA uses a two-phase commit to ensure that all resources either commit or rollback any particular transaction consistently (all do the same).
+The XA specification describes what a resource manager must do to support transactional access. Resource managers that follow this specification are said to be XA-compliant.
+The XA specification was based on an interface used in the Tuxedo system developed in the 1980s, but adopted by several systems since then.[1]
+[edit] See also
+  •  Two-phase commit
+  •  Distributed Relational Database Architecture (DRDA)
+[edit] References
+  •  ^ Philip A. Bernstein; Eric Newcomer (2009). Principles of transaction processing. Morgan Kaufmann. pp. 330–336. ISBN 978-1-55860-623-4. http://books.google.com/books?id=LmHgK5KKrQQC&pg=PA330.
+[edit] External links
+  •  Distributed TP: The XA Specification
+  •  X/Open distributed transaction processing model
+  •  XA Transaction for MySQL
+  •  LIXA: a free (libre) open source XA implementation
+  Stub icon  	This computer networking article is a stub. You can help Wikipedia by expanding it.  •  v
+  •  t
+  •  e
+	
+ Retrieved from "http://en.wikipedia.org/w/index.php?title=X/Open_XA&oldid=517688779" Categories:   •  Transaction processing
+  •  Open Group standards
+  •  Computer network stubs
+Hidden categories:   •  Wikipedia articles needing context from November 2011
+  •  All Wikipedia articles needing context
+  •  Wikipedia introduction cleanup from November 2011
+  •  All pages needing cleanup
+Navigation menu
+Personal tools
+  •  Create account
+  •  Log in
+Namespaces
+  •  Article
+  •  Talk
+
+Variants
+Views
+  •  Read
+  •  Edit
+  •  View history
+Actions
+Search
+  Search    Special:Search  Navigation
+  •  Main page
+  •  Contents
+  •  Featured content
+  •  Current events
+  •  Random article
+  •  Donate to Wikipedia
+Interaction
+  •  Help
+  •  About Wikipedia
+  •  Community portal
+  •  Recent changes
+  •  Contact Wikipedia
+Toolbox
+  •  What links here
+  •  Related changes
+  •  Upload file
+  •  Special pages
+  •  Permanent link
+  •  Page information
+  •  Cite this page
+Print/export
+  •  Create a book
+  •  Download as PDF
+  •  Printable version
+Languages
+  •  Deutsch
+  •  Español
+  •  Français
+  •  한국어
+  •  日本語
+  •  Português
+  •  中文
+  •   This page was last modified on 14 October 2012 at 05:56.
+
+  •  Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. See Terms of Use for details.
+ Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+
+  •  Contact us
+  •  Privacy policy
+  •  About Wikipedia
+  •  Disclaimers
+  •  Mobile view
+  •     Wikimedia Foundation  
+  •     Powered by MediaWiki  
+    

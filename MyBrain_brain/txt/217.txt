@@ -1,0 +1,18 @@
+                    EasyMock : Home
+  EasyMock  
+Home     Downloads     Documentation     Release Notes     License     User Comments     Links  Overview 
+ EasyMock provides Mock Objects for interfaces (and objects through the class extension) by generating them on the fly using Java's proxy mechanism. Due to EasyMock's unique style of recording expectations, most refactorings will not affect the Mock Objects. So EasyMock is a perfect fit for Test-Driven Development. 
+ EasyMock is open source software available under the terms of the Apache 2.0 license. Source code is available on GitHub. Downloads and the website are hosted by SourceForge. Issue tracking is done at Codehaus. 
+  EasyMock source code on GitHub       Get EasyMock at SourceForge.net. Fast, secure and Free Open Source software downloads       EasyMock issue tracking at Codehaus  
+ Changes 
+  •  2013-07-11: EasyMock 3.2 is available. Add @Mock annotations and Android support.
+  •  2013-07-11: EasyMock 3.2 Class Extension is available. Just following EasyMock versionning. Still deprecated.
+  •  2011-11-08: EasyMock 3.1 is available. Lots of bug fixes.
+  •  2011-11-08: EasyMock 3.1 Class Extension is available. Just following EasyMock versionning. Still deprecated.
+  •  2010-05-08: EasyMock 3.0 is available. Perform class mocking directly. EasyMock 1 classes removed.
+  •  2010-05-08: EasyMock 3.0 Class Extension is available. Now deprecated. Only a proxy over EasyMock to provide backward compatibility.
+ What is a Mock Object? 
+ Unit testing is the testing of software units in isolation. However, most units do not work alone, but they collaborate with other units. To test a unit in isolation, we have to simulate the collaborators in the test. 
+ A Mock Object is a test-oriented replacement for a collaborator. It is configured to simulate the object that it replaces in a simple way. In contrast to a stub, a Mock Object also verifies whether it is used as expected. Tim Mackinnon, Steve Freeman and Philip Craig pioneered the concept of Mock Objects, and coined the term. They presented it at the XP2000 conference in their paper Endo Testing: Unit Testing with Mock Objects. A reworked version of the paper is published in the book Extreme Programming Examined (Addison-Wesley). 
+ EasyMock has been the first dynamic Mock Object generator, relieving users of hand-writing Mock Objects, or generating code for them. It was presented for the first time at OOPSLA 2001. 
+ © 2001-2013 Tammo Freese , Henri Tremblay     

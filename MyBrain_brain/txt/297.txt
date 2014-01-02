@@ -1,0 +1,484 @@
+                    JAVA位移运算符用法 - 康慧敏的日志 - 网易博客
+网易   新闻  微博  邮箱  相册  阅读  有道  摄影  爱拍  优惠券  云笔记  闪电邮  手机邮  印像派  网易识字    更多   博客   手机博客  博客搬家  博客VIP服务    LiveWriter写博  word写博  邮件写博  短信写博    群博客  博客油菜地  博客话题  博客热点  博客圈子  找朋友 发现 小组 风格     网易真人搭配社区iStyle LOFTER 3.0 客户端上线，视频抢鲜看 >> LOFTER 3.0 客户端上线，视频抢鲜看 >> LOFTER 3.0 客户端上线，视频抢鲜看 >> 创建博客 登录    加关注    显示下一条  |  关闭 温馨提示！由于新浪微博认证机制调整，您的新浪微博帐号绑定已过期，请重新绑定！立即重新绑定新浪微博》  |  关闭 就是我博客
+开始以为是孤独，后来发现是寂寞，现在觉得孤独也没什么不好。
+导航
+  •   首页 
+  •   日志 
+  •   相册 
+  •   音乐 
+  •   收藏 
+  •   博友 
+  •   关于我 
+        日志
+    JAVA位移运算符用法  
+2010-08-13 13:49:12|  分类： java探秘 |  标签： |字号大中小 订阅 
+     最近用FindBugs这个eclipse插件检查代码，自己写了一个二分查找之类的东西，也就自己写着玩的东西，这个插件报两个数求和然后除以2的BUG，说有可能会溢出，但是怎么想都不太明白，而且还建议使用无符号位移来解决这个问题。话有说回来，学java之后还真没怎么用位移操作符，所以上百度找点东西看看，整理如下：
+
+Java定义的位运算（bitwise operators）直接对整数类型的位进行操作，这些整数类型包括long，int，short，char，and byte。表4-2列出了位运算： 
+
+表4.2 位运算符及其结果 
+
+运算符 结果 
+
+~ 按位非（NOT）（一元运算） 
+
+& 按位与（AND） 
+
+| 按位或（OR） 
+
+^ 按位异或（XOR） 
+
+>> 右移 
+
+>>> 右移，左边空出的位以0填充 
+
+
+续表 
+
+运算符 结果 
+
+<< 左移 
+
+&= 按位与赋值 
+
+|= 按位或赋值 
+
+^= 按位异或赋值 
+
+>>= 右移赋值 
+
+>>>= 右移赋值，左边空出的位以0填充 
+
+<<= 左移赋值 
+
+既然位运算符在整数范围内对位操作，因此理解这样的操作会对一个值产生什么效果是重要的。具体地说，知道Java是如何存储整数值并且如何表示负数的是有用的。因此，在继续讨论之前，让我们简短概述一下这两个话题。 
+
+所有的整数类型以二进制数字位的变化及其宽度来表示。例如，byte型值42的二进制代码是00101010，其中每个位置在此代表2的次方，在最右边的位以20开始。向左下一个位置将是21，或2，依次向左是22，或4，然后是8，16，32等等，依此类推。因此42在其位置1，3，5的值为1（从右边以0开始数）；这样42是21+23+25的和，也即是2+8+32 。 
+
+所有的整数类型（除了char类型之外）都是有符号的整数。这意味着他们既能表示正数，又能表示负数。Java使用大家知道的2的补码（two's complement）这种编码来表示负数，也就是通过将与其对应的正数的二进制代码取反（即将1变成0，将0变成1），然后对其结果加1。例如，-42就是通过将42的二进制代码的各个位取反，即对00101010取反得到11010101，然后再加1，得到11010110，即-42 。要对一个负数解码，首先对其所有的位取反，然后加1。例如-42，或11010110取反后为00101001，或41，然后加1，这样就得到了42。 
+
+
+
+如果考虑到零的交叉（zero crossing）问题，你就容易理解Java（以及其他绝大多数语言）这样用2的补码的原因。假定byte类型的值零用00000000代表。它的补码是仅仅将它的每一位取反，即生成11111111，它代表负零。但问题是负零在整数数学中是无效的。为了解决负零的问题，在使用2的补码代表负数的值时，对其值加1。即负零11111111加1后为100000000。但这样使1位太靠左而不适合返回到byte类型的值，因此人们规定，-0和0的表示方法一样，-1的解码为11111111。尽管我们在这个例子使用了byte类型的值，但同样的基本的原则也适用于所有Java 的整数类型。 
+
+因为Java使用2的补码来存储负数，并且因为Java中的所有整数都是有符号的，这样应用位运算符可以容易地达到意想不到的结果。例如，不管你如何打算，Java用高位来代表负数。为避免这个讨厌的意外，请记住不管高位的顺序如何，它决定一个整数的符号。 
+
+位逻辑运算符 
+
+位逻辑运算符有“与”（AND）、“或”（OR）、“异或（XOR）”、“非（NOT）”，分别用“&”、“|”、“^”、“~”表示，4-3表显示了每个位逻辑运算的结果。在继续讨论之前，请记住位运算符应用于每个运算数内的每个单独的位。 
+
+表4-3 位逻辑运算符的结果 
+
+A B A | B A & B A ^ B ~A 
+
+0 0 0 0 0 1 
+
+1 0 1 0 1 0 
+
+0 1 1 0 1 1 
+
+1 1 1 1 0 0 
+
+按位非（NOT） 
+
+按位非也叫做补，一元运算符NOT“~”是对其运算数的每一位取反。例如，数字42，它的二进制代码为：00101010 
+
+经过按位非运算成为 
+
+11010101 
+
+按位与（AND） 
+
+按位与运算符“&”，如果两个运算数都是1，则结果为1。其他情况下，结果均为零。 
+
+看下面的例子： 
+
+00101010 42 
+
+&00001111 15 
+
+-------------- 
+
+00001010 10 
+
+按位或（OR） 
+
+按位或运算符“|”，任何一个运算数为1，则结果为1。如下面的例子所示： 
+
+00101010 42 
+
+| 00001111 15 
+
+-------------- 
+
+00101111 47 
+
+按位异或（XOR） 
+
+按位异或运算符“^”，只有在两个比较的位不同时其结果是 1。否则，结果是零。下面的例子显示了“^”运算符的效果。这个例子也表明了XOR运算符的一个有用的属性。注意第二个运算数有数字1的位，42对应二进制代码的对应位是如何被转换的。第二个运算数有数字0的位，第一个运算数对应位的数字不变。当对某些类型进行位运算时，你将会看到这个属性的用处。 
+
+00101010 42 
+
+^ 00001111 15 
+
+------------- 
+
+00100101 37 
+
+位逻辑运算符的应用 
+
+下面的例子说明了位逻辑运算符： 
+
+// Demonstrate the bitwise logical operators. 
+
+class BitLogic { 
+
+public static void main(String args[]) { 
+
+String binary[] = { 
+
+"0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", 
+
+"1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111" 
+
+}; 
+
+int a = 3; // 0 + 2 + 1 or 0011 in binary 
+
+int b = 6; // 4 + 2 + 0 or 0110 in binary 
+
+int c = a | b; 
+
+int d = a & b; 
+
+int e = a ^ b; 
+
+int f = (~a & b) | (a & ~b); 
+
+int g = ~a & 0x0f; 
+
+System.out.println(" a = " + binary[a]); 
+
+System.out.println(" b = " + binary[b]); 
+
+System.out.println(" a|b = " + binary[c]); 
+
+System.out.println(" a&b = " + binary[d]); 
+
+System.out.println(" a^b = " + binary[e]); 
+
+System.out.println("~a&b|a&~b = " + binary[f]); 
+
+System.out.println(" ~a = " + binary[g]); 
+
+} 
+
+} 
+
+在本例中，变量a与b对应位的组合代表了二进制数所有的 4 种组合模式：0-0，0-1，1-0，和1-1。“|”运算符和“&”运算符分别对变量a与b各个对应位的运算得到了变量c和变量d的值。对变量e和f的赋值说明了“^”运算符的功能。字符串数组binary代表了0到15对应的二进制的值。在本例中，数组各元素的排列顺序显示了变量对应值的二进制代码。数组之所以这样构造是因为变量的值n对应的二进制代码可以被正确的存储在数组对应元素binary[n]中。例如变量a的值为3，则它的二进制代码对应地存储在数组元素binary[3]中。~a的值与数字0x0f （对应二进制为0000 1111）进行按位与运算的目的是减小~a的值，保证变量g的结果小于16。因此该程序的运行结果可以用数组binary对应的元素来表示。该程序的输出如下： 
+
+a = 0011 
+
+b = 0110 
+
+a|b = 0111 
+
+a&b = 0010 
+
+a^b = 0101 
+
+~a&b|a&~b = 0101 
+
+~a = 1100 
+
+
+
+左移运算符 
+
+左移运算符<<使指定值的所有位都左移规定的次数。它的通用格式如下所示： 
+
+value << num 
+
+这里，num指定要移位值value移动的位数。也就是，左移运算符<<使指定值的所有位都左移num位。每左移一个位，高阶位都被移出（并且丢弃），并用0填充右边。这意味着当左移的运算数是int类型时，每移动1位它的第31位就要被移出并且丢弃；当左移的运算数是long类型时，每移动1位它的第63位就要被移出并且丢弃。 
+
+在对byte和short类型的值进行移位运算时，你必须小心。因为你知道Java在对表达式求值时，将自动把这些类型扩大为 int型，而且，表达式的值也是int型 。对byte和short类型的值进行移位运算的结果是int型，而且如果左移不超过31位，原来对应各位的值也不会丢弃。但是，如果你对一个负的byte或者short类型的值进行移位运算，它被扩大为int型后，它的符号也被扩展。这样，整数值结果的高位就会被1填充。因此，为了得到正确的结果，你就要舍弃得到结果的高位。这样做的最简单办法是将结果转换为byte型。下面的程序说明了这一点： 
+
+// Left shifting a byte value. 
+
+class ByteShift { 
+
+public static void main(String args[]) { 
+
+byte a = 64, b; 
+
+int i; 
+
+i = a << 2; 
+
+b = (byte) (a << 2); 
+
+System.out.println("Original value of a: " + a); 
+
+System.out.println("i and b: " + i + " " + b); 
+
+} 
+
+} 
+
+该程序产生的输出下所示： 
+
+Original value of a: 64 
+
+i and b: 256 0 
+
+因变量a在赋值表达式中，故被扩大为int型，64（0100 0000）被左移两次生成值256（10000 0000）被赋给变量i。然而，经过左移后，变量b中惟一的1被移出，低位全部成了0，因此b的值也变成了0。 
+
+既然每次左移都可以使原来的操作数翻倍，程序员们经常使用这个办法来进行快速的2的乘法。但是你要小心，如果你将1移进高阶位（31或63位），那么该值将变为负值。下面的程序说明了这一点： 
+
+// Left shifting as a quick way to multiply by 2. 
+
+class MultByTwo { 
+
+public static void main(String args[]) { 
+
+int i; 
+
+int num = 0xFFFFFFE; 
+
+for(i=0; i<4; i++) { 
+
+num = num << 1; 
+
+System.out.println(num); 
+
+} 
+
+} 
+
+} 
+
+该程序的输出如下所示： 
+
+536870908 
+
+1073741816 
+
+2147483632 
+
+-32 
+
+初值经过仔细选择，以便在左移 4 位后，它会产生-32。正如你看到的，当1被移进31位时，数字被解释为负值。 
+
+ 右移运算符 
+
+右移运算符>>使指定值的所有位都右移规定的次数。它的通用格式如下所示： 
+
+value >> num 
+
+这里，num指定要移位值value移动的位数。也就是，右移运算符>>使指定值的所有位都右移num位。 
+
+下面的程序片段将值32右移2次，将结果8赋给变量a: 
+
+int a = 32; 
+
+a = a >> 2; // a now contains 8 
+
+当值中的某些位被“移出”时，这些位的值将丢弃。例如，下面的程序片段将35右移2次，它的2个低位被移出丢弃，也将结果8赋给变量a: 
+
+int a = 35; 
+
+a = a >> 2; // a still contains 8 
+
+用二进制表示该过程可以更清楚地看到程序的运行过程： 
+
+00100011 35 
+
+>> 2 
+
+00001000 8 
+
+将值每右移一次，就相当于将该值除以2并且舍弃了余数。你可以利用这个特点将一个整数进行快速的2的除法。当然，你一定要确保你不会将该数原有的任何一位移出。 
+
+右移时，被移走的最高位（最左边的位）由原来最高位的数字补充。例如，如果要移走的值为负数，每一次右移都在左边补1，如果要移走的值为正数，每一次右移都在左边补0，这叫做符号位扩展（保留符号位）（sign extension），在进行右移操作时用来保持负数的符号。例如，–8 >> 1 是–4，用二进制表示如下： 
+
+11111000 –8 
+
+>>1 
+
+11111100 –4 
+
+一个要注意的有趣问题是，由于符号位扩展（保留符号位）每次都会在高位补1，因此-1右移的结果总是–1。有时你不希望在右移时保留符号。例如，下面的例子将一个byte型的值转换为用十六进制表示。注意右移后的值与0x0f进行按位与运算，这样可以舍弃任何的符号位扩展，以便得到的值可以作为定义数组的下标，从而得到对应数组元素代表的十六进制字符。 
+
+// Masking sign extension. 
+
+class HexByte { 
+
+static public void main(String args[]) { 
+
+char hex[] = { 
+
+'0', '1', '2', '3', '4', '5', '6', '7', 
+
+'8', '9', 'a', 'b', 'c', 'd', 'e', 'f'' 
+
+}; 
+
+byte b = (byte) 0xf1; 
+
+System.out.println("b = 0x" + hex[(b >> 4) & 0x0f] + hex[b & 0x0f]); 
+
+} 
+
+} 
+
+该程序的输出如下： 
+
+b = 0xf1 
+
+
+
+ 无符号右移 
+
+正如上面刚刚看到的，每一次右移，>>运算符总是自动地用它的先前最高位的内容补它的最高位。这样做保留了原值的符号。但有时这并不是我们想要的。例如，如果你进行移位操作的运算数不是数字值，你就不希望进行符号位扩展（保留符号位）。当你处理像素值或图形时，这种情况是相当普遍的。在这种情况下，不管运算数的初值是什么，你希望移位后总是在高位（最左边）补0。这就是人们所说的无符号移动（unsigned shift）。这时你可以使用Java的无符号右移运算符>>>，它总是在左边补0。下面的程序段说明了无符号右移运算符>>>。在本例中，变量a被赋值为-1，用二进制表示就是32位全是1。这个值然后被无符号右移24位，当然它忽略了符号位扩展，在它的左边总是补0。这样得到的值255被赋给变量a。 
+
+int a = -1; 
+
+a = a >>> 24; 
+
+下面用二进制形式进一步说明该操作： 
+
+11111111 11111111 11111111 11111111 int型- 1的二进制代码 
+
+>>> 24 无符号右移24位 
+
+00000000 00000000 00000000 11111111 int型255的二进制代码由于无符号右移运算符>>>只是对32位和64位的值有意义，所以它并不像你想象的那样有用。因为你要记住，在表达式中过小的值总是被自动扩大为int型。这意味着符号位扩展和移动总是发生在32位而不是8位或16位。这样，对第7位以0开始的byte型的值进行无符号移动是不可能的，因为在实际移动运算时，是对扩大后的32位值进行操作。下面的例子说明了这一点： 
+
+// Unsigned shifting a byte value. 
+
+class ByteUShift { 
+
+static public void main(String args[]) { 
+
+char hex[] = { 
+
+'0', '1', '2', '3', '4', '5', '6', '7', 
+
+'8', '9', 'a', 'b', 'c', 'd', 'e', 'f' 
+
+}; 
+
+byte b = (byte) 0xf1; 
+
+byte c = (byte) (b >> 4); 
+
+byte d = (byte) (b >>> 4); 
+
+byte e = (byte) ((b & 0xff) >> 4); 
+
+System.out.println(" b = 0x" 
+
++ hex[(b >> 4) & 0x0f] + hex[b & 0x0f]); 
+
+System.out.println(" b >> 4 = 0x" 
+
++ hex[(c >> 4) & 0x0f] + hex[c & 0x0f]); 
+
+System.out.println(" b >>> 4 = 0x" 
+
++ hex[(d >> 4) & 0x0f] + hex[d & 0x0f]); 
+
+System.out.println("( b & 0xff) >> 4 = 0x" 
+
++ hex[(e >> 4) & 0x0f] + hex[e & 0x0f]); 
+
+} 
+
+} 
+
+该程序的输出显示了无符号右移运算符>>>对byte型值处理时，实际上不是对byte型值直接操作，而是将其扩大到int型后再处理。在本例中变量b被赋为任意的负byte型值。对变量b右移4位后转换为byte型，将得到的值赋给变量c，因为有符号位扩展，所以该值为0xff。对变量b进行无符号右移4位操作后转换为byte型，将得到的值赋给变量d，你可能期望该值是0x0f，但实际上它是0xff，因为在移动之前变量b就被扩展为int型，已经有符号扩展位。最后一个表达式将变量b的值通过按位与运算将其变为8位，然后右移4位，然后将得到的值赋给变量e，这次得到了预想的结果0x0f。由于对变量d（它的值已经是0xff）进行按位与运算后的符号位的状态已经明了，所以注意，对变量d再没有进行无符号右移运算。 
+
+B = 0xf1 
+
+b >> 4 = 0xff 
+
+b >>> 4 = 0xff 
+
+(b & 0xff) >> 4 = 0x0f 
+
+
+
+位运算符赋值 
+
+所有的二进制位运算符都有一种将赋值与位运算组合在一起的简写形式。例如，下面两个语句都是将变量a右移4位后赋给a： 
+
+a = a >> 4; 
+
+a >>= 4; 
+
+同样，下面两个语句都是将表达式a OR b运算后的结果赋给a： 
+
+a = a | b; 
+
+a |= b; 
+
+下面的程序定义了几个int型变量，然后运用位赋值简写的形式将运算后的值赋给相应的变量： 
+
+class OpBitEquals { 
+
+public static void main(String args[]) { 
+
+int a = 1; 
+
+int b = 2; 
+
+int c = 3; 
+
+a |= 4; 
+
+b >>= 1; 
+
+c <<= 1; 
+
+a ^= c; 
+
+System.out.println("a = " + a); 
+
+System.out.println("b = " + b); 
+
+System.out.println("c = " + c); 
+
+} 
+
+} 
+
+该程序的输出如下所示： 
+
+a = 3 
+
+b = 1 
+
+c = 6   评论这张 转发至微博   转发至微博 0人  |  分享到：         阅读(2262)| 评论(0)| 转载 (0) |举报   历史上的今天
+最近读者
+评论
+ this.p={ m:2, b:2, id:'fks_081064082084089074093095094095085081081071083085081064', blogTitle:'JAVA位移运算符用法', blogAbstract:'     最近用FindBugs这个eclipse插件检查代码，自己写了一个二分查找之类的东西，也就自己写着玩的东西，这个插件报两个数求和然后除以2的BUG，说有可能会溢出，但是怎么想都不太明白，而且还建议使用无符号位移来解决这个问题。话有说回来，学java之后还真没怎么用位移操作符，所以上百度找点东西看看，整理如下：Java定义的位运算（bitwise operators）直接对整数类型的位进行操作，这些整数类型包括long，int，short，char，and byte。表4-2列出了位运算： 表4.2 位运算符及其结果 运算符 结果 ~ 按位非（NOT）（一元运算） & 按位与（AND） | 按位或（OR） ^ 按位异或（XOR） ', blogTag:'java位移运算符用法', blogUrl:'blog/static/17047373201071314819583', isPublished:1, istop:false, type:0, modifyTime:1281678552873, publishTime:1281678552854, permalink:'blog/static/17047373201071314819583', commentCount:0, mainCommentCount:0, recommendCount:0, bsrk:-100, publisherId:0, recomBlogHome:false, currentRecomBlog:false, attachmentsFileIds:[], vote:{}, groupInfo:{}, friendstatus:'none', followstatus:'unFollow', pubSucc:'', visitorProvince:'', visitorCity:'', visitorNewUser:false, postAddInfo:{}, mset:'000', mcon:'', srk:-100, remindgoodnightblog:false, isBlackVisitor:false, isShowYodaoAd:false, hostIntro:'既然注定孤独,那就一个人走好了,但是我要带上我的茉莉。', hmcon:'0', selfRecomBlogCount:'0', lofter_single:'' }  {list a as x} {if !!x}  {if x.visitorName==visitor.userName}   ${x.visitorNickname|escape} {else}   ${x.visitorNickname|escape} {/if}  {if x.moveFrom=='wap'}   {elseif x.moveFrom=='iphone'}   {elseif x.moveFrom=='android'}   {elseif x.moveFrom=='mobile'}   {/if}  ${fn(x.visitorNickname,8)|escape}  {/if} {/list}  {if !!a} ${fn(a.nickname,8)|escape} ${a.selfIntro|escape}{if great260}${suplement}{/if}    {/if}  {list a as x} {if !!x}   •  ${fn(x.title,26)|escape}
+ {/if} {/list} 推荐过这篇日志的人：
+ {list a as x} {if !!x}   ${x.recommenderNickname|escape}   ${fn(x.recommenderNickname,6)|escape}  {/if} {/list}  {if !!b&&b.length>0} 他们还推荐了：
+ {list b as y} {if !!y}   •  ·${y.recommendBlogTitle|escape}
+ {/if} {/list}  {/if} 转载记录：  {list d as x}   •   · ${x.referBlogTitle|escape} ${x.referUserName|escape} 
+ {/list}  {list a as x} {if !!x}   •  ${x.title|default:""|escape}
+ {/if} {/list}  {list a as x} {if !!x}   •  ${x.title|default:""|escape}
+ {/if} {/list}  {list a as x} {if !!x}   •  ${x.blogTile|default:""|escape}
+ {/if} {/list}  {list a as x} {if x_index>4}{break}{/if} {if !!x}   •   ${fn1(x.title,60)|escape}${fn2(x.publishTime,'yyyy-MM-dd HH:mm:ss')} 
+ {/if} {/list}  {list a as x} {if !!x}   •  ${fn(x.title,26)|escape}
+ {/if} {/list}  {if !!(blogDetail.preBlogPermalink)}   ${blogDetail.preBlogTitle|escape} {/if} {if !!(blogDetail.nextBlogPermalink)}   ${blogDetail.nextBlogTitle|escape} {/if} 被推荐日志
+最新日志
+该作者的其他文章
+博主推荐
+随机阅读
+首页推荐
+更多>> 
+
+   {list a as x} {if !!x}   •   ${x.nickName|escape}  投票给 {var first_option = true;} {list x.voteDetailList as voteToOption} {if voteToOption==1} {if first_option==false},{/if}  “${b[voteToOption_index]}”   {/if} {/list} {if (x.role!="-1") },“我是${c[x.role]}”  {/if}         ${fn1(x.voteTime)} {if x.userName==''}{/if} {/if} {/list}                           
+页脚
+公司简介 - 联系方法 - 招聘信息 - 客户服务 - 隐私政策 - 博客风格 - 手机博客 - VIP博客 - 订阅此博客 网易公司版权所有 ©1997-2013
+帮助   ${u}  {list wl as x} ${x.g} {list x.l as y} ${y.n} {/list} {/list}  {if defined('wl')} {list wl as x}${x.n}{/list} {/if}     

@@ -1,0 +1,377 @@
+                    理解RESTful架构 - 阮一峰的网络日志
+阮一峰的网络日志  » 首页 » 档案   016304377626642577906:b_e9skaywzq    FORID:11    UTF-8    搜索    •  上一篇：Michael S. 
+  •  下一篇：学习C语言的教材   
+分类：
+  •  Web Service
+理解RESTful架构
+作者： 阮一峰
+日期： 2011年9月12日
+越来越多的人开始意识到，网站即软件，而且是一种新型的软件。
+这种"互联网软件"采用客户端/服务器模式，建立在分布式体系上，通过互联网通信，具有高延时（high latency）、高并发等特点。
+网站开发，完全可以采用软件开发的模式。但是传统上，软件和网络是两个不同的领域，很少有交集；软件开发主要针对单机环境，网络则主要研究系统之间的通信。互联网的兴起，使得这两个领域开始融合，现在我们必须考虑，如何开发在互联网环境中使用的软件。
+
+RESTful架构，就是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，所以正得到越来越多网站的采用。
+但是，到底什么是RESTful架构，并不是一个容易说清楚的问题。下面，我就谈谈我理解的RESTful架构。
+一、起源
+REST这个词，是Roy Thomas Fielding在他2000年的博士论文中提出的。
+
+Fielding是一个非常重要的人，他是HTTP协议（1.0版和1.1版）的主要设计者、Apache服务器软件的作者之一、Apache基金会的第一任主席。所以，他的这篇论文一经发表，就引起了关注，并且立即对互联网开发产生了深远的影响。
+他这样介绍论文的写作目的：
+     
+
+"本文研究计算机科学两大前沿----软件和网络----的交叉点。长期以来，软件研究主要关注软件设计的分类、设计方法的演化，很少客观地评估不同的设计选择对系统行为的影响。而相反地，网络研究主要关注系统之间通信行为的细节、如何改进特定通信机制的表现，常常忽视了一个事实，那就是改变应用程序的互动风格比改变互动协议，对整体表现有更大的影响。我这篇文章的写作目的，就是想在符合架构原理的前提下，理解和评估以网络为基础的应用软件的架构设计，得到一个功能强、性能好、适宜通信的架构。"
+(This dissertation explores a junction on the frontiers of two research disciplines in computer science: software and networking. Software research has long been concerned with the categorization of software designs and the development of design methodologies, but has rarely been able to objectively evaluate the impact of various design choices on system behavior. Networking research, in contrast, is focused on the details of generic communication behavior between systems and improving the performance of particular communication techniques, often ignoring the fact that changing the interaction style of an application can have more impact on performance than the communication protocols used for that interaction. My work is motivated by the desire to understand and evaluate the architectural design of network-based application software through principled use of architectural constraints, thereby obtaining the functional, performance, and social properties desired of an architecture. )
+
+二、名称
+Fielding将他对互联网软件的架构原则，定名为REST，即Representational State Transfer的缩写。我对这个词组的翻译是"表现层状态转化"。
+如果一个架构符合REST原则，就称它为RESTful架构。
+要理解RESTful架构，最好的方法就是去理解Representational State Transfer这个词组到底是什么意思，它的每一个词代表了什么涵义。如果你把这个名称搞懂了，也就不难体会REST是一种什么样的设计。
+三、资源（Resources）
+REST的名称"表现层状态转化"中，省略了主语。"表现层"其实指的是"资源"（Resources）的"表现层"。
+所谓"资源"，就是网络上的一个实体，或者说是网络上的一个具体信息。它可以是一段文本、一张图片、一首歌曲、一种服务，总之就是一个具体的实在。你可以用一个URI（统一资源定位符）指向它，每种资源对应一个特定的URI。要获取这个资源，访问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。
+所谓"上网"，就是与互联网上一系列的"资源"互动，调用它的URI。
+四、表现层（Representation）
+"资源"是一种信息实体，它可以有多种外在表现形式。我们把"资源"具体呈现出来的形式，叫做它的"表现层"（Representation）。
+比如，文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。
+URI只代表资源的实体，不代表它的形式。严格地说，有些网址最后的".html"后缀名是不必要的，因为这个后缀名表示格式，属于"表现层"范畴，而URI应该只代表"资源"的位置。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对"表现层"的描述。
+五、状态转化（State Transfer）
+访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。
+互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生"状态转化"（State Transfer）。而这种转化是建立在表现层之上的，所以就是"表现层状态转化"。
+客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。
+六、综述
+综合上面的解释，我们总结一下什么是RESTful架构：
+　　（1）每一个URI代表一种资源；
+　　（2）客户端和服务器之间，传递这种资源的某种表现层；
+　　（3）客户端通过四个HTTP动词，对服务器端资源进行操作，实现"表现层状态转化"。
+七、误区
+RESTful架构有一些典型的设计误区。
+最常见的一种设计错误，就是URI包含动词。因为"资源"表示一种实体，所以应该是名词，URI不应该有动词，动词应该放在HTTP协议中。
+举例来说，某个URI是/posts/show/1，其中show是动词，这个URI就设计错了，正确的写法应该是/posts/1，然后用GET方法表示show。
+如果某些动作是HTTP动词表示不了的，你就应该把动作做成一种资源。比如网上汇款，从账户1向账户2汇款500元，错误的URI是：
+     
+
+　　POST /accounts/1/transfer/500/to/2
+
+正确的写法是把动词transfer改成名词transaction，资源不能是动词，但是可以是一种服务：
+     
+
+　　POST /transaction HTTP/1.1
+ 　　Host: 127.0.0.1
+ 　　
+ 　　from=1&to=2&amount=500.00
+
+另一个设计误区，就是在URI中加入版本号：
+     
+
+　　http://www.example.com/app/1.0/foo
+　　http://www.example.com/app/1.1/foo
+　　http://www.example.com/app/2.0/foo
+
+因为不同的版本，可以理解成同一种资源的不同表现形式，所以应该采用同一个URI。版本号可以在HTTP请求头信息的Accept字段中进行区分（参见Versioning REST Services）：
+     
+
+　　Accept: vnd.example-com.foo+json; version=1.0
+　　Accept: vnd.example-com.foo+json; version=1.1
+　　Accept: vnd.example-com.foo+json; version=2.0
+
+（完）
+文档信息
+  •  版权声明：自由转载-非商用-非衍生-保持署名 | Creative Commons BY-NC-ND 3.0
+  •  原文网址：http://www.ruanyifeng.com/blog/2011/09/restful.html
+  •  最后修改时间：2013年10月28日 16:09
+  •  付费支持：  人民币 - 支付宝   |   美元 - paypal  
+                    
+相关文章
+  •  2012.01.31: Twitter同步新浪微博的一个解决方案  国内的微博服务之中，新浪和腾讯的市场份额最大。 
+  •  2011.08.20: 云平台服务商一览  2007年6月，三个美国年轻人决定成立一家新型的网络主机公司。 
+功能链接
+  •  前一篇：Michael S. Hart去世了 
+  •  后一篇：学习C语言的教材
+  •  更多内容请访问：首页 » 档案 » Web Service 
+  •      www.ruanyifeng.com  站内搜索：  架构    GO！  Web   www.ruanyifeng.com  www.ruanyifeng.com   016304377626642577906:b_e9skaywzq    FORID:11    UTF-8  
+  •  Feed订阅： 
+广告（购买广告位）
+留言（46条）
+徐杰 说： 
+关注博主的博客有一段时间了。我想问下博主这个博文网站用什么技术实现的。最近在学网站开发语言，博主能否说的详细点，感激不尽！
+2011年9月12日 16:49 | 档案 | 引用 
+darasion 说： 
+
+ 设计误区里边列出的，很多都这么设计啊。有什么不好吗？
+2011年9月12日 17:20 | 档案 | 引用 
+lanisle 说： 
+简洁有力，表述连贯且清晰。谢谢阮兄。
+ 祝中秋快乐！
+2011年9月12日 17:36 | 档案 | 引用 
+崔大鹏 说： 
+网站即软件，我也早意识到这个问题了。阮兄中秋快乐！
+2011年9月12日 21:19 | 档案 | 引用 
+ssddi456 说： 
+按我的理解：
+ 这种交互模式相当于设计一个函数，函数内部（服务器）过程对客户端不可见，客户端只传递参数接受结果。
+ URI的设计就好象设计参数形式，函数的功能已经包含在网站本身不言自明，不需要再列出来。
+2011年9月12日 22:53 | 档案 | 引用 
+风海迷沙 说： 
+asp.net mvc程序员路过，area/controller/view/pram 谁用谁知道。
+2011年9月12日 23:16 | 档案 | 引用 
+张翼 说： 
+一直都有听说rest这个东西，但是没有认真研究过。这篇文章给了一个不错的入门介绍。谢谢！
+能够再列出一些你找到的关于rest的网上的资源？我想再详细了解一下。
+中秋快乐！
+2011年9月13日 04:46 | 档案 | 引用 
+liws 说： 
+     
+引用风海迷沙的发言： 
+asp.net mvc程序员路过，area/controller/view/pram 谁用谁知道。
+
+这种URL是最不友好的，全是程序员按照自己的编程思路定制的URL,很多都不符合产品要求
+2011年9月13日 09:29 | 档案 | 引用 
+乱发吹风 说： 
+用".html", ".json", ".xml"来表示表述类型, 以及在URI上加入版本号, 在实际使用中会更简单直观一些.
+因为网站管理员检查HTTP日志时, 大多数(一般为GET)情况下直接看URI就可以了解问题所在.
+ 而这对于RESTful接口的应用开发者, 也会更方便一些
+你的博客内容感觉比较偏科普一些, 其实可以写得再深入一些, 或者可以把你的资料来源也列出来, 方便有兴趣进一步学习的读者去查阅. 
+2011年9月13日 09:53 | 档案 | 引用 
+ls zhao 说： 
+网站，基于网络的应用软件，基于PC的本地应用软件...
+ 那整个互联网可以看成是一个软件，分为不同的部分
+2011年9月13日 12:39 | 档案 | 引用 
+limu 说： 
+感谢分享.有两个问题,
+ 1.post和put的区别,何时用put?我看文章里说更新用哪个都可以,新增用post.为什么?
+ 2.关于最后版本处理那块,JavaScript操作http的accept值还是有些困难,有没有替代方案,放在URL参数中么?另外httpserver支持通过accept版本决定投递什么资源么?浏览器支持按不同的accept分别缓存资源么?
+2011年9月13日 13:27 | 档案 | 引用 
+linyang 说： 
+楼主的理解非常的好, 有一些我想补充, 顺别回答其它一些朋友的问题.
+根据理查德森模型 (http://martinfowler.com/articles/richardsonMaturityModel.html), REST架构的成熟度有3个等级:
+ Level 0 POX (这个就不算REST了)
+ Level 1 Resources
+ Level 2 Http verbs
+ Level 3 Hypermedia Controls
+楼主所表述的模型在level 2上, 这也是目前大多数RESTful的应用所在的成熟度.
+Level 0 POX
+ 这类应用只有一个URI上的上帝接口, 根据交换的XML内容操作所有的资源. 往往导致上帝接口越来越复杂, 越来越难以维护.
+Level 1 Resources
+ 这一级别主要解决了上帝接口的问题, 使得各种资源有了自己相应的URI, 虽然仍然是POX的交互方式, 但是每一个接口都更加紧凑和内聚, 相应的容易维护起来.
+ 这里的主要问题是URI templating和URI tunneling.
+ URI templating带来的结果是服务器端和客户端的紧耦合, 任何时候服务器段想改变自身的URL schema的时候, 都要break已经存在的客户端应用.
+ URI tunneling带来的问题包含URI templating, 而且放弃了使用http协议标准带来的任何好处, level 2中详述.
+ 早期的rails routes就是url templating/tunneling. Rails3中已经更加靠近level 2了.
+2011年9月13日 14:07 | 档案 | 引用 
+linyang 说： 
+Level 2 Http verbs
+ 这一级别使用http verbs来对各种资源进行crud操作, 使得应用程序的接口更加的统一, 语义更加明确. 同时, 因为遵照http的标准进行交互, 很多http提供的好处几乎可以免费的得到.
+1. Cache
+ 按照HTTP协议, GET操作是安全的, 幂等(Idempotent)的. 任意多次对同一资源的GET操作, 都不会导致资源的状态变化. 所以GET的结果是可以安全的cache. 所有http提供的cache facilities 都可以被利用起来, 大幅度提高应用程序的性能. 甚至你仅仅只在response里加上cache directives就可以免费获得网络上各级的缓存服务器, 代理服务器, 以及用户客户端的缓存支持. 互联网上几乎所有的应用你都可以粗略统计得到Get VS Non-Get的请求比例约为 4:1. 如果你能为GET操作加上缓存, 那将极大提供你的程序的性能.
+ 2. Robust
+ 在HTTP常用的几个动词里, HEAD, GET, PUT, DELETE 是安全的,幂等的. 因为对同一资源的任意多次请求, 永远代表同一个语义. 所以任何时候客户端发出去这些动词的时候, 如果服务器没有响应, 或者返回错误代码, 客户端都可以非常安全的再次执行同一操作而不用担心重复操作带来不同的语义及最终结果. POST, PATCH操作就不是安全的, 因为当客户端向服务器端发出请求后, 服务器没有响应或者返回错误代码, 客户端是不能安全的重复操作的. 一定只能重新与服务器确认现在的资源状态才能决定下一步的操作.
+绝大部分的RESTful应用就停在这里了, 当然也满足绝大多的需求.
+2011年9月13日 14:07 | 档案 | 引用 
+linyang 说： 
+Level 3
+ RESTful的架构本意是"在符合架构原理的前提下，理解和评估以网络为基础的应用软件的架构设计，得到一个功能强、性能好、适宜通信的架构。"
+ 这个世界上规模最大的, 耦合度最低, 最稳定的, 性能最好的分布式网络应用是什么? 就是WEB本身.
+ 规模,稳定,性能都不用说了. 为什么说耦合度低呢? 想一想每个人上网的经历, 你几乎不需要任何培训就可以上一个新的网络购物平台挑选商品,用信用卡付款,邮寄到自己家里.
+ 把网站的程序想像成一个状态机, 用户在一系列状态转换中完成自己的目标. 这中间的每一步, 应用程序都告诉你当前的状态和可能的下一步操作, 最终引导用户从挑选商品,挑选更多商品,到支付页面,到输入信用卡信息,最终完成付费,到达状态机的终点.
+这种service discoverablility和self-documenting就是level 3想解决的问题
+在这里面, 告诉用户当前状态以及各种下一步操作的东西, 比如链接, 按钮等等, 就是Hypermedia Controls. Hypermedia Controls 就是这个状态机的引擎.
+Level 3的REST架构就是希望能够统一这一类的Hypermedia Controls, 赋予他们标准的, 高度可扩展的标准语义及表现形式, 使得甚至无人工干预的机器与机器间的通用交互协议边的可能. 比如你可以告诉一个通用的购物客户端, "给我买个最便宜的xbox", 客户端自动连上google进行搜索, 自动在前10个购物网站进行搜索, 进行价格排序, 然后自动挑选最便宜的网站, 进行一系列操作最终完成用信用卡付费, 填写个人收件地址然后邮寄.
+这些都依赖于Hypermedia Controls带来的这种service discoverablility和self-documenting
+更多的关于REST的细节及其应用和实现, 请参考Rest in Practice. 非常非常棒的一本书, 把REST讲的非常透彻.
+个人的理解难免有所偏颇, 还请大家批评指正
+2011年9月13日 14:08 | 档案 | 引用 
+XXXX 说： 
+还不知道Rails的你就OUT 了， 那真是谁用谁知道!
+2011年9月13日 18:49 | 档案 | 引用 
+阮一峰 说： 
+     
+引用limu的发言： 
+1.post和put的区别,何时用put?我看文章里说更新用哪个都可以,新增用post.为什么?
+
+PUT是幂等方法，POST不是。所以PUT用于更新、POST用于新增比较合适。
+     
+引用limu的发言： 
+2.关于最后版本处理那块,JavaScript操作http的accept值还是有些困难,有没有替代方案,放在URL参数中么?
+
+XHR对象的setRequestHeader方法可以指定头信息啊，指定accept好像没有什么困难吧。
+
+2011年9月13日 20:22 | 档案 | 引用 
+limu 说： 
+     
+引用阮一峰的发言： XHR对象的setRequestHeader方法可以指定头信息啊，指定accept好像没有什么困难吧。 
+
+嗯 没错 谢谢阮老师.
+不过一说到版本号就联想到静态资源以及他们的缓存策略,比如js,css,图片啥的.呵呵.除了XHR以外的浏览器发起Http无法指定request header.
+而通常XHR获取的是动态数据吧,一般要实时最新的,REST应用中有什么具体场景会应用到带版本号的XHR数据么?
+2011年9月14日 09:29 | 档案 | 引用 
+CFC4N 说： 
+博主写的非常好，但如果是生硬的理解，可能很难理解透彻，或者说很容易忘记。当经过一次设计之后，之前对REST理解不透彻的同学，可能会回头来再次阅读。作为读者，感谢博主了。
+PS：“有些网址最后的".html"后缀名是不必要的”对于浏览器(解析执行渲染)来说，确实不必要，但对于服务器来说，需要完整的文件名用来定位请求的资源所在的真实路径。我觉得这条不适合作为论证“表现层”的一个理由。
+     
+引用linyang的发言： 楼主的理解非常的好, 有一些我想补充, 顺别回答其它一些朋友的问题 
+
+这位仁兄补充的也非常好。
+2011年9月14日 14:08 | 档案 | 引用 
+kedron 说： 
+为什么阮这么一个非专业的人员比很多所谓的程序员理解的还要深入些？只是因为他英语好么？期待阮翻译更多的好书。
+2011年9月15日 23:17 | 档案 | 引用 
+netwjx 说： 
+     
+引用kedron的发言： 
+为什么阮这么一个非专业的人员比很多所谓的程序员理解的还要深入些？只是因为他英语好么？期待阮翻译更多的好书。
+
+他根本就不是非专业人员 或者根本不是你想象的仅仅是有翻译书的经历
+2011年9月17日 22:26 | 档案 | 引用 
+Cat 说： 
+这样的话 Google APIs 和 Twitter APIs 在 URL 中加入了版本，是不正确的 Rest API
+2011年9月18日 00:35 | 档案 | 引用 
+Ethan 说： 
+@linyang：
+博主的文章结合你的评论，真是受益匪浅。准备拜读你推荐的Rest in Practice，谢谢。
+2011年9月18日 22:45 | 档案 | 引用 
+noodles 说： 
+这篇文章所涉及到的内容banq在jdon论坛里讨论过，具体的链接：http://www.jdon.com/jivejdon/thread/41716
+2011年9月19日 01:09 | 档案 | 引用 
+28ding 说： 
+考虑到uri的使用者很大一部分都是浏览器，而在浏览器向服务器提交提求的时候是不能任意增加http头的（除非把浏览器的浏览功能全部用javascript实现，XHR可以指定，但这不太实现），许多信息都得放在uri地址中。
+所以uri中出现动作、版本等内容都是正常的
+2011年9月20日 09:25 | 档案 | 引用 
+jacklondon 说： 
+如果是B/S系统的话，只能是用 URL 来体现了：
+http://mysystem/system/user?action=add
+http://mysystem/system/user?action=delete
+http://mysystem/system/user?action=update
+http://mysystem/system/user?action=query
+ 我自认为也符合 RESTful .
+ 难道你能在页面中放入一个链接，对应 HTTP DELETE?
+ 同样的道理，在网址中放入版本号，我也认为没有问题。
+ "REST是设计风格而不是标准"，在 B/S 架构中，考虑到页面链接(也就是 HTML 标签)的实际情况，用网址体现操作，可以理解。
+ ----欢迎大家试用我们的折桂单点登录系统 http://zheguisoft.com
+2011年9月23日 11:02 | 档案 | 引用 
+夜猫子 说： 
+     
+引用阮一峰的发言： 
+PUT是幂等方法，POST不是。所以PUT用于更新、POST用于新增比较合适。
+
+具体的程序逻辑里面，完全可以把POST动作实现为幂等操作，比如POST /user 创建新用户，POST /user/1 修改id为1的用户信息，无论POST /user/1多少次，都是对id为1的用户进行修改（幂等）。
+真正的理由是，REST仅仅是一种架构风格的指导规范，并非具体技术实现。因此用POST新建，PUT修改仅仅是具体实施过程中的约定。就像代码需要合理的缩进一样，虽然不缩进，程序也能执行（python除外），但安装这个约定去做，事情可以做得更漂亮点。
+ 我也看到过其它的REST文章建议说POST修改，PUT新建，我更倾向于POST新建，PUT修改。
+2011年9月27日 14:03 | 档案 | 引用 
+Linyang 说： 
+     
+引用夜猫子的发言： 
+
+具体的程序逻辑里面，完全可以把POST动作实现为幂等操作，比如POST /user 创建新用户，POST /user/1 修改id为1的用户信息，无论POST /user/1多少次，都是对id为1的用户进行修改（幂等）。
+真正的理由是，REST仅仅是一种架构风格的指导规范，并非具体技术实现。因此用POST新建，PUT修改仅仅是具体实施过程中的约定。就像代码需要合理的缩进一样，虽然不缩进，程序也能执行（python除外），但安装这个约定去做，事情可以做得更漂亮点。
+ 我也看到过其它的REST文章建议说POST修改，PUT新建，我更倾向于POST新建，PUT修改。
+
+ 没错，你是可以把post /users/1 实现为幂等的。但是通用客户端，比如浏览器，没有这样的预先假设。当post 操作异常时，比如超时，服务器503等等，浏览器是不能自动重试post操作的。这样你的幂等的 post /users/1 并没有给你带来太多的好处，除非你的客户端都是定制客户端 REST确实不是技术标准，但是HTTP是标准。
+
+2011年9月27日 23:16 | 档案 | 引用 
+夜猫子 说： 
+     
+引用Linyang的发言： 
+
+ 没错，你是可以把post /users/1 实现为幂等的。但是通用客户端，比如浏览器，没有这样的预先假设。当post 操作异常时，比如超时，服务器503等等，浏览器是不能自动重试post操作的。这样你的幂等的 post /users/1 并没有给你带来太多的好处，除非你的客户端都是定制客户端
+REST确实不是技术标准，但是HTTP是标准。
+
+
+
+HTTP标准没有真正得到落实
+现在其实处于一个“尴尬”的状况，一方面REST已经从理论上提供了解决方向，另外一方面是实际环境其实还没有提供足够多的REST支持。
+比如通过ajax，大多数(?)浏览器可以发出原生的PUT/DELETE方法，不使用ajax，就只能GET/POST。
+实际开发中，没有谁敢保证浏览器可以发出真的PUT，也没有谁敢保证web服务器可以理解真正的PUT，即使web服务器可以理解，也不能保证服务器端开发语言能够理解（比如php有$_GET，$_POST，但是没有$_PUT）
+所以PUT/DELETE方法好些时候其实是通过POST模拟的，常见的方法有两种
+<form method="post">
+ <input type="hidden" name="_method" value="put"/>
+ </form>
+
+ 或者request message包括自定义的http header，一般是X-HTTP-METHOD-OVERRIDE: PUT
+POST/PUT是否幂等，只能由你的程序来保证，并没有实际的支撑，具体选择POST还是PUT，其实就是一种约定或者规范。
+PS：写到后面我有点觉得自己在说废话……
+2011年9月28日 15:30 | 档案 | 引用 
+linyang 说： 
+     
+引用夜猫子的发言： HTTP标准没有真正得到落实 现在其实处于一个“尴尬”的状况，一方面REST已经从理论上提供了解决方向，另外一方面是实际环境其实还没有提供足够多的REST支持。 
+
+确实, 很遗憾, 设计良好的HTTP标准没有得到大范围的遵守.
+ HTTP协议被设计为通用的应用程序协议, 语义明确, 高度可扩展. 可惜大部分的应用仅仅把它当作传输协议.
+特别是基于HTML的应用, HTML 4.0 的表单只支持GET和POST. 所以像Rails这样的框架只能是使用其它方式模拟PUT和POST, 在Server端Dispatch时还原. 至少Server端还是可以把这些HTML 表单的局限隔离开的. (很遗憾, HTML5貌似也把PUT和DELETE的支持取消了)
+除去HTML应用, 广大的基于HTTP的Web Services还是可以, 也应该充分利用HTTP协议实现RESTful Services的.
+2011年9月29日 06:02 | 档案 | 引用 
+abloz.com 说： 
+我前些天想到在网页上实现表现和数据的分离。同样的表现层只下载一次，而数据可以替换。是不是很符合rest的思想呢？
+2011年10月25日 14:53 | 档案 | 引用 
+cailei 说： 
+我觉得这个理论概念太重
+ 1.对开发人员来说，uri这一层理解上存在的问题，需要改进
+ 2.对使用者来说，URI除了知道你首页后，其他全是用户引导，用户是不会去看更不会去记忆你的uri
+
+2011年11月 2日 12:01 | 档案 | 引用 
+Dozer 说： 
+     
+引用liws的发言： 
+
+这种URL是最不友好的，全是程序员按照自己的编程思路定制的URL,很多都不符合产品要求
+
+这只是 MVC 里的几个概念，最终的 URL 经过 Routing 后并不是这个格式。
+2012年3月28日 09:46 | 档案 | 引用 
+小池 说： 
+真实醍醐灌顶。评论部分也有牛人。
+2012年6月19日 14:14 | 档案 | 引用 
+逆流的鱼 说： 
+一石激起千层浪，呵呵，受教了，继续逆流而上
+2012年6月26日 01:43 | 档案 | 引用 
+插件吧 说： 
+谢谢分享，受益颇多~~~
+2012年7月15日 00:53 | 档案 | 引用 
+bangyue 说： 
+很受用，也觉得restful具有一定的应用前景，全新网站软件的设计可以采用这种设计架构。我觉得目前web服务器端各种架构设计皆有自己的优点
+2012年8月 8日 14:37 | 档案 | 引用 
+圣僧 说： 
+又一年中秋，看了评论才知道你是2011中秋写的，2012的中秋节也祝你中秋快乐，很凑巧今天是中秋正好看到你的文章。你的文章很有水准，以后会来常看看的。
+2012年9月30日 01:30 | 档案 | 引用 
+zhan0903 说： 
+收益颇多，谢谢
+2012年10月18日 09:34 | 档案 | 引用 
+十二能 说： 
+最近使用spring3.0+ 使用RESTful,看了文章受教了
+
+2012年11月 3日 13:30 | 档案 | 引用 
+haitao 说： 
+一直反感rest把动作放在method，觉得作为第一个参数更好：act=insert&arg1=a&arg2=b&...
+ 考虑到缓存，放在method的确方便
+2012年11月13日 10:59 | 档案 | 引用 
+DolphinBoy 说： 
+感觉没怎么懂，RESTful到底是什么，只是一种规范吗，还是一种技术？只是POST和PUT的区别吗，貌似Nodejs里面POST,PUT,GET,UPDATE有区分
+2013年1月10日 09:42 | 档案 | 引用 
+程序员 说： 
+真正使用中很少绝对RESTful的，大都有文中所述的错误做法，但是照样很有效。
+2013年6月25日 10:09 | 档案 | 引用 
+菜鸟 说： 
+有没有一些具体的实例啊！！！！！
+2013年8月12日 09:04 | 档案 | 引用 
+丕子 说： 
+又是一年中秋节，看了原文和评论才收获全面了
+2013年9月24日 20:19 | 档案 | 引用 
+Rex wong 说： 
+关于版本号的问题，版本加到url里面，假设我v1.1部署一套环境，v1.2部署一套环境，客户端就可以通过版本的不同选择调用不同版本的接口。但是写在header里面，如果在不更改后台代码的情况下，实现客户端不同版本的请求转发呢？谢谢
+2013年9月30日 18:24 | 档案 | 引用 
+田原 说： 
+很简洁明了的介绍。
+2013年10月28日 16:09 | 档案 | 引用 
+我要发表看法
+  1    1675    en    1  您的留言 （HTML标签部分可用）
+
+您的大名：
+ «-必填
+电子邮件：
+ «-必填，不公开
+个人网址：
+ «-我信任你，不会填写广告链接
+记住个人信息？  1  
+正在发表您的评论，请稍候
+
+  发表   «- 点击按钮
+联系方式 | ruanyifeng.com 2003 - 2013   Site Meter  
+分享按钮    

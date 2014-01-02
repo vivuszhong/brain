@@ -1,0 +1,415 @@
+                    Java QR Code Generator generate, create QR-Code 2d barcode image in Java Class, JSP, Servlet application using Java Barcode Generator Library
+  Barcode Generator & Reader SDK - OnBarcode     Download  |  Purchase  |  Support   •   Home 
+  •   Products 
+  •  Barcode Creator for .NET 
+  •  .NET Barcode Generator Suite
+  •  ASP.NET Barcode Generator Web Control
+  •  .NET WinForms Barcode Control
+  •  Reporting Services Barcode Generator
+  •  Crystal Reports for .NET Barcode Generator
+  •  RDLC Reports for .NET Barcode Generator
+  •  Barcode Generator for Windows Azure
+  •  Barcode Reader for .NET
+  •  Barcode Creator for Java 
+  •  Java Barcode Generator
+  •  Eclipse BIRT Reports Barcode Plugin
+  •  Barcode Reader for Java
+  •  Barcode for Mobile 
+  •  Android Barcode Generator
+  •  iPhone Barcode Generator
+  •  iPad Barcode Generator
+  •  Windows Phone 7 Barcode Generator
+  •  Barcode for Microsoft Office 
+  •  Excel Barcode Generator Addin
+  •  Word Barcode Generator Addin
+  •  Barcode Software 
+  •  Barcode Generator Software
+  •  Barcode Generator Software for Mac
+
+
+  •  Free Barcode Scanner Software
+  •  Free Online Barcode Generator
+  •  Hosted Services 
+  •  Hosted Service for Barcode Generator
+  •  Barcode Fonts
+  •   Integration 
+  •  ASP.NET
+  •  C#
+  •  Java
+  •  VB.NET (Visual Basic .NET)
+  •  Reporting - Client Report RDLC
+  •  Reporting - Crystal Reports
+  •  Reporting - Eclipse BIRT
+  •  Reporting - iReport
+  •  Reporting - Jasper Reports
+  •  Reporting - SSRS Reporting Service
+  •   Tutorial 
+  •  Generate barcode in .NET
+  •  Generate barcode in Android
+  •  Generate barcode in ASP.NET
+  •  Generate barcode in .NET WinForms
+  •  Generate barcode in BIRT
+  •  Generate barcode in C#
+  •  Generate barcode in iOS
+  •  Generate barcode in Java
+  •  Generate barcode in VB.NET
+  •  Read barcode in .NET
+  •  Read barcode in C#
+  •  Read barcode in Java
+  •  Read barcode in VB.NET
+  •   Barcode FAQ 
+  •  QR Code 
+  •  QR Code in .NET
+  •  QR Code in ASP.NET
+  •  QR Code in .NET WinForms
+  •  QR Code in C#
+  •  QR Code in VB.NET
+  •  QR Code in Java
+  •  QR Code in BIRT Reports
+  •  QR Code in Android
+  •  QR Code in iOS (iPhone, iPad)
+  •  Data Matrix 
+  •  Data Matrix in .NET
+  •  Data Matrix in ASP.NET
+  •  Data Matrix in C#
+  •  Data Matrix in VB.NET
+  •  Data Matrix in Java
+  •  Data Matrix in BIRT Reports
+  •  Data Matrix in Android
+  •  Data Matrix in iOS (iPhone, iPad)
+  •  PDF-417 
+  •  PDF-417 in .NET
+  •  PDF-417 in ASP.NET
+  •  PDF-417 in C#
+  •  PDF-417 in VB.NET
+  •  PDF-417 in Java
+  •  PDF-417 in BIRT Reports
+  •  PDF-417 in Android
+  •  Code 39 
+  •  Code 39 in .NET
+  •  Code 39 in ASP.NET
+  •  Code 39 in C#
+  •  Code 39 in VB.NET
+  •  Code 39 in Java
+  •  Code 39 in BIRT Reports
+  •  Code 39 in Android
+  •  Code 39 in iOS (iPhone, iPad)
+  •  Code 128 
+  •  Code 128 in .NET
+  •  Code 128 in ASP.NET
+  •  Code 128 in C#
+  •  Code 128 in VB.NET
+  •  Code 128 in Java
+  •  Code 128 in BIRT Reports
+  •  Code 128 in Android
+  •  Code 128 in iOS (iPhone, iPad)
+  •  EAN (EAN-13, EAN-8)
+  •  GS1 128
+  •  GS1 DataBar
+  •  Intelligent Mail (OneCode)
+  •  Interleaved 2 of 5
+  •  Micro PDF417
+  •  Micro QRCode
+  •  UPC-A
+  •  UPC-E
+  •   Purchase 
+  •  Product Index & Order Links
+  •  Software License Agreement
+  •  Purchase Process FAQs 
+  •  Three Online Stores
+  •  Other Payment Methods
+  •  Product License Types
+  •  Return Policy
+  •  Service Support
+  •   Company 
+  •  Barcode in Java
+  •  Java Barcode Generator
+  •  Generate Tutorial
+  •  Java Class
+  •  Java Servlet
+  •  Java Data
+  •  Java Image
+  •  2D Barcode in Java
+  •  Data Matrix
+  •  PDF417
+  •  QR Code
+  •  Linear Barcode in Java
+  •  Codabar
+  •  Code 11
+  •  Code 2 of 5
+  •  Code 39
+  •  Code 93
+  •  Code 128
+  •  EAN-8
+  •  EAN-13
+  •  EAN 128
+  •  GS1 DataBar
+  •  Identcode
+  •  Intelligent Mail
+  •  Interleaved 2 of 5
+  •  ISBN 
+  •  ISSN
+  •  ITF-14
+  •  Leitcode
+  •  MSI Plessey
+  •  PLANET
+  •  POSTNET
+  •  RM4SCC
+  •  UPC-A
+  •  UPC-E
+	  •  Java Barcode > 
+  •  Generator Tutorial > 
+  •  Java QR Code Generator - Generate, Create, Print, Draw QR Code barcode in Java projects
+Java QR Code Generator TutorialGenerate, create 2d barcode QR Code images in Java Class, JSP Pages, Servlet, Jasper Report  Download Java Barcode Generator Free Evaluation    Purchase Java Barcode Generator SDK License  This Java Barcode Generator proves very helpful for our project. Thanks a lot! - Charly NelsonGenerate, Create, Print, Draw QR Code barcode in Java projects
+  •  Easy to Generate QR Code in Applet, Java class, Swing, JavaBean, J2SE applications 
+  •  Create QR Code 2d barcode in JSP, Java Servlet, EJB, Tomcat, JBoss, J2EE server side applications 
+  •  Print, draw QR Code barcode images in Eclipse BIRT, iReport, Jasper Reports Java reporting software 
+  •  Generating & encoding industry standard QR Code Bar Code images in EPS, PNG, GIF, JPEG formats 
+  •  Compatible with latest ISO / IEC 18004 (2nd edition 2006-09-01) 
+  •  Completely written and created in Java. Support JDK 1.4.2 and later version 
+  •  Simple to redistribute Java QR Code barcode library SDK. No registration key or activation code required. 
+  •  Reliable Java library component for QR Code generation 
+Index   •  1. Java Barcode QR Code Generator Introduction
+  •  2. How to Generate QR Code in Java Class?
+  •  3. How to Create QR Code Image in Html or JSP Pages?
+  •  4. How to Generate QR Code Image in Java Servlet Class?
+  •  5. How to Generate & Print Barcode QR Code Image in Jasper Reports?
+  •  6. How to Generate & Print Barcode QR Code Image in iReport
+  •  7. How to Generate & Print Barcode QR Code Image in Eclipse BIRT 
+  •  8. Java QR Code Generator - Property Settings
+
+
+
+
+
+ Java QR Code Generator IntroductionTop Java Barcode is a Java barcode generator which generates high quality 1D (linear) and 2D (matrix) barcodes in Java, Jasper Reports, iReport, and Eclipse BIRT projects.
+
+You can download the Java Barcode creator library SDK trial package to create QR Code barcodes in your Java projects. The download the package includes compiled Java barcode generation SDK (a single Jar file), detailed tutorial for creating barcodes in Java, and complete sample Java source code to generate QR Code in Java class. Using downloaded Java barcode generation SDK, you can also easily create and print
+Data Matrix, PDF417, Code 39, Code 128, EAN, UPC, and other linear and 2d barcodes.   •  How to Encode Data for QR Code in Java
+  •  How to Size QR Code Barcode in Java 
+  •  How to Adjust QR Code Image in Java 
+Barcode QR Code Introduction
+QR Code is a matrix code (or two-dimensional bar code) created by Japanese corporation Denso-Wave in 1994. The "QR" is derived from "Quick Response", as the creator intended the code to allow its contents to be decoded at high speed. Java QR-Code Generator - Valid Data Scope
+ Java QR Code Generator encodes:   •  numeric data (digits 0 - 9); 
+  •  alphanumeric data (digits 0 - 9; upper case letters A -Z; nine other characters: space, $ % * + - . / : ); 
+  •  byte data (default: ISO/IEC 8859-1); 
+  •  Kanji characters. 
+ How to Generate QR Code in Java Class?Top You can copy the demo code into your barcoding project to easily generate QR Code in Java Class. For more detailed QR Code settings, please click here for complete Java QR Code Generator Demo Source Code // Create Java QRCode object QRCode barcode = new QRCode(); // Set QRCode data text to encodebarcode.setData("Create-QR-Code-in-Java"); // Generate QRCode barcode & print into Graphics2D objectbarcode.drawBarcode("Java Graphics2D object"); // Generate QRCode barcode & encode into GIF formatbarcode.drawBarcode("C://barcode-qrcode.gif"); // Generate QRCode barcode & encode into JPEG formatbarcode.drawBarcode("C://barcode-qrcode.jpg"); // Generate QRCode barcode & encode into EPSbarcode.drawBarcode2EPS("C://barcode-qrcode.eps");  How to Create QR Code Image in Html or JSP Pages?Top   •  Under demo package, copy barcode folder and its contents to your tomcat. 
+  •  Start tomcat, navigate to http://YourDomain:Port/barcode/barcode?DATA=QRCodeEncodingData&TYPE=qrcode 
+  •  To create bar code images in html or jsp pages, you can insert a image tag (img) into your page. 
+  •   For example, <img src="http://YourDomain:Port/barcode/barcode?DATA=QRCodeEncodingData&TYPE=qrcode" />
+ How to Generate QR Code Image in Java Servlet Class?Top 
+import com.onbarcode.barcode.AbstractBarcode;
+import com.onbarcode.barcode.QRCode;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+
+public class BarcodeServlet extends HttpServlet
+{
+ public void doGet(HttpServletRequest request, HttpServletResponse response)
+ throws ServletException
+ {
+  try {
+   QRCode barcode = new QRCode();
+   barcode.setData("QRCode");
+
+   ServletOutputStream servletoutputstream = response.getOutputStream();
+   
+   response.setContentType("image/jpeg");
+   response.setHeader("Pragma", "no-cache");
+   response.setHeader("Cache-Control", "no-cache");
+   response.setDateHeader("Expires", 0);
+
+   // Generate QRCode barcode & output to ServletOutputStream
+   barcode.drawBarcode(servletoutputstream);
+  } catch (Exception e) {
+   throw new ServletException(e);
+  }
+ }
+}  How to Generate & Print Barcode QR Code Image in Jasper Reports?Top OnBarcode provides detailed guide to help developers generate barcodes in Jasper Reports  How to Generate & Print Barcode QR Code Image in iReport?Top With this Java barcode generator, you can also create, print bulk QR Code barcode images in iReport. Here is the detailed generation guide for you: Complete Guide for Barcode Generation in iReport How to Generate & Print Barcode QR-Code Image in Eclipse BIRT?Top You can stream barcodes into your BIRT reports using Java Barcode Generator.
+However we recommend you use our BIRT Barcode Generator Plugin to generate and print QR Code 2D barcodes in your BIRT reports. How to Set Generated Barcode QR-Code Image Width and Height?Top   •  You can set barcode image width and height through properties barcodeWidth and barcodeHeight values. 
+  •  Or you can set X (bar module width) and Y (bar module height) values 
+ Java QR Code Generator - Barcode Property SettingsTop Java QR Code Generator in Java Class: com.onbarcode.barcode.QRCode
+
+	
+Category	Properties	Value	Comments	
+Basic	Property: data 
+ URL: DATA 	Type: String 
+ Default: "" 	Barcode value to encode 
+
+ QRCode Valid Data Char Set: 
+  •  numeric data (digits 0 - 9); 
+  •  alphanumeric data (digits 0 - 9; upper case letters A -Z; nine other characters: space, $ % * + - . / : ); 
+  •  byte data (default: ISO/IEC 8859-1); 
+  •  Kanji characters 
+
+	
+ 				
+QRCode
+Special	Property: processTilde 
+ iReport & URL: PROCESS-TILDE 	Type: boolean 
+ Default: true 	 Set the processTilde property to true, if you want use the tilde character "~" to specify special characters in the input data. Default is true. 
+  •  1-byte character: ~0dd/~1dd/~2dd (character value from 000 ~ 255); ASCII character '~' is presented by ~126 
+ Strings from "~256" to "~299" are unused 
+  •  2-byte character (Unicode): ~6ddddd (character value from 00000 ~ 65535) 
+ Strings from "~665536" to "~699999" are unused 
+  •  for GS1 AI Code:  ~ai2: AI with 2 digits 
+ ~ai3: AI with 3 digits 
+ ~ai4: AI with 4 digits 
+ ~ai5: AI with 5 digits 
+ ~ai6: AI with 6 digits 
+ ~ai7: AI with 7 digits 
+  •  ECI: ~7dddddd (valid value of dddddd from 000000 to 999999) 
+  •  SJIS: from ~9ddddd (Shift JIS 0x8140 ~ 0x9FFC and 0xE040 ~ 0xEBBF) 
+	
+Property: dataMode 
+ iReport & URL: DATA-MODE 	Type: int 
+ Default: 0 (QRCode.M_AUTO) 	  •   QRCode.M_AUTO (0): It allows encoding all 256 possible 8-bit byte values. This includes all ASCII characters value from 0 to 127 inclusive and provides for international character set support
+  •   QRCode.M_ALPHANUMERIC (1): It allows encoding alphanumeric data (digits 0 - 9; upper case letters A -Z; nine other characters: space, $ % * + - . / : ).
+  •   QRCode.M_BYTE (2): It allows encoding byte data (default: ISO/IEC 8859-1).
+  •   QRCode.M_NUMERIC (3): It allows encoding numeric data (digits 0 - 9). 
+  •   QRCode.M_KANJI (4): It allows encoding Kanji characters.
+		
+Property: ECL 
+ iReport & URL: ECL 	Type: int 
+ Default: QRCode.L (0) 	 QRCode Error Correction Level.   •  QRCode.ECL_L (0) 
+  •  QRCode.ECL_M (1) 
+  •  QRCode.ECL_Q (2) 
+  •  QRCode.ECL_H (3) 
+		
+ Property: fnc1Mode 
+ iReport & URL: FNC1MODE 	 Type: int 
+
+ Default: IBarcode.
+FNC1_NONE (0) 	To encode GS1 compatible QR-Code barcode, you need set fnc1Mode value to IBarcode.FNC1_ENABLE (1). 		
+Property: structuredAppend 
+ iReport & URL: STRUCTURED-APPEND 	Type: boolean 
+ Default: false 	Set StructuredAppend property to true, then Structured Append is enabled.		
+Property: symbolCount 
+ iReport & URL: SYMBOL-COUNT 	Type: int 
+ Default: 0 	the number of total symbols which make the sequence. 		
+Property: symbolIndex 
+ iReport & URL: SYMBOL-INDEX 	Type: int 
+ Default: 0 	the position of current symbol in the secuence (Start with 0). 		
+Property: parity 
+ iReport & URL: PARITY 	Type: int 
+ Default: 0 	-		
+Property: version 
+ iReport & URL: VERSION 	Type: int 
+ Default: 1. 	Valid values are from 1 to 40.		
+ 				
+Barcode
+Size
+Related	 Property: autoResize 
+ iReport & URL: AUTO-RESIZE 	 Type: boolean 
+ Default: false 	Auto resize the generated barcode image 	
+ Property: barAlignment 
+ iReport & URL: BAR-ALIGNMENT 	 Type: int 
+ Default: 1 (center) 	Barcode horizontal alignment inside the image. 0: left, 1: center, 2: right.		
+ Property: uom 
+ iReport & URL: UOM 	 Type: int 
+ Default: 0 (pixel) 	Unit of meature for all size related settings in the library. 
+ Valid values: 0: pixel; 1: inch; 2: cm. 		
+Property: X 
+ iReport & URL: X 	Type: float 
+ Default: 3. 	Barcode bar module width and height, default is 3 pixel		
+Property: barcodeWidth 
+ iReport & URL: BARCODE-WIDTH 	Type: float 
+ Default: 0. 	Barcode image width. 
+
+ If barcodeWidth setting is smaller than the barcode required minimum width, the library will automatically reset to barcode minimum width.		
+Property: barcodeHeight 
+ iReport & URL: BARCODE-HEIGHT 	Type: float 
+ Default: 0. 	Barcode image height. 
+
+ If barcodeHeight setting is smaller than the barcode required minimum height, the library will automatically reset to barcode minimum height.		
+Property: leftMargin 
+ iReport & URL: LEFT-MARGIN 	Type: float 
+ Default: 0. 	Barcode image left margin size.		
+Property: rightMargin 
+ iReport & URL: RIGHT-MARGIN 	Type: float 
+ Default: 0. 	Barcode image right margin size.		
+Property: topMargin 
+ iReport & URL: TOP-MARGIN 	Type: float 
+ Default: 0. 	Barcode image top margin size.		
+Property: bottomMargin 
+ iReport & URL: BOTTOM-MARGIN 	Type: float 
+ Default: 0. 	Barcode image bottom margin size.		
+Property: resolution 
+ iReport & URL: RESOLUTION 	Type: int 
+ Default: 72. 	Barcode image resolution in DPI (Dots per inch).		
+ Property: rotate 
+ iReport & URL: ROTATE 	 Type: int 
+ Default: 0 (IBarcode.ROTATE_0) 	Valid values: 
+
+  •  0 (IBarcode.ROTATE_0) 
+  •  1 (IBarcode.ROTATE_90) 
+  •  2 (IBarcode.ROTATE_180) 
+  •  3 (IBarcode.ROTATE_270) 
+		
+ 				
+Barcode
+Colors	 Property: backColor 
+ iReport & URL: BACK-COLOR 	 Type: Color 
+ Default: white 	Barcode image background color	
+ Property: foreColor 
+ iReport & URL: FORE-COLOR 	 Type: Color 
+ Default: black 	Barcode image foreground color 		
+ 				
+In WebStream query string, please use int value for Enums, "true" and "false" for bool.				
+ Java Barcode Generator Supporting Barcode Symbology TypesTop Barcode for Java - Bar Code Types Geneation   •  1D/ Linear Barcodes:
+Codabar	Code 11	Code 2 of 5	Code 39	Code 93	
+Code 128	EAN 8	EAN 13	GS1 128 (UCC/EAN128)	Identcode	
+Intelligent Mail(OneCode)	Interleaved 2 of 5	ISBN	ISSN	ITF-14	
+Leitcode	MSI Plessey	PLANET	POSTNET	RM4SCC	
+UPC-A	UPC-E				
+  •  2D / Matrix Barcodes: Data Matrix, PDF417, QR Code
+Barcode SDK Library
+  •  .NET Control 
+  •  Barcode for .NET 
+  •  Barcode Reader for .NET 
+  •  Barcode for ASP.NET 
+  •  Barcode for .NET WinForms 
+
+
+  •  Java Library 
+  •  Barcode for Java 
+  •  Barcode Reader for Java 
+
+
+  •  Smart Phone SDK 
+  •  Barcode for Android 
+  •  Barcode for iPhone 
+ 
+  •  Reporting Plugin 
+  •  Barcode for BIRT 
+  •  Barcode for Crystal Reports 
+  •  Reporting Services Barcode CRI 
+
+
+  •  Free Barcode Software 
+  •  Online Barcode Generator 
+  •  Barcode Scanner 
+How-to
+  •  C# 
+  •  ASP.NET 
+  •  VB.NET 
+  •  Java 
+  •  Android 
+  •  iOS 
+
+
+  •  Client Report RDLC 
+  •  Crystal Reports 
+  •  Eclipse BIRT 
+  •  Reporting Services 
+Purchase Online
+
+Service Support
+
+About Us
+ OnBarcode is a market-leading provider of barcode imaging generator, reader controls and components for ASP.NET, Windows Forms, WPF, as well Java, Android, iOS (iPhone, iPad) across all major enterprise development platforms. We provides comprehensive tutorials and how-tos for various linear, 2d barcode information, such as C# in ASP.NET, C# .NET, C# Barcode Encoding, C# Barcode Image, VB.NET in ASP.NET, VB.NET Winforms, VB.NET Barcode Encoding, VB.NET Barcode Image, Java JSP Servlet. OnBarcode barcode products are supported by RasterEdge high quality .NET Imaging SDK, Java Imaging Library, and their easy and simple documents, like imaging in C#, imaging in VB.NET, PDF in C# and PDF in VB.NET. Terms of Use | Privacy Policy 
+ Copyright © OnBarcode.com . All rights reserved.     

@@ -1,0 +1,103 @@
+                    SWT: The Standard Widget Toolkit
+  EclipseCon Europe 2013    •    Eclipse Marketplace  Eclipse Marketplace
+  •    Eclipse YouTube Channel  Eclipse YouTube Channel
+  •    Bugzilla  Bugzilla
+  •    Forums  Eclipse Forums
+  •    Planet Eclipse  Planet Eclipse
+  •    Eclipse Wiki  Eclipse Wiki
+  •    MyFoundation Portal  My Foundation Portal
+  •  Eclipse
+  •  Platform
+  •  SWT
+  •  About
+  017941334893793413703:sqfrdtd112s    Search  
+  •   SWT Home  navigation image  
+  •  Widgets
+  •  Snippets
+  •  Examples
+  •  FAQ
+  •  Tools
+  •  Javadoc
+  •  Documentation
+  •  Community
+  •  Bugs
+  •  Contact Us
+SWT: The Standard Widget Toolkit
+SWT is an open source widget toolkit for Java designed to provide efficient, portable access to the user-interface facilities of the operating systems on which it is implemented.
+Welcome
+Welcome to SWT! You may have come to this page looking for snippets (little code examples) or examples (big code examples like ControlExample); widget snapshots or documentation. Or maybe you want to request a feature, report a bug, or ask a question. Whatever the reason, you will find many resources here. Enjoy!
+Releases
+	
+Stable
+Windows, Linux, OS X, more...
+4.3 Final Release - 5 June 2013
+  •  New and Noteworthy
+  •  Language Pack
+		
+Development
+4.4 Integration Builds For links to SWT Binary and Source for all platforms,
+select current 4.4 Integration Build then scroll to bottom of page.
+  •  4.4 New and Noteworthy
+	
+Articles
+  •  How to develop SWT applications in Eclipse
+  •  How to run the ControlExample and other SWT examples
+  •  How to deploy SWT applications on Mac OS X
+  •  How to deploy SWT applications using Java Web Start
+  •  How to use SWT from Git
+  •  How to generate the SWT JNI Code
+  •  How to generate the SWT JNI Code for Cocoa
+  •  Using OpenGL in SWT Applications
+  •  How to help with the SWT Cocoa port
+  •  How to fix a bug in SWT
+  •  Many more articles about SWT on Eclipse Corner at eclipse.org
+  •  Full list of articles and documentation
+Resources
+  •  Widget screenshots with links to documentation
+  •  Snippets, helpful little code examples
+  •  Examples, helpful big code examples
+  •  The SWT FAQ answers many common questions
+  •  Tools and Plug-ins for SWT developers
+  •  Online Javadoc
+  •  Books and additional documentation
+  •  Test Plan for SWT
+  •  SWT Community Page
+  •  SWTBot, UI/functional testing tool for SWT and Eclipse based applications.
+  •  Eclipse/SWT Accessibility wiki
+Contact Us
+The SWT newsgroup [register] is a very active user discussion and help forum. See the Eclipse Community Forums page (expand Eclipse Projects to see SWT) for information on this and other newsgroups.
+SWT development is discussed and tracked in the Eclipse bugzilla under the Platform/SWT component. You can subscribe to the new bug inbox by watching platform-swt-inbox@eclipse.org from your bugzilla email preferences.
+If you are modifying or porting SWT and have questions, try the SWT developer mailing list [archive, search].
+Older Releases
+  •   SWT 3.8.2/4.2.2, 6 February 2013. 
+  •  New and Noteworthy items for each milestone
+  •   SWT 3.7.2, 8 February 2012. 
+  •  New and Noteworthy items for each milestone
+  •   SWT 3.6.2, 11 February 2011. 
+  •  New and Noteworthy items for each milestone
+  •   SWT 3.5.2, 12 February 2010. 
+  •  New and Noteworthy items for each milestone
+  •   SWT 3.4.2, 13 February 2009. 
+  •  New and Noteworthy items for each milestone
+  •   SWT 3.3.2, 22 February 2008. 
+  •  New and Noteworthy items for each milestone
+  •   SWT 3.2.2, 12 February 2007. 
+  •  New and Noteworthy items for each milestone
+  •   SWT 3.1.2, 19 January 2006. 
+  •  New and Noteworthy items for each milestone
+  •   SWT 3.0.2, 11 March 2005. 
+  •  New and Noteworthy items for each milestone
+  Vista  
+  Windows  
+  Linux  
+  Mac OS X  
+  Motif  
+                      Photon  source 
+
+    •  Home
+  •  Privacy Policy
+  •  Terms of Use
+  •  Copyright Agent
+  •  Legal
+  •  Contact Us
+Copyright © 2013 The Eclipse Foundation. All Rights Reserved. 

@@ -1,0 +1,1410 @@
+                    Eclipse 4 RCP - Tutorial
+  •   vogella.com 
+  •    Tutorials 
+  •    Training 
+  •    Books 
+  •    Contact us 
+  vogella.com    partner-pub-3851443674951530:3991491935    FORID:10    UTF-8    Search  
+
+ Free tutorial, donate to support 
+
+  _s-xclick    10463995    Donation  
+  About Lars Vogel  
+by Lars Vogel
+
+
+
+
+
+ Back to top 
+  vogella training  Training Books 
+  Follow me on twitter    Lars Vogel on Google+  Eclipse 4 RCP - Tutorial 
+Building Eclipse RCP applications based on Eclipse 4 
+Lars Vogel
+ Version 6.9 
+Copyright © 2009 , 2010 , 2011 , 2012 , 2013 Lars Vogel
+04.07.2013
+Revision History 
+Revision 0.1 - 6.9	14.02.2009 - 04.07.2013	Lars
+Vogel
+	created, bug fixes and enhancements	
+Eclipse e4
+ This tutorial gives an overview about the Eclipse 4 application platform. 
+ This tutorial describes the creation of Eclipse 4 based applications, e.g. Eclipse RCP applications. It describes the modeled application concept and the new programming model which is based on annotations and dependency injection. 
+Table of Contents
+1. Eclipse 4 1.1. What is Eclipse 4? 1.2. Eclipse 4 vs. Eclipse 3.x 1.3. Terminology 2. The Architecture of Eclipse 2.1. Eclipse based applications 2.2. Core components of the Eclipse platform 2.3. Compatibility layer for Eclipse 3.x plug-ins 2.4. Eclipse RCP 2.5. Provisional API 2.6. Important configuration files 3. Tutorial: Install Eclipse IDE for RCP development 3.1. Prerequisites 3.2. Download and install the Eclipse SDK 3.3. Install the e4 tools 3.4. Eclipse e4 tools update site 4. Exercise: Wizard to create an RCP application 4.1. Create project 4.2. Launch 5. The usage of run configurations 5.1. What are run configurations? 5.2. Launch configuration and Eclipse products 5.3. Launch arguments 6. Common launch problems 6.1. Launch problem number #1: missing plug-ins 6.2. Checklist for other common problems 7. Eclipse 4 application model 7.1. What is the application model? 7.2. Scope of the application model 7.3. How do you define the application model? 8. User interface model elements 8.1. Window 8.2. Views and editors - parts 8.3. Perspective 8.4. PartStack and PartSashContainer 8.5. Using layout weight data for children elements 9. Connecting model elements to classes and resources 9.1. Connect model elements to classes 9.2. Connect model elements to resources 9.3. URI patterns 9.4. Model objects 9.5. Runtime application model 10. Model addons 10.1. What are addons? 10.2. Addons from the Eclipse framework 10.3. Additional SWT addons 10.4. Relationship to other services 11. Persisted model attributes 11.1. Supplementary data 11.2. Tags 11.3. Persisted state 11.4. Transient data 12. IDs and suggested naming conventions 12.1. Identifiers for model elements 12.2. Conventions for defining IDs 12.3. Naming conventions for projects packages and classes 13. Features and Products 14. Exercise: Create an Eclipse plug-in 14.1. Target 14.2. Create a plug-in project 14.3. Validate the result 15. Exercise: From plug-in to Eclipse 4 application 15.1. Create product configuration file 15.2. Create a feature project 15.3. Enter feature dependencies in product 15.4. Remove version dependency from features in product 15.5. Create application model 15.6. Add model elements to the application model 15.7. Start application 16. Enter bundle and package dependencies 16.1. Add plug-in dependencies 16.2. Add package dependency 17. Remove warnings for provisional API access 18. Configure the deletion of persisted model data 19. Exercise: Modeling a User Interface 19.1. Desired user interface 19.2. Open the Application.e4xmi 19.3. Add perspective 19.4. Add PartSashContainer and PartStacks 19.5. Create the parts 19.6. Validate user interface 19.7. Create Java classes 19.8. Connect the Java classes with your parts 19.9. Validate 20. Exercise: Using the SWT browser widget 20.1. Implementation 20.2. Solution 21. Introduction to dependency injection 22. Dependency injection and annotations 22.1. Define dependencies in Eclipse 22.2. On which objects does Eclipse perform dependency injection? 22.3. Re-injection 23. Objects available for dependency injection 23.1. Eclipse context (IEclipseContext) 23.2. Context relationship 23.3. Which model elements have a local context? 23.4. How are objects selected for dependency injection 23.5. Default objects for dependency injection 23.6. Creation process of the Eclipse context 23.7. Getting the active part or shell 23.8. Tracking a child context with @Active 24. Behavior Annotations 24.1. API definition via inheritance 24.2. API definition via annotations 25. Tutorial: Using dependency injection 25.1. Getting a Composite 25.2. Validation 26. Exercise: Using @PostConstruct 26.1. Why using @PostConstruct? 26.2. Implement @PostConstruct 26.3. Implement @Focus and test your application 26.4. Validate 27. Menu and toolbar application objects 27.1. Adding menu and toolbar entries 27.2. What are commands and handlers? 27.3. Mnemonics 27.4. Standard commands 27.5. Naming schema for command and handler IDs 28. Dependency injection for handler classes 28.1. Handler classes and their behavior annotations 28.2. Which context is used for a handler class? 28.3. Evaluation of @CanExecute 28.4. Scope of handlers 29. Exercise: Adding menus and toolbars 29.1. Target of this exercise 29.2. Create command model elements 29.3. Creating the handler classes 29.4. Creating handler model elements 29.5. Adding a menu 29.6. Adding a toolbar 29.7. Implement handler class for exit 29.8. Validate 30. View, popup and dynamic menus 30.1. View menus 30.2. Popup menu (context menu) 30.3. Dynamic menu and toolbar entries 31. Toolbars, ToolControls and drop-down tool items 31.1. Adding toolbars to parts 31.2. ToolControls 31.3. Drop-down tool items 32. More on commands and handlers 32.1. Passing parameters to commands 32.2. Usage of core expressions 32.3. Evaluate your own values in core expressions 33. Key bindings 33.1. Using key bindings in your application 33.2. JFace default values for binding contexts 33.3. Define Shortcuts 33.4. Key bindings for a part 33.5. Activate bindings 34. Relevant tags in the application model 35. Enable to start your product with right mouse click 36. Learn more about Eclipse 4 RCP development 37. Thank you 38. Questions and Discussion 39. Links and Literature 39.1. Source Code 39.2. Eclipse 4 resources 1. Eclipse 4 
+1.1. What is Eclipse 4? 
+The Eclipse platform and IDE is released every year. Before 2012 Eclipse was released in version 3.x, e.g. Eclipse 3.6, Eclipse 3.7. These releases and the corresponding API are referred to as Eclipse 3.x. 
+ As of 2012 the main Eclipse release carried the major version number 4, e.g. Eclipse 4.2 in the year 2012 and Eclipse 4.3 in 2013. These releases and the corresponding API are referred to as Eclipse 4. 
+ The Eclipse 4 platform is based on a flexible and extendible programming model. Eclipse 4 was an opportunity to rationalize the best parts of the Eclipse 3.x APIs and to fix pain points of Eclipse 3.x development. 
+1.2. Eclipse 4 vs. Eclipse 3.x 
+ The major enhancements in Eclipse 4 compared to Eclipse 3.x are the following: 
+
+  •   
+the structure on an Eclipse application is described via a logical model called the application model 
+  •   
+the application model can be modified at development and runtime 
+  •   
+the application model can be extended 
+  •   
+the programming model is based on dependency injection 
+  •   
+the styling of Eclipse widgets can be configured via external (CSS like) files 
+  •   
+the application model is decoupled from its presentation, this allows a flexible configuration of the user interface and to use different user interface toolkits such as SWT or JavaFX 
+
+1.3. Terminology 
+ An Eclipse application consists of several Eclipse components. A software component in Eclipse is called a plug-in. A software component in OSGi is called a bundle. Both terms can be used interchangeably. 
+ This tutorial uses the terms Eclipse based applications, Eclipse application, Eclipse 4 application and Eclipse RCP application  interchangeably for referring to an application which is based on the Eclipse 4 framework. 
+ If a certain concept refers to Eclipse 3.x, then it is explicitly stated. 
+2. The Architecture of Eclipse 
+2.1. Eclipse based applications 
+ An Eclipse application consists of individual software components. The Eclipse IDE can be viewed as a special Eclipse application with the focus on supporting software development. 
+ The core components of the Eclipse IDE are depicted in the following graphic. 
+
+  Important Eclipse IDE components  
+Note
+The intention of the graphic is to demonstrate the general concept, the displayed relationships are not 100 % accurate. 
+The most important components of this graphic are described in the next section. 
+2.2. Core components of the Eclipse platform 
+OSGi is a specification which describes a modular approach for Java application. The programming model of OSGi allows you to define dynamic software components, i.e., OSGi services. 
+Equinox is one implementation of the OSGi specification and is used by the Eclipse platform. The Equinox runtime provides the necessary framework to run a modular Eclipse application. 
+SWT is the standard user interface component library used by Eclipse. JFace provides some convenient APIs on top of SWT. The workbench provides the framework for the application. It is responsible for displaying all other UI components. 
+On top of these base components, the Eclipse IDE adds components which are important for an IDE application, for example, the Java Development Tools (JDT) or version control support (EGit). 
+2.3. Compatibility layer for Eclipse 3.x plug-ins 
+Eclipse 4 provides a compatibility layer which allows that plug-ins using the Eclipse 3.x programming model can be used unmodified in an Eclipse based application. 
+Most plug-ins available for the Eclipse IDE are still based on the Eclipse 3.x programming model. These plug-ins use the compatibility layer to function in the Eclipse IDE. 
+2.4. Eclipse RCP 
+Eclipse based applications which are not primarily used as software development tools are called Eclipse RCP applications. An Eclipse 4 RCP application typically uses the base components of the Eclipse platform and adds additional application specific components. 
+
+  Typical components of an Eclipse RCP application  
+Note
+This tutorial focuses on the development of Eclipse RCP applications. The development of Eclipse plug-ins for the IDE is not covered even though some of the techniques are very similar. 
+2.5. Provisional API 
+ Currently the Application Programming Interface (API) for Eclipse 4.3 is partially released. 
+Some API is still marked as provisional. This means that the API might be changed in the future. If you use such API, you must be prepared that you might have to make some adjustments to your application in a future Eclipse release. 
+Note
+ If you use unreleased API, you see a Discouraged access warning in the Java editor. 
+ The discussion which API will be released for Eclipse 4.4 takes place in Bug report for Eclipse 4.4 API. 
+2.6. Important configuration files 
+ An Eclipse plug-in has the following main configuration files. These files are defining the API, and the dependencies of the plug-in. 
+  •   
+MANIFEST.MF - contains the OSGi configuration information. 
+  •   
+plugin.xml - contains information about Eclipse specific extension mechanisms. 
+
+ An Eclipse plug-in defines its API and its dependencies via the MANIFEST.MF file, e.g., the Java packages which can be used by other plug-ins and the packages or plug-ins which are required by the plug-in. 
+ The plugin.xml file provides the possibility to create and contribute to Eclipse specific API. You can add extension points and extensions in this file. Extension-points define interfaces for other plug-ins to contribute functionality. Extensions contribute functionality to these interfaces. Functionality can be code and non-code based. 
+Note
+In Eclipse 4 the usage of extension points and extensions is less important than in Eclipse 3.x. Several extension points have been replaced with the usage of the application model. 
+3. Tutorial: Install Eclipse IDE for RCP development 
+3.1. Prerequisites 
+ The following description assumes that you have Java installed in at least version 1.7. 
+3.2. Download and install the Eclipse SDK 
+ The description in this tutorial is based on the Eclipse 4.3.x release. Download the latest version of the Eclipse SDK build (4.3.1 or 4.3.1) from the following URL: 
+http://download.eclipse.org/eclipse/downloads/ 
+This website should look similar to the following screenshot. Click on the release version to get to the download section. 
+
+  Eclipse.org Download Page  
+ The download is a zip file, which is a compressed archive of multiple files. Most operating systems can extract zip files in their file browser. For example, if you are using Windows 7 as operating system, right-click on the file in the Explorer and select the Extract all...  menu entry. If in doubt about how to unzip, search via Google for How to unzip a file on ... , replacing "..." with your operating system. 
+Warning
+ Do not extract Eclipse to a directory with a path which contains spaces as this might lead to problems in the usage of Eclipse. Also avoid path names longer than 255 characters as this seems to create problems under Microsoft Windows. 
+ After you extracted the zip file, double-click the eclipse.exe (Windows) or the eclipse file (Linux) (or the launcher icon specific to your platform) to start Eclipse. 
+ To avoid any collision with existing work select an empty directory as the workspace for this tutorial. 
+3.3. Install the e4 tools 
+The Eclipse SDK download does not include the e4 tools, which make creating Eclipse 4 applications easier. These tools provide wizards to create Eclipse 4 artifacts and the specialized model editor for the application model. 
+The author of this tutorial provides a working and recent version of the e4 tools for the Eclipse 4.3 release under the following URL: 
+http://download.vogella.com/kepler/e4tools 
+ You can install the e4 tools via Help → Install new software by entering the URL. 
+Note
+ From this update site, install only the E4 CSS Spy and the Eclipse e4 Tools. The other entries are not used in this tutorial and may cause different behavior. 
+
+  Install the Eclipse 4 tooling  
+Note
+ The e4 tools installation from the "download.vogella.com" site is not signed. For a signed e4 tools installation use Section 3.4, “Eclipse e4 tools update site”. 
+Restart your Eclipse IDE after the installation.
+Tip
+ If you want to use Eclipse 4.4 (which is as of the time of this writing under development), you can use the following update site: http://download.vogella.com/luna/e4tools 
+3.4. Eclipse e4 tools update site 
+ The above update site was created to provide a stable link for the reader of the tutorial. The same code base is used by Eclipse.org to create an official update site for the Eclipse e4 tooling. 
+ Unfortunately the link for this update site changes from time to time but it can be found on the following website: Eclipse.org e4tools site. 
+ If you click on a Build Name link, you also find the URL for the update site. The following screenshots demonstrate this for a particular build of the e4 tools. 
+
+  Official update site for e4 tools part 1  
+Note
+This website might change over time.
+
+  Official update site for e4 tools part 2  
+4. Exercise: Wizard to create an RCP application 
+4.1. Create project 
+ Select File → New → Other... → Eclipse 4 → Eclipse 4 Application Project  from the menu of your Eclipse SDK. 
+
+
+ Create a project called com.example.e4.rcp.wizard. Leave the default settings on the first two wizard pages. These settings are similar to the following screenshots. 
+
+
+
+
+ On the third wizard page, enable the Enable development mode for application model and Create sample content (parts, menu etc.) flags. 
+
+
+Note
+ The Enable development mode for application model flag adds the clearPersistedState flag to the product configuration file. This ensures that changes during development in your application model are always visible. See Section 18, “Configure the deletion of persisted model data” for more information. Via the Create sample content (parts, menu etc.) flag you configure that the generated application should contain example content, e.g., a view and some menu and toolbar entries. 
+ This wizard creates all the necessary files to start your application. The central file for starting your application is the .product file, created in your project folder. 
+4.2. Launch 
+ Open the editor for your com.example.e4.rcp.wizard.product product configuration file by double-clicking on the file in the Package Explorer view. 
+
+  Starting the Eclipse 4 application  
+ Switch to the Overview tab in the editor and launch your Eclipse application by pressing the Launch an Eclipse application hyperlink. This selection is highlighted in the following screenshot. 
+
+  Starting the Eclipse 4 application  
+This starts your Eclipse application which should look similar to the following screenshot. Note that the example application generated by the e4 tools project might change over time. 
+
+
+Note
+You learn all the details of what happened here in later chapters. 
+5. The usage of run configurations 
+5.1. What are run configurations? 
+ A run configuration defines the environment which will be used to execute a generic launch. For example, it defines arguments to the Java virtual machine (VM), plug-in (classpath) dependencies etc. Sometimes a run configuration is also called launch configuration. 
+ If you start your Eclipse application, using the link in the .product file, the corresponding run configuration is automatically created or updated. 
+ To review and edit your run configurations select Run → Run Configurations...  from the Eclipse menu. 
+ On the Main tab in the field Location you specify where the Eclipse IDE will create the files necessary to start your Eclipse based application. 
+
+  Shows the run configuration, highlighting the location setting  
+5.2. Launch configuration and Eclipse products 
+ The launch configuration stores the settings from the product configuration file. The launch configuration is created or updated every time you start your application via the product. 
+You can use the created run configuration directly for starting the application again. In this case changes in the product configuration file are not considered. 
+Warning
+ Using an existing run configuration is a common source of frustration and time consuming error analysis. To ensure that you use the latest configuration from your product, start via the .product file. 
+5.3. Launch arguments 
+ The run configuration allows you to add additional start arguments for your application on the  Arguments  tab. By default Eclipse includes already some arguments, e.g. parameters for -os, -ws and -arch to specify the architecture on which the application is running. 
+
+  -consoleLog in the run configuration  
+The following table lists useful launch arguments.
+Table 1. Launch parameters
+Parameter Description 
+consoleLog 	 Error messages of the running Eclipse application are written to standard-out (System.out) which can be viewed in the Eclipse IDE Console view that started the RCP application. 	
+nl 	 Specifies the runtime language for your application. For example -nl en starts your application using the English language. This is useful for testing translations. 	
+console 	Provides access to an OSGi console where you can check the status of your application. 	
+noExit 	Keeps the OSGi console open even if the application crashes. This allows to analyze the application dependencies even if the application crashes during startup. 	
+clearPersistedState 	Deletes cached runtime changes of the Eclipse 4 application model. 	
+
+6. Common launch problems 
+6.1. Launch problem number #1: missing plug-ins 
+ The most common problem is that some required plug-ins are missing in your product. If you are using a feature based product configuration, you need to ensure that all plug-ins which are referred to in the MANIFEST.MF file are also included in your features. 
+ Eclipse can check for missing dependencies automatically before you run the Launch configuration. On the Plug-ins Tab select the Validate plug-ins automatically prior to launching  option. This will check if you have all the required plug-ins in your run configuration. 
+ If this check reports that some plug-ins are missing, try clicking the Add Required Plug-ins button. 
+
+  Pressing the "Add required Plug-ins" button in the Eclipse run configuration  
+After identifying the missing plug-ins ensure that you add them to your product (if the product is plug-in based) or to your features (if the product is feature based). 
+Warning
+Never fix problems with plug-ins only in the run configuration because the run configuration is created and updated based on the product configuration file. So always ensure that the product file is correctly configured instead of changing the derived information. 
+6.2. Checklist for other common problems 
+ The following table lists potential problems and solutions. 
+Table 2. Run configuration problems
+Problem Investigate 
+During start you get error messages such as "One or more bundles are not resolved because the following root constraints are not resolved" or "java.lang.RuntimeException: No application id has been found." 	Check that all required plug-ins are included in your run configuration. Make sure that your product defines dependencies to all required plug-ins or features. 
+ Bundles may also require a certain version of the Java virtual machine, e.g. a bundle may require Java 1.6 and will therefore not load in a Java 1.5 VM. Check the MANIFEST.MF file on the Overview tab in the Execution Environments section which Java version is required. 
+	
+Strange behavior but no error message.	 Check if your run configuration includes the -consoleLog parameter. This option allows you to see errors from Eclipse based application in the Console view of the Eclipse IDE. 	
+Runtime configuration is frequently missing required plug-ins 	Make sure that your product or your feature(s) includes all required dependencies. 	
+ A change in the product Dependencies tab is not reflected in the run configuration (e.g. a new plug-in is added but is not included in the run configuration) 	A product updates an existing run configuration if you start the product directly from the product definition file. If you select the run configuration directly, it will not be updated. 	
+Application model changes are not reflected in the Eclipse 4 application. 	 Eclipse 4 persists user changes in the application in a delta file which is restored at startup. During development this might lead to situations where model changes are not correctly applied to the runtime model, e.g., you define a new menu entry and this entry is not displayed in your application. 
+ Either set the Clear flag on the Main tab in your run configuration or add the clearPersistedState parameter for your product configuration file or run configuration. 
+	
+Services, e.g. key bindings or the selection service, are not working in an Eclipse 4 application. 	 Used to be problem in Eclipse 4.2 as in this release every part needed to implement a @Focus method which places the focus on an SWT control. Should work correctly in Eclipse 4.3, even without the @Focus method. 	
+Menu entries are disabled in an Eclipse 4.3 build. 	 Eclipse 4.3 introduces a new model add-on which you need to register with your application model. The new application wizards adds that by default. 
+ When migrating from Eclipse 4.2, ensure that your application model has an entry pointing to the HandlerProcessingAddon class in the package org.eclipse.e4.ui.internal.workbench.addons. The bundle symbolic name is org.eclipse.e4.ui.workbench. 
+	
+Application "org.eclipse.ant.core.antRunner" could not be found in the registry or Application could not be found in the registry. 	 Ensure that you have pressed the New... button in the product configuration file and selected the E4Application as application to start. You can check the current setting in your plugin.xml file on the Extensions tab and in the details of the org.eclipse.core.runtime.products extension. 	
+
+
+7. Eclipse 4 application model 
+7.1. What is the application model? 
+ Eclipse 4 uses an abstract description, called the application model, to describe the structure of an application. This application model contains the visual elements as well as some non-visual elements of the Eclipse 4 application. 
+ The visual parts are, for example, windows, parts (views and editors), menus, toolbars, etc. Examples for non-visual components are handlers, commands and key bindings. 
+ The following screenshot shows an example application model opened in the e4 tools editor. 
+
+  Application model opened in the e4 editor  
+ Each model element has attributes which describe its current state, e.g. the size and the position of a window. Most of the model elements are in a hierarchical order, for example, parts might be grouped below a perspective. 
+7.2. Scope of the application model 
+ The application model defines the structure of the application but it does not describe the content of the individual user interface components. 
+ For example, the application model describes which parts are available. It also describes the properties of the parts, e.g., if a part is closable, its label, ID, etc. But it does not describe the content of the part, e.g., the labels, text fields and buttons it consists of. The content of the part is still defined by your source code. 
+ If the application model was a house, it would describe the available rooms (parts) and their arrangement (perspectives , PartStacks , PartSashContainer) but not the furniture of the rooms. This is illustrated by the following image. 
+
+  Limits of the modeled workbench  
+7.3. How do you define the application model? 
+ The base of the application model is typically defined as a static file. The default name for this file is Application.e4xmi and the default location is the main directory of your application plug-in. 
+Tip
+ You can change the default name and location via the org.eclipse.core.runtime.products extension point. With the applicationXMI parameter you can define the URI to the application model file. See ??? for a detailed description of this procedure. 
+ This XMI file is read at application startup and will be used to construct the initial application model. 
+ The application model is extensible, e.g., other plug-ins can contribute to it via model processors and model fragments. 
+8. User interface model elements 
+The following model elements represents the basic elements which you use to create the user interface of your application. 
+8.1. Window 
+ Eclipse applications consist of one or more windows. Typically an application has only one window, but you are not limited to that, e.g., if you want to support multiple connected monitors. 
+
+  Eclipse application showing 2 windows  
+8.2. Views and editors - parts 
+Parts are user interface components which allow you to navigate and modify data. A part can have a dropdown menu, context menus and a toolbar. 
+ Parts can be freely positioned in the user interface. 
+
+  Eclipse application with a few parts  
+ Parts are typically classified into views and editors. The distinction into views and editors is not based on technical differences, but on a different concept of using and arranging these parts. 
+ A view is typically used to work on a set of data, which might be a hierarchical structure. If data is changed via the view, this change is typically directly applied to the underlying data structure. A view sometimes allows us to open an editor for a selected set of data. 
+ An example for a view is the Package Explorer, which allows you to browse the files of Eclipse projects. If you change data in the Package Explorer, e.g., renaming a file, the file name is directly changed on the file system. 
+ Editors are typically used to modify a single data element, e.g., the content of a file or a data object. To apply the changes made in an editor to the data structure, the user has to explicitly save the editor content. 
+ For example, the Java editor is used to modify Java source files. Changes to the source file are applied once the user selects the Save command. A dirty editor is marked with an asterisk. 
+
+  Editor marked as dirty  
+8.3. Perspective 
+ A perspective is a visual container for a set of parts. Perspectives can be used to store different arrangements of parts. For example, the Eclipse IDE uses them to layout the views appropriate to the task (development, debugging, review, ...) the developer wants to perform. 
+ You can place perspectives in a perspective stack in the application model. Switching perspectives can be done via the part service provided by the Eclipse platform. 
+8.4. PartStack and PartSashContainer 
+ Parts can be directly assigned to a window or a perspective, but typically you want to group and arrange them. 
+ For this you can use the PartStack and PartSashContainer model elements. 
+ A PartStack contains a stack of parts showing the content of one part while showing the headers of all parts. One part is active and the user can switch to another part by selecting the corresponding tab. 
+ A PartSashContainer displays all its children at the same time either horizontally or vertically aligned. 
+ The following shows a simple Eclipse application layout using two PartSashContainer and a few PartStacks. 
+
+  An example arrangement of Parts in an Eclipse application  
+ On the top of this layout there is a horizontal PartSashContainer which contains another PartSashContainer and some PartStacks. The hierarchy is depicted in the following graphic. 
+
+  The hierarchy of Parts using PartStacks and PartSashcontainers.  
+8.5. Using layout weight data for children elements 
+ You can use the Container Data attribute on a child of a PartSashContainer to assign a layout weight. 
+ This layout weight is interpreted as the relative space the corresponding child element should get assigned in the PartSashContainer. 
+ The setting is depicted in the following screenshot. 
+
+  Container data for layouting  
+Warning
+ If you set the Container Data for one element, you must define it for all elements, too. Otherwise the missing values are interpreted as very high and these elements take up all available space. 
+Tip
+The initial total of all the container data values is maintained when elements in the sash are moved. In order to allow fine grained/smooth dragging this total must be similar to the screen resolution. A too low value (i.e. 50 / 50) causes the part to be moved multiple pixels per sash unit, which the user will realize as a jerky movement. Therefore, use a sufficient high value, e.g., 10000. 
+9. Connecting model elements to classes and resources 
+9.1. Connect model elements to classes 
+ Certain model elements in the application model can contain references to Java classes via an Uniform Resource Identifier (URI). 
+ The URI describes the location of the Java class. The first part of this URI is the plug-in, the second one the package and the last one the class. 
+ Some application model elements have a Class URI attribute which points to a Java class for this element. This class provides the behavior of the part. Using the house/rooms metaphor from earlier, the class is responsible for defining the furnishings, the layout of the room and how the interactive objects behave. 
+
+
+ Eclipse instantiates the referred classes lazily. This means that the classes are instantiated when the model elements get activated. For example, the objects for parts are only created once the part becomes visible. 
+9.2. Connect model elements to resources 
+ Model elements can also point to static resources. For example, the part model element contains the attribute icon URI which can point to an icon which is used by the Eclipse platform once it shows the part. 
+9.3. URI patterns 
+ URIs follow one of two patterns, one for identifying classes and another one for identifying resources. The following table describes these two patterns. The example assumes that the bundle is called test (to have a short name, in reality you should use the reverse domain name as described earlier). 
+Table 3. URI pattern
+Pattern Description 
+ bundleclass://Bundle-SymbolicName/ package.classname 
+
+Example:
+bundleclass://test/test.parts.MySavePart 
+
+	 Used to identify Java classes. It consists of the following parts: "bundleclass://" is a fixed schema, Bundle-SymbolicName as defined in the MANIFEST.MF file and separated by a '/' the fully qualified classname. 	
+ platform:/plugin/Bundle-SymbolicName/ path/filename.extension 
+
+Example:
+ platform:/plugin/test/icons/save_edit.gif 
+	 Identifier for a resource in a plug-in. "platform:/plugin/" is a fixed schema, followed by the Bundle-SymbolicName of the MANIFEST.MF file, followed by the path to the file and the filename. 	
+
+9.4. Model objects 
+ The attributes of the application model elements are stored in Java objects at runtime. These objects are called model objects in this tutorial. 
+ You can use these model objects to change its attributes or children. The Eclipse platform has change listeners registered on the model objects and updates the user interface whenever you change relevant attributes. 
+ The following table lists the types of the important model objects. 
+
+Table 4. Eclipse model elements
+Model element Description 
+MApplication	Describes the application object. All other model elements are below this object. 	
+MAddon	A self-contained component typically without user interface. It can register for events in the application life cycle and handles these events. 	
+MWindow	Represents a window in your application. 	
+MTrimmedWindow	Similar to MWindow but allows to contain toolbars for the windows (via TrimBars model elements). 	
+MPerspective	Object for the perspective model element. Can only be contained in a MPerspectiveStack. 	
+MPart	Represents the model element part, e.g. a view or an editor. 	
+MDirtyable	Property of MPart which can be injected. If set to true, this property informs the Eclipse platform that this Part contains unsaved data (is dirty). In a handler you can query this property to trigger a save. 	
+MPartDescriptor	 MPartDescriptor is a template for new parts. A new part based on this PartDescriptor can be created and shown via the EPartService.showPart() method. 	
+Snippets	 Snippets can be used to pre-configure model parts which you want to create via your program. You can use the Eclipse EModelService to clone such a snippet and use the result object to attach it to the application model at runtime. 	
+
+
+Tip
+ Access to these model objects is done via dependency injection which is covered in Section 22, “Dependency injection and annotations”. 
+9.5. Runtime application model 
+ During startup the Eclipse platform creates the model objects based on the Application.e4xmi file and instantiates the referred Java classes in the model if required. 
+ The created set of model objects is typically referred too as runtime application model. 
+ The life cycle of every model object and the created objects based on the class URI attributes are therefore controlled by the Eclipse platform. 
+10. Model addons 
+10.1. What are addons? 
+ The application model allows you to globally register addons as model objects. These components can enhance the application with additional functionality. 
+ Addons add flexibility to the application model. They allow you to extend or change the default Eclipse behavior without having to modify existing Eclipse code, you just have to replace the related model component. 
+ For example, the default Drag and Drop support of parts in Eclipse is implemented via an addon. Other examples are the keybinding or the command processing. If this functionality is undesired, you can simply remove the component from the application model. If you want a different behavior, you simply register your own addon in your application model. 
+ Addons point to Java classes via their Class URI attribute using the bundleclass:// URI convention. 
+10.2. Addons from the Eclipse framework 
+ Currently the following standard addons are useful for Eclipse applications. Their class names give an indication of their provided functionality. Check their Javadoc to get a short description of their purpose. 
+
+  •   
+CommandServiceAddon
+  •   
+ContextServiceAddon
+  •   
+BindingServiceAddon
+  •   
+HandlerProcessingAddon
+  •   
+CommandProcessingAddon 
+  •   
+ContextProcessingAddon
+  •   
+BindingProcessingAddon 
+
+10.3. Additional SWT addons 
+ Additional addons are available, e.g., to support drag-and-drop of parts in your application. 
+ To support drag-and-drop for parts you need to add the org.eclipse.e4.ui.workbench.addons.swt plug-in to your product configuration file. Then you can use the DnDAddon and the CleanupAddon classes from this bundle as addons in your application model. This plug-in contains also the MinMaxAddon class which allows to add the minimize and maximize functionality to your application. 
+ The org.eclipse.e4.ui.workbench.addons.swt plug-in contributes these addons automatically to your application model via a processors, e.g., a Java class which changes the application model. If you remove the plug-in from your product, then these addons are not available. 
+10.4. Relationship to other services 
+ Addons are created before the Eclipse rendering framework renders the model and after the event service has been created. 
+ This allows addons to alter the user interface that is produced by the rendering engine. For example, the MinMaxAddon addon changes the tab folders created for MPartStacks to have min/max buttons in the corner. 
+ The Eclipse platform uses events sent via the event service to communicate changes in the application model. For example, if a part is activated, the Eclipse platform sends out an event for this. Addons can subscribe to these events from the Eclipse platform and react to them. 
+11. Persisted model attributes 
+11.1. Supplementary data 
+ The Supplementary tab in the model editor allows you to enter additional information about a model element. 
+11.2. Tags 
+ All model elements can have tags assigned to them. These tags can be used by the Eclipse platform or by other code to trigger functionality. 
+ Tags are automatically persisted by the Eclipse runtime between application restarts and are represented as a List of type String. 
+Tip
+ Tags are also available to the CSS Engine as additional class selectors. For example, the currently active part is tagged as "active" at runtime and the CSS engine allows to style components based on this with the selector .MPartStack.active. If you want to use tag as CSS selectors, don't use whitespace in them. 
+ You can define your own tags and define CSS for this. This is a great way to allow custom CSS to be integrated into the model. 
+ By default Eclipse uses some predefined tags to determine the state of certain model elements. For example, the shellMaximized and shellMinimized tag on a Window is used by Eclipse to determine if the Window should be maximized or minimized. 
+ The following screenshot shows how to define the maximization of a Window model element. 
+
+  Supplementary info for a Window to set it to maximize  
+ You find more information about the default tags in Section 34, “Relevant tags in the application model”. 
+ You can also define Variables in the Supplementary tab which can be used as context variables. If you use this approach, Eclipse creates keys in the context which are marked as modifiable (by descendants). See Section 22, “Dependency injection and annotations” for the concept of dependency injection and see ??? to learn more about context variables. 
+11.3. Persisted state 
+Model elements can have persisted state key/value pairs assigned to them. If you retrieve the model element, you can get and set this persisted state. 
+
+String yourKey ="key1";
+
+// modelObject is the model object 
+// retrieved via dependency injection (e.g. a MPart)
+
+// get the state by the yourKey key
+String state = modelObject.getPersistedState().get(yourKey);
+
+// store the state
+modelObject.getPersistedState().put(yourKey, state) 
+Persisted data for model elements is automatically restored by the Eclipse application between application restarts and allows to store key/values pairs based on Strings. 
+11.4. Transient data 
+ Each model element can also attach transient data to it. This transient data is based on a Map<String , Object> structure and can be accessed on the model object via the getTransientData() method. 
+Transient data is not persisted between application restarts and needs to be generated at runtime. 
+12. IDs and suggested naming conventions 
+12.1. Identifiers for model elements 
+ Every model element allows you to define an ID. This ID is used by the Eclipse framework to identify this model element. Make sure you always maintain an ID for every model element and ensure that these IDs are unique. 
+Tip
+If you face a strange behavior in your Eclipse application, ensure that you have assigned unique IDs to your model elements. 
+12.2. Conventions for defining IDs 
+ A good convention is to start IDs with the top level package name of your project followed by a group descriptor and a name which gives an idea about the purpose of the element. For example, com.example.e4.rcp.todo.part.todooverview, where com.example.e4.rcp.todo is the top level package, part is the group descriptor for all visible parts (views and editors) in your application and todooverview gives an idea about the purpose of this part. 
+ Also note that the entire ID is written only in lower case characters. 
+Note
+Some Eclipse projects also use camelCase for the last part of the ID, but that is more for historical reasons. 
+12.3. Naming conventions for projects packages and classes 
+The following table suggests good practices for naming conventions, which are also used in this tutorial. 
+Table 5. Naming conventions
+Object Description 
+Project Names	 The plug-in project name is the same as the top-level package name. 	
+Packages	 Plug-ins which contain a lot of user interface components use sub-packages based on the primary purpose of the components. For example, the com.example package may have the com.example.parts and com.example.handler sub-package. 	
+Class names for model elements	 Use the primary purpose of the model element as a suffix in the class name. For example, a class used as a part implementation, should be called [PurposeDescription]Part. 	
+
+13. Features and Products 
+ The following description uses feature projects and products, please see Feature projects and Eclipse Products and Deployment for a description of these topics. 
+14. Exercise: Create an Eclipse plug-in 
+14.1. Target 
+ In the following exercise you create a standard Eclipse plug-in called com.example.e4.rcp.todo. This plug-in is later converted into an Eclipse RCP application. 
+Note
+ The following description calls this plug-in the application plug-in as this plug-in will contain the main application logic. 
+14.2. Create a plug-in project 
+ In Eclipse select File → New → Other...  → Plug-in Development → Plug-in Project. 
+
+  Selection the Eclipse Plug-in Wizard  
+ Give your plug-in the name com.example.e4.rcp.todo and press the Next button. 
+
+  First page of the Eclipse Plug-in Wizard specifying the project name.  
+ On the next wizard page make the following settings. Select No at the Would you like to create a 3.x rich client application?  option and uncheck  This plug-in will make contributions to the UI . Uncheck the Generate an activator, a Java class that controls the plug-in's life cycle  option. 
+
+  Second page of the Eclipse Plug-in Wizard specifying the plug-in ID, version, Name, Activator and the RCP type.  
+Warning
+ The Would you like to create a 3.x rich client application?  and the  This plug-in will make contributions to the UI  options relate to an Eclipse 3.x API compliant application. Never use these options if you want to use the Eclipse 4 API. 
+ Press the Finish button. If you click the Next button instead of Finish, the wizard shows you a template selection page which you can bypass without a selection. 
+14.3. Validate the result 
+ Open the project and check if any Java classes were created. You should have no classes in the source folder. 
+ Open the MANIFEST.MF file and switch to the Extensions tab. Validate that the list of Extensions is currently empty. 
+15. Exercise: From plug-in to Eclipse 4 application 
+In this chapter we convert the Eclipse plug-in into an Eclipse 4 application. 
+15.1. Create product configuration file 
+ Create a new project called com.example.e4.rcp.todo.product via File → New → Others... → General → Project. 
+
+
+ Right-click on this project and select New → Product Configuration. 
+
+
+ Create a product configuration file called todo.product. 
+
+
+ Press the Finish button. The file is created and opened in an editor. 
+ Press the New... button on the Overview tab of the product editor. 
+
+  Press the new button in the product editor  
+ Enter to-do as the Product Name, your plug-in as the Defining Plug-in, product as the Product ID and select org.eclipse.e4.ui.workbench.swt.E4Application in the Application combo box. 
+
+  Entering the product details  
+15.2. Create a feature project 
+ Create a new feature project called com.example.e4.rcp.todo.feature via File → New → Other... → Plug-in Development → Feature Project. 
+
+  Feature project  
+ Include the com.example.e4.rcp.todo plug-in into this feature via the feature.xml file. 
+
+  Feature project  
+Warning
+ Ensure you have added the plug-in on the Plug-ins tab to include it. Using the Dependencies tab would be wrong for this exercise. 
+15.3. Enter feature dependencies in product 
+ Change your product configuration file to use features. For this, open your todo.product file. Afterwards select the features option on the Overview tab of the product editor. 
+
+  Switching to feature on the product configuration file  
+ Select the Dependencies tab and add the org.eclipse.e4.rcp and the com.example.e4.rcp.todo.feature features as dependencies via the Add... button. 
+
+  Switching to feature on the product configuration file  
+ Press the Add Required button. This adds the org.eclipse.emf.common and org.eclipse.emf.ecore features to the dependencies. 
+
+  Switching to feature on the product configuration file  
+Note
+Ensure that after this step you have a total of four features in your product configuration file. If you cannot add a feature to your product, check that you have changed your product to be based on features. 
+15.4. Remove version dependency from features in product 
+ To avoid dependency problems with different versions of the org.eclipse.e4.rcp plug-in, delete the feature version number from your product. You can do this via the Properties... button on the Dependencies tab of the product configuration file editor. 
+
+  Remove version number  
+
+  Remove version number  
+The result should look similar to the following screenshot. 
+
+  Remove version number via the Properties button  
+15.5. Create application model 
+ Select File → New → Other... → Eclipse 4 →  Model → New Application Model to open a wizard which allows you to create an application model file. 
+
+
+ Enter your com.example.e4.rcp.todo application plug-in as the container and use the filename suggested by the wizard. 
+
+
+ Press the Finish button. The wizard creates now the Application.e4xmi file inside the com.example.e4.rcp.todo plug-in and opens this file with the application model editor. 
+15.6. Add model elements to the application model 
+ Add one window to your application model so you have a visual component. 
+ Select the Windows node and press the Add... button for a TrimmedWindow. 
+
+  Adding a trimmed window  
+Enter an ID, the position and size of the window and a label as shown in the screenshot below. 
+
+  Enter the data for the TrimmedWindow in the model editor  
+Tip
+ If you started your application before having created the window model element, you need to do the setting described in Section 18, “Configure the deletion of persisted model data” to be able to start your application. 
+15.7. Start application 
+ Open the product file and select the Overview tab. Press the Launch an Eclipse application hyperlink in the Testing section. 
+
+  Starting the product  
+ Validate that your application starts. You should see an empty application, which can be moved, resized, minimized, maximized and closed. 
+16. Enter bundle and package dependencies 
+16.1. Add plug-in dependencies 
+ In the upcoming exercises you will use the functionality from other Eclipse plug-ins. This requires that you define a dependency to these plug-ins in your application. The exact details of applying this modular approach will be covered in a later chapter. 
+Note
+ Remember that application plug-in is the short form for the com.example.e4.rcp.todo plug-in. 
+ Open the META-INF/MANIFEST.MF file in your application plug-in and select the Dependencies tab. Use the Add... button in the Required Plug-ins section to add the following plug-ins as dependency. 
+
+  •   
+org.eclipse.core.runtime 
+  •   
+org.eclipse.swt 
+  •   
+org.eclipse.e4.core.di 
+  •   
+org.eclipse.e4.ui.workbench 
+  •   
+org.eclipse.e4.ui.di 
+  •   
+org.eclipse.e4.core.di.extensions 
+
+16.2. Add package dependency 
+ Also add javax.annotation and javax.inject as package dependencies in the Imported Packages section. 
+The result should be similar to the following screenshot.
+
+  Plug-in Dependencies  
+Warning
+ Ensure that javax.annotation as well as javax.inject are both added with minimum version of 1.0.0 (1.1.0 is also ok for javax.annotation) as package dependencies. Otherwise your application will not work correctly in later exercises. 
+17. Remove warnings for provisional API access 
+Note
+This exercise is optional. 
+ The Eclipse 4 API has not yet been completely released and therefore consists of provisional API. By default the Eclipse IDE displays warnings in your code if you use a provisional API. 
+ You can turn off these warnings for your workspace via Window → Preferences → Java → Compiler → Errors/Warnings and by setting the "Discouraged reference (access rules) flag to Ignore. 
+
+  Turning of the Eclipse warnings  
+ Alternatively you can turn off these warnings on a per project basis, via right-click on the project Properties → Java Compiler  and afterwards use the same path as for accessing the global settings. You might have to activate the Enable project specific settings checkbox at the top of the Error/Warnings preference page. 
+18. Configure the deletion of persisted model data 
+ The Eclipse platform persists certain user changes of an Eclipse 4 application, i.e., if you start the application several times its user interface is restored to the state of the last start. During development this might lead to situations where changes are not correctly applied and displayed, e.g., you define a new menu entry and this entry is not displayed in your application. 
+ Either set the Clear flag on the Main tab in your Run configuration or add the clearPersistedState parameter to your product configuration file or Run configuration. 
+The following screenshot shows this setting in the product configuration file. 
+
+  Delete persisted Eclipse application model  
+ It is recommended that you set this during your development phase to avoid unexpected behavior. Please note that parameters must be specified via the - sign, e.g., -clearPersistedState. 
+Warning
+If you don't do this step, changes in the application model are not visible after a restart of your application. This is because Eclipse restores the last state of the application. 
+19. Exercise: Modeling a User Interface 
+19.1. Desired user interface 
+ In the following exercises you create the basis of your RCP user interface. At the end of this exercise your user interface should look similar to the following screenshot. 
+
+  Screenshot of the application  
+19.2. Open the Application.e4xmi 
+ Open the Application.e4xmi file in the Eclipse 4 model editor via a double-click or right-click on it and select Open With → Eclipse 4 model editor. 
+Tip
+ The model editor has several preference settings which can be reached via Window → Preferences → Model Editor. The following screenshot shows the preference page. 
+
+  Preference Page for the model editor  
+19.3. Add perspective 
+Note
+Perspectives are optional model elements. You add a Perspective to your application model so that you can later easily add more of them. 
+ Navigate to your window with the To-do label inside the Application.e4xmi file. Select the Controls node. Add a PerspectiveStack as indicated in the following screenshot. 
+
+  Adding a PerspectiveStack to the Eclipse RCP application  
+ Press the Add... button to create a Perspective entry. 
+
+  Adding a Perspective  
+ Enter the value To-Do in the Label field and the value com.example.e4.rcp.todo.perspective in the ID field. 
+
+  Adding a Perspective to the Eclipse 4 application  
+19.4. Add PartSashContainer and PartStacks 
+ Select Controls below the newly created Perspective and add a PartSashContainer. 
+
+  Add PartSashContainer  
+ Change its Orientation attribute to Horizontal and enter into the ID field the "com.example.e4.rcp.todo.partsashcontainer.main" value. 
+
+  Change the orientation attribute  
+ In the drop-down list of the PartSashContainer select PartStack and press the Add button. 
+ Re-select the parent PartSashContainer and add another PartSashContainer. Now add two PartStacks to the second PartSashContainer. 
+After these changes your application model should look similar to the following screenshot. 
+
+  Application model structure  
+19.5. Create the parts 
+ Add a Part model element to each PartStack. As ID for the Parts use the prefix com.example.e4.rcp.todo.part and the suffix from the following table. Also put the label from the table into the appropriate field of the part editor. 
+
+Table 6. Label and ID from the Parts
+ID Suffix Label 
+.todooverview	To-Dos	
+.tododetails	Details	
+.playground	Playground	
+
+
+ The following screenshot shows the data for one part. 
+
+  Part data  
+ The final structure of your application model should be similar to the following screenshot. 
+
+
+19.6. Validate user interface 
+ Start your product and validate that the user interface looks as planned. Reassign your model elements if required. The model editor supports drag-and drop for reassignment. 
+Note
+If you start your application now, you can already see the structure, even though you have not yet created Java classes for your application. 
+19.7. Create Java classes 
+ Create the com.example.e4.rcp.todo.parts package in the application plug-in. 
+ Create three Java classes called TodoOverviewPart, TodoDetailsPart and PlaygroundPart in this package. These classes do not extend another class, nor do they implement any interface. 
+Tip
+ You can create the classes by clicking on the Class URI hyperlink for the part data in the application model. This also connects the created class to the model object. 
+ The following code shows the TodoDetailsPart class. 
+
+package com.example.e4.rcp.todo.parts;
+
+public class TodoDetailsPart {
+
+} 
+19.8. Connect the Java classes with your parts 
+ Open the Application.e4xmi file and connect the class with the corresponding part model element. You can do this via the Class URI property of the part model element. 
+The following table gives an overview of which elements should be connected. 
+
+Table 7. Mapping Java classes with part model element
+Class Part ID suffix 
+TodoOverviewPart	*.todooverview	
+TodoDetailsPart	*.tododetails	
+PlaygroundPart	*.playground	
+
+
+ The Eclipse 4 model editor allows you to search for an existing class via the Find... button. The initial list of Contribution Classes is empty, start typing in the Class Name field to see the results. 
+
+  Finding a model class in the Application model  
+The following screenshot shows the result for the first part. 
+
+  Finding a model class in the Application model  
+19.9. Validate 
+ Run your application. It should start, but you should see no difference in your user interface. 
+ To validate that the model objects are created by the Eclipse runtime create a no-argument constructor for one of the classes and add a System.out.println() statement. Afterwards verify that the constructor is called, once you start the application. 
+20. Exercise: Using the SWT browser widget 
+20.1. Implementation 
+ In this exercise you will display Google Maps in an SWT Browser widget. 
+Note
+ This exercise does not always work on a Linux system because on certain Linux versions the Browser widget does not work. See How do I use the WebKit renderer on Linux-GTK for details. 
+ Change the PlaygroundPart class so the part looks like the following screenshot. 
+
+  SWT Browser Widget example with Google Maps  
+If you enter a text in the text field and press the button, the map should center based on the input in the text field. This input should be interpreted as city. 
+20.2. Solution 
+ Your PlaygroundPart class should look similar to the following code. 
+
+package com.example.e4.rcp.todo.parts;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import javax.annotation.PostConstruct;
+
+import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+
+public class PlaygroundPart {
+  private Text text;
+  private Browser browser;
+
+  @PostConstruct
+  public void createControls(Composite parent) {
+    parent.setLayout(new GridLayout(2, false));
+
+    text = new Text(parent, SWT.BORDER);
+    text.setMessage("Enter City");
+    text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+
+    Button button = new Button(parent, SWT.PUSH);
+    button.setText("Search");
+    button.addSelectionListener(new SelectionAdapter() {
+      @Override
+      public void widgetSelected(SelectionEvent e) {
+        String city = text.getText();
+        if (city.isEmpty()) {
+          return;
+        }
+        try {
+          browser.setUrl("http://maps.google.com/maps?q="
+              + URLEncoder.encode(city, "UTF-8")
+              + "&output=embed");
+        } catch (UnsupportedEncodingException e1) {
+          e1.printStackTrace();
+        }
+      }
+    });
+
+    browser = new Browser(parent, SWT.NONE);
+    browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+
+  }
+
+  @Focus
+  public void onFocus() {
+    text.setFocus();
+  }
+} 
+21. Introduction to dependency injection 
+ See Dependency injection in Java for an introduction into the concept of dependency injection, 
+22. Dependency injection and annotations 
+22.1. Define dependencies in Eclipse 
+ The programming model in Eclipse supports constructor, method and field injection according to the Java Specification Request 330 (JSR330). It uses the standard @Inject and @Named annotations. 
+Note
+ The Eclipse dependency framework ensures that the key and the type of the injected object is correct. For example, if you specify that you want to have an object of type Todo for the "xyz" key, as shown in the following field declaration, the framework will only inject an object if it finds one with an assignable type. 
+
+@Inject @Named("xyz") Todo todo; 
+ In addition to these annotations, Eclipse also declares and supports additional annotations as, for example, the @Optional annotation. 
+ The following table gives an overview of dependency injection related annotations and their usage. 
+Table 8. Basic annotations for dependency injection
+ Annotation Description 
+ @javax.inject.Inject	Marks a field, a constructor or a method. The Eclipse framework tries to inject the corresponding objects into the field or the parameters of the constructor or method. 	
+@javax.inject.Named	 Defines the name of the key for the value which should be injected. By default the fully qualified class name is used as the key. Several default values are defined as constants in the IServiceConstants interface. 	
+@Optional	 Marks an injected value to be optional. If no valid object can be determined for the given key (and type), the framework does not throw an exception. 
+ The specific behavior depends where the @Optional is placed: 
+  •   
+for parameters: a null value will be injected; 
+  •   
+for methods: the method calls will be skipped
+  •   
+for fields: the values will not be injected. 
+
+	
+
+
+ Eclipse defines also the @GroupUpdates annotation. The following table explains it. 
+
+Table 9. GroupUpdates annotation
+Annotation Description 
+@GroupUpdates	 Indicates that updates for this @Inject should be batched. If you change such objects in the IEclipseContext, the update is triggered by the processWaiting() method on IEclipseContext. This annotation is intended to be used by the platform for performance optimizations and should rarely be necessary in RCP applications. 	
+
+
+Note
+ The Eclipse platform supports additional annotations for special purposes, e.g., for receiving events (sent by the event service) or working with preferences. For a summary of all standard annotations defined in the Eclipse platform see ???. 
+22.2. On which objects does Eclipse perform dependency injection? 
+ The Eclipse runtime creates objects for the Java classes referred by the application model. During this instantiation the Eclipse runtime scans the class definition for annotations. Based on these annotations the Eclipse framework performs the injection. 
+Note
+For objects which are not referred by the application model, Eclipse is not responsible for creating them and therefore does not perform dependency injection on them. 
+22.3. Re-injection 
+The Eclipse framework tracks the injected values and if they change, it can re-inject the new values. This means applications can be freed from having to install (and remove) listeners. 
+Note
+This is a very useful feature. Eclipse has, to the knowledge of the author of this tutorial, the only dependency injection framework which supports re-injection. 
+ For example, you can define via @Inject that you want to get the current selection injected. If the selection changes, the Eclipse framework injects the new value. 
+Tip
+ The re-injection only works on methods and fields which are marked with @Inject. It will not work on parameters injected into constructors and methods which are marked with @PostConstruct, as these methods are only executed once. 
+23. Objects available for dependency injection 
+23.1. Eclipse context (IEclipseContext) 
+ During startup the Eclipse runtime creates a context based on the IEclipseContext interface. This context contains the persisted objects, which can be injected. The persistence is transient, i.e., the context is recreated at application restart. 
+ The context is similar to a transient map, in which objects can be placed under a certain key. The key can be a String and in lot of cases the class name is used for this key. 
+ The Eclipse platform places some objects into the context by default. For example, it creates services to control Eclipse framework functionality. 
+23.2. Context relationship 
+ As said before the context is similar to a Map data structure. The difference is that it is not a flat structure. It is hierarchical and can also dynamically compute values for requested keys. 
+ Several contexts can be linked together to form a tree structure. 
+ For every model object in your application of type MContext a corresponding local context is created. These contexts are connected based on the structure of your application model. An example context hierarchy is depicted in the following picture. 
+
+  Context hierarchy  
+ Objects can be placed at different levels in the context hierarchy. This allows that the same key points to different objects in the hierarchy. 
+ For example, a part can express a dependency to a Composite object via a field declaration similar to: @Inject Composite parent; Since parts have different local contexts they can receive different objects of type Composite. 
+23.3. Which model elements have a local context? 
+ Currently the following model elements implement MContext and therefore have their own context: 
+  •   
+MApplication
+  •   
+MWindow
+  •   
+MPerspective
+  •   
+MPart
+  •   
+MPopupMenu
+
+23.4. How are objects selected for dependency injection 
+ By default a context created by the Eclipse platform is associated with an application model object. 
+ The default context hierarchy is created by the Eclipse framework and all context objects of the application model elements are hierarchically connected to it. Typically the highest level in this hierarchy is the application context. The OSGi level is actually not persisted as IEclipseContext data structure, but is dynamically queried whenever the dependency injection framework does not find a value in the context. 
+ If Eclipse performs dependency injection on a Java object, it first searches for a fitting object based on the specified key. The search starts in the local context associated with the application model object. If this key is not available, Eclipse continues to search in the parent context. This process continues until the main context has been reached. At this point the framework would check for a fitting OSGi service in the OSGi registry. 
+ The search happens transparently for the caller of the injection. 
+23.5. Default objects for dependency injection 
+ By default the following objects can be injected via dependency injection: 
+  •   
+model objects - contain the data of the application model 
+  •   
+all Preferences - key/value pairs which are persisted between application restarts and are typically used to store configuration of the application 
+  •   
+Eclipse and OSGi services - software components which are defined by the Eclipse platform or via the OSGi service registry 
+  •   
+all other objects which have explicitly been added to the context 
+
+Note
+ Preferences are actually not stored in the context. They are accessed via a special OSGi service which registers itself as an implementation of the ExtendedObjectSupplier interface. 
+ The context can be modified, e.g., the application and the framework can add elements to the context. It is also possible to define your own ExtendedObjectSupplier, which allows you and the framework to inject objects which are not in the context. 
+23.6. Creation process of the Eclipse context 
+ During startup the Eclipse framework creates the context hierarchy and register services. For each model element it also determines which objects should be available in the local context of the model object. It also creates the required Java objects referred by the Class URI property of the model elements. 
+ The renderer framework is responsible for creating the local the context of the user interface related model elements. This framework allows you to define classes responsible for setting up the UI implementation of the model objects. For example, the ContributedPartRenderer class is by default responsible for creating the Java objects referred by the part model objects. 
+ContributedPartRenderer creates a Composite for every part and injects this Composite into the local context of the part . 
+23.7. Getting the active part or shell 
+ The Eclipse platform places the part which is currently selected and the active shell under a special key into the IEclipseContext of the application object. The related keys are contained in the IServiceConstants interface. 
+For example, the following method would allow you to track the current active part in another part. 
+
+// Tracks the active part
+@Inject
+@Optional
+public void receiveActivePart(@Named(IServiceConstants.ACTIVE_PART) MPart activePart) {
+  if (activePart != null) {
+  System.out.println("Active part changed "
+    + activePart.getLabel());
+  }
+} 
+ To track the active shell use the IServiceConstants.ACTIVE_SHELL key. 
+
+// tracks the active shell
+@Inject
+@Optional
+public void receiveActiveShell(@Named(IServiceConstants.ACTIVE_SHELL) Shell shell) {
+  if (shell != null) {
+    System.out.println("Active shell (Window) changed");
+  }
+} 
+23.8. Tracking a child context with @Active 
+ The @Active annotation allows you to track values in a child context. The Eclipse framework keeps track of the current active branch in the hierarchy of the IEclipseContext. For example, if the user selects a part, the path in the IEclipseContext hierarchy from the root to the IEclipseContext of the part is the current active branch. 
+ With the @Active annotation you can track values in the current active branch of a child element. Whenever the active branch changes and the value of the referred key changes this value is re-injected into the object which uses the @Active annotation. 
+The usage of this annotation is demonstrated by the following code snippet. 
+
+public class MyOwnClass {
+  @Inject
+  void setChildValue(@Optional @Named("key_of_child_value") @Active String value) {
+    this.childValue = value;
+  }
+} 
+Note
+ The author of this tutorial has not yet managed to find a good use case for this annotation inside Eclipse RCP applications. @Active is also currently not used within the Eclipse framework itself. 
+24. Behavior Annotations 
+24.1. API definition via inheritance 
+ In general, every framework defines an Application Programming Interface (API). If you use a framework, you need to have a convention for which methods are called at which point of the execution of your program. For example, if a Java class is responsible for handling a toolbar button click, the framework needs to know which method of this class it should call. 
+The "traditional" way of defining an API is via inheritance. This approach requires that your classes extend or implement framework classes and interfaces. The Eclipse platform used this approach before the Eclipse 4 version. 
+ The framework defines, for example, an abstract class which defines methods to be implemented. In this example the method might be called execute() and the framework knows that this method must be called once the toolbar button is clicked. 
+API definition via inheritance is a simple way to define an API, but it also couples the classes tightly to the framework. For example, testing the class without the framework is difficult. It also makes extending or updating the framework difficult as such an update may affect clients. 
+24.2. API definition via annotations 
+ The Eclipse 4 platform API is not based on inheritance. To identify which methods should be called at a certain point in time, the Eclipse platform uses annotations. 
+ These annotations are called behavior annotations. 
+ The following tables lists the available behavior annotations for parts. 
+
+Table 10. Eclipse life cycle annotations for parts
+Annotation Description 
+@PostConstruct	Is called after the class is constructed and the field and method injection has been performed. 	
+@PreDestroy	Is called before the class is destroyed. Can be used to clean up resources. 	
+@Focus	 Indicates that this method should be called, once the Part gets the focus. 	
+@Persists	Is called if a save request on the Part is triggered. Used by the part service to identify the method to call if a save is triggered via this service. 	
+@PersistState	Is called before the model object is disposed, so that the part is able to save its instance state. Also called before the method annotated with @PreDestroy is called. 	
+
+
+Warning
+ All these annotations imply that the framework need to provide the specified parameters to the method, i.e., the framework also performs method dependency injection. Adding the @Inject annotation would trigger the method call twice, first during the dependency injection phase and later for the behavior annotation. This is typically undesired and therefore an error. 
+ The @PostConstruct, @PreDestroy annotations are included in the javax.annotation package. @Persist, @PersistState and @Focus are part of the org.eclipse.e4.ui.di package. 
+Eclipse defines additional behavior annotations for commands and for the application life cycle which are covered in the respective chapters. 
+25. Tutorial: Using dependency injection 
+25.1. Getting a Composite 
+In the following exercise we extend our classes to use dependency injection. 
+ Change the TodoOverviewPart class to the following: 
+
+package com.example.e4.rcp.todo.parts;
+
+import javax.inject.Inject;
+
+import org.eclipse.swt.widgets.Composite;
+
+public class TodoOverviewPart {
+  
+  @Inject 
+  public TodoOverviewPart(Composite parent) {
+    
+  // assuming that dependency injection works 
+  // parent will never be null
+  System.out.println("Woh! Got a Composite via DI.");
+  
+  // does it have a layout manager?
+  System.out.println("Layout: " + parent.getLayout().getClass());
+  }
+} 
+25.2. Validation 
+ Run your application and check in the Console view of your Eclipse IDE to see if the Composite parameter was injected. Note down the layout class which the Composite has assigned to if it is not null. 
+26. Exercise: Using @PostConstruct 
+26.1. Why using @PostConstruct? 
+ It is possible to create the user interface of a part in the constructor, but injection for fields and method has not been done at this point. 
+ Therefore it is recommended that the user interface is created in a @PostConstruct method. 
+ Creating the user interface in a method annotated with @PostConstruct requires that @Inject methods are aware that the user interface might not have been created yet. 
+26.2. Implement @PostConstruct 
+ Add the following method to your TodoOverviewPart, TodoDetailsPart and PlaygroundPart classes. 
+
+import javax.annotation.PostConstruct;
+
+// more code
+
+@PostConstruct
+public void createControls(Composite parent) {
+  System.out.println(this.getClass().getSimpleName() 
+  + " @PostConstruct method called.");
+} 
+ Remove all constructors from your classes. 
+26.3. Implement @Focus and test your application 
+ Implement a @Focus method in one of your parts. 
+
+import org.eclipse.e4.ui.di.Focus;
+
+// more code
+
+@Focus
+private void setFocus() {
+  System.out.println(this.getClass().getSimpleName() 
+      + " @Focus method called");
+} 
+Tip
+ Before Eclipse 4.3 it was mandatory to implement at least one user interface control in each part and put focus on it via a method annotated with the @Focus annotation. Since the Eclipse 4.3 release this is optional but still good practice. Once you implement the user interface in the parts you should put focus on one of them. 
+Start your application and ensure that the corresponding method is called whenever the user reselects this part after having clicked on another part. 
+Tip
+ The method annotated with @Focus is currently called twice once a part becomes visible, e.g., during startup, activating the part by clicking on the tab, and so on. This is done by the Eclipse framework to ensure consistency within the framework. If the part is already visible but not focused and the user focuses one of the containing SWT controls directly, the @Focus method will be called only once. 
+26.4. Validate 
+ Run your application and validate that the @PostConstruct method is called. 
+ If you are familiar with SWT, add a few more controls to your user interface. 
+Note
+ If the @PostConstruct method is not called, ensure that you have entered a package dependency to the javax.annotation package and set the version to 1.0.0. See http://wiki.eclipse.org/Eclipse4/RCP/FAQ for details on this issue. 
+27. Menu and toolbar application objects 
+27.1. Adding menu and toolbar entries 
+ You can add menus and toolbars to your RCP application via the application model. These entries can be positioned at various places. You can, for example, add a menu to a window or a part. 
+ The application model provides several options to contribute menu and toolbar entries. For simple cases you can use the Direct MenuItem or a Direct ToolItem model elements. They contain a reference to a class which is executed if the corresponding item is selected. The following description calls these elements: direct items. 
+ If you use the Handled MenuItem and Handled ToolItem model elements, you refer to a Command model element. The Command model elements are described in Section 27.2, “What are commands and handlers?”. 
+ The application model also supports the creation of menus at runtime via the DynamicMenuContribution model elements. 
+ Toolbars in the application are encapsulated in the application model via the Trimbars model element. A trimbar can be defined for TrimmedWindow model elements. Via its Side attribute you define if the trimbar should be placed on the top, left, right or bottom corner of the resulting window. 
+ Menus and toolbars support separators and can have submenus. 
+27.2. What are commands and handlers? 
+ The Eclipse application model allows you to specify commands and handlers. 
+ A command is a declarative description of an abstract action which can be performed, for example, save, edit or copy. A command is independent from its implementation details. 
+ The behavior of a command is defined via a handler. A handler model element points to a class via the contributionURI property of the handler. This attribute is displayed as Class URI in the model editor. Such a class is called handler class in this tutorial. 
+ Commands are used by the Handled MenuItem and Handled ToolItem model elements. 
+Tip
+ Prefer the usage of commands over the usage of direct (menu or tool) items. Using commands together with handlers allows you to define different handlers for different scopes (applications or part) and you can define key bindings for the handler's associated commands. 
+27.3. Mnemonics 
+ The application model allows you to define mnemonics. A mnemonic appears as an underlined letter in the menu when the user presses and holds the ALT key and allows the user to quickly access menu entries by keyboard. 
+ You specify mnemonics by prefixing the letter intended to be the mnemonic with an ampersand (&) in the label definition. For example, the label &Save with the S underlined (S) when the Alt key is pressed. 
+27.4. Standard commands 
+ Eclipse 4 does not provide standard commands, i.e., you have to create all required commands in your application model. 
+27.5. Naming schema for command and handler IDs 
+ A good convention is to start IDs with the top level package name of your project and to use only lower case letters. 
+ The IDs of commands and handlers should reflect their relationship. For example, if you implement a command with the com.example.contacts.commands.show ID, you should use com.example.contacts.handler.show as the ID for the handler. If you have more than one handler for one command, add another suffix to it, describing its purpose, e.g. com.example.contacts.handler.show.details. 
+ In case you implement commonly used functions, e.g., save, copy, you should use the existing platform IDs, as some Eclipse contributions expect these IDs. A more complete list of command IDs is available in org.eclipse.ui.IWorkbenchCommandConstants. 
+Table 11. Default IDs for commonly used commands
+Command ID 
+Save	org.eclipse.ui.file.save	
+Save All	org.eclipse.ui.file.saveAll	
+Undo	org.eclipse.ui.edit.undo	
+Redo	org.eclipse.ui.edit.redo	
+Cut	org.eclipse.ui.edit.cut	
+Copy	org.eclipse.ui.edit.copy	
+Paste	org.eclipse.ui.edit.paste	
+Delete	 org.eclipse.ui.edit.delete	
+Import	org.eclipse.ui.file.import	
+Export	org.eclipse.ui.file.export	
+Select All	org.eclipse.ui.edit.selectAll	
+About	org.eclipse.ui.help.aboutAction	
+Preferences	org.eclipse.ui.window.preferences	
+Exit	org.eclipse.ui.file.exit	
+
+28. Dependency injection for handler classes 
+28.1. Handler classes and their behavior annotations 
+ Direct menu or tool items as well as handler model elements point to a class. This class uses behavior annotations to mark the methods which are called by the framework in case the user selects a related user interface item. For brevity the following description use the handler classes term for such classes. 
+The behavior annotations for handler classes are described in the following table. 
+
+Table 12. Behavior annotations for handler classes
+Annotation Description 
+@Execute	 Marks the method which is responsible for the action of the handler class. The framework executes this method once the related user interface element, e.g., the menu entry, is selected. 
+	
+@CanExecute	 Marks a method to be visited by the Eclipse framework to check if the handler class can be executed. If a handler class returns false in this method, Eclipse disables the corresponding user interface element. For example, the save button is active if the handler class returns true in the @CanExecute method. 
+ The default for this method is true, which means, if the handler class can always be executed, it does not need to implement a @CanExecute method. 
+	
+
+
+Warning
+ According to the Javadoc only one method is allowed to be annotated with @Execute. The same applies for @CanExecute. While the framework currently does not complain about several methods marked with these annotation, you should avoid this, as it is otherwise undefined which method is called. 
+Note
+The Eclipse runtime tries to inject all parameters which are specified by these methods. 
+The following example demonstrates the implementation of a handler class. 
+
+package com.example.e4.rcp.todo.handlers;
+
+// import statements cut out
+// ..
+
+public class ExitHandler {
+  @Execute
+  public void execute(IWorkbench workbench) {
+    workbench.close();
+  }
+
+  // NOT REQUIRED IN THIS EXAMPLE
+  // just to demonstrates the usage of
+  // the annotation
+  @CanExecute
+  public boolean canExecute() {
+    return true;
+  }
+
+} 
+28.2. Which context is used for a handler class? 
+ The handler class is executed with the IEclipseContext in which the handler is called, i.e., the IEclipseContext which is currently marked as active in the window. In most common cases this is the context of the active part. The handler class is instantiated during startup of your application in another context, i.e., in the application or the windows context. 
+ All required parameters should be injected into the method annotated with @Execute, as you want the handler class to retrieve its runtime information during execution. 
+Warning
+To ensure that you get the expected values from the active context injected into your handler class, NEVER use field or constructor injection in it. 
+28.3. Evaluation of @CanExecute 
+@CanExecute is called by the framework if the SWT.SHOW event happens. This event is, for example, triggered whenever a new part is displayed. If you add items to the toolbar, a timer is automatically registered by the Eclipse framework which (as of the time of this writing) executes every 400 milliseconds. This timer will check the method annotated with @CanExecute to enable or disable the related toolbar entry. 
+28.4. Scope of handlers 
+If a command is selected, the runtime will determine the relevant handlers for the command. 
+ Each command can have only one valid handler for a given scope. The application model allows you to create a handler for the application, a window and a part. 
+If more than one handler is specified for a command, Eclipse will select the handler most specific to the model element. 
+ For example, if you have two handlers for the "Copy" command, one for the window and another one for the part then the runtime selects the handlers closest to model element which is currently selected by the user. 
+ Once the handler is selected, @CanExecute is called so the handler can determine if it is able to execute in the given context. If it returns false, it will disable any menu and tool items that point to that command. 
+29. Exercise: Adding menus and toolbars 
+29.1. Target of this exercise 
+In this exercise you create commands and handlers for your application. Afterwards you will create menu and toolbar entries using these commands. 
+29.2. Create command model elements 
+ Open the Application.e4xmi file of your com.example.e4.rcp.todo plug-in and select the Commands entry. This selection is highlighted in the following screenshot. 
+
+  Adding commands to your application  
+ Via the Add... button you can create new commands. The name and the ID are the important fields. Create the following commands. 
+
+Table 13. Commands
+ID Name 
+org.eclipse.ui.file.saveAll	Save	
+ org.eclipse.ui.file.exit 	Exit	
+com.example.e4.rcp.todo.command.new	New Todo	
+com.example.e4.rcp.todo.command.remove	Remove Todo	
+com.example.e4.rcp.todo.command.test	For testing	
+
+
+29.3. Creating the handler classes 
+ Create the com.example.e4.rcp.todo.handlers package for your handler classes. 
+ All handler classes implement an execute() method annotated with @Execute. 
+
+package com.example.e4.rcp.todo.handlers;
+
+import org.eclipse.e4.core.di.annotations.Execute;
+
+public class SaveAllHandler {
+  @Execute
+  public void execute() {
+    System.out.println((this.getClass().getSimpleName() + " called"));
+  }
+} 
+Using this template for all classes, implement the following classes. 
+  •   
+SaveAllHandler
+  •   
+ExitHandler
+  •   
+NewTodoHandler
+  •   
+RemoveTodoHandler
+  •   
+TestHandler
+29.4. Creating handler model elements 
+ Select the application-scoped Handlers entry in your application model and create the handlers from the following table for your commands. For the definition of handlers the ID, command and class are the relevant information. 
+ Use the com.example.e4.rcp.todo.handler prefix for all IDs of the handlers. 
+
+Table 14. Handlers
+Handler ID Command Class 
+.saveall	Save	SaveAllHandler	
+.exit 	Exit	ExitHandler	
+.new	New Todo	NewTodoHandler	
+.remove	Remove Todo	RemoveTodoHandler	
+.test	For testing	TestHandler	
+
+
+ The application model editor shows both the name and the ID of the command. The class URI follows the bundleclass:// schema, the table only defines the class name to make the table more readable. For example, for the save handler this looks like the following: 
+
+bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.SaveAllHandler 
+
+  Defining a handler in Eclipse 4  
+29.5. Adding a menu 
+ In your Application.e4xmi file select your TrimmedWindow entry in the model and flag the Main Menu attribute. 
+
+
+ Assign the org.eclipse.ui.main.menu ID to your main menu. 
+Warning
+Ensure that this ID of the main menu is correct. You use it later to contribute another menu entry via another plug-in. 
+ Add two menus, one with the name "File" and the other one with the name "Edit" in the Label attribute. 
+ Also set the org.eclipse.ui.file.menu ID for the File menu. Use com.example.e4.rcp.todo.menu.edit as ID for the Edit menu. 
+
+  Creating a menu  
+ Add a Handled MenuItem model element to the File menu. This item should point to the Save command via the Command attribute. 
+
+  Adding a menu item to the menu  
+ Add a Separator after the Save menu item and after that add an entry for the Exit command. 
+ Add all other commands to the Edit menu. 
+29.6. Adding a toolbar 
+ Select the TrimBars node under your TrimmedWindow entry and press the Add... button. The Side attribute should be set to Top, so that all toolbars assigned to that trimbar appear on the top of the application. 
+
+  Adding a toolbar  
+ Add a ToolBar model element to your TrimBar. Add a Handled ToolItem to this toolbar which points to the org.eclipse.ui.file.saveAll command. 
+ Set the label for this entry to Save. 
+
+  Adding a menu item to the menu  
+29.7. Implement handler class for exit 
+ To test if your handler is working, change your ExitHandler class, so that it closes your application, once selected. 
+
+package com.example.e4.rcp.todo.handlers;
+
+import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.e4.ui.workbench.IWorkbench;
+
+public class ExitHandler {
+  @Execute
+  public void execute(IWorkbench workbench) {
+    workbench.close();
+  }
+} 
+29.8. Validate 
+ Validate that your save handler is called if you select Save from the menu or the toolbar. 
+ Also check that you can exit your the application via the Exit menu entry. 
+30. View, popup and dynamic menus 
+30.1. View menus 
+ One menu in a part can be defined as a view menu. 
+Note
+Please note that the default Eclipse (renderer) framework supports only one menu for a part. 
+ To add a view menu entry, select the Menus entry under the part and append a ViewMenu model entry to it. 
+
+  Adding a View menu  
+30.2. Popup menu (context menu) 
+ You can also define a popup menu for SWT controls via the application model. To achieve this create a Popup Menu for the part which contains the SWT control. 
+
+  Defining a popupmenu in the application model  
+The popup menu contains entries, as, for example, a HandledMenuItem. 
+
+  ID for the popupmenu  
+ After this the pop menu can be assigned to an SWT control with the EMenuService service which can be accessed via dependency injection. This class provides the registerContextMenu(control, id) method for this purpose. The id parameter of the registerContextMenu method must be the ID attribute of your Popup Menu model element. 
+ The following pseudo code shows an example for the registration. It uses a JFace viewer, as the popup menu needs to be registered on the SWT control, the example code demonstrates how to access this control. 
+
+package com.example.e4.rcp.todo.parts;
+
+import javax.annotation.PostConstruct;
+
+import org.eclipse.e4.ui.workbench.swt.modeling.EMenuService;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+
+public class TodoOverviewPart {
+
+  @PostConstruct
+  public void createControls(Composite parent, EMenuService menuService) {
+    // more code...
+    TableViewer viewer = new TableViewer(parent, SWT.FULLSELECTION | SWT.MULTI);
+    
+    // more code
+    
+    // register context menu on the table
+    menuService.registerContextMenu(viewer.getControl(), 
+        "com.example.e4.rcp.todo.popupmenu.table");
+  }
+} 
+ If you want to implement this example, your plug-in must have dependencies defined for the org.eclipse.e4.ui.workbench.swt and the org.eclipse.e4.ui.model.workbench plug-ins in its MANIFEST.MF file. 
+30.3. Dynamic menu and toolbar entries 
+ You can also create menu and toolbar entries at runtime with the DynamicMenuContribution model element. 
+ This model element points to a class in which you annotate a method with the @AboutToShow annotation. The annotated method is called if the user selects the user interface element. 
+ The @AboutToHide annotation can be used to annotate a method which is called before the menu is hidden. 
+In these methods you can dynamically adjust the application model. 
+31. Toolbars, ToolControls and drop-down tool items 
+31.1. Adding toolbars to parts 
+ To add a toolbar to a view set the Toolbar flag on the model element for the part and create the entries in the application model. 
+Such an example setup is displayed in the following screenshot. 
+
+  Adding a toolbar to a part  
+31.2. ToolControls 
+ToolControl model element points to a Java class which can create controls that are displayed in the toolbar. 
+ For example, the following code creates a Text field in the toolbar which looks like a search field. 
+
+package com.example.e4.rcp.todo;
+
+import javax.annotation.PostConstruct;
+
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+
+public class SearchToolItem {
+  @PostConstruct
+  public void createControls(Composite parent) {
+    final Composite comp = new Composite(parent, SWT.NONE);
+    comp.setLayout(new GridLayout());
+    Text text = new Text(comp, SWT.SEARCH | SWT.ICON_SEARCH | SWT.CANCEL
+        | SWT.BORDER);
+    text.setMessage("Search");
+    GridDataFactory.fillDefaults().hint(130, SWT.DEFAULT).applyTo(text);
+
+  }
+} 
+ You can add such a ToolControl, for example, to your windows trimbar as depicted in the following screenshot. 
+
+  Adding a ToolItems to the Window Trim  
+ The following screenshot shows this ToolControl used in an example RCP application. 
+
+  Resulting application with a search Toolitem  
+31.3. Drop-down tool items 
+ Set the Menu attribute on an toolitem to be able to define a menu similar to the Run As... button in the Eclipse IDE. This button is depicted in the following screenshot. 
+
+  Drop-down menu for a toolitem  
+32. More on commands and handlers 
+32.1. Passing parameters to commands 
+ You can also pass parameters to commands. For this select a command and press the Add button in the Parameters section. 
+ The ID is the identifier which you can use to get the parameter value injected via the @Named annotation. 
+
+  Add a parameter to a command  
+
+  Defining the ID of the command  
+ Getting the parameter via the @Named annotation in your handler is demonstrated in the following code example. 
+
+package com.example.e4.rcp.todo.handlers;
+
+import javax.inject.Named;
+
+import org.eclipse.e4.core.di.annotations.Execute;
+
+public class TestHandler {
+  @Execute
+  public void execute(@Named("com.example.e4.rcp.todo" +
+      ".commandparameter.input") String param) {
+    System.out.println(param);
+  }
+
+
+} 
+ In your HandledMenuItem or HandledToolItem add a parameter and put the ID from the command parameter definition into the Name field. The entry from the Value field is passed to the handler of the command. 
+
+  Passing a parameter from a menu entry to a command  
+Warning
+ The ID of the parameter is the important one. This ID must be injected via the @Named annotation and used as Name (second field) during the definition of the menu or toolbar. This is highlighted in the following picture. 
+
+  Relationship between parameters in command and menu  
+32.2. Usage of core expressions 
+ The visibility of menus, toolbars and their entries can be restricted via core expressions. You add the corresponding attribute in the application model to the ID defined by the org.eclipse.core.expressions.definitions extension point in the plugin.xml file. 
+ To add this extension point to your application, open the plugin.xml file and select the Dependencies tab in the editor. Add the org.eclipse.core.expressions plug-in in the Required Plug-ins section. 
+ Afterwards select the Extensions tab, press the Add button and add the org.eclipse.core.expressions.definitions extension. You define an ID under which the core expression can be referred to in the application model. 
+Via right-click on the extension you can start building your expression. 
+ The following example can be used to restrict the visibility of a menu entry based on the type of the current selection. You will later learn how to set the current selection. Please note that the variable for the selection is currently called org.eclipse.ui.selection. In Eclipse 3.x this variable is called selection. 
+
+<extension
+      point="org.eclipse.core.expressions.definitions">
+  <definition
+            id="com.example.e4.rcp.todo.selectionset">
+      <with variable="org.eclipse.ui.selection">
+    <iterate ifEmpty="false" operator="or">
+      <instanceof value="com.example.e4.rcp.todo.model.Todo">
+      </instanceof>
+    </iterate>
+      </with>
+  </definition>
+</extension> 
+You can assign this core expression to your menu entry in the application model. It can be used to restrict the visibility of model elements. 
+
+  Enabling the core expression for a menu entry  
+
+  Assigning it to the menu entry  
+ This approach is similar to the definition of core expressions in Eclipse 3.x. 
+ The values available for Eclipse 3.x are contained in the ISources interface and documented in the  Eclipse core expressions wiki. Eclipse 4 does not always support the same variables, but the wiki documentation might still be helpful. 
+32.3. Evaluate your own values in core expressions 
+ You can also place values in the IEclipseContext of your application and use these for your visible-when evaluation. 
+ The following code demonstrates an example handler class which places a value for the myactivePartId key in the context (you will learn more about modifying the IEclipseContext later). 
+
+@Execute
+public void execute(IEclipseContext context) {
+  // put an example value in the context
+  context.set("myactivePartId", 
+  "com.example.e4.rcp.todo.part.todooverview");
+} 
+ The following shows an example core expression which evaluates to true if an myactivePartId key with the value com.example.e4.rcp.ui.parts.todooverview is found in the context. 
+
+<extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="com.example.e4.rcp.todo.todooverviewselected">
+         <with
+               variable="myactivePartId">
+            <equals
+                  value="com.example.e4.rcp.todo.part.todooverview">
+            </equals>
+         </with>
+      </definition>
+</extension> 
+This core expression can get assigned to a menu entry and control the visibility. 
+
+  Assigning the visible-when core expression to the menu entry  
+33. Key bindings 
+33.1. Using key bindings in your application 
+ It is also possible to define key bindings (shortcuts) for your Eclipse application. This requires two steps, first you need to enter values for the Binding Context node of your application model. 
+ Afterwards you need to enter the key bindings for the relevant binding context in the BindingTable node of your application model. A binding table is always assigned to a specific binding context. A binding context can have several binding tables assigned to it. 
+ Binding contexts are defined in a hierarchical fashion, so that key bindings in a child override the matching key binding in the parent. 
+Warning
+ Even though they sound similar a binding context is used for keybindings while the Eclipse context (IEclipseContext) is used as source for dependency injection. 
+33.2. JFace default values for binding contexts 
+ The binding context is identified via its ID. They can get assigned to a window or a part in the application model. This defines which keyboard shortcuts are valid for the window and which are valid for the part. 
+ Eclipse JFace uses predefined IDs to identify binding contexts. These IDs are based on the org.eclipse.jface.contexts.IContextIds class. JFace distinguishes between shortcuts for dialogs, windows or both. 
+ The following table gives an overview of the supported IDs and their validity. 
+
+Table 15. Default BindingContext values
+Context ID Description 
+ org.eclipse.ui.contexts.dialogAndWindow 	Key bindings valid for dialogs and windows 	
+ org.eclipse.ui.contexts.dialog 	Key bindings valid for dialogs 	
+ org.eclipse.ui.contexts.window 	Key bindings valid for windows	
+
+
+ As an example, Ctrl+C (Copy) would be defined in dialogAndWindows as it is valid everywhere, but F5 (Refresh) might only be defined for a Window and not for a Dialog. 
+33.3. Define Shortcuts 
+ The BindingTable node in the application model allows you to create key bindings based on a binding context. For this you create a new BindingTable model element and define a reference to the binding context via its ID. 
+ In your key binding entry you specify the key sequence and the command associated with this shortcut. 
+
+  How to add the BindingContext Entries  
+The control keys are different for each platform, e.g., on the Mac vs. a Linux system. You can use Ctrl, but this would be hardcoded. It is better to use the M1 - M4 metakeys. 
+Table 16. Key mapping
+Control Key Mapping for Windows and Linux Mapping for Mac 
+M1	Ctrl	Command	
+M2	Shift	Shift	
+M3	Alt	Alt	
+M4	Undefined	Ctrl	
+
+ These values are defined in the SWTKeyLookup class. 
+33.4. Key bindings for a part 
+ You can assign a specific binding context to be active while a part is active. 
+
+  BindingContent defined specific for a part  
+33.5. Activate bindings 
+ If there are several valid key bindings defined, the ContextSet class is responsible for activating one of them by default. ContextSet uses the binding context hierarchy to determine the lookup order. A binding context is more specific depending on how many ancestors are between it and a root binding context (the number of levels it has). The most specific binding context is considered first, the root one is considered last. 
+ You can also use the EContextService service which allows you to explicitly activate and deactivate a binding context via the activateContext() and deactivateContext() methods. 
+34. Relevant tags in the application model 
+The following table lists the most important tags for model elements of Eclipse 4 applications. 
+ Additional tags are defined in the IPresentationEngine class. It is up to the renderer implementation and model AddOns to interpret these tags. Renderer might also define additional tags. You also find more information about the available tags in the Eclipse 4 Wiki (see resources for link). 
+Table 17. Relevant tags of application model elements
+Tag Model element Description 
+shellMaximized 	Window or Trimmed Window 	Window is maximized at start of the application. 	
+shellMinimized 	Window or Trimmed Window 	Window is minimized at start of the application. 	
+NoAutoCollapse 	PartStack 	 Can be added to a PartStack container. With this flag the PartStack is not collapsed by the MinMax add-on even if you remove all parts from it. 	
+FORCE_TEXT 	ToolItem 	Enforces that text and icon is shown for a toolbar item. 	
+NoMove 	Part 	Prevents the user from moving the part (based on the DndAddON). 	
+
+
+35. Enable to start your product with right mouse click 
+ You can also add the pde nature to your project in which you placed the product configuration file, if you want to be able to start your product via a right-click on the product and by selecting Run-as → Eclipse Application. 
+Note
+ The Package Explorer view may have a filter set for .*resources. You can modify this filter via the view menu as depicted in the following screenshot. 
+
+  Remove filter  
+ For this purpose remove the filter in the Package Explorer view for files starting with . (dot) and modify the .project file to the following. 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+  <name>com.example.e4.rcp.todo.product</name>
+  <comment></comment>
+  <projects>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.pde.ManifestBuilder</name>
+      <arguments>
+      </arguments>
+    </buildCommand>
+    <buildCommand>
+      <name>org.eclipse.pde.SchemaBuilder</name>
+      <arguments>
+      </arguments>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.pde.PluginNature</nature>
+  </natures>
+</projectDescription> 
+36. Learn more about Eclipse 4 RCP development 
+ I hope you enjoyed this part of the Eclipse 4 series. Of course there is much more, check out the "Eclipse 4 development" section under my lists of Eclipse Plug-in and Eclipse RCP Tutorials section. 
+You find a complete and extended description of Eclipse 4 RCP development in the upcoming Eclipse 4 RCP book of Lars Vogel. 
+37. Thank you 
+
+
+ Please help me to support this article: 
+  Flattr this  	  _s-xclick    10463995    PayPal - The safer, easier way to pay online!  	
+
+38. Questions and Discussion 
+ If you find errors in this tutorial, please notify me (see the top of the page). Please note that due to the high volume of feedback I receive, I cannot answer questions to your implementation. Ensure you have read the  vogella FAQ as I don't respond to questions already answered there. 
+39. Links and Literature 
+39.1. Source Code 
+Source Code of Examples 
+39.2. Eclipse 4 resources 
+Eclipse 4 RCP Wiki 
+Eclipse 4 RCP FAQ 
+ vogella Eclipse Tutorials 
+ Eclipse wiki with Eclipse 4 tutorials 
+Eclipse 4 Dependency Injection Wiki 
+ Eclipse 4 RCP Wiki for tags for the Application model 
+Eclipse 4 Build Schedule 
+   

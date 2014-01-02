@@ -1,0 +1,165 @@
+                    WebRTC - 维基百科，自由的百科全书
+WebRTC
+维基百科，自由的百科全书  跳转至： 导航、 搜索   本页使用了标题或全文手工转换   WebRTC標誌。 WebRTC，名稱源自網頁即時通訊（英语：Web Real-Time Communication）的縮寫，是一个支援網頁浏览器进行实时语音对话或视频对话的API。它于2011年6月1日开源并在Google、Mozilla基金會、Opera支持下被包括进万维网联盟的W3C推荐标准[1][2][3]。
+
+目录
+  •  1 歷史
+  •  2 组成
+  •  3 實作 
+  •  3.1 瀏覽器
+  •  4 重要API 
+  •  4.1 Network Stream API
+  •  4.2 RTCPeerConnection
+  •  4.3 Peer-to-peer Data API
+  •  5 注釋
+
+歷史[编辑]
+2010年Google以6820万美元收购VoIP软件开发商Global IP Solutions的GIPS引擎[4][5][6][7]，並改為名为“WebRTC”。WebRTC 使用GIPS引擎，实现了基于网页的视频会议，並支持722，PCM，ILBC，ISAC等编码，同時使用谷歌自家的VP8視訊编解码；同時支持RTP/SRTP传输等。
+2012年谷歌已經把這款軟體整合到Chrome瀏覽器中。同時 FreeSWITCH 專案宣稱[8]支援 iSAC audio codec.
+组成[编辑]
+  •  視訊引擎（VideoEngine）
+  •  音頻引擎（VoiceEngine）
+  •  會議管理（Session Management）
+  •  iSAC：音頻壓縮
+  •  VP8：Google自家的WebM项目的视频编解码器
+  •  APIs(Native C++ API, Web API)
+實作[编辑]
+瀏覽器[编辑]
+  •  Opera：2012年1月Opera初步整合WebRTC。
+  •  Google Chrome：2012年1月將 WebRTC 整合進dev channel, 同年6月又完成stable channel的20版的整合（2012年7月, PeerConnection 與 MediaStream 仍必須透過chrome://flags page來開啟）[9]。
+  •  Mozilla Firefox：2012年初Mozilla整合WebRTC入Firefox alpha，此一版本的 audio mixing 已完成於 media stream[10]。 
+  •  2012年四月，Mozilla發佈演示，展現了Firefox中WebRTC的視訊調用[11]。
+  •  2013年6月發佈22.0版本正式整合及支援WebRTC。[12]
+  •  2013年9月發佈24.0版本，並宣告Firefox for Android（行動版）正式整合及支援WebRTC。[13]
+  •  Internet Explorer：Microsoft 開始開放 API[14]。
+  •  Ericsson：2012年11月Ericsson Labs 做出了全世界第一個可以支援WebRTC的手機浏览器[15]。
+  •  SeaMonkey：2013年1月發佈的15.0版本初步整合WebRTC。
+重要API[编辑]
+WebRTC 原生 APIs文件是基于 WebRTC 規格書[16]撰寫而成, 這些API可分成Network Stream API、 RTCPeerConnection、Peer-to-peer Data API三类。
+Network Stream API[编辑]
+  •  MediaStream：MediaStream用来表示一个媒体数据流。
+  •  MediaStreamTrack在浏览器中表示一个媒体源。
+RTCPeerConnection[编辑]
+  •  RTCPeerConnection: 一个RTCPeerConnection对象允许用户在两个浏览器之间直接通讯。
+  •  RTCIceCandidate ：表示一个ICE协议的候选者。
+  •  RTCIceServer:表示一个ICE Server。
+Peer-to-peer Data API[编辑]
+  •  DataChannel:数据通道( DataChannel)接口表示一个在两个节点之间的双向的数据通道 。
+注釋[编辑]
+  •  ^ http://www.h-online.com/open/news/item/Google-open-source-WebRTC-for-open-video-audio-chat-1253848.html
+  •  ^ https://sites.google.com/site/webrtc/home
+  •  ^ https://sites.google.com/site/webrtc/blog/introducingwebrtc-anopenreal-timecommunicationsproject
+  •  ^ https://sites.google.com/site/webrtc/license-rights
+  •  ^ https://sites.google.com/site/webrtc/ilbc-freeware
+  •  ^ http://www.h-online.com/open/news/item/Google-open-source-WebRTC-for-open-video-audio-chat-1253848.html
+  •  ^ https://sites.google.com/site/webrtc/faq
+  •  ^ http://www.freeswitch.org/node/376
+  •  ^ http://blog.chromium.org/2012/01/real-time-communications-in-chrome.html
+  •  ^ http://www.webmonkey.com/2012/01/mozilla-demos-mediastream-processing-audio-mixing-in-firefox/
+  •  ^ http://www.h-online.com/open/news/item/Mozilla-shows-WebRTC-browser-based-video-calling-1517803.html
+  •  ^ Mozilla Firefox 22.0 Release Notes. Mozilla.org. 2013-06-25 [2013-06-26]. 
+  •  ^ 行動版 Firefox 24 已支援 WebRTC. Mozilla Taiwan. 2013-09-24 [2013-10-02]. 
+  •  ^ http://html5labs.interoperabilitybridges.com/prototypes/media-capture-api-(2nd-updated)/media-capture-api-(2nd-update)/info
+  •  ^ https://labs.ericsson.com/blog/bowser-the-world-s-first-webrtc-enabled-mobile-browser
+  •  ^ http://www.iwebrtc.com/blog/webrtc1-0/
+	
+  •  查
+  •  论
+  •  编
+W3C规范和标准 
+	
+推薦標準 Canonical XML · CDF · CSS · DOM · HTML · MathML · OWL · P3P · PLS · RDF · RDF Schema · SISR · SMIL · SOAP · SRGS · SSML · SVG · SPARQL · Timed Text · VoiceXML · WSDL · XForms · XHTML · XLink · XML · XML Base · XML Encryption · XML Events · XML信息集 · XML命名空间 · XML Schema · XML Signature · XPath · XPointer · XQuery · XSL · XSL-FO · XSLT 	
+	
+Notes XAdES · XHTML+SMIL 	
+	
+工作草案 CCXML · CURIE · HTML5 · InkML · WebRTC · WICD · XFDL · XFrames · XBL · XHTML+MathML+SVG · XMLHttpRequest · XProc 	
+	
+檢測 無障礙網頁檢測 	
+	
+前标准 C-HTML · HDML · JSSS · PGML · VML 	
+ 取自“http://zh.wikipedia.org/w/index.php?title=WebRTC&oldid=28896986” 分类：  •  網站開發
+  •  W3C标准
+隐藏分类：  •  含有英語的條目
+导航菜单
+个人工具
+  •  创建账户
+  •  登录
+名字空间
+  •  条目
+  •  讨论
+ 不转换 
+变种
+  •  不转换
+  •  简体
+  •  繁體
+  •  大陆简体
+  •  香港繁體
+  •  澳門繁體
+  •  马新简体
+  •  台灣正體
+查看
+  •  阅读
+  •  编辑
+  •  查看历史
+操作
+搜索
+  搜索    Special:搜索  导航
+  •  首页
+  •  分類索引
+  •  特色内容
+  •  新闻动态
+  •  最近更改
+  •  随机条目
+帮助
+  •  帮助
+  •  维基社群
+  •  方针与指引
+  •  互助客栈
+  •  询问处
+  •  字词转换
+  •  IRC即时聊天
+  •  联系我们
+  •  关于维基百科
+  •  资助维基百科
+工具
+  •  链入页面
+  •  相关更改
+  •  上传文件
+  •  特殊页面
+  •  打印页面
+  •  永久链接
+  •  页面信息
+  •  数据项
+  •  引用本页
+其他语言
+  •  Deutsch
+  •  English
+  •  Español
+  •  فارسی
+  •  Suomi
+  •  Français
+  •  Magyar
+  •  Italiano
+  •  日本語
+  •  한국어
+  •  Nederlands
+  •  Polski
+  •  Português
+  •  Русский
+  •  Українська
+  •  
+  •  编辑链接
+  •   本页面最后修订于2013年10月13日 (星期日) 00:55。
+
+  •  本站的全部文字在知识共享 署名-相同方式共享 3.0协议之条款下提供，附加条款亦可能应用。（请参阅使用条款）
+ Wikipedia®和维基百科标志是维基媒体基金会的注册商标；维基™是维基媒体基金会的商标。
+ 维基媒体基金会是在美国佛罗里达州登记的501(c)(3)免税、非营利、慈善机构。
+
+  •  隐私权政策
+  •  关于维基百科
+  •  免责声明
+  •  开发者
+  •  移动版视图
+  •     Wikimedia Foundation  
+  •     Powered by MediaWiki  
+    

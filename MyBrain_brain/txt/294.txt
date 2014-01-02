@@ -1,0 +1,17 @@
+                    QRcode.com｜DENSO WAVE
+Answers to your questions about the QR Code！QRcode.com-DENSO WAVE, the Inventor of QR Code
+What is a QR Code?
+You can learn many things about QR Code, its features , standards, etc., here.
+How to introduce it?
+You can look up how to create a QR Code, scanners for it etc. here when you want to use it.
+History of QR Code / This is how QR Code was developed.
+Many ways of using the QR Code
+Types of QR Code
+  •  QR Code
+model 1 model 2
+  •  Micro QR Code
+  •  iQR Code
+  •  SQRC
+  •  LogoQ
+QR Code, iQR Code and SQRC are registered trademarks of DENSO WAVE INCORPORATED in Japan and in other countries.
+   

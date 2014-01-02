@@ -1,0 +1,18 @@
+                    SpringSide 春天的旁边
+Menu
+首页 下载 文档 讨论区 项目管理 曾获奖项 江南白衣微博 贡献者列表 Apache License 2.0 Introduce
+SpringSide是以Spring Framework为核心的，Pragmatic风格的JavaEE应用参考示例，是JavaEE世界中的主流技术选型，最佳实践的总结与演示。
+  •  Quickstart: 一个迷你的TodoList应用。
+  •  Showcase: 五花八门的JavaEE技术大派对。
+News
+  •  4.1.0.GA版，上一个版本大半年后的超人归来版。 -- 2013.7.18
+  •  基于travis-ci.org的持续集成。 -- 2013.7.11
+  •  CSDN主办的2013十大优秀国产开源软件。 -- 2013.6.28
+  •  开源中国主办的2012最受欢迎中国开源软件评选第十四名。 -- 2012.12.26
+  •  4.0.0.GA版，经过漫长的7个月和6个RC版本后, 4.0版终于杀青了。 -- 2012.10.06
+  •  4.0.0.RC1版，第一个Release Candidate版发布。 -- 2012.03.03
+  •  中文讨论区落户OSChina.net -- 2012.02.25
+  •  SpringSide主站落户GitHub.com -- 2012.02.24
+How to contribute
+Github提倡社交网络式的开源生活，人人都可以为SpringSide贡献代码。Just "Fork" and send the "Pull Request"，请看How to Contribute。
+Copyright©2005-2013 springside.org.cn Hosted on github.com    

@@ -1,0 +1,281 @@
+                    Google Chrome OS - 维基百科，自由的百科全书
+Google Chrome OS
+维基百科，自由的百科全书  跳转至： 导航、 搜索   本页使用了标题或全文手工转换  本文介紹的是一種作業系統。關於一種網頁瀏覽器，詳見「Google Chrome」。 Chrome OS   Google Chrome icon and wordmark (2011).svg  	
+  Chrome OS 16 stable.png  
+Chrome OS 	
+開發者 Google	
+程式語言 C, C++	
+作業系統家族 Linux	
+運作狀態 预装于特定硬件（Chromebook、Chromebox）	
+更新方式 滚动更新	
+套件管理員 Portage	
+支援平台 x86, ARM	
+内核類別 宏内核：Linux内核[1]	
+預設使用者介面 基于Google Chrome浏览器的图形用户界面	
+授權條款 Google Chrome OS Terms of Service[2]	
+Google Chrome OS是由Google所進行的一項輕型電腦作業系統發展計劃，發展出專用於互联网的雲端作業系統。[3][4]該作業系統設計計劃於2009年7月7日發布，系統植基於Google Chrome及Linux内核。最初將會設定在小筆電上使用[5]，而且預計在2011年上半年正式發表上市[6][7][8]“Chrome OS”可以在x86或ARM兩種微處理器上运行。[9]。
+Google聲明至2009年底，“Chrome OS”將以“Chromium OS”之名採用开放源代码[10]。雖然“Chrome OS”植基於Linux内核，不過她會使用“一種新的系統”[11]而不會採行目前正在使用中的Linux標準視窗系統，比如X Window系統。
+“Chrome OS”已於2009年11月19日以“Chromium OS”之名採用開放原始碼[12]，並宣佈其目前只能在指定硬件上運行，意味最終用戶將無法自行安裝“Chrome OS”至電腦。
+Google在2013年推出Chromecast，运行精简版Chrome OS操作系统。
+
+目录
+  •  1 发布原因
+  •  2 設計準則
+  •  3 版本洩漏
+  •  4 参考文献
+  •  5 外部链接
+  •  6 参见
+
+发布原因[编辑]
+     
+发布Chrome浏览器之后的9个月是令人兴奋的。今天，全球超过3千万的用户经常性地在使用它。我们为那些非常依赖网络的人们设计了Chrome浏览器，帮助他们搜索信息、查收邮件、获知新闻、购物，或者与朋友保持联络。然而，浏览器工作在的各种作業系统却诞生于没有互联网的时代：这正是为什么今天我们要宣布这个新的项目：Chrome作業系统，它是Chrome浏览器的自然延伸，也是我们重新思考作業系统之道的尝试。[13] 
+
+有人认为[14]，“Chrome OS”的形成是Google对Microsoft的正面挑戰的重要一步。同样在7月，Google前一天去除了Gmail，Google日历，Google Talk和Google文件的beta標籤，意在吸引更多企业用户。这些應用也是微软Office软件套装的竞争对手。[15]
+設計準則[编辑]
+Google聲稱“Chrome OS”的設計理念是朝極簡方向走，很像Google Chrome。依此方向，Google希望將大部分的使用者界面從桌上型環境轉移到万维网上。云计算將會是這種設計裡的最大的一部分。對於軟硬件設計發展人員，Google發出"網路即平臺"的觀點。[11]Google亦說明“Chrome OS”是會和手機的Android作業系統分離開來，Android主要是設計給智能手机使用。[16]而“Chrome OS”是設定給那些將大部分時間都花在互联网的用戶使用[17]，可以运行在小筆電和桌上型電腦上[9]。并且，据泄漏消息称，Google Chrome OS将只与硬件捆绑销售，不单独销售。Google亦为此改变很多硬件设计（甚至包括键盘）。
+版本洩漏[编辑]
+2009年9月15日，在Chromium（4.0.222.6-r28902）的build目录中，有一个139M的chrome-linux.zip文件，解压像是普通的Chrome，但有些不寻常的地方，比如右上角依次显示了系统时间、网络状态、电池状态等。但之後，檔案已被刪除。[18]
+於2009年11月19日正式發佈之Chromium OS，與早前洩漏的版本界面十分相似[19]。
+参考文献[编辑]
+  •  ^ Kernel Design: Background, Upgrades. Google. [September 7, 2011]. 
+  •  ^ Google. Google Chrome OS Terms of Service. [September 5, 2012]. 
+  •  ^ Mediati, Nick. Google Announces Chrome OS. PC World. 2009-07-07 [2009-07-08]. 
+  •  ^ 何英煒、楊玟欣, Chrome商機 宏碁跑第一, 中國時報. 2009-07-09 [2009-07-09] 
+  •  ^ Bobbie Johnson. Google targets Microsoft with new operating system. The Guardian. 2009-07-08 [2009-07-08]. 
+  •  ^ Ahmed, Murad, Google takes on Microsoft with Chrome operating system, Times Online. 2009-07-08 [2009-07-08] 
+  •  ^ 陳大任, 電腦資訊－Google推Chrome OS作業系統 明年上市, 中國時報. 2009-07-09 [2009-07-09] 
+  •  ^ 顏嘉南, Google強推作業系統 槓上微軟視窗, 中國時報. 2009-07-09 [2009-07-09] 
+  •  ^ 9.0 9.1 Womack, Brian. Google to Challenge Microsoft With Operating System. Bloomberg.com. 2009-07-08 [2009-07-08]. 
+  •  ^ Shiels, Maggie. Google to launch operating system. BBC News. 2009-07-08 [2009-07-08]. 
+  •  ^ 11.0 11.1 Arrington, Michael. Google Chrome: Redefining The Operating System. TechCrunch. 2009-07-08 [2009-07-08]. 
+  •  ^ Official Google Blog: Releasing the Chromium OS open source project. Official Google Blog. 2009-11-19 [2009-11-19]. 
+  •  ^ Google全球产品副总裁Sundar Pichai，Google工程研发总监Linus Upson. Google Chrome作業系统. Google公司. 6月18日. 
+  •  ^ 新浪全球新聞：《eWeek：微軟應當擔心Chrome OS十大理由》
+  •  ^ ZDNet首页评论：《Chrome OS！Google拥有了接入互联网的入口》
+  •  ^ Helft,Vance, Miguel,Ashlee. Google Plans a PC Operating System. New York Times. 2008-07-08 [2009-07-08]. 
+  •  ^ Hansell, Saul. Would you miss Windows with a Google operating system?. New York Times. 2009-07-08 [2009-07-08]. 
+  •  ^ http://google.org.cn/posts/mysterious-chrome-os-available.html
+  •  ^ http://blogoscoped.com/archive/2009-11-20-n21.html
+外部链接[编辑]
+	维基共享资源中相关的多媒体资源：Google Chrome OS	
+官網   •  The Chromium Projects 
+  •  Open-source
+相關   •  官方声明（英文）
+  •  Google Chrome OS - FAQ （英文）
+  •  Google Chrome Blog （英文）
+参见[编辑]
+  •  雲 (作業系統)（英语：Cloud (operating system)）
+  •  Webconverger（英语：Webconverger）
+  •  Gazelle（英语：Gazelle (web browser)）
+  •  Goobuntu（英语：Goobuntu）
+
+
+	
+  •  查
+  •  论
+  •  编
+Linux发行版 
+	
+基于Debian   •  Debian
+  •  Knoppix
+  •  MEPIS
+  •  Xandros
+  •  CrunchBang Linux
+	
+基于Ubuntu   •  Ubuntu
+  •  Kubuntu
+  •  Elementary OS
+  •  Edubuntu
+  •  Lubuntu
+  •  Xubuntu
+  •  Ubuntu GNOME
+  •  Linux Mint
+  •  Linux Deepin
+  •  PUD_GNU/Linux
+  •  StartOS
+  •  BackTrack
+	
+  NewTux.svg  	
+	
+基于Red Hat   •  Red Hat Enterprise Linux
+  •  Fedora
+  •  CentOS
+  •  Scientific Linux
+  •  Oracle Linux
+  •  Qomo Linux
+  •  Red Flag Linux
+	
+	
+基于Mandriva   •  Mandriva Linux
+  •  PCLinuxOS
+  •  Unity Linux
+  •  Mageia
+	
+	
+基于Gentoo   •  Gentoo Linux
+  •  Sabayon Linux
+  •  Calculate Linux
+  •  Funtoo Linux
+  •  Chromium OS
+  •  Google Chrome OS
+	
+	
+基于Slackware   •  Slackware
+  •  Zenwalk
+  •  VectorLinux
+  •  SLAX
+	
+	
+基于Arch Linux   •  Arch Linux
+  •  Chakra GNU/Linux
+  •  ArchBang
+  •  Manjaro Linux
+	
+	
+其它   •  SUSE/openSUSE
+  •  Puppy Linux
+  •  Damn Small Linux
+  •  Slitaz
+	
+	
+  •    分类  分类
+  •    非条目页面  比较
+  •    列表级条目  列表
+  •    共享资源页面  共享资源
+	
+	
+  •  查
+  •  论
+  •  编
+  Google2013logo.svg   公司 
+	
+董事长：埃里克·施密特 · 联合创始人、董事兼技术總監：谢尔盖·布林 · 联合创始人、首席执行官：拉里·佩奇
+其他董事：保羅·歐德寧 · 约翰·亨尼斯 · 阿瑟·莱文森 · 安·马瑟 · 约翰·杜尔 · 拉姆·希拉姆 · 雪莉·蒂格曼 · 首席财务官：帕特里克·皮切特 · 高级顾问：阿尔·戈尔
+	
+	
+系统平台 Chromium · Android · Chrome OS 	  Google2013logo.svg  	
+		
+软件 Chrome · 云打印 · 地球 · 输入法 · Talk · 工具列 · Picasa 		
+		
+硬件 Google Nexus · Moto X · Moto G · Google眼镜 · Google TV · Chromebook · Chromebox · Chromecast 		
+		
+开发工具 API · App Inventor · App Engine · Closure Tools · 代码 · GData · Go · 机器人 · Guice · GWS · Image Labeler · KML · MapReduce · SketchUp Ruby · Sitemaps · 编程之夏 · Web Toolkit · Website Optimizer · 协作平台 · Google Swiffy 		
+		
+互联网服务 搜尋 · 3D模型库 · Adsense · Adwords · Blogger · 书签 · 日历 · DoubleClick · Docs · 云端硬盘 · FeedBurner · Gmail · Map Maker · Mars · Moon · Panoramio · JotSpot · Zagat · Aardvark · Appliance · Audio Indexing · 圖書 · 代码搜索 · 桌面 · Fast Flip · 财经 · GOOG-411 · 图片搜索 · 地圖 · 新聞 · 专利 · 产品搜索 · 网上论坛 · 學術搜索 · Usenet · Squared · 知识图谱 · 搜索解析 · 趋势 · Webmaster guidelines · 问答 · Blogger · 雲端硬碟 · Picasa · Picasa网络相册 · Play · YouTube · Google+ · Google+ 環聊 · Orkut · 265导航 · 时惠 · A Google A Day 		
+		
+停止开发 Aardvark · Answers · Browser Sync · Base · Buzz · Click-to-Call · Dirhp · 代码搜索 · 桌面 · Dodgeball · GOOG-411 · Fast Flip · Gears · Jaiku · Health · Image Labeler · iGoogle · Lively · Mashup Editor · 笔记本 · 软件精选 · Page Creator · Picnik · PowerMeter · SearchMash · SearchWiki · Sidewiki · Slide · Squared · Video Marketplace · Wave · Web Accelerator · Zeitgeist · 金山词霸 · 热榜 · 生活 · 音乐 · Knol 		
+		
+其它 第八大道1​​11号（英语：111 Eighth Avenue） · 收購列表 · 产品列表 · 摩托罗拉移动 · 轟炸 · 審查 · 批評 · 光纤 · 谷歌中国 · Google.org · Googleplex · 玩笑 · 手气不错 · I/O · 實驗室 · Google X 實驗室 · 商標 · 月球X大奖 · WiFi · TV · Driverless Car · Public DNS · URL Shortener · Music · 藝術計劃 · 開發者日 · Ingress · Science Fair · 電子錢包 · AtGoogleTalks · 开发者实时录像 · 开发者日 · Project Loon · Calico · AdMob · Adscape · AdSense · AdWords · Google化（英语：Googlization） · 谷姐网（英语：Goojje） 		
+		
+股票代码：（NASDAQ: GOOG、NYSE：GOOG、FWB：GGQ1） · 格言：不作恶（Don't be evil） · Google主题首页 		
+ 取自“http://zh.wikipedia.org/w/index.php?title=Google_Chrome_OS&oldid=28095197” 分类：  •  Linux發行版
+  •  Google軟體
+隐藏分类：  •  含有英語的條目
+  •  本地链接的维基共享资源分类与Wikidata不同
+导航菜单
+个人工具
+  •  创建账户
+  •  登录
+名字空间
+  •  条目
+  •  讨论
+ 不转换 
+变种
+  •  不转换
+  •  简体
+  •  繁體
+  •  大陆简体
+  •  香港繁體
+  •  澳門繁體
+  •  马新简体
+  •  台灣正體
+查看
+  •  阅读
+  •  编辑
+  •  查看历史
+操作
+搜索
+  搜索    Special:搜索  导航
+  •  首页
+  •  分類索引
+  •  特色内容
+  •  新闻动态
+  •  最近更改
+  •  随机条目
+帮助
+  •  帮助
+  •  维基社群
+  •  方针与指引
+  •  互助客栈
+  •  询问处
+  •  字词转换
+  •  IRC即时聊天
+  •  联系我们
+  •  关于维基百科
+  •  资助维基百科
+工具
+  •  链入页面
+  •  相关更改
+  •  上传文件
+  •  特殊页面
+  •  打印页面
+  •  永久链接
+  •  页面信息
+  •  数据项
+  •  引用本页
+其他语言
+  •  العربية
+  •  Беларуская (тарашкевіца)‎
+  •  Български
+  •  Català
+  •  Čeština
+  •  Deutsch
+  •  English
+  •  Esperanto
+  •  Español
+  •  Eesti
+  •  فارسی
+  •  Suomi
+  •  Français
+  •  עברית
+  •  Magyar
+  •  Bahasa Indonesia
+  •  Italiano
+  •  日本語
+  •  ಕನ್ನಡ
+  •  한국어
+  •  Lietuvių
+  •  Македонски
+  •  മലയാളം
+  •  मराठी
+  •  Bahasa Melayu
+  •  Nederlands
+  •  Norsk bokmål
+  •  Polski
+  •  Português
+  •  Русский
+  •  Simple English
+  •  Shqip
+  •  Svenska
+  •  தமிழ்
+  •  తెలుగు
+  •  ไทย
+  •  Türkçe
+  •  Українська
+  •  Tiếng Việt
+  •  
+  •  编辑链接
+  •   本页面最后修订于2013年8月5日 (星期一) 01:35。
+
+  •  本站的全部文字在知识共享 署名-相同方式共享 3.0协议之条款下提供，附加条款亦可能应用。（请参阅使用条款）
+ Wikipedia®和维基百科标志是维基媒体基金会的注册商标；维基™是维基媒体基金会的商标。
+ 维基媒体基金会是在美国佛罗里达州登记的501(c)(3)免税、非营利、慈善机构。
+
+  •  隐私权政策
+  •  关于维基百科
+  •  免责声明
+  •  开发者
+  •  移动版视图
+  •     Wikimedia Foundation  
+  •     Powered by MediaWiki  
+    

@@ -1,0 +1,407 @@
+                    The Scala Programming Language
+    Scala Logo    •  Documentation
+  •  Download
+  •  Community
+  •  Contribute
+  •     GitHub Logo  Source Code 
+  •     Twitter Logo  Scala on Twitter 
+Object-Oriented Meets Functional
+ Have the best of both worlds. Construct elegant class hierarchies for maximum code reuse and extensibility, implement their behavior using higher-order functions. Or anything in-between. 
+Learn More  
+ Scala began life in 2003, created by Martin Odersky and his research group at EPFL, next to Lake Geneva and the Alps, in Lausanne, Switzerland. Scala has since grown into a mature open source programming language, used by hundreds of thousands of developers, and is developed and maintained by scores of people all over the world. Download API Docs       Spiral  Scala
+2.10.3 Getting Started
+  gears icon   Milestones, nightlies, etc.
+  list icon   All Previous Releases
+API: Current | Nightly
+  books icon   Scala Documentation
+  pdf icon   Language Specification
+Scala in a Nutshell
+ click the boxes below to see Scala in action! 
+Seamless Java Interop
+Scala runs on the JVM, so Java and Scala stacks can be freely mixed for totally seamless integration.
+Type Inference
+So the type system doesn't feel so static. Don't work for the type system. Let the type system work for you!
+Concurrency
+& Distribution
+Use data-parallel operations on collections, use actors for concurrency and distribution, or futures for asynchronous programming.
+Traits
+Combine the flexibility of Java-style interfaces with the power of classes. Think principled multiple-inheritance.
+Pattern Matching
+Think "switch" on steroids. Match against class hierarchies, sequences, and more.
+Higher-Order Functions
+Functions are first-class objects. Compose them with guaranteed type safety. Use them anywhere, pass them to anything.
+Learn More or visit the Scala Documentation
+Author.scala class Author(val firstName: String,
+    val lastName: String) extends Comparable[Author] {
+
+  override def compareTo(that: Author) = {
+    val lastNameComp = this.lastName compareTo that.lastName
+    if (lastNameComp != 0) lastNameComp
+    else this.firstName compareTo that.firstName
+  }
+}
+
+object Author {
+  def loadAuthorsFromFile(file: java.io.File): List[Author] = ???
+} App.java import static scala.collection.JavaConversions.asJavaCollection;
+
+public class App {
+    public List<Author> loadAuthorsFromFile(File file) {
+        return new ArrayList<Author>(asJavaCollection(
+            Author.loadAuthorsFromFile(file)));
+    }
+
+    public void sortAuthors(List<Author> authors) {
+        Collections.sort(authors);
+    }
+
+    public void displaySortedAuthors(File file) {
+        List<Author> authors = loadAuthorsFromFile(file);
+        sortAuthors(authors);
+        for (Author author : authors) {
+            System.out.println(
+                author.lastName() + ", " + author.firstName());
+        }
+    }
+} Combine Scala and Java seamlessly
+Scala classes are ultimately JVM classes. You can create Java objects, call their methods and inherit from Java classes transparently from Scala. Similarly, Java code can reference Scala classes and objects.
+ In this example, the Scala class Author implements the Java interface Comparable<T> and works with Java Files. The Java code uses a method from the companion object Author, and accesses fields of the Author class. It also uses JavaConversions to convert between Scala collections and Java collections. 
+Type inference scala> class Person(val name: String, val age: Int) {
+     |   override def toString = s"$name ($age)"
+     | }
+defined class Person
+
+scala> def underagePeopleNames(persons: List[Person]) = {
+     |   for (person <- persons; if person.age < 18)
+     |     yield person.name
+     | }
+underagePeopleNames: (persons: List[Person])List[String]
+
+scala> def createRandomPeople() = {
+     |   val names = List("Alice", "Bob", "Carol",
+     |       "Dave", "Eve", "Frank")
+     |   for (name <- names) yield {
+     |     val age = (Random.nextGaussian()*8 + 20).toInt
+     |     new Person(name, age)
+     |   }
+     | }
+createRandomPeople: ()List[Person]
+
+scala> val people = createRandomPeople()
+people: List[Person] = List(Alice (16), Bob (16), Carol (19), Dave (18), Eve (26), Frank (11))
+
+scala> underagePeopleNames(people)
+res1: List[String] = List(Alice, Bob, Frank) Let the compiler figure out the types for you
+The Scala compiler is smart about static types. Most of the time, you need not tell it the types of your variables. Instead, its powerful type inference will figure them out for you.
+ In this interactive REPL session (Read-Eval-Print-Loop), we define a class and two functions. You can observe that the compiler infers the result types of the functions automatically, as well as all the intermediate values. 
+Concurrent/Distributed val x = future { someExpensiveComputation() }
+val y = future { someOtherExpensiveComputation() }
+val z = for (a <- x; b <- y) yield a*b
+for (c <- z) println("Result: " + c)
+println("Meanwhile, the main thread goes on!") Go Concurrent or Distributed with Futures & Promises
+In Scala, futures and promises can be used to process data asynchronously, making it easier to parallelize or even distribute your application.
+ In this example, the future{} construct evaluates its argument asynchronously, and returns a handle to the asynchronous result as a Future[Int]. For-comprehensions can be used to register new callbacks (to post new things to do) when the future is completed, i.e., when the computation is finished. And since all this is executed asynchronously, without blocking, the main program thread can continue doing other work in the meantime. 
+Traits abstract class Spacecraft {
+  def engage(): Unit
+}
+trait CommandoBridge extends Spacecraft {
+  def engage(): Unit = {
+    for (_ <- 1 to 3)
+      speedUp()
+  }
+  def speedUp(): Unit
+}
+trait PulseEngine extends Spacecraft {
+  val maxPulse: Int
+  var currentPulse: Int = 0
+  def speedUp(): Unit = {
+    if (currentPulse < maxPulse)
+      currentPulse += 1
+  }
+}
+class StarCruiser extends Spacecraft
+                     with CommandoBridge
+                     with PulseEngine {
+  val maxPulse = 200
+} Flexibly Combine Interface & Behavior
+ In Scala, multiple traits can be mixed into a class to combine their interface and their behavior.
+Here, a StarCruiser is a Spacecraft with a CommandoBridge that knows how to engage the ship (provided a means to speed up) and a PulseEngine that specifies how to speed up. 
+Pattern matching // Define a set of case classes for representing binary trees.
+sealed abstract class Tree
+case class Node(elem: Int, left: Tree, right: Tree) extends Tree
+case object Leaf extends Tree
+
+// Return the in-order traversal sequence of a given tree.
+def inOrder(t: Tree): List[Int] = t match {
+  case Node(e, l, r) => inOrder(l) ::: List(e) ::: inOrder(r)
+  case Leaf          => List()
+} Switch on the structure of your data
+In Scala, case classes are used to represent structural data types. They implicitly equip the class with meaningful toString, equals and hashCode methods, as well as the ability to be deconstructed with pattern matching.
+ In this example, we define a small set of case classes that represent binary trees of integers (the generic version is omitted for simplicity here). In inOrder, the match construct chooses the right branch, depending on the type of t, and at the same time deconstructs the arguments of a Node. 
+Go Functional with Higher-Order Functions
+In Scala, functions are values, and can be defined as anonymous functions with a concise syntax.
+Scala val people: Array[Person]
+
+// Partition `people` into two arrays `minors` and `adults`.
+// Use the higher-order function `(_.age < 18)` as a predicate for partitioning.
+val (minors, adults) = people partition (_.age < 18) Java List<Person> people;
+
+List<Person> minors = new ArrayList<Person>(people.size());
+List<Person> adults = new ArrayList<Person>(people.size());
+for (Person person : people) {
+    if (person.getAge() < 18)
+        minors.add(person);
+    else
+        adults.add(person);
+}  In the Scala example on the left, the partition method, available on all collection types (including Array), returns two new collections of the same type. Elements from the original collection are partitioned according to a predicate, which is given as a lambda, i.e., an anonymous function. The _ stands for the parameter to the lambda, i.e., the element that is being tested. This particular lambda can also be written as (x => x.age < 18). 
+The same program is implemented in Java on the right.
+Upcoming Events
+See more events or add one to our feed Upcoming Training
+See more trainings or add one to our feed What's New
+announcement Scala 2.10.4-RC1 is now available!   date icon Friday, December 20, 2013 We are very happy to announce the first release candidate of Scala 2.10.4! If no serious blocking issues are found this will become the final 2.10.4 version.
+The release is available for download from scala-lang.org or from Maven Central.
+The Scala team and contributors fixed 23 issues since 2.10.3!
+In total, 39 RC1 pull requests were merged on GitHub.
+Known Issues
+Before reporting a bug, please have a look at these known issues.
+Scala IDE for Eclipse
+The Scala IDE with this release built right in is available through the following update-site:
+  •  for Eclipse 4.2/4.3 (Juno/Kepler) (The url is different from the usual one, note the next/.)
+Have a look at the getting started guide for more info.
+New features in the 2.10 series
+Since 2.10.4 is strictly a bug-fix release, here’s an overview of the most prominent new features and improvements as introduced in 2.10.0:
+  •   
+Value Classes
+  •   
+A class may now extend AnyVal to make it behave like a struct type (restrictions apply).
+  •   
+http://docs.scala-lang.org/overviews/core/value-classes.html
+  •   
+Implicit Classes
+  •   
+The implicit modifier now also applies to class definitions to reduce the boilerplate of implicit wrappers.
+  •   
+http://docs.scala-lang.org/sips/pending/implicit-classes.html
+  •   
+String Interpolation
+  •   
+val what = "awesome"; println(s"string interpolation is ${what.toUpperCase}!")
+  •   
+http://docs.scala-lang.org/overviews/core/string-interpolation.html
+  •   
+Futures and Promises
+  •   
+Asynchronously get some JSON: for (req <- WS.url(restApiUrl).get()) yield (req.json \ "users").as[List[User]] (uses play!)
+  •   
+http://docs.scala-lang.org/overviews/core/futures.html
+  •   
+Dynamic and applyDynamic
+  •   
+x.foo becomes x.applyDynamic("foo") if x’s type does not define a foo, but is a subtype of Dynamic
+  •   
+http://docs.scala-lang.org/sips/pending/type-dynamic.html
+  •   
+Dependent method types:
+  •  def identity(x: AnyRef): x.type = x // the return type says we return exactly what we got
+  •   
+New ByteCode emitter based on ASM
+  •   
+Can target JDK 1.5, 1.6 and 1.7
+  •   
+Emits 1.6 bytecode by default
+  •   
+Old 1.5 backend is deprecated
+  •   
+A new Pattern Matcher
+  •   
+rewritten from scratch to generate more robust code (no more exponential blow-up!)
+  •   
+code generation and analyses are now independent (the latter can be turned off with -Xno-patmat-analysis)
+  •   
+Scaladoc Improvements
+  •   
+Implicits (-implicits flag)
+  •   
+Diagrams (-diagrams flag, requires graphviz)
+  •   
+Groups (-groups)
+  •   
+Modularized Language features
+  •   
+Get on top of the advanced Scala features used in your codebase by explicitly importing them.
+  •   
+http://docs.scala-lang.org/sips/pending/modularizing-language-features.html
+  •   
+Parallel Collections are now configurable with custom thread pools
+  •  http://docs.scala-lang.org/overviews/parallel-collections/overview.html
+  •   
+Akka Actors now part of the distribution
+  •   
+scala.actors have been deprecated and the akka implementation is now included in the distribution.
+  •   
+See the actors migration project for more information.
+  •   
+Performance Improvements
+  •   
+Faster inliner
+  •   
+Range#sum is now O(1)
+  •   
+Update of ForkJoin library
+  •   
+Fixes in immutable TreeSet/TreeMap
+  •   
+Improvements to PartialFunctions
+  •   
+Addition of ??? and NotImplementedError
+  •   
+Addition of IsTraversableOnce + IsTraversableLike type classes for extension methods
+  •   
+Deprecations and cleanup
+  •   
+Floating point and octal literal syntax deprecation
+  •   
+Removed scala.dbc
+Experimental features
+  •   
+Scala Reflection
+  •  http://docs.scala-lang.org/overviews/reflection/overview.html
+  •   
+Macros
+  •  http://docs.scala-lang.org/overviews/macros/overview.html
+The API is subject to (possibly major) changes in the 2.11.x series, but don’t let that stop you from experimenting with them! A lot of developers have already come up with very cool applications for them. Some examples can be seen at http://scalamacros.org/news/2012/11/05/status-update.html.
+A big thank you to all the contributors!
+#Author
+16	Jason Zaugg	
+15	Adriaan Moors	
+3	Simon Schaefer	
+3	Eugene Burmako	
+3	Luc Bourlier	
+2	Som Snytt	
+2	Paul Phillips	
+2	Mirco Dotta	
+1	Mark Harrah	
+1	Vlad Ureche	
+1	Heather Miller	
+1	FrancÃßois Garillot	
+1	Roberto Tyley	
+Commits and the issues they fixed since v2.10.3
+Issue(s)CommitMessage
+SI-6426	47562e7adb	Revert "SI-6426, importable _."	
+SI-8062	f0d913b51d	SI-8062 Fix inliner cycle with recursion, separate compilation	
+SI-7912	006e2f2aad	SI-7912 Be defensive calling `toString` in `MatchError#getMessage`	
+SI-8060	bb427a3416	SI-8060 Avoid infinite loop with higher kinded type alias	
+SI-7995	5ed834e251	SI-7995 completion imported vars and vals	
+SI-8019	c955cf4c2e	SI-8019 Make Publisher check PartialFunction is defined for Event	
+SI-8029	fdcc262070	SI-8029 Avoid multi-run cyclic error with companions, package object	
+SI-7439	8d74fa0242	[backport] SI-7439 Avoid NPE in `isMonomorphicType` with stub symbols.	
+SI-8010	9036f774bc	SI-8010 Fix regression in erasure double definition checks	
+SI-7982	7d4109486b	SI-7982 Changed contract of askLoadedType to unload units by default	
+SI-6913	70634395a4	SI-6913 Fixing semantics of Future fallbackTo to be according to docs	
+SI-7458	02308c9691	SI-7458 Pres. compiler must not observe trees in silent mode	
+SI-7548	652b3b4b9d	SI-7548 Test to demonstrate residual exploratory typing bug	
+SI-7548	b7509c922f	SI-7548 askTypeAt returns the same type whether the source was fully or targeted	
+SI-8005	3629b645cc	SI-8005 Fixes NoPositon error for updateDynamic calls	
+SI-8004	696545d53f	SI-8004 Resolve NoPosition error for applyDynamicNamed method call	
+SI-7463, SI-8003	b915f440eb	SI-7463,SI-8003 Correct wrong position for {select,apply}Dynamic calls	
+SI-7280	053a2744c6	[nomaster] SI-7280 Scope completion not returning members provided by imports	
+SI-7915	04df2e48e4	SI-7915 Corrected range positions created during default args expansion	
+SI-7776	d15ed081ef	[backport] SI-7776 post-erasure signature clashes are now macro-aware	
+SI-6546	075f6f260c	SI-6546 InnerClasses attribute refers to absent class	
+SI-7638, SI-4012	e09a8a2b7f	SI-4012 Mixin and specialization work well	
+SI-7519	50c8b39ec4	SI-7519: Additional test case covering sbt/sbt#914	
+SI-7519	ce74bb0060	[nomaster] SI-7519 Less brutal attribute resetting in adapt fallback	
+SI-4936, SI-6026	e350bd2cbc	[nomaster] SI-6026 backport getResource bug fix	
+SI-6026	2bfe0e797c	SI-6026 REPL checks for javap before tools.jar	
+SI-7295	25bcba59ce	SI-7295 Fix windows batch file with args containing parentheses	
+SI-7020	7b560213cb	Disable tests for SI-7020	
+SI-7783	2ccbfa5778	SI-7783 Don't issue deprecation warnings for inferred TypeTrees	
+SI-7815	733b3220c9	SI-7815 Dealias before deeming method type as dependent	
+Complete commit list!
+shaTitle
+3fa2c97853	Report error on code size overflow, log method name.	
+2aa9da578e	Partially revert f8d8f7d08d.	
+47562e7adb	Revert "SI-6426, importable _."	
+f0d913b51d	SI-8062 Fix inliner cycle with recursion, separate compilation	
+9cdbe28c00	Fixup #3248 missed a spot in pack.xml	
+006e2f2aad	SI-7912 Be defensive calling `toString` in `MatchError#getMessage`	
+bb427a3416	SI-8060 Avoid infinite loop with higher kinded type alias	
+27a38602de	Update README, include doc/licenses in distro	
+139ba9d875	Add attribution for Typesafe.	
+e555106070	Remove docs/examples; they reside at scala/scala-dist	
+dc6dd58d9d	Remove unused android test and corresponding license.	
+f8d8f7d08d	Do not distribute partest and its dependencies.	
+5ed834e251	SI-7995 completion imported vars and vals	
+c955cf4c2e	SI-8019 Make Publisher check PartialFunction is defined for Event	
+fdcc262070	SI-8029 Avoid multi-run cyclic error with companions, package object	
+8d74fa0242	[backport] SI-7439 Avoid NPE in `isMonomorphicType` with stub symbols.	
+9036f774bc	SI-8010 Fix regression in erasure double definition checks	
+3faa2eedd8	[nomaster] better error messages for various macro definition errors	
+7d4109486b	SI-7982 Changed contract of askLoadedType to unload units by default	
+70634395a4	SI-6913 Fixing semantics of Future fallbackTo to be according to docs	
+02308c9691	SI-7458 Pres. compiler must not observe trees in silent mode	
+652b3b4b9d	SI-7548 Test to demonstrate residual exploratory typing bug	
+b7509c922f	SI-7548 askTypeAt returns the same type whether the source was fully or targeted	
+0c963c9085	[nomaster] teaches toolbox about -Yrangepos	
+3629b645cc	SI-8005 Fixes NoPositon error for updateDynamic calls	
+696545d53f	SI-8004 Resolve NoPosition error for applyDynamicNamed method call	
+b915f440eb	SI-7463,SI-8003 Correct wrong position for {select,apply}Dynamic calls	
+053a2744c6	[nomaster] SI-7280 Scope completion not returning members provided by imports	
+eb9f0f7975	[nomaster] Adds test cases for scope completion	
+3a8796da1a	[nomaster] Test infrastructure for scope completion	
+04df2e48e4	SI-7915 Corrected range positions created during default args expansion	
+ec89b59717	Upgrade pax-url-aether to 1.6.0.	
+1d29c0a08b	[backport] Add buildcharacter.properties to .gitignore.	
+31ead67a30	IDE needs swing/actors/continuations	
+852a9479d0	Allow retrieving STARR from non-standard repo for PR validation	
+40af1e0c44	Allow publishing only core (pr validation)	
+ba0718fd1d	Render relevant properties to buildcharacter.properties	
+d15ed081ef	[backport] SI-7776 post-erasure signature clashes are now macro-aware	
+6045a05b83	Fix completion after application with implicit arguments	
+075f6f260c	SI-6546 InnerClasses attribute refers to absent class	
+e09a8a2b7f	SI-4012 Mixin and specialization work well	
+50c8b39ec4	SI-7519: Additional test case covering sbt/sbt#914	
+ce74bb0060	[nomaster] SI-7519 Less brutal attribute resetting in adapt fallback	
+e350bd2cbc	[nomaster] SI-6026 backport getResource bug fix	
+2bfe0e797c	SI-6026 REPL checks for javap before tools.jar	
+25bcba59ce	SI-7295 Fix windows batch file with args containing parentheses	
+7b560213cb	Disable tests for SI-7020	
+8986ee4fd5	Disable flaky presentation compiler test.	
+2ccbfa5778	SI-7783 Don't issue deprecation warnings for inferred TypeTrees	
+ee9138e99e	Bump version to 2.10.4 for nightlies	
+733b3220c9	SI-7815 Dealias before deeming method type as dependent	
+more... Recently...
+Announcing Scala.js v0.1   date-icon Friday, November 29, 2013 announcement We’re excited to announce the first release of Scala.js, v0.1! Scala.js was introduced during the 4th Scala Days in June 2013, and has now reached... Scala 2.11.0-M7 is now available!   date-icon Wednesday, November 27, 2013 announcement The seventh development milestone of Scala 2.11 is now available for download! It brings the following goodness: delambdafication (compiling closures Java 8-style, as close as... Scala 2.10.3 is now available!   date-icon Tuesday, October 01, 2013 announcement We are very happy to announce the final release of Scala 2.10.3! The release is available for download from scala-lang.org or from Maven Central. The...   date-icon   For more, visit our
+News archive or Blog Scala on Twitter
+
+  See more tweets, or Follow Scala on Twitter 
+  white Twitter logo    •  
+Documentation
+  •  Getting Started
+  •  API
+  •  Overviews/Guides
+  •  Tutorials
+  •  Language Specification   red pdf icon  
+  •  
+Download
+  •  Stable Release
+  •  Development Release
+  •  
+Community
+  •  Mailing lists
+  •  Social Media
+  •  
+Contribute
+  •  Report an Issue
+  •  How to Help
+  •  Contributor's Guide
+  •  Contributor's Hall of Fame
+  •  
+Scala
+  •  Blog
+  •  News Archive
+  •  Scala License
+  EPFL logo  
+Copyright © 2002- École Polytechnique Fédérale de Lausanne (EPFL)
+ Lausanne, Switzerland
+  Scala footer logo      

@@ -1,0 +1,169 @@
+                     Apache ActiveMQ ™ -- Index 
+ActiveMQ ™ ASF Apache ActiveMQ > Index Download | JavaDocs More... | Source | Forums | Support
+	
+Download ActiveMQ 5.7.0 Today!
+
+	Apache ActiveMQ ™ is the most popular and powerful open source messaging and Integration Patterns server.
+Apache ActiveMQ is fast, supports many Cross Language Clients and Protocols, comes with easy to use Enterprise Integration Patterns and many advanced features while fully supporting JMS 1.1 and J2EE 1.4. Apache ActiveMQ is released under the Apache 2.0 License
+Grab yourself a Download, try our Getting Started Guide, surf our FAQ or start Contributing and join us on our Discussion Forums. 
+	
+Features
+  •  Supports a variety of Cross Language Clients and Protocols from Java, C, C++, C#, Ruby, Perl, Python, PHP 
+  •  OpenWire for high performance clients in Java, C, C++, C#
+  •  Stomp support so that clients can be written easily in C, Ruby, Perl, Python, PHP, ActionScript/Flash, Smalltalk to talk to ActiveMQ as well as any other popular Message Broker
+  •  full support for the Enterprise Integration Patterns both in the JMS client and the Message Broker
+  •  Supports many advanced features such as Message Groups, Virtual Destinations, Wildcards and Composite Destinations
+  •  Fully supports JMS 1.1 and J2EE 1.4 with support for transient, persistent, transactional and XA messaging
+  •  Spring Support so that ActiveMQ can be easily embedded into Spring applications and configured using Spring's XML configuration mechanism
+  •  Tested inside popular J2EE servers such as TomEE, Geronimo, JBoss, GlassFish and WebLogic 
+  •  Includes JCA 1.5 resource adaptors for inbound & outbound messaging so that ActiveMQ should auto-deploy in any J2EE 1.4 compliant server
+  •  Supports pluggable transport protocols such as in-VM, TCP, SSL, NIO, UDP, multicast, JGroups and JXTA transports
+  •  Supports very fast persistence using JDBC along with a high performance journal
+  •  Designed for high performance clustering, client-server, peer based communication
+  •  REST API to provide technology agnostic and language neutral web based API to messaging
+  •  Ajax to support web streaming support to web browsers using pure DHTML, allowing web browsers to be part of the messaging fabric
+  •  CXF and Axis Support so that ActiveMQ can be easily dropped into either of these web service stacks to provide reliable messaging
+  •  Can be used as an in memory JMS provider, ideal for unit testing JMS
+News
+  User icon: tabish121  Timothy Bish posted on Dec 21, 2012 ActiveMQ-CPP version 3.5.0 released. The newest release of ActiveMQ-CPP is out, you can download the source bundles here.
+Edit   User icon: tabish121  Timothy Bish posted on Oct 12, 2012 ActiveMQ-CPP v3.4.5 Released The newest release of ActiveMQ-CPP is out, you can download the source bundles here.
+Edit   User icon: dejanb  Dejan Bosanac posted on Oct 08, 2012 Apache ActiveMQ 5.7.0 Released The ActiveMQ team is delighted to announce Apache ActiveMQ 5.7.0. All details of the release and download links can be found on the release page.
+Edit   User icon: tabish121  Timothy Bish posted on Jun 29, 2012 ActiveMQ-CPP Version 3.4.4 Released The newest release of ActiveMQ-CPP is out, you can download the source bundles here.
+Edit   User icon: tabish121  Timothy Bish posted on Jun 02, 2012 ActiveMQ-CPP Version 3.4.3 Released The newest release of ActiveMQ-CPP is out, you can download the source bundles here.
+Edit More News
+  •  Get all the latest Apache ActiveMQ News Here!
+Overview
+  •  Index
+  •  News
+  •  New Features
+  •  Getting Started
+  •  FAQ
+  •  Articles
+  •  Books
+  •  Download
+  •  License
+Search
+  UTF-8    UTF-8  
+
+  Search    activemq.apache.org    activemq.apache.org  Sub Projects
+  •  Apollo
+  •  CMS
+  •  NMS
+  •  Camel
+Community
+  •  Support
+  •  Contributing
+  •  Discussion Forums
+  •  Mailing Lists
+  •  IRC
+  •  IRC Log
+  •  Site
+  •  Sponsorship
+  •  Projects Using ActiveMQ
+  •  Users
+  •  Team
+  •  Thanks
+Features
+  •  Advisory Message
+  •  Clustering
+  •  Cross Language Clients
+  •  Enterprise Integration Patterns
+  •  JMX
+  •  JMS to JMS Bridge
+  •  MasterSlave
+  •  Message Groups
+  •  Networks of Brokers
+  •  Performance
+  •  Persistence
+  •  Security
+  •  Virtual Destinations
+  •  Visualisation
+  •  More ...
+Connectivity
+  •  Ajax
+  •  AMQP
+  •  Axis and CXF Support
+  •  C Integration
+  •  C++
+  •  C# and .Net Integration
+  •  CMS
+  •  J2EE
+  •  JBoss Integration
+  •  Jetty
+  •  JNDI Support
+  •  NMS
+  •  REST
+  •  RSS and Atom
+  •  Spring Support
+  •  Stomp
+  •  Tomcat
+  •  Unix Service
+  •  WebLogic Integration
+  •  XMPP
+  •  More ...
+Using ActiveMQ 5
+  •  Getting Started
+  •  Initial Configuration
+  •  Running a Broker
+  •  Embedded Brokers
+  •  Command Line Tools
+  •  Configuring Transports
+  •  Examples
+  •  Web Samples
+  •  Monitoring the Broker
+  •  Xml Configuration
+  •  Xml Reference
+  •  More ...
+Using ActiveMQ 4
+  •  Getting Started
+  •  Initial Configuration
+  •  Running a Broker
+  •  Embedded Brokers
+  •  Command Line Tools
+  •  Configuring Transports
+  •  Examples
+  •  Web Samples
+  •  Monitoring the Broker
+  •  Xml Configuration
+  •  Xml Reference
+  •  More ...
+Tools
+  •  Web Console
+  •  Hermes Jms
+  •  Maven2 Performance Plugin
+  •  JMeter
+Support
+  •  Issues
+  •  Roadmap
+  •  Change log
+Related Projects
+  •  Apache ServiceMix
+  •  Lingo
+  •  Jencks
+  •  Stomp
+  •  Spring
+  •  OpenEJB
+  •  Geronimo
+Developers
+  •  Source
+  •  Building
+  •  Developer Guide
+  •  Becoming a committer
+  •  Code Overview
+  •  Wire Protocol
+  •  Release Guide
+Tests
+  •  Maven2 Performance Plugin
+  •  Benchmark Tests
+  •  JMeter System Tests
+  •  JMeter Performance Tests
+  •  Integration Tests
+Project Reports
+  •  JUnit Reports
+  •  Source XRef
+  •  Test Source XRef
+  •  Xml Reference
+	
+Privacy Policy - (edit this page)  © 2004-2011 The Apache Software Foundation. 
+ Apache ActiveMQ, ActiveMQ, Apache, the Apache feather logo, and the Apache ActiveMQ project logo are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners. 
+Graphic Design By Hiram     

@@ -1,0 +1,12 @@
+                    QR Code Generator
+home QR Code Generator
+ Last Update: 2012/10/20 
+ActionScript3	(source|binary)	
+Java	(source|binary) 	
+JavaScript	(source)	
+PHP	(source)	
+Python	(source)	
+Ruby	(source)	
+  •   The word 'QR Code' is registered trademark of DENSO WAVE INCORPORATED 
+http://www.denso-wave.com/qrcode/faqpatent-e.html 
+ Contents Copyright © Kazuhiko Arase     

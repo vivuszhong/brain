@@ -1,0 +1,929 @@
+                    利用 CDI 和 JPA 开发 Servlet 应用
+跳转到主要内容   •     dW  
+  •   登录 (或注册) 
+  •   日本語 
+  •   [userid] 
+  •   IBM 
+IBM ID： 密码：  保持登录。 
+单击提交则表示您同意developerWorks 的条款和条件。 查看条款和条件.
+  提交    •  需要一个 IBM ID？
+  •  忘记 IBM ID？
+  •  忘记密码？
+  •  更改您的密码
+这是您第一次登陆到 developerWorks，已经自动为您创建了您的概要文件。 选择您概要文件中可以公开的信息的信息（如姓名、国家/地区，以及公司），这些信息同时也会与您所发布的内容相关联。 您可以随时更新您的 IBM 账号。
+所有提交的信息确保安全。
+  •    关闭 [x]  
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。
+昵称长度在 3 至 31 个字符之间。 您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。
+昵称： 单击提交则表示您同意developerWorks 的条款和条件。 查看条款和条件.
+  提交  所有提交的信息确保安全。
+  •    关闭 [x]  
+developerWorks 社区:
+  •  我的首页
+  •  我的概要信息
+  •  我的社区
+  •  设置
+  •  退出
+  •    关闭 [x]  
+选择语言：
+  •  English
+  •  中文
+  •  日本語
+  •  Русский
+  •  Português (Brasil)
+  •  Español
+  •  Việt
+  •    关闭 [x]  
+  •  IBM 主页
+  •  解决方案
+  •  软件
+  •  支持门户
+  •  产品文档
+  •  Redbooks（英文）
+  •    关闭 [x]  
+  •     developerWorks®  
+  •  技术主题
+  •  软件下载
+  •  社区
+  •  技术讲座
+搜索 developerWorks   搜索 developerWorks    dw    zh    CN    utf    20    cndw    zh    搜索  
+技术主题
+  •  AIX and UNIX
+  •  Big data
+  •  Cloud computing
+  •  DevOps
+  •  IBM i
+  •  Information management
+  •  Java technology
+  •  Linux
+  •  Lotus
+  •  Mobile development
+  •  Open source
+  •  Rational
+  •  Social Business
+  •  Web development
+  •  WebSphere
+  •  文档库
+  •  产品 A - Z
+  •    关闭 [x]  
+软件下载
+  •  Big data
+  •  Information management
+  •  Lotus
+  •  Rational
+  •  Tivoli
+  •  WebSphere
+  •    关闭 [x]  
+社区
+  •  我的首页
+  •  概要信息
+  •  群组
+  •  博客
+  •  论坛
+  •  Wiki
+  •  活动
+  •    关闭 [x]  
+技术讲座
+  •  技术讲座
+  •  多媒体课堂
+  •  网络广播（英文）
+  •  查找活动（技术讲座，网络广播，会议等）（英文）
+  •    关闭 [x]  
+  •  developerWorks 中国
+  •  技术主题
+  •  Java technology
+  •  文档库
+利用 CDI 和 JPA 开发 Servlet 应用
+吕 焱飞, 教师, 金华职业技术学院吕焱飞，1999 年毕业于浙江大学计算数学专业，后一直从事数学和计算机方面的教学工作，目前对 Java 开源框架有比较深厚的兴趣，喜欢去挑战新的应用技术。 
+
+简介： 本教程介绍了在 Servlet 容器（以 Tomcat 为例）中使用 CDI 的方法，以及 CDI 中使用 JPA 的方法。CDI 的相关的知识都贯穿在一个简单实例中，运行的环境相对简单（Servlet 容器），所需前导知识相对较少，通过教程能够很好地了解 CDI。
+发布日期： 2013 年 1 月 07 日 
+级别： 高级 
+访问情况 ： 5235 次浏览 
+评论：  
+
+开始之前
+关于 CDI
+JSR-299 规范原来叫做 Web Beans，其主要目的是为了整合 JSF 和 EJB。到 2009 年正式发布该规范时，JSR-299 已经改称 “Contexts and Dependency Injection for the Java EE platform”（简称 CDI ），整合 JSF 和 EJB 仍是其目的，但这并非 CDI 的唯一功能。
+通读 JSR-299 规范的文本，描述最多的是依赖注入（Dependency Injection, DI ) 容器。CDI 的 DI 有与众不同之处，它的第一个字母 C，代表 Contexts，是上下文环境，也是范围。CDI 注入的对象必须与某个 Context 关联，其生命周期与 Web 应用的各个范围息息相关。
+本教程适合的读者对象
+阅读本教程的读者需具备以下基础：
+  •   熟悉 Servlet 开发。示例的应用逻辑比较简单，有了 Servlet 编程基础就能看懂。
+  •   熟悉 JPA 开发。需要对 Persistence Context 和 Entity Manager 有一定了解。
+  •   熟悉 Maven 工具。本教程的示例应用配置了 pom.xml，对初次接触 Maven 的读者，第一次更新依赖库时可能会有较多的问题，需要了解 Maven 的基本操作才能解决。
+  •   了解 Spring IoC。教程中经常会比较 CDI 和 Spring IoC，不熟悉 Spring IoC 的读者可略过这些内容。
+本教程的内容选择
+本教程探讨了在 Servlet 环境中使用 CDI，没有用到 JSF 和 EJB。这么做主要是出于下面的考虑：
+  •   JSF 对 Servlet 封装得很深，在处理各个范围时不如 Servlet 来得直观。
+  •   Servlet 是每个 Java Web 开发者必备的知识技能，熟悉 JSF 的开发者相对较少。
+  •   Servlet 环境中使用 CDI 复杂度较低，结合了 JPA 后，也能实现 JSF + EJB 组合的许多重要特性。
+  •   起草中的 JSR-346，即 CDI 1.1 规范，增强了对 Servlet 的支持力度。
+本教程的内容组织
+本教程基本遵照项目驱动的方式来组织知识点，所用的示例应用实现了雇员信息的查看和修改。涉及的 CDI 功能包括：
+  •   CDI 作为依赖注入容器的特点和用法。
+  •   用 CDI 实现声明式事务管理。
+  •   用 CDI 实现在 Session 范围里共享 Persistence Context。
+  •   监听 CDI 容器的事件。
+开发环境配置
+下面列出示例应用所用开发环境及工具软件的版本：
+  •   Tomcat，版本 7.0.28。
+  •   Eclipse Java EE IDE for Web Developers，版本 Indigo SR2。
+  •   Maven，版本 3.0.4。
+Maven 配置
+示例应用用到了 Weld 和 Hibernate，使用 Maven 来管理项目，需要添加 JBoss Public 仓库和相关依赖项，pom.xml 中相关配置代码如清单 1 所示。
+
+清单 1. pom.xml 配置代码片断
+
+     
+ <repositories> 
+  <repository> 
+   <id>jboss-public-repository-group</id> 
+   <name>JBoss Public Repository Group</name> 
+   <url>http://repository.jboss.org/nexus/content/groups/public/</url> 
+   <layout>default</layout> 
+  …
+  </repository> 
+ </repositories> 
+ <dependencies> 
+  <dependency> 
+   <groupId>org.jboss.weld.servlet</groupId> 
+   <artifactId>weld-servlet-core</artifactId> 
+   <version>1.1.8.Final</version> 
+  </dependency> 
+  <dependency> 
+   <groupId>org.jboss.weld</groupId> 
+   <artifactId>weld-core</artifactId> 
+   <version>1.1.8.Final</version> 
+  </dependency> 
+  <dependency> 
+   <groupId>org.hibernate</groupId> 
+   <artifactId>hibernate-entitymanager</artifactId> 
+   <version>4.1.4.Final</version> 
+  </dependency> 
+ …
+ </dependencies> 
+	
+
+初次下载工程以后，可到工程目录下执行：mvn dependency:resolve，让 maven 下载相关依赖包。
+Eclipse 工程配置
+默认情况下，用 maven 创建的工程会把 Web 资源放到 src/main/webapp 目录下，为了在 eclipse 环境中调试 Web 应用，需要配置工程属性。在 Eclipse 的 Project 菜单中点击 Properties，打开工程配置界面，找到 Deployment Assembly 选项，具体配置如图 1 所示。
+
+图 1. eclipse 工程配置图
+  图 1. eclipse 工程配置图  
+回页首
+第一个 CDI 注入
+Weld 简介
+Weld 是 JSR-299 的参考实现，同时也是 JBoss Seam 的核心组件。它不仅可以在 JBoss、Glassfish 等应用服务器上使用，也可以在 Tomcat、Jetty 等 Servlet 容器中使用，甚至普通 Java SE 程序也可以使用 Weld。在不同环境中使用 Weld，配置和使用的方法都不相同。应用服务器上的 CDI 功能最为完整，到了 Servlet 容器中就要打个折扣， Java SE 中的 Weld，功能最受限制。
+本教程讨论在 Servlet 容器中使用 CDI，其余两种应用情形不会涉及。
+用 Maven 添加 Weld 依赖时有两个 artifactId 可供选择：
+  •   weld-servlet-core。
+  •   weld-servlet。
+weld-servlet 可能导致的问题： weld-servlet 中包含了 el-api，如果 Tomcat 自带的 el-api 与 weld-servlet 包含的 el-api 有冲突，weld-servlet 将无法通过 Tomcat 类加载器的验证，从而导致无法加载 weld-servlet。 它们的区别在于：weld-servlet 把所有相关依赖组件打包在一起，而 weld-servlet-core 在使用时需要依赖于很多其他组件。 weld-servlet 很方便，但需要注意 weld-servlet 中包含的组件可能会与系统中其他 组件发生冲突，这种问题不容易解决，因此在使用时最好选择 weld-servlet-core，并用 Maven 来管理依赖。
+Tomcat 中使用 Weld
+符合 Java EE 6 标准的应用服务器上，无需配置就能使用 CDI。Tomcat 没有完整的 Java EE 环境，使用时必须在 web.xml 中进行配置，代码参看清单 2。
+
+清单 2. web.xml 中配置 Weld
+
+     
+ <listener> 
+   <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class> 
+ </listener> 
+	
+
+Listener 实现了三种 Servlet 监听器接口： ServletContextListener、ServletRequestListener、HttpSessionListenerWeld。因此 ServletContext、ServletRequest 和 HttpSession 的创建和销毁事件发生时都会通知 Weld 容器。Weld 就是根据这些事件来管理容器对象的生命周期的。
+用 CDI 管理 Logger 对象
+Weld 使用了 slf4j-api 日志框架，它提供了一个通用的日志 API 接口。开发者可以在自己的 Web 应用中加入具体日志框架组件（如 log4j 等），就可以用相应的配置文件控制日志的输出。本教程所用例子同样使用了 slf4j-api，并用 logback 来控制日志输出级别，这样做的好处是 Weld 和示例应用本身的日志输出使用同一个日志配置文件，日志配置文件为 src/main/resources/logback.xml。
+通常，开发者会为每个类创建相应 Logger 对象，Logger 对象的名字设置成类名。这种做法在小型应用中不会有问题，但应用的规模到了一定程度后，下面两个缺点就是显现出来：
+  •   Logger 对象的数目无法控制。
+  •   Logger 层次等级依赖于包名，无法从更高层次对管理日志输出。
+针对这些问题，应用程序在开发之初可以划定日志管理基本单位为组件，限定 Logger 对象的名字，每个组件指定一个 Logger 对象，输出日志时，先根据组件名称获取相应 Logger，再用 Logger 对象输出日志。
+现在我们用 CDI 实现 Logger 的统一管理，从这里开始了解 CDI 的基本用法。清单 3 中的代码演示了 CDI 中生成 Logger 对象的方法。
+
+清单 3. LoggerProvider 源代码
+
+				 
+ public class LoggerProvider { 
+	 @Produces 
+	 public Logger getLogger() { 
+		 return LoggerFactory.getLogger("cn.jhc.persistence"); 
+	 } 
+ } 
+	
+
+上面的代码中 getLogger 方法会返回名为“cn.jhc.persistence”的 Logger 对象。这个方法与一般 Java 代码不同之处在于使用了 @Produces 注解。@Produces 注解改变了 getLogger 方法的含义，它在 CDI 中有专门的术语—— Producer Method（生产者方法）。
+Producer Method 在 CDI 中是一种特殊的 Bean，与 EJB 中的 Session Bean，或是 Java EE 环境中的 Managed Bean 相似。从依赖注入的角度来考虑，这一点也是可以理解的。需要注入的无非是某个对象，Managed Bean 可用构造器来构造对象，EJB Session Bean 可由 EJB 容器产生对象，由某个类的某个方法生成的对象也可用来实施注入。注入 Producer Method 生成的对象时，CDI 容器负责调用 Producer Method，再把 Producer Method 生成的对象注入目的地。
+清单 4 的代码演示了如何在其他类中注入 Logger 对象。
+
+清单 4. 注入 Logger 对象
+
+				 
+ public class EntityManagerProvider { 
+	 @Inject 
+	 private Logger logger; 
+	 ... 
+ } 
+	
+
+CDI 容器在碰到 @Inject 注解时，当前 logger 字段就成为了 Injection Point（注入点）。注入对象的过程如下：
+  •   检查当前注入点需要注入的对象的类型，即 org.slf4j.Logger。
+  •   在容器中查找所有能够生成 org.slf4j.Logger 对象的 Bean。现在只有 LoggerProvider 类的 getLogger 方法能够生成 org.slf4j.Logger 对象。
+  •   调用 LoggerProvider 类的 getLogger 方法，生成 Logger 对象。
+  •   注入 Logger 对象。
+提供多个不同名称的 Logger 对象
+如果把 LoggerProvider 的代码改成如清单 5 所示，清单 4 注入的 Logger 对象的名字会是哪一个呢？
+
+清单 5. 新的 LoggerProvider
+
+     
+ public class LoggerProvider { 
+  @Produces 
+  public Logger getPersistenceLogger() { 
+   return LoggerFactory.getLogger("cn.jhc.persistence"); 
+  } 
+    @Produces 
+  public Logger getControllerLogger() { 
+   return LoggerFactory.getLogger("cn.jhc.controller"); 
+  } 
+ } 
+	
+
+为了区分工程中不同组件，LoggerProvider 用两个不同的方法来生成 Logger 对象。这两个方法返回的对象的类型是相同的，都是 org.slf4j.Logger，但这两个 Logger 对象的名称却是不同的。这种情况令清单 4 中的注入产生了歧义，CDI 框架无法判断出哪个 Logger 对象应该被注入到 EntityManagerProvider 中。这时启动 Tomcat，可以在控制台看到 org.jboss.weld.exceptions.AmbiguousResolutionException 异常。
+为解决歧义，CDI 引入了 Qualifier，它和 Type （类型）一起，为 CDI 依赖注入提供了 类型安全（Typesafe），这是 CDI 不同于其它依赖注入容器的特性之一。
+回页首
+类型安全（Typesafe）
+我们可以先考察一下 Spring IoC 中基于名字（byName）的注入方法，配置 Spring IoC 容器时一般会指定 Bean 的 id 或 name 属性，如果有多个同类型的 Bean，Spring IoC 容器通过不同的 id 或 name 值来区分。本质上来讲，区分的依据是字符串值。CDI 则是使用 Type + Qualifier 的方式来区分需要注入的对象（Spring 3 也支持 Type + Qualifier 的方式）。
+Qualifier 是什么？
+Qualifier 其实只是普通的 Java 注解，它的功能是为了区分相同类型情况下的不同对象。从功能上来看，与 Spring IoC 配置文件中的 id 或 name 属性相同。最大的区别在于 Qualifier 是类型而不是值。
+Spring IoC 中的 Qualifier： Spring 在 2.5 之后的版本也提供了 Qualifier 注解，其功能与 CDI 中的 Qualifier 相同。Spring IoC 中使用时需要和 Autowired 注解同时使用，本质上是一种基于类型 (byType) 的自动注入。 C 语言中用零和非零来区分“真”和“假”， Java 语言则是引入了 boolean 类型。Qualifier 相比于 id 所带来的优势，正好相当于 boolean 相比于“零和非零”所带来的优势。
+回到上一章清单 5 的例子中，getPersistenceLogger 方法原是为持久层组件提供 Logger 对象，getControllerLogger 方法则是为控制层组件提供 Logger 对象，为区分这两个相同类型的对象，可以为它们添加额外的注解。这些额外的注解就是 Qualifier。
+添加了额外的注解后，LoggerProvider 就会变成如清单 6 所示：
+
+清单 6. 添加了 Qualifier 后的 LoggerProvider
+
+				 
+ public class LoggerProvider { 
+ @Produces @PersistenceLog
+	 public Logger getPersistenceLogger() { 
+ return LoggerFactory.getLogger("cn.jhc.persistence"); 
+	 } 
+ @Produces @ControllerLog
+	 public Logger getControllerLogger() { 
+		 return LoggerFactory.getLogger("cn.jhc.controller"); 
+	 } 
+ } 
+	
+
+@PersistenceLog 和 @ControllerLog 让两个 Producer Method 可以区分出来。现在，要注入 Logger 对象，也需要指定 Qualifier，原来清单 4 的代码应该改成如清单 7 所示：
+
+清单 7. 注入 Logger 对象
+
+				 
+ public class EntityManagerProvider { 
+ @Inject @PersistenceLog
+	 private Logger logger; 
+	 ... 
+ } 
+	
+
+自定义 Qualifier
+CDI 允许开发者定制任意的 Qualifier，但每个 Qualifier 必须符合一定的规范，以 @PersistenceLog 为例，下面的清单 8 演示了如何自定义 Qualifier。
+
+清单 8. 定义 PersistenceLog
+
+				 
+ @Qualifier 
+ @Retention(RUNTIME) 
+ @Target({METHOD,FIELD,PARAMETER,TYPE}) 
+ public @interface PersistenceLog { 
+ } 
+	
+
+根据 CDI 规范，@Qualifier 注解可以不写，自定义 Qualifier 只要满足两个条件即可：
+  •   @Retention(RUNTIME)
+  •   @Target({METHOD,FIELD,PARAMETER,TYPE})
+省略 @Qualifier 注解的 PersistenceLog 同普通 Java SE 的注解没有区别。从增加代码可读性的角度来看，自定义 Qualifier 还是应当加上 @Qualifier 注解。
+缺省 Qualifier
+上面的例子可能会让您产生这样一种印象：只在需要区分同类型的不同对象时才用 Qualifier，平时可不用 Qualifier。这样理解与 CDI 规范的定义还有一定差距。Qualifier 是 CDI 的基础设施，每个 CDI 管理的 Bean 至少会声明两种 Qualifier。大多数 CDI Bean 不作显式声明的情况下，会有三个 Qualifier：@Any, @Default, @Named。其中 @Named 注解指定的名称即是 EL 可以使用的名称。
+回页首
+注入时的类型安全
+CDI 在实施依赖注入时的类型安全机制包含两点：
+  •   待注入 Bean 的类型（Bean Type）必须匹配注入点的类型（Required Type）。
+  •   待注入 Bean 具有的 Qualifier 集合必须包含注入点中声明的所有 Qualifier （Required Qualifiers）。
+第 1 点类型匹配的规则在 CDI 规范中详细的规定，内容比较烦琐，主要涉及：类的继承体系、原生类型、泛型。把握匹配的规则可以用一种近似的方法来，把注入看做赋值，如果可以把待注入 Bean 赋值给注入点，那么注入就是有效的。
+CDI 的类型安全机制在容器初始化时就会生效，如果无法找到依赖对象，或是依赖对象有歧义，CDI 容器就会显示警告信息。
+在示例工程的 logback.xml 中添加清单 9 所示配置，就能在控制台看到 CDI 容器初始化时给出的信息。
+
+清单 9. 查看初始化日志的配置
+
+				 
+ <logger name="org.jboss.weld.Bootstrap" level="debug" /> 
+	
+
+回页首
+Context（上下文环境）
+用 Producer Method 提供 EntityManager
+示例应用中使用 JPA 与数据库交互，JPA 的配置文件在 src/main/resources/META-INF/persistence.xml。由于 Tomcat 环境并不会提供 JTA （Java Transaction API） 支持，使用 JPA 时需要自己管理 EntityManagerFactory 和 EntityManager。清单 10 展示了用 Producer Method 来提供 EntityManager。
+
+清单 10. 用 Producer Method 来提供 EntityManager
+
+     
+ public class EntityManagerProvider { 
+
+  private static final EntityManagerFactory factory = 
+    Persistence.createEntityManagerFactory("users"); 
+ 
+  @Inject @PersistenceLog 
+     private Logger logger; 
+ 
+  @Produces 
+  EntityManager createEntityManager() { 
+   EntityManager entityManager = factory.createEntityManager(); 
+   logger.info("{} is produced.", entityManager); 
+   return entityManager; 
+  } 
+ 
+  public void close(@Disposes EntityManager em) { 
+   if(em.isOpen()) em.close(); 
+   logger.info("{} is diposed.", em); 
+  } 
+
+ } 
+	
+
+logger 对象在创建和关闭 EntityManager 对象时，都会在 info 级别输出 EntityManager 对象。默认情况下直接输出对象时，会在类名后面加上某个 Hash 值，不同对象的 Hash 值一般不会相同（相同的机率极小），由此可以判断不同输出日志所对应的 EntityManager 对象是否为同一对象。后面的教程中会用到这一特点。
+@Disposes 注解应用到了 close 方法的第一个参数上，CDI 把这种方法称为 Disposer Method。Disposer Method 与 Producer Method 对应，用来释放 Producer Method 占用的资源，当 Producer Method 生成的 Bean 销毁时，CDI 容器会负责找到并调用对应的 Disposer Method。使用 Disposer Method 需要注意以下几点：
+  •   Disposer Method 只能有一个参数。
+  •   Producer Method 产生的 Bean 注入到 Disposer Method 的参数中时，不能违反类型安全机制。
+  •   一个 Producer Method 可与多个 Disposer Method 对应。
+实现 EmployeeManager
+EmployeeManager 负责数据处理，其功能通过调用 JPA 的相关方法来实现，清单 11 展示了 EmployeeManager 的主要代码。
+
+清单 11. EmployeeManager 主要代码
+
+				 
+ @SessionScoped 
+ public class EmployeeManager implements Serializable { 
+
+ private static final long serialVersionUID = -3842248385950368874L; 
+
+	 @Inject 
+	 private EntityManager entityManager; 
+
+	 public List<Employee> getEmployees() { 
+		 return getEntityManager() 
+				 .createQuery("select u from Employee u", Employee.class) 
+				 .getResultList(); 
+	 } 
+
+	 public Employee find(int id) { 
+		 return entityManager.find(Employee.class, id); 
+	 } 
+	 ... 
+ } 
+	
+
+EmployeeManager 通过依赖注入获取 EntityManager 对象，getEmployees 方法和 find 方法通过 EntityManager 对象提供的方法获取数据库中 Employee 表的相关信息。
+在 EmployeeManager 类之前使用了 @SessionScoped 注解，这个注解会把 EmployeeManager 对象变成 具有上下文的对象（Contextual Instance），从此它的生命周期就由它所关联的 Context 决定。生命周期的引入需要我们搞清楚两个问题：
+  •   EmployeeManager 对象何时创建和何时销毁？
+  •   注入到 EmployeeManager 对象中的的 EntityManager 对象又是何时创建何时销毁？
+为搞清楚这两个问题，需要先了解 CDI 规范中规定的 Scope。
+CDI 规范中的 Scope
+CDI 规范中的 Scope 共有五种，分别是：
+  •   @RequestedScoped
+  •   @SessionScoped
+  •   @ApplicationScoped
+  •   @ConversationScoped
+  •   @Dependent
+前三种 Scope 与 Servlet 规范对应的标准 Scope 完全对应，这三种 Scope 中 Bean 的生命周期与 Servlet 规范的定义也是相似的。清单 11 所示的 EmployeeManager 对象与 HTTP Session 的生命周期是一致的。ConversationScoped 则是介于 RequestScoped 和 SessionScoped 之间的一种 Scope，需要由 Java EE 容器来实现，在 Tomcat 中不可用。
+方法也能有 Scope： 教程在第一次介绍 Producer Method 时提到过，CDI 中的 Producer Method 是一种特殊的 Bean，createEntityManager 方法也会有 Scope。 CDI 规范规定：没有 Scope 注解的情况下，@Dependent 是 Bean 的默认 Scope。像清单 10 所列的 createEntityManager 所属的 Scope 就是 @Dependent。CDI 规范还规定：@Dependent Scope 中的 Bean 的生命周期取决于被注入的 Bean 的生命周期。由此，我们可以推知：清单 11 中的 EntityManager 对象的生命周期由 EmployeeManager 对象的生命周期决定。EmployeeManager 对象的生命周期则由 HTTP Session 的持续时间来决定，参看图 2。
+
+图 2. EntityManager 对象生命周期的依赖关系
+  图 2. EntityManager 对象生命周期的依赖关系  
+现在可以来回答了上一节提出的两个问题了：
+  •   EmployeeManager 对象何时创建和何时销毁？
+EmployeeManager 设定的范围为 Session，在 Servlet 容器创建 HTTPSession 对象时，就会创建 EmployeeManager 对象，不同的 HTTPSession 对应不同的 EmployeeManager 对象。
+  •   注入到 EmployeeManager 对象中的的 EntityManager 对象又是何时创建何时销毁？
+创建 EmployeeManager 对象时需要注入 EntityManager 对象，销毁 EmployeeMnager 对象的同时也需要销毁 EntityManager 对象。因此 EntityManger 对象的创建和销毁间接地由 HTTPSession 对象的创建和销毁来决定。
+通过日志观察 EntityManager 的生命周期
+在清单 11 所示 EntityManagerProvider 的代码中可以看到，EntityManager 在创建和关闭时都会输出相应的日志信息。下面我们就通过控制 HTTP Session 来检验日志的输出是否和我们的预测一致。
+图 3 所示为示例应用的主界面，其中可以注意到页面上有“结束会话”链接，点击该链接可以结束当前会话。
+
+图 3. Web 应用主页面
+  图 3. Web 应用主页面  
+该 Web 应用的首页会被重定向到”/showEmps.do”，清单 12 列出了处理”/showEmps.do”的 Servlet 的代码。
+
+清单 12. ShowEmployeesServlet 源码
+
+     
+ @WebServlet(name = "show employees", urlPatterns = { "/showEmps.do" }) 
+ public class ShowEmployeesServlet extends HttpServlet { 
+  @Inject 
+  private EmployeeManager empManager; 
+ 
+  protected void service(HttpServletRequest request, 
+           HttpServletResponse response) throws ServletException, IOException {
+   List<Employee> emps = empManager.getEmployees(); 
+
+   request.setAttribute("emps", emps); 
+   request.getRequestDispatcher("/showemps.jsp").forward(request, 
+     response); 
+  } 
+
+ } 
+	
+
+ShowEmployeesServlet 需要注入 EmployeeManager 对象，而 EmployeeManager 又需要注入 EntityManager 对象。因此访问首页时应该可以在日志中看到 EntityMaanger 被创建的信息。
+“结束会话”链接对应的 URL 是"/endsession.do"，它由清单 13 所示的 Servlet 来处理。
+
+清单 13. EndSessionServlet 源码
+
+				 
+ @WebServlet(name="end session",urlPatterns= {"/endsession.do"}) 
+ public class EndSessionServlet extends HttpServlet { 
+
+	 @Override 
+	 protected void service(HttpServletRequest req, HttpServletResponse resp) 
+			 throws ServletException, IOException { 
+		 req.getSession().invalidate(); 
+	 } 
+ } 
+	
+
+访问“结束会话”链接会令当前 HTTP Session 失效。从清单 11 @SessionScoped 注解可以看出，EmployeeManage 所对应的 Scope 为 Session Scope，HTTP Session 的失效会导致 CDI 容器去销毁 EmployeeManager 对象，注入到 EmployeeManager 对象中的 EntityManager 对象也会销毁，在日志中应能看到对应的信息。清单 14 列出了测试时输出的日志信息，从中可以清楚地看到 EntityManager 对象的创建和销毁。
+
+清单 14. 验证 Session Scope 的日志信息
+
+     
+ INFO  cn.jhc.persistence - org.hibernate.ejb.EntityManagerImpl@4eef9d00 is produced. 
+ INFO  cn.jhc.persistence - org.hibernate.ejb.EntityManagerImpl@4eef9d00 is diposed. 
+	
+
+Scope 和 Context 的关系
+Context 对象的结构类似于 HashMap，其中的 key 为 Bean Type，而 value 则是相应实例。 Context 对象可看作是 CDI 管理的 Bean 的存储仓库，我们可以把 Bean 实例加到对应的 Bean Type 之下，也可以通过 Bean Type 找到对应的实例。
+至于 Scope，只不过是范围的名称而已，在 CDI 的实现中，只用少量的 Java 注解就实现了 Scope。CDI 容器在解析这些 Scope 注解时，会根据不同的 Scope 注解的名称来构造与之相关的 Context 对象。Bean 的创建、销毁、依赖注入都与 Context 对象密不可分。这样我们就可以理解为什么 JSR-299 规范的名称中第一个单词是 Contexts，而不是 Scopes 了。
+可以用更通俗的方式来理解 Scope 和 Context 的关系：Context 就是仓库实体，而 Scope 则是仓库的名称。
+一个实例还是多个实例？
+了解了 Scope 和 Context 的关系以后，还有一些关键问题必须搞清楚：
+  •   需要注入 Bean 时，CDI 容器每次都会创建新的实例吗？
+  •   多个 Servlet 都需要注入 EmployeeManager 对象，究竟是同一个 EmployeeManager 对象注入到多个 Servlet 中去，还是每个 Servlet 使用不同的 EmployeeManager 对象？
+  •   Servlet 需要在多线程环境下执行，注入到 Servlet 的成员变量中会不会存在线程安全的隐患？
+对这些问题的回答需要我们更深入地了解 CDI 中的实例（Contextual Instance）的生命周期。
+回页首
+生命周期
+把容器中的对象绑定到某个范围（Scope）上并不是 CDI 的首创，为了更好地了解 CDI 的范围，我们可以和 Spring IoC 的范围进行对比。
+Spring IoC Scope 和 CDI Scope
+Spring IoC 为 Bean 对象提供了五个范围，如表 1 所示：
+
+表 1. Spring IoC 中的 Bean Scope
+Scope 说明 
+ singleton 	 第一次请求时创建，整个 Spring IoC 容器中只会有唯一的对象。对象的生命周期会一直持续到容器销毁。 	
+ prototype 	 每次请求都会创建新的对象。创建后其生命周期脱离 Spring IoC 容器的管理，而由 JVM 当作普通对象来管理。 	
+ request 	 每个 HTTP 请求都会创建新的对象。对象的生命周期取决于 HTTP 请求。 	
+ session 	 每个 HTTP Session 会创建新的对象。对象的生命周期取决于 HTTP Session。 	
+ global-session 	 用于 portlet，这里不作讨论。 	
+
+再来看 CDI 定义的 Scope，如表 2 所示。
+
+表 2. CDI Scope
+Scope 说明 
+ RequestScoped 	 每个 HTTP 请求都会创建新的对象。对象的生命周期取决于 HTTP 请求。 	
+ SessionScoped 	 每个 HTTP Session 会创建新的对象。对象的生命周期取决于 HTTP Session。 	
+ ConversationScoped 	 每个 Conversation 会创建新的对象。对象的生命周期取决于 Conversation 的创建和销毁。 	
+ AppliactionScoped 	 每个 Web 应用会创建新的对象。对象的生命周期取决于 Web 应用的启动和关闭。 	
+ Dependent 	 对象的生命周期依赖于被注入对象的生命周期。每次请求会创建新的对象。 	
+
+从表 1 和表 2 的对比来看，对方都提供了 Request Scope 和 Session Scope，功能基本相同。在 Web 应用的层面来看，CDI 的 ApplicationScoped 起到的作用类似于 Spring IoC 的 singleton。CDI 的 Dependent 在创建对象的行为特点上与 Spring IoC 中的 prototype 比较相似，对象创建后的生命周期的管理，两者却完全不同。另外，Spring IoC 中没有 Conversation，但 CDI 1.0 规范中明确指出：Conversation 的实现由第三方 Web Framework 来提供。事实上，不使用 JSF 的环境中可能无法使用 Conversation，更详细的信息可在参考资源中找到相关链接。
+在容器的实现方式上， Spring IoC 和 CDI 很不一样。Spring IoC 的 Scope 可看作是管理容器对象的特殊手段，而 CDI 则是针对每个 Scope 创建相应的容器。
+Normal Scope 和 Pseudo Scope
+CDI 的五种 Scope 可分为两个类别，前四种 Scope（Request、Session、Conversation、Application）称为标准 Scope（Normal Scope），Dependent 则属于另一类——伪 Scope（Pseudo Scope）。CDI 规范规定：
+如果在同一线程的不同注入点上，注入相同 Bean 类型的 Normal Scope 对象，那么这些不同注入点所注入的对象是同一实例。Pseudo Scope 中的对象每次注入都会是新构建的对象，没有任何两个注入点会得到同一实例。
+有了这些知识以后，现在就可以来回答上一章提出的问题了。
+  •   需要注入 Bean 时，CDI 容器每次都会创建新的实例吗？ 
+如果被注入 Bean 所在 Scope 为 Dependent，那么每次注入都会创建新的实例。如果被注入 Bean 所在 Scope 为 Normal Scope，那么该 Normal Scope 的有效范围内，每次注入的会是同一个实例。
+  •   多个 Servlet 都需要注入 EmployeeManager 对象，究竟是同一个 EmployeeManager 对象注入到多个 Servlet 中去，还是每个 Servlet 使用不同的 EmployeeManager 对象？ 
+我们在声明 EmployeeManager 时使用了 @SessionScoped 注解，这样就把 EmployeeManager 对象放到了 session Scope 中，因此，同一 HTTP Session 中的多个 Servlet 会共享同一个 EmployeeManager 实例。不同的 HTTP Session 会使用不同的 EmployeeManager 实例。
+  •   Servlet 需要在多线程环境下执行，注入到 Servlet 的成员变量中会不会存在线程安全的隐患？ 
+如果注入的对象所在 Scope 为 Dependent 或 Request，都不会有线程安全问题，因为每次注入到 Servlet 中的会是不同的对象，使用起来和局部变量没什么差别。如果注入的对象所在 Scope 为 Session 或 Conversation，那就会有线程安全问题，但出现的时机比较特殊，实际应用中，出于某些特殊情况的考虑，可以采用注入 Scope 为 Session 或 Conversation 的对象（教程后面会给出这类情况的例子）。至于注入的对象所在 Scope 为 Application 的话，肯定存在线程安全的隐患，这是必须加以避免的，除非能够保证 Application Scope 中的对象里访问的资源都是线程安全的。
+验证 SessionScoped
+在前面的清单 10 讲到 EntityManagerProvider 时提到过日志输出，通过直接在日志中输出 EntityManager 对象，我们可以观察到 EntityManager 对象创建和销毁的过程。EmployeeManager 对象所在的 Scope 为 SessionScoped，根据前面的知识我们可以知道创建 HTTPSession 对象时也会创建 EmployeeManager，在创建 EmployeeManager 时需要注入 Dependent Scope 中的 EntityMnager 对象，最终 EntityManager 的创建和销毁也是由 HTTPSession 来决定。
+现在启动示例应用，先后用两个不同的浏览器去访问，可以看到类似于清单 15 所示的输出。
+
+清单 15. 两个浏览器访问时的日志输出
+
+     
+20:23:05.092 INFO cn.jhc.persistence-
+             org.hibernate.ejb.EntityManagerImpl@648353f6 is produced.
+20:23:51.089 INFO cn.jhc.persistence - 
+             org.hibernate.ejb.EntityManagerImpl@62e8ef4c is produced. 
+20:23:59.838 INFO cn.jhc.persistence - 
+             org.hibernate.ejb.EntityManagerImpl@648353f6 is diposed. 
+20:24:08.447 INFO cn.jhc.persistence - 
+             org.hibernate.ejb.EntityManagerImpl@62e8ef4c is diposed. 
+	
+
+清单 15 中可以看出共有两个 EntityManger 对象被创建出来，编号分别是 648353f6 和 62e8ef4c。甚至可以从日志输出中推测出操作的次序：A 浏览器访问 ->B 浏览器访问 ->A 浏览器中点击“结束会话”->B 浏览器中点击“结束会话”。
+回页首
+共享 Persistence Context
+在 JPA 应用程序的代码中看不到 Persistence Context，所有的操作都通过 EntityManager 对象来完成。然而，Persistence Context 却是所有 Entity 实例的集合，相当于数据库操作的一级缓存。如果能够在多个事务之间共享 Persistence Context，就可以减少对数据库的访问。Java EE 容器中传播 Persistence Context 很方便，使用者甚至感觉不到 Persistence Context 的传播。在 Tomcat 这样的纯 Servlet 容器中，要想共享 Persistence Context 的话就只有一种手段：使用同一个 EntityManager 对象。
+通过前面的讨论，我们已经知道每次创建 HTTPSession 对象都会创建相应的 EntityManager 对象，同时，在整个 Session 的存活期间，注入的 EntityManager 的对象都会是同一个对象。接下来我们在示例应用中实现查看雇员信息和修改雇员信息的功能。
+实现单个雇员的查看功能
+清单 16 展示了用户在点击首页的“编辑”链接后对应的 Servlet 的代码。
+
+清单 16. ShowEmployeeServlet 源码
+
+				 
+ @WebServlet(name="show employee",urlPatterns= {"/show.do"}) 
+ public class ShowEmployeeServlet extends HttpServlet { 
+	 @Inject 
+	 private EmployeeManager empManager; 
+	
+	 @Override 
+	 protected void service(HttpServletRequest req, HttpServletResponse resp) 
+			 throws ServletException, IOException { 
+		 int id = 0; 
+		 try{ 
+			 id = Integer.parseInt(req.getParameter("id")); 
+		 } catch (NumberFormatException nf) { 
+			 resp.sendRedirect("index.html"); 
+		 } 
+		 Employee e = empManager.find(id); 
+		 req.getSession().setAttribute("emp", e); 
+		 req.getRequestDispatcher("/edit.jsp").forward(req, resp); 
+	 } 
+ } 
+	
+
+ShowEmployeeServlet 与 ShowEmployeesServlet 相同，也注入了 EmployeeManager 对象，在获取了参数中的 id 后，调用了 EmployeeManager 的 find 方法，找到对应的 Employee 对象，并把它放入 Session 范围。EmployeeManager 的 find 方法其实只是去调用 EntityManager 对象的 find 方法，从 Persistence Context 中找出相应的 Employee 对象。如果没有共享 Persistence Context 的话，我们可以推测，find 方法的调用需要查询数据库一次。不过，仔细去观察日志的话（配置日志输出时的办法在教程后面小节中会给出）可以发现 find 方法不会导致数据库查询。
+ShowEmployeeServlet 成功调用后，会中转到 edit.jsp 页面，edit.jsp 页面的效果如图 4 所示，它提供了编辑雇员信息的界面。
+
+图 4. edit.jsp 效果图
+  图 4. edit.jsp 效果图  
+实现编辑雇员信息的功能
+当用户在 edit.jsp 页面中点击提交时，提交的数据会由清单 17 所示的 Servlet 来处理。
+
+清单 17. EditEmployeeServlet
+
+     
+ @WebServlet(name="edit employee",urlPatterns= {"/edit.do"} ) 
+ public class EditEmployeeServlet extends HttpServlet { 
+
+  @Inject 
+  private EmployeeManager empManager; 
+ 
+  @Override 
+  protected void service(HttpServletRequest req, HttpServletResponse resp) 
+    throws ServletException, IOException { 
+   Employee e = (Employee) req.getSession().getAttribute("emp"); 
+   try { 
+            e.setName(req.getParameter("name")); 
+            e.setSalary(Long.parseLong(req.getParameter("salary"))); 
+            e.setHireDate(new SimpleDateFormat(\
+            "yyyy-MM-dd").parse(req.getParameter("hiredate"))); 
+   } catch (Exception ex) { 
+    ex.printStackTrace(); 
+    req.getSession().invalidate(); 
+    resp.sendRedirect("index.html"); 
+    return; 
+   } 
+ empManager.merge(e);
+    resp.sendRedirect("index.html"); 
+  } 
+ } 
+	
+
+不用 merge 的方案： 在 Hibernate 中创建 EntityManager 时设置 flashMode 为手动方式（MANUAL），同时在结束 HTTP Session 时调用 flash 方法，就可以实现会话级 Persistence Context，这种环境下不必调用 empManager.merge() 方法。EmployeeManager 中的 merge 方法可以不写。具体使用情况请参考教程所附源码。 与前几个 Servlet 相同，EditEmployeeServlet 也注入了 EmployeeManager 对象。EditEmployeeServlet 首先取出保存在 Session 范围的 Employee 对象，在从请求参数中获取用户修改的数据后，调用了 EmployeeManager 对象的 merge 方法，把用户的修改并入 Employee 对象。同样，EmployeeManager 对象的 merge 方法也只是对 EntityManager 对象的 merge 方法封装。如果用户确实对雇员信息进行修改的话，可以在日志中看到对应的 SQL 语句的输出。EditEmployeeServlet 最后重定向到了首页。
+观察日志输出
+为了观察 JPA 对数据库的操作，需要打开 Hibernate 中显示 SQL 的参数，相应的配置在 src/main/resources/META-INF/persistence.xml 中，关键的配置片断如清单 18 所示。
+
+清单 18. persistence.xml 中配置 SQL 输出
+
+     
+    <persistence-unit name="users"> 
+      <provider>org.hibernate.ejb.HibernatePersistence</provider> 
+      <class>cn.jhc.bean.Employee</class> 
+        <properties> 
+  ... 
+            <property name="hibernate.show_sql" value="true" /> 
+            <property name="hibernate.format_sql" value="true"/> 
+        </properties> 
+    </persistence-unit> 
+	
+
+另外，还需要保证 logback.xml 文件中配置的 hibernate 的输出级别为“info”。现在打开浏览器，按如下步骤操作：访问首页 -> 点击某个雇员后面的“编辑”操作 -> 修改部分雇员信息 -> 点击“提交”。在我的电脑上，日志的输出如清单 19 所示。
+
+清单 19. 修改雇员操作的日志输出
+
+     
+ 23:04:42.733 [http-bio-8080-exec-3] INFO  cn.jhc.persistence - 
+          org.hibernate.ejb.EntityManagerImpl@3764f8d4 is produced. 
+ Hibernate: 
+    select 
+        employee0_.id as id0_, 
+        employee0_.hireDate as hireDate0_, 
+        employee0_.name as name0_, 
+        employee0_.salary as salary0_ 
+    from 
+        test.Employee employee0_ 
+ 23:05:04.864 [http-bio-8080-exec-5] INFO  cn.jhc.persistence - 
+        Begining transactional interceptor. 
+ Hibernate: 
+    update 
+        test.Employee 
+    set 
+        hireDate=?, 
+        name=?, 
+        salary=? 
+    where 
+        id=? 
+ 23:05:04.895 [http-bio-8080-exec-5] INFO  cn.jhc.persistence - 
+        Ending transaction interceptor. 
+ Hibernate: 
+    select 
+        employee0_.id as id0_, 
+        employee0_.hireDate as hireDate0_, 
+        employee0_.name as name0_, 
+        employee0_.salary as salary0_ 
+    from 
+        test.Employee employee0_ 
+	
+
+如果 Employee 对象的数据没有修改，将不会有 update 语句出现。
+线程安全问题
+在多个 Servlet 间共享同一个 Persistence Context 可以减少对数据库的访问，性能上有一定优势，但如果不考虑 EntityManager 的线程安全，那么这种优势就没什么价值了。EntityManager 中的方法都不是线程安全的，放到 HTTPSession 中的 EntityManager 就潜藏着线程安全问题。当用户在 HTTPSession 会话期间得到不响应，重新发送新的请求，而服务器又正处于高负荷状态，此时有可能会导致 HTTPSession 中的 EntityManager 在操作时并发访问同一个资源。应用程序在设计时如果认为可以接受这些可能情况的后果（比如上面情况中用户自身也会感觉到操作的异常，一般也能接受由此导致的异常后果），那么像示例应用程序中的做法也是可用的。另一种情况是客户使用恶意客户端脚本，这时服务器的数据将无安全性可言。
+回页首
+基于注解的事务管理
+访问数据库过程中，事务的管理总会有大量的重复代码。Spring 的解决办法是使用面向方面的编程（AOP），并可使用 Spring 现成的组件，程序员只需要做好相应配置就不用再写事务相关的代码。在没有 JTA 的环境下使用 CDI，就没有那么便利了，没有现成可用的组件。通过 CDI 的 interceptor （拦截器）机制，可以自己动手实现类似于 Spring @Transactional 注解的功能。在需要事务的方法中添加该注解，实现事务的封装。
+CDI 中自定义 Interceptor 需要完成三个步骤：
+  •   自定义 Interceptor 注解（如 @Transactional）。
+  •   自定义 Interceptor 类（如 TransactionalInterceptor）。
+  •   将 Interceptor 绑定到具体类或方法上。
+自定义 Interceptor 注解
+Interceptor 注解是关联 Interceptor 和目标类（或方法）的纽带，CDI 容器在调用方法时，会通过该注解去找到对应的 Interceptor 并执行。清单 20 展示如何自定义 Interceptor 注解。
+
+清单 20. 自定义 @Transactionl 注解
+
+				 
+ @InterceptorBinding 
+ @Target({TYPE,METHOD}) 
+ @Retention(RUNTIME) 
+ @Inherited 
+ public @interface Transactional { 
+ } 
+	
+
+从上面的代码可以看出，自定义的 Interceptor 注解需要用 @InterceptorBinding 声明，同时该注解只能应用于类 (TYPE) 和方法 (METHOD)。
+自定义 Interceptor 类
+清单 20 中定义好的 @Transactional 注解只算是标识，真正完成事务管理功能的类需要手动编写。清单 21 展示了用 Interceptor 实现的事务管理的代码。
+
+清单 21. 实现事务管理的 TransactionInterceptor 类
+
+				 
+ @Transactional 
+ @Interceptor 
+ public class TransactionalInterceptor implements Serializable { 
+
+	 @Inject @PersistenceLog 
+	 private Logger logger; 
+
+ @AroundInvoke
+  public Object manageTransaction(InvocationContext ctx) throws Exception { 
+   logger.info("Begining transactional interceptor."); 
+      Object target = ctx.getTarget();
+   if(!(target instanceof Manager)) 
+    throw new RuntimeException("
+       Transactional annotation can only apply to Manager."); 
+   Manager manager = (Manager) target; 
+   EntityManager em = manager.getEntityManager(); 
+   Object obj = null; 
+   try { 
+    em.getTransaction().begin(); 
+           obj = ctx.proceed();
+			 em.getTransaction().commit(); 
+		 } catch (RuntimeException ex) { 
+			 try { 
+				 em.getTransaction().rollback(); 
+			 } catch (RuntimeException rex) { 
+				 logger.error("Could not rollback transaction. " + rex); 
+			 } 
+			 throw ex; 
+		 } 
+		 logger.info("Ending transaction interceptor."); 
+		 return obj; 
+	 } 
+ } 
+	
+
+实现自定义 Interceptor 需要注意的地方已经用粗体标识出来，总结起来有以下几点：
+  •   Interceptor 类需要使用两个注解，@Interceptor 向 CDI 容器表明自己是个拦截器，@Transactional 注解告诉 CDI 容器自己只拦截标识了 @Transactional 的方法（或标识了 @Transactional 的类的方法）。
+  •   具体实施拦截的方法前面需要使用 @AroundInvoke 注解，该方法只能有类型为 InvocationContext 的参数，且返回 Object 对象。
+  •   获取被拦截对象可用 InvocationContext 参数对象的 getTarget() 方法。
+  •   调用被拦截方法时使用 proceed() 方法。
+绑定
+声明了 @Interceptor 的类由 CDI 容器管理，当某个需要拦截的方法被调用时，容器根据被拦截方法的注解来找到对应的 Interceptor，这个过程称为绑定。在示例应用中，当用户修改了雇员信息后，需要启动事务完成数据写入，此时只需在该方法 (merge 方法 ) 上使用 @Transactional 注解，CDI 容器就会完成拦截器的绑定。
+
+清单 22. 绑定了拦截器的 EmployeeManager
+
+     
+ @SessionScoped 
+ @Named 
+ public class EmployeeManager implements Serializable, Manager { 
+ …
+
+  @Inject 
+  private EntityManager entityManager; 
+
+  public EntityManager getEntityManager() { 
+   return this.entityManager; 
+  } 
+
+ @Transactional
+	 public void merge(Employee e) { 
+		 entityManager.merge(e); 
+	 } 
+
+ } 
+	
+
+清单 21 所示的拦截器在开始和结束时都会输出日志，在示例应用中修改雇员的信息时可以观察到日志的输出。getEntityManager() 方法的引入是为了在 Interceptor 中能够方便取到 EntityManager 对象，进而实施事务控制。
+从功能上来看，CDI 的 Interceptor 相当于 Spring AOP 的一个子集，并且单独的 CDI 实现没有现成的组件可用。
+回页首
+监听 CDI 容器事件
+示例应用的基本功能都已经实现，现在还剩下一个问题：关闭 EntityManagerFactory。对于整个应用共享的资源，一般的做法是在 ServletContextListener 中实现初始化和释放资源。在 Servlet 环境中引入 CDI 后，这种处理方法就不够理想，因为监听器中无法使用 CDI 容器中的资源，会显得与整个应用格格不入。如果我们希望在关闭 EntityManagerFactory 时能够访问 CDI 容器中的对象（如 Logger 对象），这就要求关闭 EntityManagerFactory 的时机是在 CDI 容器销毁之前的一刻。从 CDI 容器的外部是根本无法把握这种时机的，唯一的办法是由 CDI 容器自身来告诉外部应用这个时机的到来，外部应用通过接入适当的方法来完成相关功能的调用。CDI 对这个问题的解决方案是使用事件机制。
+CDI 事件机制
+要了解 CDI 的事件机制，可以和 Swing 编程中的事件机制作一番比较。在 Swing 中监听按钮的点击事件，需要完成两件事情：
+  •   自定义监听器去实现 ActionListener 接口。
+  •   调用 addActionListener 方法将监听器和事件源（按钮）关联到一起。
+站在 CDI 事件机制的角度来看，Swing 的事件机制还不够灵活，监听器的实现以及把两者关联到一起的方法，都与特定的 API 捆绑在一起，事件源和监听器之间无法完全脱离。CDI 的事件机制就是在上面的模型中引入第三者—— CDI 容器。事件源只知有 CDI 容器，不知监听器在哪里。监听器只知要监听的事件是什么，完全不知事件源是谁。事件源和监听器之间的关联只在于两者使用了相同的 Java 注解，它们之间不再有任何相互的依赖。
+CDI 容器事件
+在 CDI 容器的生命周期中会触发很多事件，如： BeforeBeanDiscovery、AfterBeanDiscovery、BeforeShutdown、ProcessAnnotatedType 等。根据应用程序的需要，可以选择去监听不同的容器事件。关闭 EntityManagerFactory 应当在 CDI 容器销毁之前完成，最合适的时机就是在 BeforeShutdown 事件发生之时。
+监听 CDI 容器事件与监听一般 CDI 事件并不相同，容器事件与容器本身的生命周期息息相关，在某些特定的生命阶段，容器的功能并不完整，实现容器事件的监听器不能够依赖容器的功能。
+监听 BeforeShutdown 事件
+CDI 规范规定，容器事件的监听器必须是 javax.enterprise.inject.spi.Extension 的服务提供者（Service Provider）。因此，为了监听 BeforeShutdown 事件，需要在 META-INF/services 目录之下添加一个名为 javax.enterprise.inject.spi.Extension 的文件，文件的内容即是实现 Extension 的类的名称。添加 javax.enterprise.inject.spi.Extension 文件的位置如图 5 所示。
+
+图 5. javax.enterprise.inject.spi.Extension 文件的位置
+  图 5  
+关闭 EntityManagerFactory 的代码如清单 23 所示。
+
+清单 23. MyExtension 源码
+
+				 
+ public class MyExtension implements Extension { 
+
+	 public void closeFactory(@Observes BeforeShutdown event, BeanManager manager) { 
+		 EntityManagerFactory factory = EntityManagerProvider.getFactory(); 
+		 if(factory.isOpen()) factory.close(); 
+		 Set<Bean<?>> beans = manager.getBeans(\
+		 Logger.class, new AnnotationLiteral<PersistenceLog>() {}); 
+		 Bean<?> bean = beans.iterator().next(); 
+		 CreationalContext<?> cc = manager.createCreationalContext(bean); 
+		 Logger logger = (Logger) manager.getReference(bean, Logger.class, cc); 
+		 logger.info("\
+		 BeforeShutdown event is fired. And EntityManagerFactory is closed."); 
+	 } 
+ } 
+	
+
+@Observes 注解应用到 closeFactory 方法的第一个参数上，表明 closeFactory 是监听器方法，监听的事件的类型为 BeforeShutdown。closeFactory 方法中的代码还展示了如何通过代码来获取 CDI 容器中的 Logger 对象。之所以这么大费周折而不是直接注入 Logger 对象，是因为 Extension 处在 CDI 容器管理范围之外，无法用普通方法来注入。实现了 MyExtension 之后，每次关闭 Tomcat 服务器时都可以在控制台看到如清单 24 所示的输出。
+
+清单 24. 关闭 EntityManagerProvider 的日志信息
+
+     
+ INFO  cn.jhc.persistence - 
+  BeforeShutdown event is fired. And EntityManagerFactory is closed. 
+	
+
+回页首
+结束语
+本教程通过一个简单的示例应用程序展示了如何结合 CDI 和 JPA 来开发 Servlet 应用。通过本教程的学习，您应该能够对 CDI 有基本的了解。在开发 Servlet 应用方面， CDI 并没有什么优势。只有放到 Java EE 6 的体系结构中去，结合 JSF 和 EJB3，CDI 的优势才能显现出来。本教程在相对简单的环境中探讨了 CDI，可为将来更深入地学习打下基础。
+
+回页首
+下载
+描述名字大小下载方法
+示例代码	cdiapp.zip	16KB	HTTP	
+关于下载方法的信息
+
+参考资料 
+学习
+  •   参考 JSR-299，提供了 CDI 1.0 的完整描述。
+
+
+  •   参考 JSR-346，提供了正在起草的 CDI 1.1 规范的完整描述。
+
+
+  •   参考 JSR-317，提供了 Java Persistence API 2.0 规范的完整描述。
+
+
+  •   参考 Weld主页，提供了 CDI 1.0 的实现，还有很多相关文档和教程。
+
+
+  •   参考 Hibernate主页，提供了 JPA 2.0 标准的实现，并有很多相关文档和教程。
+
+
+  •   参考 Support Conversations in Servlet，里面讨论了在 Servlet 环境中提供 Conversation Scope 的相关问题。
+
+
+  •   参考 Pro JPA 2 - Mastering the Java Persistence API，对 EntityManger、EntityManagerFactory、Persistence Context、Transaction 等概念及相互的关系有很详细的介绍。
+
+
+  •   参考 Spring In Action 3rd edition，该书第一部分介绍了 Spring 3 的 IoC 容器和 AOP，对不熟悉 Spring 3 的读者特别有用。
+
+
+  •   参考 Java Persistence With Hibernate, 该书第三部分对 Entity 生命周期的探讨非常详尽，对 Conversation 中使用 JPA 给出了详细指导。
+
+
+  •   developerWorks Java 技术专区：这里有数百篇关于 Java 编程各个方面的文章。 
+
+
+讨论
+  •  加入 developerWorks 中文社区。查看开发人员推动的博客、论坛、组和维基，并与其他 developerWorks 用户交流。
+
+
+关于作者
+吕焱飞，1999 年毕业于浙江大学计算数学专业，后一直从事数学和计算机方面的教学工作，目前对 Java 开源框架有比较深厚的兴趣，喜欢去挑战新的应用技术。
+关闭 [x]
+关于报告滥用的帮助 报告滥用
+谢谢! 此内容已经标识给管理员注意。
+  关闭  关闭 [x]
+关于报告滥用的帮助 报告滥用
+报告滥用提交失败。 请稍后重试。
+  关闭  关闭 [x]
+developerWorks：登录
+IBM ID： 
+需要一个 IBM ID？ 
+忘记 IBM ID？ 
+密码：
+忘记密码？
+更改您的密码
+ 保持登录。 
+单击提交则表示您同意developerWorks 的条款和条件。 使用条款
+  提交      取消  
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息。您在 developerWorks 概要信息中选择公开的信息将公开显示给其他人，但您可以随时修改这些信息的显示状态。您的姓名（除非选择隐藏）和昵称将和您在 developerWorks 发布的内容一同显示。
+所有提交的信息确保安全。
+关闭 [x]
+请选择您的昵称：
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。
+昵称长度在 3 至 31 个字符之间。 您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。
+昵称：（长度在 3 至 31 个字符之间） 
+单击提交则表示您同意developerWorks 的条款和条件。 使用条款.
+  提交      取消  
+所有提交的信息确保安全。
+为本文评分
+  0  评论
+回页首
+static.content.url=http://www.ibm.com/developerworks/js/artrating/SITE_ID=10Zone=Java technologyArticleID=854132ArticleTitle=利用 CDI 和 JPA 开发 Servlet 应用publish-date=01072013 内容
+  •  开始之前
+  •  第一个 CDI 注入
+  •  类型安全（Typesafe）
+  •  注入时的类型安全
+  •  Context（上下文环境）
+  •  生命周期
+  •  共享 Persistence Context
+  •  基于注解的事务管理
+  •  监听 CDI 容器事件
+  •  结束语
+  •  下载
+  •  参考资料 
+  •  关于作者
+  •  评论
+  •  打印此页面
+  •  分享此页面
+  •  关注 developerWorks
+分享此页面：
+  •  新浪微博
+  •  人人网
+  •  腾讯微博
+  •  搜狐微博
+  •  网易微博
+  •  Facebook
+  •  LinkedIn
+  •  Twitter
+  •  Delicious
+  •  Digg
+  •  发送此页面
+  •    关闭 [x]  
+关注 developerWorks 中国网站：
+  •  新浪微博
+  •    关闭 [x]  
+  •  帮助
+  •  联系编辑
+  •  提交内容
+  •  网站导航
+  •  订阅源
+  •  在线浏览每周时事通讯
+  •  报告滥用
+  •  使用条款
+  •  第三方提示
+  •  隐私条约
+  •  浏览辅助
+  •  IBM 教育学院教育培养计划
+  •  IBM 创业企业全球扶持计划
+  •  ISV 资源 (英语)
+  IBM®  选择语言：
+  •  English
+  •  中文
+  •  日本語
+  •  Русский
+  •  Português (Brasil)
+  •  Español
+  •  Việt
+    

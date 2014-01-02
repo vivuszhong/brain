@@ -1,0 +1,61 @@
+                    Home » OpenStack Open Source Cloud Computing Software
+Watch over 200 HD videos from the Summit in Hong Kong    Watch Summit Videos 
+Open Stack
+  •  Home
+  •  Software
+  •  User Stories
+  •  Community
+  •  Foundation
+  •  Profile
+  •  Blog
+  •  Wiki
+  •  Documentation
+
+Open source software for building
+ private and public clouds.
+Software
+OpenStack Software delivers a massively scalable cloud operating system.
+
+Community
+ Join our global community of technologists, developers, researchers, corporations and cloud computing experts. 12905
+People
+131
+Countries
+  •   
+Video From The Hong Kong Summit Now available online.
+Summit Video
+About OpenStack Software... Meet Our Community   •   Latest Activity 
+  •   What is OpenStack? 
+Laying Cinder Block (Volumes) In OpenStack, Part 1: The Basics Mon, Nov 18th 2013 Wrap-up post OpenStack Summit in Hong Kong Mon, Nov 18th 2013 Edge of the Stack: Find Memleaks Without Process Restarts Mon, Nov 18th 2013 Coast to coast meetups this week in the US! Hot topics you won't want to miss #openstack #devops Mon, Nov 18th 2013 Let’s Encourage Innovation: Thoughts From OpenStack Summit Hong Kong Mon, Nov 18th 2013 Come See Us
+NEXT UP: INTEROP, Nov 20 - 22, 2013 in Mumbai, India.
+More Events... OpenStack: The 5-minute Overview
+OpenStack OpenStack is a global collaboration of developers and cloud computing technologists producing the ubiquitous open source cloud computing platform for public and private clouds. The project aims to deliver solutions for all types of clouds by being simple to implement, massively scalable, and feature rich. The technology consists of a series of interrelated projects delivering various components for a cloud infrastructure solution. 
+Who's behind OpenStack? Founded by Rackspace Hosting and NASA, OpenStack has grown to be a global software community of developers collaborating on a standard and massively scalable open source cloud operating system. Our mission is to enable any organization to create and offer cloud computing services running on standard hardware.
+Who uses OpenStack? Corporations, service providers, VARS, SMBs, researchers, and global data centers looking to deploy large-scale cloud deployments for private or public clouds leveraging the support and resulting technology of a global open source community.
+Why open matters: All of the code for OpenStack is freely available under the Apache 2.0 license. Anyone can run it, build on it, or submit changes back to the project. We strongly believe that an open development model is the only way to foster badly-needed cloud standards, remove the fear of proprietary lock-in for cloud customers, and create a large ecosystem that spans cloud providers.
+For more information, visit the OpenStack Community Q&A.
+
+My Feedback About This Page
+  36b74bf1a994817a07af18d2655d2bc30e124808    Tell Us  OpenStack
+  •  Projects
+  •  OpenStack Security
+  •  Common Questions
+  •  Blog
+Community
+  •  User Groups
+  •  Events
+  •  Jobs
+  •  Companies
+  •  Contribute
+Documentation
+  •  OpenStack Manuals
+  •  Getting Started
+  •  API Documentation
+  •  Wiki
+Branding & Legal
+  •  Logos & Guidelines
+  •  Trademark Policy
+  •  Privacy Policy
+  •  OpenStack CLA
+The OpenStack project is provided under the Apache 2.0 license. Openstack.org is powered by Rackspace Cloud Computing.
+  Quantcast      

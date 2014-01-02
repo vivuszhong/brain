@@ -1,0 +1,182 @@
+                    Godaddy_百度百科
+新闻网页贴吧知道音乐图片视频地图百科文库
+  Godaddy    进入词条    搜索词条    1    1    utf8  帮助  •  首页
+  •  分类频道
+  •  特色百科
+  •  玩转百科
+  •  百科用户
+  •  百科校园
+  •  百科合作
+  •  手机百科
+  •  个人中心
+  •  自然
+  •  文化
+  •  地理
+  •  历史
+  •  生活
+  •  社会
+  •  艺术
+  •  人物
+  •  经济
+  •  科技
+  •  体育
+  •  数字博物馆
+  •  完善词条
+  •  导师计划
+  •  优秀词条
+  •  百科商城
+  •  编修院
+  •  蝌蚪团
+切换到宽屏切换到窄屏  有用+1Godaddy编辑
+Go Daddy是一家提供域名注册和互联网主机服务的美国公司，服务产品涉及域名主机领域基础业务：域名注册、虚拟主机、VPS、独立主机，以及域名主机领域的衍生业务：独立IP、SSL证书、网站建设、邮箱、相册、速成网站、加速搜索引擎收录、网站分析等。Godaddy同时提供独立IP，SSL证书。目 录
+1产品
+2购买
+3优劣
+4域名
+5域名
+6相关
+1产品
+Godaddy在2010年底推出的第四代虚拟主机4GH，虚拟主机也可以由服务器集群（server cluster）提供服务。 Godaddy 4GH包含3个方面的技术：动态服务器管理（Dynamic Server Management）、动态流量管理（Dynamic Traffic Management）、动态防御管理（Dynamic Defense Management）。　Godaddy 4GH通过这3个主要技术，使得虚拟主机的性能和稳定性得到了大幅提升，短时间的突发访问不再导致网站访问迟缓，或者因超限而被主机商挂起，中断业务。 Godaddy另一款产品Godaddy SSL证书附送独立IP。2购买
+2009年12月，Go Daddy宣布正式支持中国用户使用支付宝付款。GoDaddy默认国家是美国，需要将国家修改成中国，即China才会显示支付宝窗口。 GoDaddy经常发布一些低价域名优惠信息，例如0.99$优惠码，1.99$优惠码，2.95$优惠码等等，算下来一个域名才几块钱，站长们自然愿意买Godaddy的。在售后域名的同时，其它产品也可以顺带销售，如虚拟主机、VPS、SSL等。 中国用户很少能用这些低价优惠码，一般在最后付款会提示无法完成。即便如此，还是优惠了很多， Godaddy付款方式非常多，可以使用支付宝、信用卡、PayPal或者是财付通全球通。GoDaddy又推出一种新的优惠手段——团购。 注意事项： Hosting下的Cancel Account这个按纽和Domains下的Cancel Selected这两个按纽一定不要误点，前一个是删除空间，后一个是删除域名,都是不可恢复的。3优劣
+Godaddy规模大，因而价格有竞争力。Windows主机基本是同行业中最低的，其他空间商的windows主机的月费基本都在9.95美元左右。此外，Godaddy有各种类型优惠促销，合理选用可以节省不少开支。  GODADDY官网    GODADDY官网
+管理灵活。在Godaddy的控制面板就可以自助实现购买添加独立IP，更换主域名，增加支持JSP（linux），更换操作系统，购买添加SSL证书等多种操作。在其他主机商，这些基本都需要联系主机商完成，很繁琐。 可以自由更换操作系统。无论是购买的是那种操作系统，都可以在windows与linux之间自由更换，方便快捷 30天退款保证。30天内无条件退款，比国内某些空间商提供的免费试用7天要实在的多。 速度快。Godaddy主机在国内的的大部分地区的速度都很好，在美国等国家的速度一流，非常适合外贸网站的使用。 快速搭建电子商务平台。Godaddy主机可以方便快捷的添加独立IP，SSL证书，满足电子商务的需要。2011年7月3日，私募股权公司KKR & Co.、银湖（Silver Lake Partners）和Technology Crossover Ventures与Go Daddy达成协议，以22.5亿美元收购了Godaddy。 变更生效速度慢。更换系统类型和ip时有时等待24－48小时，不即时生效，影响网站访问。国内地区访问不均衡，通常网通比较快，电信线路的慢。客服水平不高，沟通不易。4域名
+添加域名 在现有虚拟主机帐户上可以添加多个域名。你可以根据自己选择的主机方案去注册，而不需要局限在一个原始注册域名上。Deluxe 和Premium计划可以对任何一个目录添加新的域名。 例如：如果你有一个xxx-com域名，设立一个名为，a-com到Deluxe (或者Premium)，你可以点击xxx-com到目录/another，访问者只要点击xxx-com 就可以到a-com/another 操作步骤： 1、登陆帐户，点My Account； 2、在products 选项中，选择Web Hosting； 3、选择你需要修改的帐户点击Launch； 4、在控制面的设置项，点击Domains 按钮； 5、在Domain 菜单下在购买帐户选择一个域名或者输入一个新的域名； 6、从Domain Hosting Path的下拉菜单中选择一个目录，或者建立一个新的目录（ 此步骤仅限于Deluxe Premium 方案）； 7、 点击 Add Domain。5域名
+下面是GoDaddy支持的域名后缀列表，可选的后缀还是很多的。当然别忘了使用优惠码，最高可以优惠40%，比较划算。 后缀名 	英文意义 	中文意义 	
+com 	Commercial organizations 	商业组织/公司 	
+edu 	Educational institutions 	教研机构 	
+gov 	Governmental entities 	政府部门 	
+int 	International organizations 	国际组织 	
+mil 	Military (U.S) 	美国军部 	
+net 	Network operations and service centers 	网络服务商 	
+org 	Other organizations 	非盈利组织 	
+国家域名后缀 			
+后缀名 	国家名称（英文） 	国家名称 	
+ad 	Andorra 	安道尔 	
+ae 	United Arab Emirates 	阿联酋 	
+af 	Afghanistan 	阿富汗 	
+ag 	Antigua and Barbuda 	安提瓜和巴布达 	
+ai 	Anguilla 	安格拉 	
+at 	Austria 	奥地利 	
+au 	Australia 	澳大利亚 	
+aw 	Aruba 	阿鲁巴 	
+az 	Azerbaijan 	阿塞拜疆 	
+
+	
+	
+	
+ba 	Bosnia Hercegovina 	波黑 	
+bb 	Barbados 	巴巴多斯 	
+bd 	Bangladesh 	孟加拉国 	
+be 	Belgium 	比利时 	
+bf 	Burkina Faso 	布基纳法索 	
+bt 	Bhutan 	不丹 	
+bv 	Bouvet Island 	布韦群岛 	
+bw 	Botswana 	伯兹瓦纳 	
+by 	Belarus 	白俄罗斯 	
+bz 	Belize 	伯利兹 	
+
+	
+	
+	
+ca 	Canada 	加拿大 	
+cc 	Cocos Islands 	科科斯群岛 	
+cf 	Central African Republic 	中非共和国 	
+cg 	Congo 	刚果 	
+ch 	Switzerland 	瑞士 	
+ci 	Ivory Coast 	象牙海岸 	
+ck 	Cook Islands 	库克群岛 	
+cl 	Chile 	智利 	
+cm 	Cameroon 	喀麦隆 	
+cn 	China 	中国 	
+co 	Colombia 	哥伦比亚 	
+cq 	Equatorial Guinea 	赤道几内亚 	
+cr 	Costa Rica 	哥斯达黎加 	
+cu 	Cuba 	古巴 	
+cv 	Cape Verde 	佛得角 	
+cx 	Christmas Island 	圣诞岛（英 	
+cy 	Cyprus 	塞浦路斯 	
+cz 	Czech Republic 	捷克共和国 	
+
+	
+	
+	
+de 	Germany 	德国 	
+dj 	Djibouti 	吉布提 	
+dk 	Denmark 	丹麦 	
+dm 	Dominica 	多米尼加联邦 	
+do 	Dominican Republic 	多米尼加共和国 	
+dz 	Algeria 	阿尔及利亚属） 	
+
+	
+	
+	
+ec 	Ecuador 	厄瓜多尔 	
+ee 	Estonia 	爱沙尼亚 	
+eg 	Egypt 	埃及 	
+eh 	Western Sahara 	西萨摩亚 	
+gb 	Great Britain (UK) 	大不列颠联合王国 	
+gd 	Grenada 	格林纳达 	
+ge 	Georgia 	格鲁吉亚 	
+gf 	French Guiana 	法属圭亚那 	
+gh 	Ghana 	加纳 	
+gi 	Gibraltar 	直布罗陀 	
+gl 	Greenland 	格陵兰群岛 	
+gm 	Gambia 	冈比亚 	
+gn 	Guynea 	几内亚 	
+gp 	Guadeloupe 	瓜德罗普岛（法属） 	
+gr 	Greece 	希腊 	
+gt 	Guatemala 	危地马拉 	
+gu 	Guam 	关岛 	
+gw 	Guinea-Bissau 	几内亚比绍 	
+gy 	Guyana 	圭亚那 	
+
+	
+	
+	
+hk 	Hong Kong 	香港 	
+hm 	Heard & McDonald Is. 	赫特与麦克唐纳群岛 	
+hn 	Honduras 	洪都拉斯 	
+id 	Indonesia 	印度尼西亚 	
+ie 	Ireland 	爱尔兰共和国 	
+il 	Israel 	以色列 	
+kg 	Kyrgyzstan 	吉尔吉斯斯坦 	
+lb 	Lebanon 	黎巴嫩 	
+md 	Moldova 	摩尔多瓦 	
+mg 	Madagascar 	马达加斯加 	
+mh 	Marshall Islands 	马绍尔群岛 	
+ml 	Mali 	马里 	
+mm 	Myanmar 	缅甸 	
+mn 	Mongolia 	蒙古 	
+mo 	Macau 	澳门 	
+ne 	Niger 	尼日尔 	
+nf 	Norfolk Island 	诺福克岛 	
+ng 	Nigeria 	尼日利亚 	
+ni 	Nicaragua 	尼加拉瓜 	
+nl 	Netherlands 	荷兰 	
+no 	Norway 	挪威 	
+np 	Nepal 	尼泊尔 	
+nr 	Nauru 	瑙鲁 	
+nt 	Neutral Zone 	中立区 	
+nu 	Niue 	纽埃 	
+nz 	New Zealand 	新西兰	
+6相关
+2011年6月20日，据外媒报道，GoDaddy点com和世界扑克锦标赛(World Series Of Poker)已经宣布，GoDaddy点com将是2011年世界扑克锦标赛的首席赞助商，WSOP PR的正式宣布日期为2011年6月8日。Godaddy为了支持此项活动，注册了大批相关域名，这看上去有点疯狂，不过应该只是出于域名保护策略。 Godaddy注册的域名有：GoDaddySponsorsWsop点com、GodaddyWorldSeriesOfPoker点com和GoDaddyWsop点com。除此之外，Godaddy还注册了这些域名的其他后缀，如点NET/点org /点biz/点info/点us。这些域名大部分在2011年6月14日注册，也就是消息公布出来的六天之后。 GoDaddy成为2011年世界扑克锦标赛的首席赞助商的消息一经发布，也引起相关域名注册热潮，另人大跌眼镜的是，其中大部分域名还是通过GoDaddy登记注册的。 2011年7月3日，私募股权公司KKR & Co.、银湖（Silver Lake Partners）和Technology Crossover Ventures日前同美国域名注册和托管服务商Go Daddy达成协议，以22.5亿美元收购了Godaddy。　Godaddy首席执行官、创始人鲍勃·帕森斯（Bob Parsons）在接受《洛杉矶时报》采访时表示，被私募股权公司收购，将有助于Go Daddy向国际市场扩张，结盟更多的合作伙伴，招募到更多的人才，并收购其它的公司。消息人士透露，在交易完成之后，帕森斯仍然是Go Daddy最大的单一股东和首席执行官，但私募股权公司将成为联合控股股东。根据计划，帕森将由首席执行官一职最终过渡为执行总裁，但他仍然可以参与公司的管理。 2012年1212日消息，据国外媒体报道，全球最大域名注册商Godaddy已经任命雅虎前首席产品官布莱克·艾文(Blake Irving)为新任CEO。 [1] 参考资料   •   
+1．  域名商Godaddy任命雅虎前高管为CEO  ．搜狐IT ．2012-12-12 ．
+词条标签： 虚拟主机 网站 ， 域名 ， 域名注册 ， 互联网主机 如果想投诉，请到百度百科投诉中心；如果想提出意见、建议，请到意见反馈。
+  Godaddy  Godaddy 词条统计浏览次数：次编辑次数：138次 历史版本最近更新：2013-11-02创建者：80993721 词条贡献榜 辛勤贡献者：	
+	神九88   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	美国主机9   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	wyaqi88   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	1069116246   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	1550911   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	jylihuahui   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	ixweb专家   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	deak17   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	百科ROBOT   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	红色自由人   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	66so   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+	yiuouuy   为词条改进贡献了复杂版本的用户，被称为辛勤贡献者  	
+展开		
+© 2013 Baidu 使用百度前必读 | 百科协议 | 百度百科合作平台  Godaddy  	参考资料	
+
+1产品2购买3优劣4域名5域名6相关登录   Godaddy    utf8    1    1  查看我的收藏 

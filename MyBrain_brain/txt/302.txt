@@ -1,0 +1,42 @@
+                    WebRTC
+  WebRTC  
+	  search-site  Search this site 	
+		
+  •  Home
+  •  General Overview
+  •  WebRTC Native Code Package
+  •  License & Rights
+  •  FAQ
+  •  WebRTC Native APIs
+  •  iLBC Freeware
+  •  Blog
+  •  Demo
+  •  Chrome
+  •  Firefox
+  •  Interop Notes
+	Home 
+	
+WebRTC is a free, open project that enables web browsers with Real-Time Communications (RTC) capabilities via simple JavaScript APIs. The WebRTC components have been optimized to best serve this purpose. 
+Our mission: To enable rich, high quality, RTC applications to be developed in the browser via simple JavaScript APIs and HTML5.
+The WebRTC initiative is a project supported by Google, Mozilla and Opera. This page is maintained by the Google Chrome team.
+Supported browsers The WebRTC API is now available in:
+	
+  Chrome browser logo  	 Chrome's stable version 	
+  Firefox browser logo  	Firefox's stable  version	
+	Opera's stable  versionNew!	
+
+ Chrome, Firefox and Opera can now "talk". Developers, learn more here:   •  The Intro to WebRTC video
+  •  The Getting Started guide
+  •  The W3C WebRTC API draft
+  •  The HTML5 Rocks guide to WebRTC
+  •  The webplatform.org documentation
+
+
+  •  The W3C Webrtc workgroup list
+  •  The IETF Rtcweb workgroup list
+
+
+  •  The WebRTC Google+ page.
+  •  The WebRTC email list.
+Copyright Google Inc. 2011 - 2012 Privacy Policy Sign in|Report Abuse|Remove Access|Powered By Google Sites
+    

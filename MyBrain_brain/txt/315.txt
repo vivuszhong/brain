@@ -1,0 +1,14 @@
+                    Quake 3 WebGL Demo
+
+ Sorry, but your browser does not support WebGL or does not have it enabled. To get a WebGL-enabled browser, please see:
+ http://get.webgl.org/  Loading...  Sorry, but your browser does not support WebGL or does not have it enabled.
+ To get a WebGL-enabled browser, please see:
+ http://get.webgl.org/ Controls
+  •  Look: Click and Drag
+  •  Movement: W,A,S,D
+  •  Jump: Space
+  •  Respawn: R
+Settings
+  •  Show FPS: 
+  •  Fullscreen: 
+See more WebGL demo's at my blog     

@@ -1,0 +1,43 @@
+                    QR Code Generator | QuickMark Color | Brand and track your QR Codes | 彩色 QR Code 產生器 -- QR Code 最小尺寸可以做到多小？
+  •  Plans & Pricing
+  •  Help
+  •  Q&A
+  •  Sign In
+  •    Home  
+  •  Q&A<
+Table of Contents   •  Why Create QR Codes With QuickMark Color?
+Live Demo QR Code 最小尺寸可以做到多小？
+  QuickMark app 掃描 QR Code   對於初接觸 QR Code 的使用者來說，在成功產生或設計 QR Code 圖案後，很可能面臨的疑問就是：QR Code 要做 (印) 多大？ 或者是當版面空間有限時，問的方式會變成：QR Code 最小可以做 (印) 多小？ 
+
+ 其實關於這種問題答案我最常給的答案是：不一定。(好像很不負責任...)
+
+ 別緊張，只要掌握幾件事，就可以估算出來你的條碼是否還有縮小的空間： 
+  •  QR Code 資料內容是什麼、有多少？
+  •  可用來擺放 QR Code 的版面或空間有多少？
+  •  使用者會用什麼設備來讀取你做的條碼？
+ 需要關心 QR Code 資料內容有多少的原因很簡單，因為資料越多，條碼就會越大！請看下面兩個範例條碼，A 的內容是一個短網址、B 則是一個比較長的網址，在模組大小一樣的情況下，兩個 QR Code 面積大小有如此差距：  這時候如果你的可用版面有限，硬要將 B 塞入與 A 相同的面積大小，你會得到以下的結果：  很明顯地，這麼做會讓這個 QR Code 看起來 "密度" 很高。但更重要的是 B 條碼的每個模組都變小了，而這可能造成某些讀取設備的讀取困難 (因為 "看" 不清楚了)。
+
+ 聰明的讀者或許已經猜到，關鍵就在模組大小！所謂的模組就是 QR Code 裡面的黑點或白點。而 QR Code 最小的規格是 21 x 21 個模組 (不含白邊) 並且被取了個 Version 1 的名字。接下來的 Version 2 是 25 x 25 個模組、Version 3 是 29 x 29 個模組、每增加一個 Version 就代表邊寬增加四個模組，依此類推。
+
+ 回到原來的問題，既然模組大小是關鍵，一個模組要多大才理想呢？這部份與讀取設備有很大關係，有些企業是內部流程應用 QR Code 並有專門的掃描器，就可以做比較小。但如果你希望 QR Code 有機會被第一代 iPhone 等沒有自動對焦鏡頭的手機讀取的話，每個模組至少要 0.80 mm x 0.80 mm。
+
+ 都已經快 2013 年了，還需要考慮有沒有自動對焦鏡頭這種事嗎？這有點見仁見智，所以簡單查了一下 ePrice 網站的手機資料，給大家做個參考。目前 (2012-11-20) 有在台灣賣的手機型號裡面，71.9% 都是有自動對焦的。其中 Android 手機裡面有 46.5% 是有自動對焦的，而 iPhone 則是從三年前的 3Gs 起就都有自動對焦了。當然，以上只是單純就在販售中的手機型號做統計，並未將各型號的銷售量納入考量。以現在智慧型手機普及的程度，個人是認為 QR Code每個模組大小 0.60 mm x 0.60 mm 以上就很安全了 (當用於平面印刷時)。
+
+ (每隻手機的鏡頭能力不盡相同，若想測試一下自己的手機可以讀到多小的條碼，可以下載我們 QuickMark 的  QR Code 視力表 。)
+
+ 所以如果以最小的 Version 1 QR Code (A 條碼) 來做試算，建議的最小安全尺寸是：
+ (21 + 8) x 0.60 mm = 1.74 cm (這是含白邊，所以有 +8。不知道為何要留白邊的請看這篇)
+
+ 再用個更實際的例子做試算：假設你需要做一個 QR Code 讓消費者掃描之後可以直接下載你開發的 iPhone app，你做出來的 QR Code 很可能會跟前面的 B 條碼一樣大 (Version 5)，因為 Apple 給的原始下載連結就差不多那樣長。那麼，你的條碼的最小安全尺寸就是：
+ (37 + 8) x 0.60 mm = 2.70 cm (含白邊)
+
+ 萬一你剛好符合上述應用狀況，卻偏偏有 iPhone、Android 兩個下載用的 QR Code 需要製作，那且不是要兩倍的版面？其實不然，我們認為最理想的解決方法是只做一個 QR Code，但靠後端系統的處理，讓任何掃描該條碼的消費者都能自動被帶到正確的下載網址，無論他們使用什麼手機平台。如果你對於這樣的功能有興趣，請參考我們的QuickMark Color QR Code 製碼平台。除了可以設計好看的造型 QR Code，還能幫你節省許多的版面，一舉數得！
+ 關鍵字： QuickMark Color, QR Code, 製作條碼  2012-11-20 Posted by Mike Chen 立即開始
+Live Demo Share facebook twitter youtube blog   •  About
+  •  |
+  •  Contact
+  •  |
+  •  Privacy
+  •  |
+  •  Terms
+Copyright© 2012 SimpleAct Inc. All Rights Reserved. Powered by   QuickMark  繁體中文 ． English     

@@ -1,0 +1,217 @@
+                    Home - Enterprise Integration Patterns
+	 Home		
+Home  Patterns  Ramblings  Articles  Talks  Download  Links  Books  Contact			
+	
+	
+  Subscribe  Ramblings	
+	
+ My ongoing thoughts about the present and future of integration, SOA and Web services. [see all]	
+DDD - Diagram Driven Design 
+(March 22, 2010) 	
+What Does It Mean to Use Messaging? 
+(Feb 17, 2010) 	
+A Chapter a Day... 
+(Feb 1, 2010) 	
+ 	
+	
+	
+  Subscribe  Upcoming Events	
+	
+ 	
+	
+Articles & Interviews	
+	
+Conversations Between Loosely Coupled Services 
+ (Video on InfoQ)	
+Developing in a Service-oriented World 
+ (Video on InfoQ)	
+SOA Patterns - New Insights or Recycled Knowledge?
+ (Whitepaper) 	
+Let's Have a Conversation
+ (IEEE Internet Computing) 	
+Programming Without a Call Stack - Event-driven Architectures
+ (ObjektSpektrum, 2006) 	
+Your Coffee Shop Does Not Use Two-Phase Commit
+ (IEEE Software Magazine)
+	
+Developing in a Service-Oriented World
+ (Whitepaper) 
+	
+Integration Patterns with BizTalk Server 2004
+ (Whitepaper)	
+An Asynchronous World
+ (Software Development Magazine, July 2003)	
+Video of Patterns and Microsoft .NET on MSDN TV	
+Test-Driven Development in Integration Projects
+ (Whitepaper)	
+XML Abuse
+ (Software Development Magazine, Dec 2002)
+	
+ 	
+	
+	
+News	
+"Starbucks Does Not Use Two-Phase Commit" selected for "The Best Software Writing"	
+ 	
+	
+Presentation Downloads 	
+	
+Nearfield Communication (NFC) in Japan	
+Embedded OSS	
+Distributed Programming the Google Way	
+Programming the Cloud	
+ Developing in a Service-Oriented World	
+Programming without a Call Stack: Event-driven Architectures 	
+Software Visualization and Model Extraction	
+Conversations Between Loosely Coupled Systems
+	
+Enterprise Integration Patterns	
+	
+  	
+
+	
+ 	
+	
+ 	
+  IEEE Software Board Member  	
+ 	Patterns and Best Practices for Enterprise Integration
+This site is dedicated to making the design and implementation of integration solutions easier. The solutions and approaches described here are relevant for integration tools and platforms such as IBM WebSphere MQ, TIBCO, Vitria, SeeBeyond, WebMethods, or BizTalk, messaging systems such as JMS,WCF, or MSMQ, ESB's such as Sonic, Fiorano, ServiceMix, Mule, Apache Synapse, or WSO2, and SOA and Web-service based solutions. 
+All content on this site is original and is maintained by Gregor Hohpe. I have been building integration solutions for large clients for many years and enjoy sharing my findings with the community. I hope you find this material insightful and useful. Please contact me if you have suggestions or feedback. 
+Enterprise Integration Patterns - The Book
+	
+  Shop at Amazon.com  	
+Enterprise integration remains harder than it really should be. While integration is inherently complex, I felt that one of the major stumbling blocks is the lack of a common vocabulary and body of knowledge around asynchronous messaging architectures used to build integration solutions. Under the guidance of Martin Fowler and Kyle Brown, I teamed up with Bobby Woolf to create such a language in the form of 65 integration patterns (see the pattern links on the right).
+The book Enterprise Integration Patterns provides a consistent vocabulary and visual notation to describe large-scale integration solutions across many implementation technologies. It also explores in detail the advantages and limitations of asynchronous messaging architectures. You will learn how to design code that connects an application to a messaging system, how to route messages to the proper destination and how to monitor the health of a messaging system. The patterns in the book are technology-agnostic and come to life with examples implemented in different messaging technologies, such as SOAP, JMS, MSMQ, .NET, TIBCO and other EAI Tools.
+Download a sample chapter! 
+"The core language of EAI, defined in the book Enterprise Integration Patterns by Gregor Hohpe and Bobby Woolf, is also the core language of defining ESB flows and orchestrations, as seen in the ESB's developer tooling."--Forrester Research "If you are involved with the operation or development of an enterprise application, there will doubtless come a time when you will need to integrate your application with another using the emerging preferred approach of messaging. When that time comes, this book will be your most valuable reference."--Randy Stafford, Oracle [More Testimonials]Why Do We Need Integration?
+Today's business applications rarely live in isolation. Users expect instant access to all business functions an enterprise can offer, regardless of which system the functionality may reside in. This requires disparate applications to be connected into a larger, integrated solution. This integration is usually achieved through the use of some form of "middleware". Middleware provides the "plumbing" such as data transport, data transformation, and routing.
+What Makes Integration so Hard? 
+Architecting integration solutions is a complex task. There are many conflicting drivers and even more possible 'right' solutions. Whether the architecture was in fact a good choice usually is not known until many months or even years later, when inevitable changes and additions put the original architecture to test. Unfortunately, there is no "cookbook" for enterprise integration solutions. Most integration vendors provide methodologies and best practices, but these instructions tend to be very much geared towards the vendor-provided tool set and often lack treatment of the bigger picture, including underlying guidelines, principles and best practices.
+Asynchronous Messaging Architectures
+Asynchronous messaging architectures have proven to be the best strategy for enterprise integration because they allow for a loosely coupled solution that overcomes the limitations of remote communication, such as latency and unreliability. The trend towards asynchronous messaging has manifested itself in a variety of EAI suites as well emerging standards for reliable, asynchronous Web services. Unfortunately, asynchronous messaging is not without pitfalls. Many of the assumptions that hold true when developing single, synchronous applications are no longer valid. What is needed is vendor-independent design guidance on building robust integration architectures based on asynchronous messaging.
+How can Patterns Help? 
+Patterns are a proven way to capture experts knowledge in fields where there are no simple one size fits all answers, such as application architecture, object-oriented design, or message-oriented integration . Each pattern poses a specific design problem, discusses the considerations surrounding the problem, and presents an elegant solution that balances the various forces or drivers. In most cases, the solution is not the first approach that comes to mind, but one that has evolved through actual use over time. As a result, each pattern incorporates the experience base that senior integration developers and architects have gained by repeatedly building solutions and learning from their mistakes. This implies that we did not invent the patterns; patterns are not invented, but rather discovered and observed from actual practice in the field.
+The patterns on this site are by no means a complete treatment of all things integration. We focused on developing a cohesive set of patterns that would make a well rounded book. We continue to discover new patterns as part of our daily client work and hope to find the time to document them in the future. 
+What am I Reading Right Now?
+  Service Design Patterns  Service Design Patterns
+Robert Doigneau, Addison Wesley, 2011
+This recent addition to Martin Fowler's well curated Signature Series describes important service design decisions from interaction styles via service implementation all the way to service evolution. Unlike some superficial service pattern books, each pattern's "Considerations" section contains a detailed discussion of trade-offs and pitfalls, as well as pointers to further reading. The high quality of this book is no longer a surprise once you look at the Acknowledgments section, which reads like the who's who of service design, including Kyle Brown, Eric Newcomer, Ian Robinson, Jim Webber, Bobby Woolf, and Uwe Zdun.
+	
+ 	
+Rest in Practice
+Jim Webber, Savas Parastatidis, Ian Robinson
+Of course I am flattered that the running example in this book ("RestBucks") is based on my Starbucks rambling. It's amazing how much we can learn from a coffee shop. Flattery aside, this is a good book: REST without the BS. Jim and Ian explain how to build REST-centric systems using concrete examples instead of demagogy. It almost seems that they are treading extra lightly with so many notes along the lines of "we do not mean to say WS is bad". Maybe it was Jim writing controversial sections and Ian adding the notes... :-) 
+	
+ 		
+	
+Integration Patterns	
+	
+Integration Patterns Overview	
+Table of Contents	
+Revision History	
+Introduction	
+Preface	
+Introduction	
+Solving Integration Problems using Patterns	
+Integration Styles	
+Introduction	
+File Transfer	
+Shared Database	
+Remote Procedure Invocation	
+Messaging	
+Messaging Systems	
+Introduction	
+Message Channel	
+Message	
+Pipes and Filters	
+Message Router	
+Message Translator	
+Message Endpoint	
+Messaging Channels	
+Introduction	
+Point-to-Point Channel	
+Publish-Subscribe Channel	
+Datatype Channel	
+Invalid Message Channel	
+Dead Letter Channel	
+Guaranteed Delivery	
+Channel Adapter	
+Messaging Bridge	
+Message Bus	
+Message Construction	
+Introduction	
+Command Message	
+Document Message	
+Event Message	
+Request-Reply	
+Return Address	
+Correlation Identifier	
+Message Sequence	
+Message Expiration	
+Format Indicator	
+Interlude: Simple Messaging	
+Introduction	
+JMS Request/Reply Example	
+.NET Request/Reply Example	
+JMS Publish/Subscribe Example	
+Message Routing	
+Introduction	
+Content-Based Router	
+Message Filter	
+Dynamic Router	
+Recipient List	
+Splitter	
+Aggregator	
+Resequencer	
+Composed Msg. Processor	
+Scatter-Gather	
+Routing Slip	
+Process Manager	
+Message Broker	
+Message Transformation	
+Introduction	
+Envelope Wrapper	
+Content Enricher	
+Content Filter	
+Claim Check	
+Normalizer	
+Canonical Data Model	
+Interlude: Composed Messaging	
+Introduction	
+Synchronous (Web Services)	
+Asynchronous (MSMQ)	
+Asynchronous (TIBCO)	
+Messaging Endpoints	
+Introduction	
+Messaging Gateway	
+Messaging Mapper	
+Transactional Client	
+Polling Consumer	
+Event-Driven Consumer	
+Competing Consumers	
+Message Dispatcher	
+Selective Consumer	
+Durable Subscriber	
+Idempotent Receiver	
+Service Activator	
+System Management	
+Introduction	
+Control Bus	
+Detour	
+Wire Tap	
+Message History	
+Message Store	
+Smart Proxy	
+Test Message	
+Channel Purger	
+Interlude: Systems Management Example	
+Instrumenting Loan Broker	
+Integration Patterns in Practice	
+Case Study: Bond Trading System	
+Concluding Remarks	
+Emerging Standards	
+Appendices	
+Bibliography	
+ 	© 2012    All rights reserved.	
+ 
+    

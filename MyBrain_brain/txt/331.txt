@@ -1,0 +1,71 @@
+                    Grails - The search is over.
+Grails 2.0
+  •  Login
+  •   
+  •  Create Account
+Pivotal   •   Home 
+  •    Learn 
+  •    Products & Services 
+  •    Groovy/Grails Tool Suite (IDE) 
+  •    Other Products 
+  •    Consulting 
+  •    Training 
+  •    About SpringSource 
+  •   Community 
+  •   Downloads 
+  •   Plugins 
+Grails Framework, Full stack
+Build modern, sophisticated and robust Groovy web applications in record time! Grails brings back the enjoyment of Java web development. 
+Download Grails Start using Grails! 
+  •   rapid 
+Have your next Web project done in weeks instead of months. Grails delivers a new age of Java web application productivity.
+  •   dynamic 
+Get instant feedback, see instant results. Grails is the premier dynamic language web framework for the JVM.
+  •   robust 
+Powered by Spring and designed for the JVM, Grails outperforms the competition. Dynamic, agile web development without compromises.
+
+Sky Video Gallery & Sky TV Guide
+video.sky.com & tv.sky.com 
+“Groovy is so much quicker and simpler to write code with, so we can get applications up and running faster,” Mullen confirms. “With Groovy and Grails we can create a new feature in a week, when before it could easily take a month or more.”
+Sky Video
+Companies using Grails   •  
+  •  
+  •  
+  •  
+  •  
+  •  
+  •  
+What is Grails? 
+Grails is an Open Source, full stack, web application framework for the JVM. It takes advantage of the Groovy programming language and convention over configuration to provide a productive and stream-lined development experience. Learn more
+Grab the latest and greatest release!
+You can find other Grails releases and methods of installation on the downloads page.
+Download Grails 2.3.4 Latest News (Read more)
+ Grails 2.3.4 Released
+Published on  05 Dec 2013 
+ Grails 2.3.4 has been released! Please see the release notes for change log and upgrade information.
+ This is the final release before Grails Exchange 2013 in London. See you all there!
+Thanks to all th...
+Read more  Grails 2.3.3 Released
+Published on  21 Nov 2013 
+ Grails 2.3.3 has been released! Please see the release notes for change log and upgrade information.
+Thanks to all those who contributed to the release! Please report any issues to JIRA (not the commen...
+Read more  Grails 2.3.2 Released
+Published on  07 Nov 2013 
+ We are pleased the announce the release of Grails 2.3.2. This release includes numerous bug fixes and improvements. See the release notes for further information.
+Note that if you are upgrading from Gr...
+Read more @grailsframework
+Follow @grailsframework 
+Training
+SpringSource University provides a comprehensive education and certification program for SpringSource software products as well as Spring, Groovy, Grails, and Apache Open Source technologies.
+We offer both public and customized private training and have trained over 4,000 people. Whichever course you decide to take, you are guaranteed to experience what many before you refer to as “The best Enterprise Software Class I have ever attended”.
+Support & services
+SpringSource enterprise software and support subscriptions are the way to get developer and production support for Grails and other SpringSource software products and certified versions of our Open Source technologies including patches, updates, security fixes, and legal indemnification.
+Consulting services are available to companies that wish to leverage the knowledge and expertise of SpringSource’s Grails technology experts.
+Community
+Get involved! Grails has a vibrant and buzzing community. You can grab the source code from GitHub, report issues on the Grails JIRA issue tracker, participate at the mailing lists or Nabble forums or catch-up on the latest news.
+This whole web site is written in Grails, the source code for which is available from GitHub. Visit the Grails community pages for more ways to participate.
+ Built with Grails 2.2.3  Copyright © 2013 GoPivotal, Inc. All rights reserved.
+ All Rights Reserved.   •  Terms of Use
+  •  Privacy
+  •  Artifactory
+    

@@ -1,0 +1,491 @@
+                    YAML 简介
+跳转到主要内容   •     dW  
+  •   登录 (或注册) 
+  •   日本語 
+  •   [userid] 
+  •   IBM 
+IBM ID： 密码：  保持登录。 
+单击提交则表示您同意developerWorks 的条款和条件。 查看条款和条件.
+  提交    •  需要一个 IBM ID？
+  •  忘记 IBM ID？
+  •  忘记密码？
+  •  更改您的密码
+这是您第一次登陆到 developerWorks，已经自动为您创建了您的概要文件。 选择您概要文件中可以公开的信息的信息（如姓名、国家/地区，以及公司），这些信息同时也会与您所发布的内容相关联。 您可以随时更新您的 IBM 账号。
+所有提交的信息确保安全。
+  •    关闭 [x]  
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。
+昵称长度在 3 至 31 个字符之间。 您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。
+昵称： 单击提交则表示您同意developerWorks 的条款和条件。 查看条款和条件.
+  提交  所有提交的信息确保安全。
+  •    关闭 [x]  
+developerWorks 社区:
+  •  我的首页
+  •  我的概要信息
+  •  我的社区
+  •  设置
+  •  退出
+  •    关闭 [x]  
+选择语言：
+  •  English
+  •  中文
+  •  日本語
+  •  Русский
+  •  Português (Brasil)
+  •  Español
+  •  Việt
+  •    关闭 [x]  
+  •  IBM 主页
+  •  解决方案
+  •  软件
+  •  支持门户
+  •  产品文档
+  •  Redbooks（英文）
+  •    关闭 [x]  
+  •     developerWorks®  
+  •  技术主题
+  •  软件下载
+  •  社区
+  •  技术讲座
+搜索 developerWorks   搜索 developerWorks    dw    zh    CN    utf    20    cndw    zh    搜索  
+技术主题
+  •  AIX and UNIX
+  •  Big data
+  •  Cloud computing
+  •  DevOps
+  •  IBM i
+  •  Information management
+  •  Java technology
+  •  Linux
+  •  Lotus
+  •  Mobile development
+  •  Open source
+  •  Rational
+  •  Social Business
+  •  Web development
+  •  WebSphere
+  •  文档库
+  •  产品 A - Z
+  •    关闭 [x]  
+软件下载
+  •  Big data
+  •  Information management
+  •  Lotus
+  •  Rational
+  •  Tivoli
+  •  WebSphere
+  •    关闭 [x]  
+社区
+  •  我的首页
+  •  概要信息
+  •  群组
+  •  博客
+  •  论坛
+  •  Wiki
+  •  活动
+  •    关闭 [x]  
+技术讲座
+  •  技术讲座
+  •  多媒体课堂
+  •  网络广播（英文）
+  •  查找活动（技术讲座，网络广播，会议等）（英文）
+  •    关闭 [x]  
+  •  developerWorks 中国
+  •  XML
+  •  文档库
+YAML 简介
+YAML 试图用一种比 XML 更敏捷的方式，来完成 XML 所完成的任务。
+南 俊杰 (nanjj@cn.ibm.com), 高级工程师, IBM南俊杰，IBM中国研发中心高级工程师。 
+简介： 本文简要介绍YAML™的理念，主要实现，特色以及一些缺憾。
+发布日期： 2007 年 2 月 02 日 
+级别： 中级 
+访问情况 ： 17734 次浏览 
+评论：  
+
+YAML Ain't Markup Language
+ 和GNU一样，YAML是一个递归着说“不”的名字。不同的是，GNU对UNIX说不，YAML说不的对象是XML。
+YAML不是XML。
+
+  YAML LOGO  
+为什么不是XML呢？因为：
+  •   YAML的可读性好。 
+  •   YAML和脚本语言的交互性好。 
+  •   YAML使用实现语言的数据类型。 
+  •   YAML有一个一致的信息模型。 
+  •   YAML易于实现。 
+ 上面5条也就是XML不足的地方。同时，YAML也有XML的下列优点：
+  •   YAML可以基于流来处理； 
+  •   YAML表达能力强，扩展性好。 
+总之，YAML试图用一种比XML更敏捷的方式，来完成XML所完成的任务。
+ 更多的内容及规范参见http://www.yaml.org。
+语法
+ Structure通过空格来展示。Sequence里的项用"-"来代表，Map里的键值对用":"分隔. 
+ 这几乎就是所有的语法了. 
+比如……
+ 一般YAML文件扩展名为.yaml。比如：John.yaml
+
+name: John Smith
+age: 37
+spouse:
+    name: Jane Smith
+    age: 25
+children:
+    -   name: Jimmy Smith
+        age: 15
+    -   name: Jenny Smith
+        age 12
+        
+	
+
+John今年37岁，有一个幸福的四口之家。两个孩子Jimmy 和Jenny活泼可爱。妻子Jane年轻美貌。
+如果深入研究的话还可能发现一些社会问题。
+可见YAML的可读性是不错。
+ JYaml——YAML的Java实现
+ YAML已经有了不少实现,详细的实现列表参见http://www.yaml.org/download.html。
+其中JYaml（http://jyaml.sourceforge.net）是YAML的Java实现。
+ JYaml简介
+YAML使用实现语言的数据类型。我们看一下一些JYaml支持的Java数据类型：
+  •   原始数据和封装类（比如int，java.lang.Integer） 
+  •   JavaBean兼容对象（Structure支持） 
+  •   Collection （sequence支持） 
+  •   List 
+  •   Set 
+  •   Map （map支持） 
+  •   Arrays （sequence支持） 
+  •   BigInteger 和BigDecimal 
+  •   Date 
+我们给出John.yaml的java描述：
+
+public class Person {
+    private String name;
+    private int age;
+    private Person sponse;
+    private Person[] children;
+    // setXXX, getXXX方法略.
+}
+	
+
+现在让我们装配一个Jone：
+
+    Person john = new Person();
+    john.setAge(37);
+    john.setName("John Smith");
+    Person sponse = new Person();
+    sponse.setName("Jane Smith");
+    sponse.setAge(25);
+    john.setSponse(sponse);
+    Person[] children = {new Person(), new Person()};
+    children[0].setName("Jimmy Smith");
+    children[0].setAge(15);
+    children[1].setName("Jenny Smith");
+    children[1].setAge(12);
+    john.setChildren(children);
+	
+
+ 使用JYaml把Jone“Dump”出来：
+
+    File dumpfile = new File("John_dump.yaml");
+    Yaml.dump(john, dumpfile);
+	
+
+下面我们看看John_dump.yaml是什么样子：
+
+--- !yaml.test.internal.Person
+age: 37
+children: !yaml.test.internal.Person[]
+  - !yaml.test.internal.Person
+    age: 15
+    name: Jimmy Smith
+  - !yaml.test.internal.Person
+    age: 12
+    name: Jenny Smith
+name: John Smith
+sponse: !yaml.test.internal.Person
+  age: 25
+  name: Jane Smith
+	
+
+其中!yaml.test.internal.Person是一些类型的信息。load的时候需要用。
+ 现在用JYaml把Jone_dump.yaml load进来：
+
+    Person john2 = (Person) Yaml.loadType(dumpfile, Person.class);
+	
+
+还可以用下面的代码dump出没有类型信息的John.yaml：
+
+Yaml.dump(john,dumpfile, true);
+	
+
+ 我们再来看看JYaml对流处理的支持。
+为简便起见，我们只是把同一个john写10次：
+
+    YamlEncoder enc = new YamlEncoder(new FileOutputStream(dumpfile));
+    for(int i=0; i<10; i++){
+        john.setAge(37+i);
+        enc.writeObject(john);
+        enc.flush();
+    }
+   enc.close();
+	
+
+下面再把这十个对象一个一个读出来（注意while循环退出的方式）：
+
+      YamlDecoder dec = new YamlDecoder(new FileInputStream(dumpfile));
+      int age = 37;
+      while(true){
+          try{
+              john = (Person) dec.readObject();
+              assertEquals(age, john.getAge());
+              age++;
+          }catch(EOFException eofe){
+              break;
+          }
+      }
+	
+
+JYaml对JDK14的支持
+JYaml的源码是基于JVM5的。也提供对JVM5功能的一些支持，比如对枚举类型的支持。
+ JYaml的JVM14的支持是通过retrotranslator(http://retrotranslator.sourceforge.net）. retrotranslator使用ASM（http://asm.objectweb.org ）动态修改JVM5字节码成JVM14，使JYaml在JVM14下可用。会牺牲一些效率。Debug时也会失真。
+ 我修改了JYaml作者Toby Ho的一些源码（基于Beta2.2），使之与JVM14兼容。当然，为此也去掉了对JVM5才有的类型的支持（比如枚举类型）. 这个牺牲应该是值得的。需要的人可以来信索取。
+YAML和SDO（只讨论双方的java实现）
+如果读者想了解更多SDO的概念， 请参见http://www.ibm.com/developerworks/library/specification/j-commonj-sdowmt/index.html 。这里我们只讨论SDO的java实现。
+ SDO里有一个很重要的概念，DataObject。从DataObject的接口里，可以看出有两类的数据类型，一类是JYaml支持的，诸如String, List之类，一类是DataObject。因此我们只需要增加一种支持DataObject的类型，就可以完成对SDO DataObject的支持。
+不妨叫YamlDataObject。下面是它的数据结构。
+
+public class YamlDataObject {
+    private String uRI;
+    private String name;
+    private Map attributes;
+}
+	
+
+ YamlDataObject里用到的类型，都是JYaml能够支持的。其中，uRI和name用来描述DataObject自身。attributes来描述DataObject里的值。这些值可能为DataObject，也可能是JYaml所支持的其他类型。我们希望用YamlDataObject来担当DataObject的角色，因此YamlDataObject和DataObject要能互相转化。增加两个API： 
+
+private static YamlDataObject newInstance(DataObject dataobject){...
+private DataObject toDataObject() {...
+	
+
+上面两个之所以是private的，是因为我们打算遵照JYaml的习惯，增加两个接口，dump和load，这样newInstance和toDataObject只在内部使用了。下面是dump和load的定义：
+
+public static void dump(DataObject dataobject, File dumpfile) 
+                  throws FileNotFoundException{...
+public static Object load(File file) 
+                  throws FileNotFoundException{...
+	
+
+ 下面是一小段测试代码： 
+
+// ... create dataobject ...
+File bodump=new File("bodump.yaml");
+YamlDataObject.dump(dataobject,bodump);
+assertTrue(bodump.exists());
+DataObject dataobject2 = (DataObject) YamlDataObject.load(bodump);
+ // check result
+assertNotNull(dataobject2);
+for(int i=0; i<5; i++){
+   assertEquals(dataobject.get(i),dataobject2.get(i));
+}
+	
+
+具体的实现细节就不谈了。读者可以作为练习题，熟悉一下这两个数据整合方案。
+YAML和Ruby
+ Ruby和YAML的联系，甚至比Java与XML的联系还要紧密。Ruby把YAML用到了和数据相关的方方面面。配置文件的约定格式是YAML。同时YAML还是Ruby的文本序列化格式，就像XML是SDO的文本序列化格式一样。 
+ 不夸张的说，YAML是Ruby中流动的血液。 
+ 那，Ruby为什么不选XML呢?
+其一，XML对Ruby这样的脚本语言而言，解析起来比较困难。效率肯定是会有问题。Ruby的XML解析没有完全实现，走的是实用主义的路线，可能也缘于此。而YAML要轻快很多。
+另外，XML使用自定义类型。就算解析出来，也不能直接用，还要再转一次。而YAML不定义自己的类型，直接使用宿主语言本身类型，直截了当。
+下面给一个Ruby YAML的简介。
+我们使用Ruby写一个Person类：
+
+class Person
+  attr_accessor :name, :age, :sponse, :children
+  def initialize(name, age, sponse=nil, children=nil)
+    @name = name
+    @age  = age
+    @sponse = sponse
+    @children = children
+  end
+end
+	
+
+把John装配起来：
+
+jane = Person.new("Jane Smith", 25)
+children = [Person.new("Jimmy Smith", 15), Person.new("Jenny Smith", 12)]
+john = Person.new("John Smith", 37, jane, children)
+	
+
+Dump出John到John.yaml：
+
+File.open('John_ruby.yaml', 'w') do |os|
+  YAML::dump(john, os)
+end
+	
+
+我们看看Dump的结果：
+
+--- !ruby/object:Person
+age: 37
+children:
+- !ruby/object:Person
+  age: 15
+  children:
+  name: Jimmy Smith
+  sponse:
+- !ruby/object:Person
+  age: 12
+  children:
+  name: Jenny Smith
+  sponse:
+name: John Smith
+sponse: !ruby/object:Person
+  age: 25
+  children:
+  name: Jane Smith
+  sponse:
+	
+
+仔细观察会发现和JYaml Dump出来的还是有些区别的。
+ 首先类型信息不一样。这还好说，虽然Ruby load Java的不太可能，但Java加载Ruby的应该没问题。
+ 还有就是一些实现上细微的区别。比如Ruby::Yaml的"spone:"，JYaml认为是不合法的。还有children的不缩行。尽管Ruby::Yaml很流行，但JYaml认为这是Ruby的Bug。网上有相应的争论。
+ 不过在一个语言里使用还是没问题的。下面是load John的代码：
+
+john2 = File.open('John.yaml') { |is|  YAML::load(is) }
+	
+
+YAML的Ruby实现出现的很早。但由于某些原因，YAML的Ruby实现是不严格的。随着其他语言的YAML实现慢慢出现，这个问题日益明显了。
+毕竟每个实现语言的类型不一样的，不同语言文化也不同。因此不同实现的YAML的交互是个问题。兼容性需要YAML规范来保证。而具体的实施还有很长的道路要走。
+但YAML在单一语言中，YAML的应用是没有问题的。
+YAML在Ruby On Rails中经常用作配置文件。比如数据库信息的配置：
+
+test:
+  adapter: mysql
+  database: weblog_test
+  username: root
+  password:
+  host: localhost
+
+production:
+  adapter: mysql
+  database: weblog_production
+  username: root
+  password: 
+  host: localhost
+	
+
+熟悉ROR的读者应该能看出这是`config/database.yml'文件。
+YAML的适用范围
+ 由于实现简单，解析成本很低，YAML特别适合在脚本语言中使用。列一下现有的语言实现：Ruby，Java，Perl，Python，PHP，OCaml，JavaScript。除了Java，其他都是脚本语言. 
+ YAML比较适合做序列化。因为它是宿主语言数据类型直转的。 
+ YAML做配置文件也不错。比如Ruby on Rails的配置就选用的YAML。对ROR而言，这很自然，也很省事. 
+ 由于兼容性问题，不同语言间的数据流转建议现在不要用YAML. 
+YAML存在的意义
+无论多么完美的事物，都需要有对立面，有说“NO”的声音。XML也不例外。当然，站在主流的对立面，需要勇气和智慧。
+YAML和XML不同，没有自己的数据类型的定义，而是使用实现语言的数据类型。这一点，有可能是出奇制胜的地方，也可能是一个败笔。如果兼容性保证的不好的话，YAML数据在不同语言间流转会有问题。如果兼容性好的话，YAML就会成为不同语言间数据流通的桥梁。建议yaml.org设立兼容认证机制，每个语言的实现必须通过认证。
+假如兼容性没问题的话，YAML就太完美了。轻巧，敏捷，高效，简便，通用。这才是理想中的数据模型。当然就现在而言，这还只是个理想。
+
+参考资料 
+  •  参与论坛讨论。
+
+
+  •   JYaml项目主页：http://jyaml.sourceforge.net 
+
+
+  •   JYaml入门： http://jyaml.sourceforge.net/tutorial.html 
+
+
+  •   YAML主页： http://www.yaml.org 
+
+
+  •   SDO： http://www.ibm.com/developerworks/library/specification/j-commonj-sdowmt/index.html 
+
+
+  •   Ruby： http://www.ruby-lang.org 
+
+
+关于作者
+南俊杰，IBM中国研发中心高级工程师。
+关闭 [x]
+关于报告滥用的帮助 报告滥用
+谢谢! 此内容已经标识给管理员注意。
+  关闭  关闭 [x]
+关于报告滥用的帮助 报告滥用
+报告滥用提交失败。 请稍后重试。
+  关闭  关闭 [x]
+developerWorks：登录
+IBM ID： 
+需要一个 IBM ID？ 
+忘记 IBM ID？ 
+密码：
+忘记密码？
+更改您的密码
+ 保持登录。 
+单击提交则表示您同意developerWorks 的条款和条件。 使用条款
+  提交      取消  
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息。您在 developerWorks 概要信息中选择公开的信息将公开显示给其他人，但您可以随时修改这些信息的显示状态。您的姓名（除非选择隐藏）和昵称将和您在 developerWorks 发布的内容一同显示。
+所有提交的信息确保安全。
+关闭 [x]
+请选择您的昵称：
+当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。
+昵称长度在 3 至 31 个字符之间。 您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。
+昵称：（长度在 3 至 31 个字符之间） 
+单击提交则表示您同意developerWorks 的条款和条件。 使用条款.
+  提交      取消  
+所有提交的信息确保安全。
+为本文评分
+  0  评论
+回页首
+static.content.url=http://www.ibm.com/developerworks/js/artrating/SITE_ID=10Zone=XMLArticleID=193576ArticleTitle=YAML 简介publish-date=02022007author1-email=nanjj@cn.ibm.comauthor1-email-cc= 内容
+  •  语法
+  •  比如……
+  •   JYaml——YAML的Java实现
+  •   JYaml简介
+  •  JYaml对JDK14的支持
+  •  YAML和SDO（只讨论双方的java实现）
+  •  YAML和Ruby
+  •  YAML的适用范围
+  •  YAML存在的意义
+  •  参考资料 
+  •  关于作者
+  •  建议
+  •  打印此页面
+  •  分享此页面
+  •  关注 developerWorks
+分享此页面：
+  •  新浪微博
+  •  人人网
+  •  腾讯微博
+  •  搜狐微博
+  •  网易微博
+  •  Facebook
+  •  LinkedIn
+  •  Twitter
+  •  Delicious
+  •  Digg
+  •  发送此页面
+  •    关闭 [x]  
+关注 developerWorks 中国网站：
+  •  新浪微博
+  •    关闭 [x]  
+  •  帮助
+  •  联系编辑
+  •  提交内容
+  •  网站导航
+  •  订阅源
+  •  在线浏览每周时事通讯
+  •  报告滥用
+  •  使用条款
+  •  第三方提示
+  •  隐私条约
+  •  浏览辅助
+  •  IBM 教育学院教育培养计划
+  •  IBM 创业企业全球扶持计划
+  •  ISV 资源 (英语)
+  IBM®  选择语言：
+  •  English
+  •  中文
+  •  日本語
+  •  Русский
+  •  Português (Brasil)
+  •  Español
+  •  Việt
+    

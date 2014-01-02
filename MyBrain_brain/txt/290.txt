@@ -1,0 +1,540 @@
+
+ Eclipse 
+ 5145
+ Voyager 
+ 9520
+ Voyager 
+ 9540
+ Voyager 
+ 1200g Voyager 
+ 9535
+ Voyager 
+ 9590
+ Voyager 
+ 1250g Voyager 
+ 1400g
+ Fusion 
+ 3780
+ IS42253800g
+ Hyperion 
+ 1300g
+ 3800gHD3800gPDF3800r 3800i 3820w 3820i
+ Linear
+ BC412  
+ (requires end-user license from IBM)
+        
+ China Post
+                  
+ Codabar (NW7)
+                  
+ Code 11
+                 
+ Code 128
+                  
+ Code 32
+                 
+ Code 39
+                  
+ Code 93 and 93i
+          
+        
+ Code 2 of 5
+                  
+ EAN
+                  
+ Interleaved 2 of 5
+                  
+ Label Code
+        
+ Matrix 2 of 5
+                  
+ MSI
+                  
+ Plessey
+                 
+ PosiCode
+ GS1 DataBar (formerly RSS)
+                  
+ Telepen
+                 
+ Trioptic Code
+                 
+ UPC
+                  
+ Stacked
+ Codablock F
+ 
+  
+      
+ Code 16K
+ Code 49
+  
+      
+ GS1 Composite (formerly EAN/UCC)
+          
+  
+      
+ MicroPDF417
+   
+ PDF417
+   
+ TCIF Linked Code 39 (TLC39)
+ Matrix
+ Aztec
+ 
+ Chinese Sensible Code (Han Xin Code)
+ 
+ Data Matrix
+ 
+ Grid Matrix Code
+ MaxiCode
+ QR Code
+ 
+ Micro QR Code
+ 
+ Supported Bar Code Symbologies
+
+
+
+ Focus 1690 FocusBT 1633 Xenon 1900 Xenon 1902 4600g 4600r 4800i 4820 4820i
+ Linear
+ BC412 (requires end-user license from IBM)
+     
+ China Post
+         
+ Codabar (NW7)
+         
+ Code 11
+         
+ Code 128
+         
+ Code 32
+         
+ Code 39
+         
+ Code 93
+         
+ Code 93i
+       
+ Code 2 of 5
+         
+ EAN
+         
+ Interleaved 2 of 5
+         
+ Label Code
+     
+ Matrix 2 of 5
+         
+ MSI
+         
+ Plessey
+       
+ PosiCode
+     
+ GS1 DataBar (formerly RSS)
+         
+ Telepen
+         
+ Trioptic Code
+         
+ UPC
+         
+ Stacked
+ Codablock F
+         
+ Code 16K
+     
+ Code 49
+     
+ GS1 Composite (formerly EAN/UCC)
+         
+ MicroPDF417
+         
+ PDF417
+         
+ TCIF Linked Code 39 (TLC39)
+     
+ Matrix
+ Aztec
+         
+ Chinese Sensible Code (Han Xin Code)
+         
+ Data Matrix
+         
+ Grid Matrix Code
+     
+ MaxiCode
+         
+ QR Code
+         
+ Micro QR Code
+         
+ Supported Bar Code Symbologies
+
+
+
+ Focus 1690FocusBT 1633Xenon 1900Xenon 1902 4600g 4600r 4800i 4820 4820i 4820 4820i
+ Postal
+ Intelligent Mail Barcode
+ (formerly 4-state customer barcode)
+ ü ü ü ü ü ü ü ü ü ü ü
+ Australian Post
+ ü ü ü ü ü ü ü ü ü ü ü
+ British Post
+ ü ü ü ü ü ü ü ü ü ü ü
+ Canadian Post
+ ü ü ü ü ü ü ü ü ü ü ü
+ ID-tag (UPU 4-state)
+ ü ü ü ü ü ü ü ü ü ü ü
+ Japanese Post
+ ü ü ü ü ü ü ü ü ü ü ü
+ Netherlands (KIX) Post
+ ü ü ü ü ü ü ü ü ü ü ü
+ Korea Post
+ ü ü ü ü ü ü ü
+ Planet Code
+ ü ü ü ü ü ü ü ü ü ü ü
+ Postnet
+ ü ü ü ü ü ü ü ü ü ü ü
+ OCR
+ OCR-A
+ ü ü ü ü ü ü ü ü ü ü ü
+ OCR-B
+ ü ü ü ü ü ü ü ü ü ü ü
+ OCR MICR (E 13 B)
+ ü ü ü ü ü ü ü ü ü ü ü
+ Supported Bar Code Symbologies
+
+
+
+ Orbit 7120
+ OrbitCG 
+ 7180
+ QuantumT 
+ 3580
+ InVista 
+ 7320
+ Solaris 
+ 7820
+ Horizon 
+ 7600
+ Vuquest 
+ 4980
+ Genesis 
+ 7580
+ 4800p 4800dr StratosH 
+ 2300
+ Stratos 
+ 2122
+ Stratos 
+ 2400
+ Tech Series HolotrakiQ Series
+ Linear
+ BC412 (requires end-user license from IBM)
+  
+ China Post
+                
+ Codabar (NW7)
+                
+ Code 11
+                
+ Code 128
+                
+ Code 32
+                
+ Code 39
+                
+ Code 93 and 93i
+                
+ Code 2 of 5
+          
+ EAN
+                
+ Interleaved 2 of 5
+                
+ Label Code
+  
+ Matrix 2 of 5
+                
+ MSI
+                
+ Plessey
+                
+ PosiCode
+  
+ GS1 DataBar (formerly RSS)
+                
+ Telepen
+                
+ Trioptic Code
+                
+ UPC
+                
+ Stacked
+ Codablock F
+  
+ Code 16K
+  
+ Code 49
+  
+ GS1 Composite (formerly EAN/UCC)
+       
+ 
+     
+ 
+ MicroPDF417
+     
+ PDF417
+     
+ TCIF Linked Code 39 (TLC39)
+  
+ Matrix
+ Aztec
+     
+ Chinese Sensible Code (Han Xin Code)
+     
+ Data Matrix
+     
+ Grid Matrix Code
+  
+ MaxiCode
+     
+ QR Code
+     
+ Micro QR Code
+    
+ Supported Bar Code Symbologies
+
+
+
+ Orbit 7120
+ OrbitCG 
+ 7180
+ Quan-
+ tumT 
+ 3580
+ InVista 
+ 7320
+ Solaris 
+ 7820
+ Horizon 
+ 7600
+ Vuquest 
+ 4980
+ Genesis 
+ 7580
+ 4800p 4800dr
+ StratosH 
+ 2300
+ Stratos 
+ 2122
+ Stratos 
+ 2400
+ Tech Se -
+ ries
+ HolotrakiQ Series iQ Series
+ Postal
+ Intelligent Mail Barcode
+ (formerly 4-state customer barcode)
+ ü ü ü ü
+ Australian Post
+ ü ü ü ü
+ British Post
+ ü ü ü ü
+ Canadian Post
+ ü ü ü ü
+ ID-tag (UPU 4-state)
+ ü ü ü ü
+ Japanese Post
+ ü ü ü ü
+ Netherlands (KIX) Post
+ ü ü ü ü
+ Korea Post
+ ü
+ Planet Code
+ ü ü ü ü
+ Postnet
+ ü ü ü ü
+ OCR
+ OCR-A
+ ü ü ü ü
+ OCR-B
+ ü ü ü ü
+ OCR MICR (E 13 B)
+ ü ü ü ü
+ Supported Bar Code Symbologies
+
+
+
+ ScanPal2
+ OptimusS 
+ 5500
+ OptimusSBT 
+ 5535
+ OptimusR 
+ 5600
+ OptimusRW 
+ 5650
+ OptimusPDA 
+ 5700
+ Dolphin 
+ 6100
+ Dolphin 
+ 6500
+ Dolphin 
+ 7600
+ Dolphin 
+ 7850
+ Dolphin 
+ 7900
+ Dolphin 
+ 9550
+ Dolphin 
+ 9551
+ Dolphin 
+ 9900
+ Dolphin 
+ 9950
+ Dolphin 
+ 9700
+ Linear
+ BC412 (requires end-user license from IBM)
+          
+ China Post
+           
+ Codabar (NW7)
+                
+ Code 11
+                
+ Code 128
+                
+ Code 32
+             
+ Code 39
+                
+ Code 93 and 93i
+                
+ Code 2 of 5
+                
+ EAN
+                
+ Interleaved 2 of 5
+             
+ Label Code
+           
+ Matrix 2 of 5
+             
+ MSI
+                
+ Plessey
+                
+ PosiCode
+           
+ GS1 DataBar (formerly RSS)
+                
+ Telepen
+                
+ Trioptic Code
+                
+ UPC
+                
+ Stacked
+ Codablock F
+           
+ Code 16K
+           
+ Code 49
+           
+ GS1 Composite (formerly EAN/UCC)
+           
+ MicroPDF417
+           
+ PDF417
+           
+ TCIF Linked Code 39 (TLC39)
+ 
+ Matrix
+ Aztec
+           
+ Chinese Sensible Code (Han Xin Code)
+           
+ Data Matrix
+           
+ Grid Matrix Code
+           
+ MaxiCode
+           
+ QR Code
+           
+ Micro QR Code
+           
+ Supported Bar Code Symbologies
+
+
+
+ ScanPal2
+ OptimusS 
+ 5500
+ OptimusSBT 
+ 5535
+ OptimusR 
+ 5600
+ OptimusRW 
+ 5650
+ OptimusPDA 
+ 5700
+ Dolphin 
+ 6100
+ Dolphin 
+ 6500
+ Dolphin 
+ 7600
+ Dolphin 
+ 7850
+ Dolphin 
+ 7900
+ Dolphin 
+ 9550
+ Dolphin 
+ 9551
+ Dolphin 
+ 9900
+ Dolphin 
+ 9950
+ Dolphin 
+ 9700
+ Postal
+ Intelligent Mail Barcode
+ (formerly 4-state customer barcode)
+          
+ Australian Post
+          
+ British Post
+          
+ Canadian Post
+          
+ ID-tag (UPU 4-state)
+          
+ Japanese Post
+          
+ Netherlands (KIX) Post
+          
+ Korea Post
+          
+ Planet Code
+          
+ Postnet
+          
+ OCR
+ OCR-A
+          
+ OCR-B
+          
+ OCR MICR (E 13 B)
+          
+ Supported Bar Code Symbologies
+ Symbologies Chart Rev 04.12
+
+
+

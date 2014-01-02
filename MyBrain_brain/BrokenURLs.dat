@@ -1,0 +1,29 @@
+96	http://www.ibm.com/developerworks/cn/java/j-lo-comet/	Read timed out	20130110
+110	http://www.amqp.org/	Read timed out	20130110
+114	http://www.ibm.com/developerworks/cn/java/j-mylyn1/	Read timed out	20130114
+114	http://www.ibm.com/developerworks/cn/java/j-mylyn2/index.html	Read timed out	20130114
+114	http://www.ibm.com/developerworks/cn/java/j-mylyn1/index.html	The host did not accept the connection within timeout of 5000 ms	20130114
+114	http://www.ibm.com/developerworks/cn/java/j-mylyn1/	Read timed out	20130114
+114	http://www.ibm.com/developerworks/cn/java/j-mylyn2/	Read timed out	20130114
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+125	http://blog.donews.com/lvxiaotong/archive/tag/%E8%8F%9C%E9%B8%9F%E7%BD%91	Read timed out	20131022
+129	http://www.ibm.com/developerworks/cn/xml/x-cn-yamlintro/	Read timed out	20131023
+129	http://zh.wikipedia.org/zh-cn/YAML	The host did not accept the connection within timeout of 5000 ms	20131023
+129	http://zh.wikipedia.org/zh-cn/YAML	Read timed out	20131023
+140	http://wiki.sitemesh.org/display/sitemesh/Home	Read timed out	20131028
+142	http://dozer.sourceforge.net/	Read timed out	20131028
+145	http://www.godaddy.com/	Read timed out	20131104
+145	http://www.godaddy.com/	Read timed out	20131104
+150	http://commons.apache.org/proper/commons-vfs/index.html	Read timed out	20131112
+166	http://color.quickmark.com.tw/qrcode/how_to_make_qr_code_right	Read timed out	20131218
+166	http://www.barcodelib.com/java_barcode/barcode_symbologies/qrcode.html	Read timed out	20131218
+166	http://www.barcodelib.com/java_barcode/barcode_symbologies/qrcode.html	The host did not accept the connection within timeout of 5000 ms	20131218
+198	http://www.playframework.com/	The host did not accept the connection within timeout of 5000 ms	20131230
+=======
+>>>>>>> e9adc579abcabace91d9cf0cc14658e93bafd3a4
+=======
+>>>>>>> e9adc579abcabace91d9cf0cc14658e93bafd3a4
+=======
+>>>>>>> e9adc579abcabace91d9cf0cc14658e93bafd3a4

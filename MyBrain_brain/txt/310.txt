@@ -1,0 +1,66 @@
+                    Chromium OS - The Chromium Projects
+  The Chromium Projects  The Chromium Projects
+	  search-site  Search this site	
+		
+  •  Home
+  •  Chromium
+  •  Chromium OS
+Quick links
+  •  Report bugs
+  •  Discuss
+  •  网站地图
+Other sites
+  •  Chromium Blog
+  •  Google Chrome Extensions
+  •  Google Chrome Frame
+
+Except as otherwise noted, the content of this page is licensed under a Creative Commons Attribution 2.5 license, and examples are licensed under the BSD License.
+	Chromium OS 
+	
+Chromium OS is an open-source project that aims to build an operating system that provides a fast, simple, and more secure computing experience for people who spend most of their time on the web. Here you can review the project's design docs, obtain the source code, and contribute. To learn more about the project goals, read the announcement blog post.
+Videos
+  •  What is Google Chrome OS?
+  •  Chromium OS Security
+  •  Chromium OS & Open Source
+  •  Chromium OS Fast Boot
+For contributors
+  •  Getting involved
+  •  Getting developer hardware
+  •  Official ChromeOS Devices
+  •  Process for contributing
+  •  Tree sheriffs
+
+  •  Useful developer related Chrome extensions
+For UI designers
+  •  User experience: Chromium/OS
+
+For developers
+  •  Developing apps on your Chromium OS device
+
+For everyone
+  •  Chromium OS FAQ
+
+  •  Join the right discussion groups
+ (if in doubt, go to chromium-os-discuss or use the IRC channel irc.freenode.net/#chromium-os-users)
+  •  Report bugs or view existing bugs
+	Source code
+  •  First time?  Use the Chromium OS Quick Start Guide
+  •  Read the Chromium OS Developer Guide to learn how to build the source
+  •  Overview of the source
+  •  Browse the source
+  •  Coding Style
+  •  ChromiumOS Python Style Guide
+  •  For other languages, follow the Google Style Guide
+  •  For third-party code, follow the external project style guides
+  •  Testing
+  •  Licenses
+Developer docs
+  •  Chromium OS Developer Guide
+  •  High-Level Developer FAQ
+  •  Firmware (U-Boot) Overview and Porting Guide
+  •  All How Tos and Troubleshooting
+  •  Poking around Your Chrome OS Device
+  •  Design docs
+	
+Sign in|Report Abuse|Print Page|Remove Access|Powered By Google Sites
+    

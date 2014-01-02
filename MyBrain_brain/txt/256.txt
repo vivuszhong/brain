@@ -1,0 +1,86 @@
+                    Ehcache | Performance at Any Scale
+  •  Terracotta.org
+  •  Ehcache.org
+  •  Quartz-Scheduler.org
+ Call us: +1-415-738-4000 
+  Ehcache    •  Forums
+  •  Blog
+  •  Contact Us
+  •  My Account
+  •      Search  
+  •  About
+  •  Modules
+  •  Code
+  •  Community
+  •  Documentation
+  •  News
+Download Ehcache. It's as easy as...
+1 Download Ehcache
+Download > 
+2 Put it in your app
+Documentation > 
+3 Go fast and scale
+Features > 
+Ehcache: Java's Most Widely-Used Cache
+Ehcache is an open source, standards-based cache for boosting performance, offloading your database, and simplifying scalability. It's the most widely-used Java-based cache because it's robust, proven, and full-featured. Ehcache scales from in-process, with one or more nodes, all the way to mixed in-process/out-of-process configurations with terabyte-sized caches.
+Terracotta actively develops, maintains, and supports Ehcache as a professional open source project available under an Apache 2 license. In addition to the open source Ehcache edition, Terracotta offers BigMemory for enterprise-grade in-memory data management with high availability, worldwide 24x7 professional support, consulting, and training services.
+For applications requiring a coherent distributed cache, use Terracotta BigMemory Max, which is available in both free and full versions. (Terracotta no longer actively updates the open-source version of Terracotta Server Array, also known as Terracotta. However, you can still download the latest open-source version of Terrcotta Server Array.)
+BigMemory for Ehcache
+All Your Data in Memory—Without Garbage Collection Pauses
+Ready to create very large in-memory data stores—without worrying about garbage collection performance hits or time-consuming tuning? BigMemory extends Ehcache's' capabilities with an off-heap store that frees you from GC’s constraints. BigMemory uses the Ehcache API for reading and writing, so it's a snap to add to any Ehcache deployment. You also get a search API, advanced in-memory monitoring and management tools, disk-backed, fast restartability, and much more. 
+BigMemory Go—with 32GB free
+ For in-memory data management on a standalone JVM, download BigMemory Go, with 32GB free!
+BigMemory Max
+ For in-memory data management across a server arrary, with data consistency guarantees, full fault-tolerance, and more, download the free 30-day trial of BigMemory Max. 
+With BigMemory, take full advantage of ALL the memory on ALL your machines to achieve predictable, extremely low latency at massive scale.
+Learn more about BigMemory ›
+
+Ehcache Search
+Query, Search and Analyze In-Memory Data
+Ehcache Search is an addition to the core Ehcache API that lets you query, search and analyze billions of cache entries in memory, with results to complex searches returned in less than a second. By querying the cache directly, you can avoid the time-consuming and expensive process of querying the database, then mapping query results to cache lookups.
+Download the latest version of Ehcache with Search ›
+View Ehcache Search documentation › 
+Latest News
+4 March 2013: Ehcache 2.7 and BigMemory 4.0 Released
+Terracotta, Inc. introduced new versions of Ehcache and BigMemory today that offer even faster performance at more massive scale, and lots of additional features.
+Get Ehcache 2.7 ›
+Get BigMemory 4.0 ›
+Read the BigMemory 4.0 press announcement › 
+25 September 2012: BigMemory Go Released
+Terracotta, Inc. introduced BigMemory Go, a new offering in the award winning BigMemory line known for delivering in-memory speed at big data scale.
+Get BigMemory Go for up to 32GB free ›
+Press release ›
+24 July 2012: Ehcache 2.6 Released
+Ehcache 2.6 version provides several search improvements including support for "GroupBy", compatibility with new Terracotta  and several bug fixes.
+Download ›
+27 September 2011: Terracotta’s Latest BigMemory Release with ARC Maxes Out the Biggest Servers on the Market
+With terabyte servers now available from Dell, HP, Oracle and IBM, a single Java application using BigMemory can easily access 10s of terabytes of in-memory data at microsecond speed.
+Learn more ›
+8 July 2011: Ehcache 2.4.3 Released
+Ehcache 2.4.3 adds support for Terracotta 3.5.2 and includes some minor bug fixes. Terracotta 3.5.2 contains significant bug fixes.
+23 May 2011: Terracotta Joins Software AG
+Software AG today announced that it has entered into a definitive agreement to acquire Terracotta, the company behind Quartz.
+Read the press release ›
+Read the blog post from Ari Zilka, Terracotta Founder and CTO ›
+Read the announcement on Terracotta.org ›
+Frequently asked questions › 
+  Click Here  
+
+  Watch Webinar Replay  Blogs & Tweets
+ Crimson and Clover  Lambda Hello World  JSR107 JCache enters Public Draft Review  JSR107 enters Early Draft Review after nearly 12 years  I have been a bit quiet on my blog… here’s why  Revolutionary Approach to Big Data: A Spotlight Q&A; with Gary Nakamura of Terracotta Projects
+  •  Ehcache
+  •  Quartz Scheduler
+How to get it
+  •  Download Now
+  •  Join the Community
+  •  Sign Up for Training
+Follow Us
+  •      LinkedIn Linkedin 
+  •      Facebook Facebook 
+  •      Twitter Twitter 
+  •  ©Terracotta, Inc., a wholly-owned subsidiary of Software AG USA, Inc. All rights reserved.
+  •  Contact Us | 
+  •  Copyright | 
+  •  Privacy Policy | 
+  •  Legal
+   

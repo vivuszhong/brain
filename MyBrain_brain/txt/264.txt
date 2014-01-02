@@ -1,0 +1,170 @@
+                     actor并发模型&基于共享内存线程模型 - Thinking In Jdon 
+	
+  JiveJdon Community Forums  	在线     发帖    主题    评论    推荐    标签    用户    查搜    注册   登陆    关注 	
+	
+ 	设计模式	领域驱动设计	云架构	开源框架	培训咨询	社区主题	
+	
+   用户 	 		 		
+自动登陆 		
+密码 	 		 		
+ 新用户注册  忘记密码? 					
+  登录 新浪微博   登录 腾讯微博   登录 Google 					
+首页 » 论坛 »  技术架构语言平台讨论 		
+更多 	
+	
+		1 2 下一页 Go 有 2页 前往下页:    Go    	
+  发表新帖子    回复该主题贴  　 　 　 　  阅读 2218次 3人关注  jdon10001 
+
+
+ 文章: 1 
+ 注册: 2013-06-25 
+  •     当前离线 
+  •     关注他 
+  •    悄悄话 
+  •    个人博客 
+ actor并发模型&基于共享内存线程模型
+ 2013-06-25 11:48            7 顶   标签   actor模型        DDD聚合根        State状态模式        同步或锁        看了坛里几篇actor的几篇文章，可是不能很好的理解，需要大家共同指导讨论下
+
+
+1.actor并发模型的应用场景？
+
+2.actor的原理？思维方式改变？
+
+3.actor最简单的demo?
+
+
+4.如何应用好actor模型，要注意哪些地方
+
+ banq 
+
+
+ 文章: 13482 
+ 注册: 2002-08-03 
+  •     当前离线 
+  •     285 人关注 
+  •    悄悄话 
+  •    个人博客 
+ actor并发模型&基于共享内存线程模型  2013-06-25 13:43            1 顶  >1.actor并发模型的应用场景？
+
+适合有状态或者称可变状态的业务场景，如果用DDD术语，适合聚合根，具体案例如订单，订单有状态，比如未付款未发货，已经付款未发货，已付款已发货，导致订单状态的变化是事件行为，比如付款行为导致顶大状态切换到"已经付款未发货"。
+
+如果知晓GOF设计模式的状态模式，就更好理解有态概念。
+
+
+2.actor的原理？思维方式改变？
+
+行为导致状态变化，行为执行是依靠线程，比如用户发出一个付款的请求，服务器后端派出一个线程来执行付款请求，携带付款的金额和银行卡等等信息，当付款请求被成功完成后，线程还要做的事情就是改变订单状态，这时线程访问订单的一个方法比如changeState。
+
+如果后台有管理员同时修改这个订单状态，那么实际有两个线程共同访问同一个数据，这时就必须锁，比如我们在changeState方法前加上sychronized这样同步语法。
+
+使用同步语法坏处是每次只能一个线程进行处理，如同上厕所，只有一个蹲坑，人多就必须排队，这种情况性能很低。
+
+如何避免锁？
+
+避免changeState方法被外部两个线程同时占用访问，那么我们自己设计专门的线程守护订单状态，而不是普通方法代码，普通方法代码比较弱势，容易被外部线程hold住，而我们设计的这个对象没有普通方法，只有线程，这样就变成Order的守护线程和外部访问请求线程的通讯问题了。
+
+Actor采取的这种类似消息机制的方式，实际在守护线程和外部线程之间有一个队列，俗称信箱，外部线程只要把请求放入，守护线程就读取进行处理。
+
+这种异步高效方式是Actor基本原理，以ERlang和Scala语言为主要特征，他们封装得更好，类似将消息队列微观化了。
+
+我个人认为要使用好Actor，还是要树立自己对有态和无态的敏感性，这是几年前我宣传EJB的有态和无态Bean强调的一点，如果没有这个敏感性，按照DDD第一找出聚合根的分析方法也能抓住重点。
+
+当然这些思维的前提是抛弃数据库中心思维，不要老是想着把状态存在数据库中，然后用SQL不断修改，这是很低效的，也是有锁，比Java等语言的同步锁性能更差。
+
+以我个人来说经历的步骤如下：
+1.用数据表一个字段来表示状态，比如1表示已付款未发货，2表示已付款已发货，然后用户来一个请求用SQL修改。
+
+2.用ORM实现，比如Hibernate JPA来修改状态，虽然不用SQL了，但是Hibernate的悲观锁和乐观锁也让人抓狂。
+
+3.彻底抛弃数据库，直接在内存缓存中进行修改，使用Java的同步锁，性能还是不够，吞吐量上不去。
+
+4.Actor模型。
+
+[该贴被banq于2013-06-25 13:50修改过]
+
+ lostalien 
+
+
+ 文章: 93 
+ 注册: 2007-06-08 
+  •     当前离线 
+  •     关注他 
+  •    悄悄话 
+  •    个人博客 
+ actor并发模型&amp;基于共享内存线程模型  2013-06-25 20:02           顶 2013-06-25 13:43 "@banq
+ "的内容Actor采取的这种类似消息机制的方式，实际在守护线程和外部线程之间有一个队列，俗称信箱，外部线程只要把请求放入，守护线程就读取进行处理。
+ ... 
+
+这。。。如果这两个线程在一个jvm里还行，可是遇到分布式的情况咋办啊。。？尤其是spring提倡的那种分布式
+
+ banq 
+
+
+ 文章: 13482 
+ 注册: 2002-08-03 
+  •     当前离线 
+  •     285 人关注 
+  •    悄悄话 
+  •    个人博客 
+ actor并发模型&amp;amp;基于共享内存线程模型  2013-06-26 07:44           顶 2013-06-25 20:02 "@lostalien
+ "的内容如果这两个线程在一个jvm里还行，可是遇到分布式的情况咋办啊 ... 
+
+这是可伸缩的，Actor对象(聚合根)本身有类似IO进出，就像信箱有收件箱和发件箱一样，Actor可以通过发件箱向一个MQ等消息总线发送消息就可实现分布式。
+
+发件箱的线程队列实现可借助OneToOneConcurrentArrayQueue，只有一个订阅者和发布者，发布者是Actor自己，订阅者是一个Socket端口或MQ消息总线的发布者。http://www.jdon.com/45504
+
+分布式网络是否可靠?http://www.jdon.com/45519
+
+区分不变与可变，也就是区分无态和有态，也就是区分实体(可变)与值对象(不变)，是统领一切的编程法门(无论是多线程还是分布式)。
+[该贴被banq于2013-06-28 05:32修改过]
+
+ sinaID49811 
+
+
+ 文章: 2 
+ 注册: 2013-07-03 
+  •     当前离线 
+  •     关注他 
+  •    悄悄话 
+  •    个人博客 
+ actor并发模型&基于共享内存线程模型  2013-07-03 10:52            3 顶  2.Actor的原理：
+先从著名的c10k问题谈起。有一个叫Dan Kegel的人在网上（http://www.kegel.com/c10k.html）提出：现在的硬件应该能够让一台机器支持10000个并发的client。然后他讨论了用不同的方式实现大规模并发服务的技术，归纳起来就是两种方式：一个client一个thread，用blocking I/O；多个clients一个thread，用nonblocking I/O或者asynchronous I/O。目前asynchronous I/O的支持在Linux上还不是很好，所以一般都是用nonblocking I/O。大多数的实现都是用epoll()的edge triggering（传统的select()有很大的性能问题）。这就引出了thread和event之争，因为前者就是完全用线程来处理并发，后者是用事件驱动来处理并发。当然实际的系统当中往往是混合系统：用事件驱动来处理网络时间，而用线程来处理事务。由于目前操作系统（尤其是Linux）和程序语言的限制（Java/C/C++等），线程无法实现大规模的并发事务。一般的机器，要保证性能的话，线程数量基本要限制几百（Linux上的线程有个特点，就是达到一定数量以后，会导致系统性能指数下降，参看SEDA的论文）。所以现在很多高性能web server都是使用事件驱动机制，比如nginx，Tornado，node.js等等。事件驱动几乎成了高并发的同义词，一时间红的不得了。
+ 其实线程和事件，或者说同步和异步之争早就在学术领域争了几十年了。1978年有人为了平息争论，写了论文证明了用线性的process（线程的模式）和消息传递（事件的模式）是等价的，而且如果实现合适，两者应该有同等性能。当然这是理论上的。针对事件驱动的流行，2003年加大伯克利发表了一篇论文叫“Why events are a bad idea (for high-concurrency servers)”，指出其实事件驱动并没有在功能上有比线程有什么优越之处，但编程要麻烦很多，而且特别容易出错。线程的问题，无非是目前的实现的原因。一个是线程占的资源太大，一创建就分配几个MB的stack，一般的机器能支持的线程大受限制。针对这点，可以用自动扩展的stack，创建的先少分点，然后动态增加。第二个是线程的切换负担太大，Linux中实际上process和thread是一回事，区别就在于是否共享地址空间。解决这个问题的办法是用轻量级的线程实现，通过合作式的办法来实现共享系统的线程。这样一个是切换的花费很少，另外一个可以维护比较小的stack。他们用coroutine和nonblocking I/O（用的是poll()+thread pool）实现了一个原型系统，证明了性能并不比事件驱动差。
+ 那是不是说明线程只要实现的好就行了呢。也不完全对。2006年还是加大伯克利，发表了一篇论文叫“The problem with threads”。线程也不行。原因是这样的。目前的程序的模型基本上是基于顺序执行。顺序执行是确定性的，容易保证正确性。而人的思维方式也往往是单线程的。线程的模式是强行在单线程，顺序执行的基础上加入了并发和不确定性。这样程序的正确性就很难保证。线程之间的同步是通过共享内存来实现的，你很难来对并发线程和共享内存来建立数学模型，其中有很大的不确定性，而不确定性是编程的巨大敌人。作者以他们的一个项目中的经验来说明，保证多线程的程序的正确性，几乎是不可能的事情。首先，很多很简单的模式，在多线程的情况下，要保证正确性，需要注意很多非常微妙的细节，否则就会导致deadlock或者race condition。其次，由于人的思维的限制，即使你采取各种消除不确定的办法，比如monitor，transactional memory，还有promise/future，等等机制，还是很难保证面面俱到。以作者的项目为例，他们有计算机科学的专家，有最聪明的研究生，采用了整套软件工程的流程：design review, code review, regression tests, automated code coverage metrics，认为已经消除了大多数问题，不过还是在系统运行4年以后，出现了一个deadlock。作者说，很多多线程的程序实际上存在并发错误，只不过由于硬件的并行度不够，往往不显示出来。随着硬件的并行度越来越高，很多原来运行完好的程序，很可能会发生问题。我自己的体会也是，程序NPE，core dump都不怕，最怕的就是race condition和deadlock，因为这些都是不确定的(non-deterministic)，往往很难重现。
+ 那既然线程+共享内存不行，什么样的模型可以帮我们解决并发计算的问题呢。研究领域已经发展了一些模型，目前越来越多地开始被新的程序语言采用。最主要的一个就是Actor模型。它的主要思想就是用一些并发的实体，称为actor，他们之间的通过发送消息来同步。所谓“Don’t communicate by sharing memory, share memory by communicating”。Actor模型和线程的共享内存机制是等价的。实际上，Actor模型一般通过底层的thread/lock/buffer 等机制来实现，是高层的机制。Actor模型是数学上的模型，有理论的支持。另一个类似的数学模型是CSP（communicating sequential process）。早期的实现这些理论的语言最著名的就是erlang和occam。尤其是erlang，所谓的Ericsson Language，目的就是实现大规模的并发程序，用于电信系统。Erlang后来成为比较流行的语言。
+
+类似Actor/CSP的消息传递机制。Go语言中也提供了这样的功能。Go的并发实体叫做goroutine，类似coroutine，但不需要自己调度。Runtime自己就会把goroutine调度到系统的线程上去运行，多个goroutine共享一个线程。如果有一个要阻塞，系统就会自动把其他的goroutine调度到其他的线程上去。
+
+一些名词定义：
+1. Processes, threads, green threads, protothreads, fibers, coroutines: what's the difference?
+ • Process: OS-managed (possibly) truly concurrent, at least in the presence of suitable hardware support. Exist within their own address space.
+ • Thread: OS-managed, within the same address space as the parent and all its other threads. Possibly truly concurrent, and multi-tasking is pre-emptive.
+ • Green Thread: These are user-space projections of the same concept as threads, but are not OS-managed. Probably not truly concurrent, except in the sense that there may be multiple worker threads or processes giving them CPU time concurrently, so probably best to consider this as interleaved or multiplexed.
+ • Protothreads: I couldn't really tease a definition out of these. I think they are interleaved and program-managed, but don't take my word for it. My sense was that they are essentially an application-specific implementation of the same kind of "green threads" model, with appropriate modification for the application domain.
+ • Fibers: OS-managed. Exactly threads, except co-operatively multitasking, and hence not truly concurrent.
+ • Coroutines: Exactly fibers, except not OS-managed.
+ Coroutines are computer program components that generalize subroutines to allow multiple entry points for suspending and resuming execution at certain locations. Coroutines are well-suited for implementing more familiar program components such as cooperative tasks, iterators, infinite lists and pipes.
+ • Continuation: An abstract representation of the control state of a computer program.
+ A continuation reifies the program control state, i.e. the continuationis a data structure that represents the computational process at a given point in the process' execution; the created data structure can be accessed by the programming language, instead of being hidden in the runtime environment. Continuations are useful for encoding other control mechanisms in programming languages such as exceptions, generators, coroutines, and so on.
+ The "current continuation" or "continuation of the computation step" is the continuation that, from the perspective of running code, would be derived from the current point in a program's execution. The term continuations can also be used to refer to first-class continuations, which are constructs that give a programming language the ability to save the execution state at any pointand return to that point at a later point in the program.(yield keywork in some languages, such as c# or python)
+
+ •Goroutines: They claim to be unlike anything else, but they seem to be exactly green threads, as in, process-managed in a single address space and multiplexed onto system threads. Perhaps somebody with more knowledge of Go can cut through the marketing material.
+
+	
+	 有 2页 Go 1 2 下一页 	
+	
+  标签  actor模型(16)       DDD聚合根(35)       State状态模式(11)       同步或锁(45)       	
+
+	
+		
+
+
+  actor并发模型&基于共享内存线程模型  
+	
+
+	
+	
+	
+移动版 	关于本站 	使用帮助 	联系管理员 	 探索 分享 交流 解惑 授道 	
+OpenSource JIVEJDON  Powered by JdonFramework Code © 2002-15 jdon.com 	
+anti spam     

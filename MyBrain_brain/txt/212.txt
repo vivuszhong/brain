@@ -1,0 +1,34 @@
+                     Apache Shiro | Java Security Framework 
+Get Started Get Smart Get Help Get Support   •  Documentation
+  •  News
+  •  Events
+  •  Twitter
+  •  Mailing lists
+  •  Contribute
+Welcome to Apache Shiro
+Apache Shiro is a powerful and easy-to-use Java security framework that performs authentication, authorization, cryptography, and session management. With Shiro’s easy-to-understand API, you can quickly and easily secure any application – from the smallest mobile applications to the largest web and enterprise applications.
+Authentication
+Support logins across one or more pluggable data soucres (LDAP, JDBC, Active Directory...
+Read More >>> Authorization
+Perform access control based on roles or fine grained permissions, also using plug...
+Read More >>> Cryptography
+Secure data with the easiest possible Cryptography API’s available, giving you...
+Read More >>> Session Management
+Use sessions in any environment, even outside web or EJB containers. Easily...
+Read More >>> Web Integration
+Save development time with innovative approaches that easily handle web specific...
+Read More >>> Integrations
+API’s giving you power and simplicty beyond what Java p[rovides by default...
+Read More >>> 	Getting Started
+  •  What is Apache Shiro?
+  •  10 Minute Tutorial
+  •  More articles...
+	
+News
+Apache Shiro 1.2.2 Released!
+The Shiro team is pleased to announce the release of Apache Shiro version 1.2.2.
+Read More >>> What’s New in Apache Shiro 1.2?
+Here's an article covering some of the main features and enhancements in Apache Shiro 1.2:
+Read More >>> Communities Using Shiro
+Donate to the ASF | License Copyright © 2008-2013 The Apache Software Foundation
+   

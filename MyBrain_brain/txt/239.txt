@@ -1,0 +1,70 @@
+                    Commons VFS - Commons Virtual File System
+  Apache Commons logo    Commons VFS  Last Published: 18 August 2011  | Version: 2.0 ApacheCon | Apache | Commons Commons VFS
+  •   Overview 
+  •   Download and Build 
+  •   Using the API 
+  •   API JavaDocs 
+  •   File Systems 
+  •   Ant Tasks 
+  •   Wiki 
+Development
+  •   Testing 
+  •   Mailing Lists 
+  •   Issue Tracking 
+  •   Source Repository 
+  •   To Do List 
+Components
+  •   Core 
+  •   Examples 
+  •   Sandbox 
+Project Documentation
+  •   Project Information 
+  •   About 
+  •   Continuous Integration 
+  •   Dependencies 
+  •   Dependency Convergence 
+  •   Dependency Management 
+  •   Distribution Management 
+  •   Issue Tracking 
+  •   Mailing Lists 
+  •   Plugin Management 
+  •   Project License 
+  •   Project Modules 
+  •   Project Plugins 
+  •   Project Summary 
+  •   Project Team 
+  •   Source Repository 
+  •   Project Reports 
+Commons
+  •   Home 
+  •   License 
+  •   Components 
+  •   Sandbox 
+  •   Dormant 
+General Information
+  •   Volunteering 
+  •   Contributing Patches 
+  •   Building Components 
+  •   Releasing Components 
+  •   Wiki 
+ASF
+  •   How the ASF works 
+  •   Get Involved 
+  •   Developer Resources 
+  •   Sponsorship 
+  •   Thanks 
+  ApacheCon    Maven  Commons Virtual File System
+ Commons VFS provides a single API for accessing various different file systems. It presents a uniform view of the files from various different sources, such as the files on local disk, on an HTTP server, or inside a Zip archive. 
+Some of the features of Commons VFS are:
+  •   A single consistent API for accessing files of different types. 
+  •  Support for numerous file system types . 
+  •   Caching of file information. Caches information in-JVM, and optionally can cache remote file information on the local file system. 
+  •  Event delivery.
+  •   Support for logical file systems made up of files from various different file systems. 
+  •   Utilities for integrating Commons VFS into applications, such as a VFS-aware ClassLoader and URLStreamHandlerFactory. 
+  •  A set of VFS-enabled Ant tasks . 
+Requirements
+ Commons VFS 2.0 requires Java 5. Many of the file systems require that optional components be present in order for the protocol to be enabled. See the download and build page for information on the optional dependencies. 
+News
+ Commons VFS 2.0 is now available. Support for FTPS and WebDav have been added in addition to many bugs being fixed. Version 2.0 is not binary compatible with version 1.0. To insure that both 1.0 and 2.0 can coexist version 2.0 has had its Maven groupId changed to org.apache.commons, its Maven artifact changed to commons-vfs2, and the package names are now org.apache.commons.vfs2. The API changes are fairly minor and will mostly impact provider implementations. 
+Copyright © 2002-2011 The Apache Software Foundation. All Rights Reserved. Apache Commons, Apache Commons VFS, Apache, the Apache feather logo, and the Apache Commons project logos are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners.     

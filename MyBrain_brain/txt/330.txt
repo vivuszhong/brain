@@ -1,0 +1,74 @@
+                    Play Framework - Build Modern & Scalable Web Apps with Java and Scala
+Typesafe Download Documentation Get Involved Mailing list Twitter Google+ Facebook Github Stackoverflow Is that what you're looking for? (png) (svg) (png) (svg)  The High Velocity
+ Web Framework
+ For Java and Scala 
+Get the latest package
+Download 2.2.1  or browse all versions 
+Getting started with
+Java Scala  or read full documentation 
+Play Framework makes it easy to build web applications with Java & Scala.
+ Play is based on a lightweight, stateless, web-friendly architecture. 
+ Built on Akka, Play provides predictable and minimal resource consumption (CPU, memory, threads) for highly-scalable applications. 
+Developer friendly.
+ Make your changes and simply hit refresh! All you need is a browser and a text editor. 
+  •  Hit refresh workflow
+  •  Powerful console & build tools
+  •  Type safety
+  •  Built in testing tools
+  •  IDE support for Eclipse and IntelliJ IDEA
+Play instances usage
+
+Scale predictably.
+ Underneath the covers Play uses a fully asynchronous model built on top of Akka. Combined with being stateless, Play scales simply and predictably. 
+  •  Stateless Web Tier
+  •  Non-blocking I/O
+  •  Built on Akka
+  •  Real-time enabled
+Modern web & mobile.
+ Play was built for needs of modern web & mobile apps. 
+  •  RESTful by default
+  •  Asset Compiler for CoffeeScript, LESS, etc
+  •  JSON is a first class citizen
+  •  Websockets, Comet, EventSource
+  •  Extensive NoSQL & Big Data Support
+Solid & fast.
+ The compiler and runtime (JVM) do the heavy lifting so that your apps run super-fast and keeps running under load. 
+  •  Code is compiled
+  •  Runs on the JVM
+  •  Java NIO via Netty
+Massive ecosystem.
+ The ecosystem around Java is huge. There are libraries for everything - most of which can be used in Play. 
+  •  Use Maven Central libraries
+  •  Numerous Play plugins
+  •  Very active Play community
+Proven in production.
+ From startups to enterprises, Play powers some of the most innovative web sites. Play is proven, reliable and scalable. 
+  •  Production support by Typesafe
+  •  Many cloud deployment options
+  •  Used in mission-critical apps
+They already use Play Framework
+Linkedin Klout The Guardian Gilt Zaptravel Community support
+  •  Mailing list
+  •  Stackoverflow
+Professional support
+  •  Typesafe Subscription
+  •  Training
+  •  Consulting
+Play Framework
+  •  Download
+  •  Java Start | Scala Start
+  •  Documentation
+Community links
+  •  Events via Eventbrite
+  •  Jobs via Indeed
+  •  Blogs via Scoop.it
+Code & contribution
+  •  Code & contributors
+  •  Bug tracker GitHub
+  •  Get involved
+Social networks
+  •  Twitter
+  •  Google+
+  •  Facebook
+ Play Framework is released under the Apache 2 License 
+    

@@ -1,0 +1,34 @@
+                    Trail: Creating a GUI With JFC/Swing (The Java™ Tutorials)
+ A browser with JavaScript enabled is required for this page to operate properly. Download Ebooks
+Download JDK 
+Search Java Tutorials Home Page « Previous • Trail • Next » Trail: Creating a GUI With JFC/Swing
+Also known as The Swing Tutorial
+This trail tells you how to create graphical user interfaces (GUIs) for applications and applets, using the Swing components. If you would like to incorporate JavaFX into your Swing application, please see Integrating JavaFX into Swing Applications. 
+  trail icon  Getting Started with Swing is a quick start lesson. First it gives you a bit of background about Swing. Then it tells you how to compile and run programs that use Swing components. 
+  trail icon  Learning Swing with the NetBeans IDE is the fastest and easiest way to begin working with Swing. This lesson explores the NetBeans IDE's GUI builder, a powerful feature that lets you visually construct your Graphical User Interfaces. 
+  trail icon  Using Swing Components tells you how to use each of the Swing components  buttons, tables, text components, and all the rest. It also tells you how to use borders and icons. 
+  trail icon  Concurrency in Swing discusses concurrency as it applies to Swing programming. Information on the event dispatch thread and the SwingWorker class are included. 
+  trail icon  Using Other Swing Features tells you how to use actions, timers, and the system tray; how to integrate with the desktop class, how to support assistive technologies, how to print tables and text, how to create a splash screen, and how to use modality in dialogs. 
+  trail icon  Laying Out Components Within a Container tells you how to choose a layout manager, how to use each of the layout manager classes the Java platform provides, how to use absolute positioning instead of a layout manager, and how to create your own layout manager. 
+  trail icon  Modifying the Look and Feel tells you how to specify the look and feel of Swing components. 
+  trail icon  Drag and Drop and Data Transfer tells you what you need to know to implement data transfer in your application. 
+  trail icon  Writing Event Listeners tells you how to handle events in your programs. 
+  trail icon  Performing Custom Painting gives you information on painting your own Swing components. It discusses painting issues specific to Swing components, provides an overview of painting concepts, and has examples of custom components that paint themselves.
+Other UI-Related Trails
+Although this is the main trail for learning about GUIs, it isn't the only trail with UI-related information.
+  •   2D Graphics, which describes the 2D graphics features available in the JDK.
+  •   Sound, which discusses the sound capabilities available in the JDK.
+  •   Java Applets, which describes API available only to applets.
+  •   Essential Classes, which covers many topics, including properties and the standard I/O streams.
+  •  The JavaFX 2.0 Documentation, which describes how to build UIs with JavaFX.
+  •  The Bonus trail contains Full-Screen Exclusive Mode API, a lesson that describes how to use API introduced in v1.4 to render graphics directly to the screen.
+« Previous • TOC • Next » Problems with the examples? Try Compiling and Running the Examples: FAQs. 
+ Complaints? Compliments? Suggestions? Give us your feedback. 
+Your use of this page and all the material on pages under "The Java Tutorials" banner is subject to these legal notices. 
+	
+  duke image  	  Oracle logo  	
+About Oracle | Oracle Technology Network | Terms of Use
+	Copyright © 1995, 2013 Oracle and/or its affiliates. All rights reserved.
+	
+Previous page: Beginning of Tutorial 
+Next page: Getting Started with Swing  A browser with JavaScript enabled is required for this page to operate properly.     

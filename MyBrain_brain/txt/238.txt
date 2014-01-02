@@ -1,0 +1,157 @@
+                    通用网关接口 - 维基百科，自由的百科全书
+通用网关接口
+维基百科，自由的百科全书  跳转至： 导航、 搜索 通用网关接口（Common Gateway Interface／CGI）是一种重要的互联网技术，可以让一个客户端，从网页浏览器向执行在網絡服务器上的程序，请求数据。CGI 描述了客户端和服务器程序之间传输数据的一种标准。
+目录
+  •  1 歷史
+  •  2 運作
+  •  3 Workarounds
+  •  4 参见
+  •  5 外部链接
+歷史[编辑]
+最初，CGI 是在 1993 年由美国国家超级电脑应用中心（NCSA）为 NCSA HTTPd web 服务器开发的。这个 Web 服务器使用了 UNIX shell 环境变量 来保存从 Web 服务器传递出去的参数，然后生成一个运行 CGI 的独立的进程。
+運作[编辑]
+编程语言 Perl 是一个广泛被用來編寫 CGI 程式的语言，但 CGI 的一个目的是要獨立於任何語言的。Web 服务器无须在这个问题上对语言有任何了解。 事实上，CGI 程序可以用任何脚本语言或者是完全独立编程语言实现，只要这个语言可以在这个系统上运行。 除 Perl 外，像 Unix shell script, Python, Ruby, PHP, Tcl, C/C++, 和 Visual Basic 都可以用来編写 CGI 程序。
+实现維基百科編輯的 CGI 程序的一个例子：首先用户代理程序向这个 CGI 程序请求某个名称的条目，如果该条目页面存在，CGI 程序就会去获取那个条目页面的原始数据，然后把它转换成 HTML 并把结果输出给浏览器；如果该条目页面不存在，CGI 程序则会提示用户新建一个页面。所有維基操作都是通过这个 CGI 程序来处理的。
+CGI 的工作方式，从 Web 服务器的角度看，是在特定的位置（比如：http://www.example.com/wiki.cgi）定义了可以运行 CGI 程序。当收到一个匹配URL的请求，相应的程序就会被调用，并将客户端发送的数据作为输入。程序的输出会由 Web 服务器收集，并加上合适的檔头，再发送回客户端。
+一般每次的 CGI 请求都需要新生成一个程序的副本来运行，这样大的工作量会很快将服务器压垮，因此一些更有效的技术像 mod_perl，可以让脚本解释器直接作为模块集成在 Web 服务器（例如：Apache）中，这样就能避免重复载入和初始化解释器。不过这只是就那些需要解释器的高级语言（即解释语言）而言的，使用诸如 C 一类的编译语言则可以避免这种额外负荷。由于 C 及其他编译语言的程序与解释语言程序相比，前者的运行速度更快、对操作系统的负荷更小，使用编译语言程序是可能达到更高执行效率的，然而因为开发效率等原因，在目前解释性语言还是最合适的。
+Workarounds[编辑]
+如果代码只是偶尔改变的话，我们可以在服务器产生一个新的进程在编译代码之前进行一下处理。有一个例子是FastCGI，当然还包括其它编写的加速器，它会在第一次调用脚本时，在系统的某个地方保存脚本编译过的版本。这样对这个文件以后的请求就会自动转向这个编译过的代码，而不用每次调用脚本解释器来解释脚本。当更改了脚本，加速器的临时缓存会被清空来保证调用的是新的版本的脚本。
+另一个方法是直接把解释器放在 Web 服务器中，这样就无须新建一个进程来执行脚本。Apache服务器有很多这样的模块，像 mod_cplusplus、mod_perl、mod_php、mod_python、mod_ruby、和 mod_mono。
+参见[编辑]
+  •  FastCGI
+  •  CGI.pm
+  •  Simple Common Gateway Interface
+  •  Perl
+外部链接[编辑]
+  •  The CGI/1.1 specification.
+  •  The complete list of CGI variables is at http://hoohoo.ncsa.uiuc.edu/cgi/env.html.
+  •  The SCGI protocol is a replacement for the Common Gateway Interface (CGI) protocol.
+  •  mod_cplusplus for Apache
+
+
+	
+  •  查
+  •  论
+  •  编
+網頁技術與標準 
+	
+文档呈现语言 HTML*（HTML5*） · XHTML* · XML* · XForms* · DHTML* 	
+	
+样式格式描述语言 CSS* · XSL* 	
+	
+动态网页技术 CGI · FastCGI · ASP · ASP.NET · ColdFusion · JSP · Perl（PSGI） · Python（WSGI） · Ruby  · Smalltalk  · PHP 	
+	
+客户端交互技术 ActiveX · Java Applet · JavaFX · AJAX（XMLHTTP*） · WebSocket* · Silverlight · ActionScript（Flash · Flex · AIR） 	
+	
+客户端脚本语言 JavaScript · JScript · VBScript · ECMAScript 	
+	
+标识定位语言 URL · URI · XPath · URL重寫 	
+	
+文档纲要语言 DTD* · XML Schema* 	
+	
+* 代表由W3C制定和维护的标准与规范 	
+ 取自“http://zh.wikipedia.org/w/index.php?title=通用网关接口&oldid=25359667” 2个分类：  •  網頁技術
+  •  全球資訊網
+1个隐藏分类：  •  含有英語的條目
+导航菜单
+个人工具
+  •  创建账户
+  •  登录
+名字空间
+  •  条目
+  •  讨论
+ 不转换 
+变种
+  •  不转换
+  •  简体
+  •  繁體
+  •  大陆简体
+  •  香港繁體
+  •  澳門繁體
+  •  马新简体
+  •  台灣正體
+查看
+  •  阅读
+  •  编辑
+  •  查看历史
+操作
+搜索
+  搜索    Special:搜索  导航
+  •  首页
+  •  分類索引
+  •  特色内容
+  •  新闻动态
+  •  最近更改
+  •  随机条目
+帮助
+  •  帮助
+  •  维基社群
+  •  方针与指引
+  •  互助客栈
+  •  询问处
+  •  字词转换
+  •  IRC即时聊天
+  •  联系我们
+  •  关于维基百科
+  •  资助维基百科
+工具
+  •  链入页面
+  •  相关更改
+  •  上传文件
+  •  特殊页面
+  •  打印页面
+  •  永久链接
+  •  页面信息
+  •  数据项
+  •  引用本页
+其他语言
+  •  العربية
+  •  Boarisch
+  •  Български
+  •  Česky
+  •  Dansk
+  •  Deutsch
+  •  Ελληνικά
+  •  English
+  •  Esperanto
+  •  Español
+  •  Eesti
+  •  Euskara
+  •  Suomi
+  •  Français
+  •  עברית
+  •  हिन्दी
+  •  Magyar
+  •  Bahasa Indonesia
+  •  Íslenska
+  •  Italiano
+  •  日本語
+  •  한국어
+  •  Lietuvių
+  •  Nederlands
+  •  Norsk bokmål
+  •  Polski
+  •  Português
+  •  Русский
+  •  Slovenčina
+  •  Slovenščina
+  •  Svenska
+  •  தமிழ்
+  •  తెలుగు
+  •  Українська
+  •  
+  •  编辑链接
+  •   本页面最后修订于2013年3月9日 (星期六) 15:41。
+
+  •  本站的全部文字在知识共享 署名-相同方式共享 3.0协议之条款下提供，附加条款亦可能应用。（请参阅使用条款）
+ Wikipedia®和维基百科标志是维基媒体基金会的注册商标；维基™是维基媒体基金会的商标。
+ 维基媒体基金会是在美国佛罗里达州登记的501(c)(3)免税、非营利、慈善机构。
+
+  •  隐私权政策
+  •  关于维基百科
+  •  免责声明
+  •  开发者
+  •  移动版视图
+  •     Wikimedia Foundation  
+  •     Powered by MediaWiki  
+    

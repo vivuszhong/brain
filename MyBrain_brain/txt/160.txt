@@ -1,0 +1,122 @@
+                    Main Page - Ajax Patterns
+Main Page
+ Time your website with WebWait - from the creator of AjaxPatterns.org From Ajax Patterns
+	
+Welcome to AjaxPatterns The publicly editable repository of all things Ajax. Patterns, Frameworks, Libraries, Tools ... 149 articles in English. January 9, 2013 	
+  •  Design Patterns 
+  •  Frameworks+Libs 
+  •  Tools 
+	  •  Websites 
+  •  Links 
+  •  What's Ajax? 
+	  •  Design Tips 
+  •  Gotchas 
+  •  Popular 
+		
+
+
+				
+Ajax Design Patterns - 9/10 Slashdot Review, 2006 Linux Journal editor's choice award for best book on software development. 	
+About AjaxPatterns.org
+
+AjaxPatterns.org began as a collection of design patterns, which formed the basis of the book, Ajax Design Patterns, and grew into a publicly editable wiki on anything and everything Ajax. All pages (except this homepage) are now editable, no registration required. Feel free to contribute! 
+  •   Info: AjaxPatterns Background, Contributing, Press Info 
+  •   Ajax Design Patterns Book: Contents and Recommendations, Buy PDF/Book @ O'Reilly, Buy @ Amazon, Initial Announcement (As Podcast/MP3) 
+  •   Bookmark It: Blinklist, Delicious, Furl, Reddit, Yahoo! My Web 
+  •   Subscribe to Feeds:   orangerss.gif  New Pages, Recent Changes, Michael Mahemoff's blog/podcast, AjaxPatterns Tag 
+  •   Contact: Contact Michael Mahemoff (Wiki curator/founder) 
+	
+Frameworks, Libraries, Tools
+	
+  •   Frameworks and Libraries Overview: Frameworks and Libraries Portal Page 
+  •   Javascript Frameworks: Multipurpose Frameworks, Remoting Frameworks, Effects Frameworks, Flash Frameworks, Logging Frameworks, XML Frameworks, Specialised Frameworks 
+  •   Server-Side and Hybrid Frameworks: C++ Ajax Frameworks, Coldfusion, DotNet, Java, Lisp, Lotus Notes, Multi-Language, Perl, PHP, Python, Ruby, SmallTalk 
+  •   Ajax Tools: IDEs, DOM inspectors, Traffic Sniffers, etc. 
+	
+Javascript Resources
+  •   Website Template: Ajax Template (Cut-And-Paste Code (HTML/CSS/JS) to kickstart your Ajax App), Unit Test Template (Scriptaculous Unit Test Template) 
+	
+	
+All About Ajax
+
+  •   Links: Links Portal Page, External websites, Articless, Tutorials, Audio/Video/Podcasts, Accessibility, Security 
+  •   Books: Ajax Books 
+  •   Projects: Ajax Projects to Try 
+  •   Terminology: Ajax Terminology 
+	
+Ajax Design Patterns
+	
+  •   Patterns Overview: Latest list of all patterns and their summaries 
+  •   Background: Why Ajax Patterns?, Principles, Pattern Template, Slideshow (4MB HTML), Credits 
+  •   Live Demos: Live examples referenced in the patterns, Live Demos for Tutorial 
+There are 70+ Ajax patterns here, most linking to the original draft version for the design patterns book. Foundational Technology Patterns are lower-level patterns and a suitable introduction for people learning Ajax for the first time. Programming Patterns explain how these components are combined in a maintainable, performant, manner. Functionality and Usability Patterns guide on user-interface and usability concepts. Development Process Patterns look at typical developer activities like testing and debugging. 
+	
+Comments and Feedback
+	
+Please mail the maintainer of AjaxPatterns, Michael Mahemoff. 
+	
+
+
+	
+Foundational Technology Patterns
+
+  •   Ajax App: Ajax App 
+  •   Display Manipulation: Display Morphing, Page Rearrangement 
+  •   Web Remoting: Web Service, XMLHttpRequest Call, IFrame Call, HTTP Streaming, On-Demand Javascript 
+  •   Dynamic Behaviour: User Action, Scheduling 
+  •   Extended Technologies: Richer Plugin 
+	
+Programming Patterns
+	
+  •   Web Services: RESTful Service, RPC Service, Ajax Stub, HTML Message, Plain-Text Message, XML Message, JSON Message, UED Message 
+  •   Browser-Server Dialogue : Call Tracking, Periodic Refresh, Submission Throttling, Explicit Submission, Personalization Call, Distributed Events, Cross-Domain Proxy, Object Persistence 
+  •   DOM Population: XML Data Island, Browser-Side XSLT, Browser-Side Templating, Dual-Side Templating 
+  •   Performance Optimisation: Browser-Side Cache, Fat Client, Guesstimate, Submission Throttling, Explicit Submission, Multi-Stage Download, Predictive Fetch, Multithreading 
+  •   Javascript OOP': Lazy Inheritance 
+  •   Maintainability, Code Generation and Reuse: Lazy Inheritance, Server-Side Code Generation, Cross-Browser Component, Flyweight 
+	
+	
+Functionality and Usability Patterns
+
+  •   Widgets: Slider, Progress Indicator, Drilldown, Data Grid, Rich Text Editor, Suggestion, Live Search, Live Command-Line, Live Form 
+  •   Page Architecture: Drag-And-Drop, Sprite, Popup, Malleable Content, Microlink, Portlet, Status Area, Update Control, Transparent Message, Virtual Workspace 
+  •   Visual Effects: One-Second Spotlight, One-Second Mutation, One-Second Motion, Highlight 
+  •   Functionality: Lazy Registration, Direct Login, Host-Proof Hosting, Timeout, Heartbeat, Unique URLs, Dynamic Favicons 
+	
+Development Process Patterns
+	
+  •   Diagnosis: Logging, Debugging, DOM Inspection, Traffic Sniffing 
+  •   Testing: Simulation Service, Browser-Side Test, Service Test, System Test 
+  0596101805_thumb.gif  	
+ Retrieved from "http://ajaxpatterns.org/Main_Page" Views
+  •  Article
+  •  Discussion
+  •  View source
+  •  History
+Personal tools
+  •  Create an account or log in
+ 
+Ajax Portal and Book Homepage Ajax Patterns   •  Home
+  •  What's Ajax?
+  •  Recent changes
+  •  Popular
+  •  70+ Patterns
+  •  200+ Frameworks
+  •  30+ Tools
+  •  150+ Examples
+  •  25+ Books
+  •  150+ Links
+  •  Demos@Ajaxify
+  •  Ajax News
+  •  Michael Mahemoff
+  •  The Book
+  Go    Search  Jobs by Indeed   •  What links here
+  •  Related changes
+  •  Special pages
+  •  Printable version
+  MediaWiki    Attribution-NonCommercial 2.5    •   This page was last modified 00:35, 5 September 2011.
+  •  This page has been accessed 1,968,067 times.
+  •  Content is available under Attribution-NonCommercial 2.5.
+  •  About Ajax Patterns
+  •  Disclaimers
+    

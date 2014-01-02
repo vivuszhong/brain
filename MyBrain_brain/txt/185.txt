@@ -1,0 +1,52 @@
+                    RabbitMQ - Messaging that just works
+  RabbitMQ    VMware    Search RabbitMQ    Search    •  Installation
+  •  Documentation
+  •  Tutorials
+  •  Services
+  •  Community
+  •  Blog
+  Subscribe to our news  Latest News 
+  •  11 Dec 2012RabbitMQ 3.0.1 release
+
+  •  19 Nov 2012RabbitMQ 3.0.0 release
+
+  •  27 Sep 2012RabbitMQ 2.8.7 release
+
+  Subscribe to our blog posts  Latest Blog Posts 
+  •  What’s new in RabbitMQ 3.0?
+ 20 Nov 2012Simon MacMullen
+  •  Breaking things with RabbitMQ 3.0
+ 19 Nov 2012Simon MacMullen
+  •  MQTT Adapter
+ 12 Sep 2012Emile Joubert
+  Subscribe to a RabbitMQ feed from Twitter  Latest Community Chatter 
+  •  今日はSpringの勉強会行くのにラップトップ持ってくるの忘れちゃった…。 @keisuke69 のAMQPとRabbitMQの話楽しみッス！ / 日本Springユーザ会 勉強会 #jsug : ATND http://t.co/A99X9y4Z @atndさんから
+ [shinodogg (eiji shinohara)] 
+  •  I know I'm doing something wrong, but RabbitMQ never seems to work until it suddenly works.
+ [darrencauthon (Darren Cauthon)] 
+  •  A fun day of working with a client to get Sensu and Graphite running with RabbitMQ… happy once we found the correct AMQP config… #devops
+ [techopsguru (Andrew Hollingsworth)] 
+  •  @SpottedDog4me cool! We're starting to look at mongodb and rabbitmq. For the web-scale.
+ [aochsner (Andrew Ochsner)] 
+What is RabbitMQ?
+  •  Robust messaging for applications
+  •  Easy to use
+  •  Runs on all major operating systems
+  •  Supports a huge number of developer platforms
+  •  Open source and commercially supported
+Get Started
+  •    
+Download
+Server and clients for various operating systems and languages
+  •    
+Documentation
+How to do almost anything with RabbitMQ
+  •    
+Tutorials
+Teach yourself RabbitMQ in six easy lessons
+Read More
+  •   Languages: Java | .NET | Ruby | Python | PHP | more... 
+  •   Cloud: Cloud Foundry | EC2 | more... 
+Sitemap | Contact
+ Copyright © 2013 VMware, Inc. All rights reserved. Terms of Use | Privacy
+   

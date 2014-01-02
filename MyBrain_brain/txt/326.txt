@@ -1,0 +1,443 @@
+                    Scala - 维基百科，自由的百科全书
+Scala
+维基百科，自由的百科全书  跳转至： 导航、 搜索   本页使用了标题或全文手工转换  Scala 
+  Scala logo.png  
+编程范型 多范式：函数式，面向对象，命令式	
+发行时间 2003年	
+設計者 Martin Odersky（英语：Martin Odersky）	
+實作者 洛桑联邦理工学院编程方法实验室	
+最新发行时间 2.10.1（2013年3月13日；9個月前 (2013-03-13)）	
+型態系統 静态，强，类型推断, 结构化（英语：Structural type system）	
+啟發語言 Java, Pizza（英语：Pizza (programming language)）,[1] Haskell, Erlang, Standard ML, Objective Caml, Smalltalk, Scheme	
+網站 http://www.scala-lang.org	
+Scala（发音为 /ˈskɑːlə, ˈskeɪlə/）是一种多范式的编程语言，设计初衷是要整合面向对象编程和函数式编程的各种特性。[1]
+
+目录
+  •  1 平台和许可证
+  •  2 历史
+  •  3 使用Scala的软件
+  •  4 特性 
+  •  4.1 支持的编程范式 
+  •  4.1.1 面向对象特性
+  •  4.1.2 函数式编程
+  •  4.2 静态类型
+  •  4.3 扩展性
+  •  4.4 并发性
+  •  5 使用Scala的框架
+  •  6 Hello World范例
+  •  7 测试
+  •  8 参考文献
+  •  9 图书
+  •  10 外部链接
+
+平台和许可证[编辑]
+Scala运行于Java平台（Java虚拟机），并兼容现有的Java程序。它也能运行于CLDC配置的Java ME中。目前还有另一.NET平台的实现[2]，不过该版本更新有些滞后。[3]
+Scala的编译模型（独立编译，动态类加载）与Java和C#一样，所以Scala代码可以调用Java類別庫（对于.NET实现则可调用.NET類別庫）。
+Scala套件包括编译器和類別庫，以BSD许可证发布。[4]
+历史[编辑]
+洛桑联邦理工学院的Martin Odersky于2001年基于Funnel的工作开始设计Scala。Funnel是把函数式编程思想和Petri网相结合的一种编程语言。[5] Odersky先前的工作是Generic Java（英语：Generic Java）和javac。Java平台的Scala于2003年底/2004年初发布。[5].NET平台的Scala发布于2004年6月。[1][5][6]该语言第二个版本，v2.0，发布于2006年3月。[1]
+Scala 2.8的特性包括重写的Scala容器庫、调用方法的命名参数和默认参数、包对象，以及Continuation.[7]
+2012年1月，发布版本2.9.1。
+2012年4月，发布版本2.9.2。
+使用Scala的软件[编辑]
+2009年4月，Twitter宣布他们已经把大部分後端程式从Ruby迁移到Scala，其余部分也打算要迁移。[8]
+此外，Wattzon（英语：Wattzon）已经公开宣称，其整个平台都已经是基于Scala基础设施编写的。[9]
+瑞银集团把Scala用于一般产品中。[10]
+特性[编辑]
+支持的编程范式[编辑]
+面向对象特性[编辑]
+Scala是一种纯面向对象的语言，每一个值都是对象。对象的数据类型以及行为由类和特质描述。类抽象机制的扩展有两种途径。一种途径是子类继承，另一种途径是灵活的混入（英语：Mixin）机制。这两种途径能避免多重继承的种种问题。
+函数式编程[编辑]
+Scala也是一种函数式语言，其函数也能当成值来使用。Scala提供了轻量级的语法用以定义匿名函数，支持高阶函数，允许嵌套多层函数，并支持柯里化。Scala的case class及其内置的模式匹配（英语：Pattern matching）相当于函数式编程语言中常用的代数类型（英语：Algebraic type）。
+更进一步，程序员可以利用Scala的模式匹配，编写类似正则表达式的代码处理XML数据。在这些情形中，列表推导式（英语：List comprehension）功能对编写公式化查询非常有用。
+由于JVM不支持尾调用，Scala也不能完全支持尾调用优化。不过，Scala编译器可以把某些简单的尾递归优化成循环。[11]
+以下代码以函数式风格实现了快速排序算法，可以与Erlang快速排序的例子做个比较：
+
+def qsort(list: List[Int]): List[Int] = {
+  case Nil => Nil
+  case pivot :: tail =>
+    val(smaller, rest) = tail.partition(_ < pivot)
+    qsort(smaller) ::: pivot :: qsort(rest)
+}
+静态类型[编辑]
+Scala具备类型系统，通过编译时检查，保证代码的安全性和一致性。类型系统具体支持以下特性：
+  •  泛型類別，
+  •  协变和逆变（英语：Covariance and contravariance (computer science)），
+  •  标注（英语：Annotation），
+  •  类型参数的上下限约束，
+  •  把类別和抽象类型作为对象成员，
+  •  复合类型，
+  •  引用自己时显式指定类型，
+  •  视图，
+  •  多态方法。
+扩展性[编辑]
+Scala的设计承认一个事实，即在实践中，某个领域特定的应用程序开发往往需要特定于该领域的语言扩展。Scala提供了许多独特的语言机制，可以以库的形式轻易无缝添加新的语言结构：
+  •  任何方法可用作前缀或后缀操作符，
+  •  可以根据预期类型自动构造闭包。
+联合使用以上两个特性，使你可以定义新的语句而无须扩展语法也无须使用宏之类的元编程特性。
+并发性[编辑]
+Scala使用Actor作为其并发模型，Actor是类似线程的实体，有一个邮箱发收消息。Actor可以复用线程，因此可以在程序中可以使用数百万个Actor,而线程只能创建数千个。在2.10之后的版本中，使用Akka作为其默认Actor实现。[12] 以下代码是一个使用Actor模式的EchoServer实现
+
+val echoServer = actor(new Act {
+  become {
+    case msg => println("echo " + msg)
+  }
+})
+echoServer ! "hi"
+Actor模式可以简化并发编程，更好地利用多核CPU的能力
+使用Scala的框架[编辑]
+Lift是一个开源的Web应用框架，旨在提供类似Ruby on Rails的东西。因为Lift使用了Scala，所以Lift应用程序可以使用目前所有的Java库和Web容器。
+Hello World范例[编辑]
+以下是用Scala编写的典型Hello World程式：
+
+ object HelloWorld extends App {
+   println("Hello, world!")
+ }
+或
+
+ object HelloWorld {
+   def main(args: Array[String]) {
+     println("Hello, world!")
+   }
+ }
+请注意它与Java的Hello World应用程序有哪些相似之处。一个显著区别在于，Scala版的Hello World程序不通过static关键字把main方法标记为静态方法，而是用object关键字创建了一个单件。
+假设该程序保存为HelloWorld.scala文件，接下来可以通过以下命令行进行编译：
+
+> scalac HelloWorld.scala
+若要运行：
+
+> scala -classpath . HelloWorld
+这与编译和运行Java的“Hello World”程序是不是很像呢？事实上，Scala的编译和执行模型与Java是等效的，因而它也兼容于Java的构建工具，比如Ant.
+直接使用Scala解释器也可以运行该程序，使用选项-i（从文件加载代码）和选项-e（若要运行额外的代码，就得实际执行HelloWorld对象的方法）即可：
+
+> scala -i HelloWorld.scala -e 'HelloWorld.main(null)'
+测试[编辑]
+以下是测试Scala代码的一些方式：
+  •  ScalaTest
+  •  ScalaCheck，类似于Haskell的QuickCheck的一个库
+  •  specs，一个用于Scala的行为驱动的开发工具库
+  •  JUnit
+内置的Scala库SUnit已经不赞成使用，已在2.8.0版中移除。
+参考文献[编辑]
+  •  ^ 1.0 1.1 1.2 1.3 Martin Odersky et al., An Overview of the Scala Programming Language, 2nd Edition
+  •  ^ Scala on .NET. 洛桑联邦理工学院编程方法实验室. 2008-01-07 [2008-01-15]. "Scala is primarily developed for the JVM and embodies some of its features. Nevertheless, its .NET support is designed to make it as portable across the two platforms as possible." 
+  •  ^ http://www.artima.com/weblogs/viewpost.jsp?thread=163733
+  •  ^ http://www.scala-lang.org/node/146
+  •  ^ 5.0 5.1 5.2 Martin Odersky, "A Brief History of Scala", Artima.com weblogs, June 9, 2006
+  •  ^ Martin Odersky, "The Scala Language Specification Version 2.7"
+  •  ^ Scala 2.8 Preview
+  •  ^ Greene, Kate. The Secret Behind Twitter's Growth, How a new Web programming language is helping the company handle its increasing popularity.. Technology Review. MIT. April 1, 2009 [April 6, 2009]. 
+  •  ^ Cloud, Jeremy. Scala + WattzOn, sitting in a tree.... March 10, 2009. 
+  •  ^ http://drdobbs.com/article/print?articleId=231001802&siteSectionName=
+  •  ^ Tail calls, @tailrec and trampolines
+  •  ^ http://zh.scala-tour.com/#/using-actor
+图书[编辑]
+  •  Programming in Scala - (ISBN 978-0-9815316-0-1) A comprehensive step-by-step guide by Martin Odersky（英语：Martin Odersky）, Lex Spoon, and Bill Venners.
+  •  Beginning Scala - (ISBN 978-1-4302-1989-7) A down–to–earth approach to teaching Scala by David Pollak.
+  •  Programming Scala - (ISBN 978-1-934356-31-9) Creating highly scalable, highly concurrent applications on the Java platform by Venkat Subramaniam.
+  •  Programming Scala ( ebook)
+外部链接[编辑]
+  •  Scala website
+  •  Scalachina
+  •  Scala Tour,开源Scala指南
+	
+  •  查
+  •  论
+  •  编
+计算机语言 
+	
+.NET框架平台语言   •  C++/CLI
+  •  C#
+  •  F#
+  •  IronPython
+  •  IronRuby
+  •  J#
+  •  Visual C#
+  •  Visual Basic .NET
+  •  Small Basic
+	
+	
+C/C++语言   •  C
+  •  C++
+  •  Turbo C++
+  •  Borland C++
+  •  C++ Builder - C++/CLI
+  •  Visual C++ 组件扩展
+  •  Objective-C
+  •  Microsoft Visual C++
+	
+	
+BASIC语言 	
+有行号   •  BASIC
+  •  BASICA
+  •  GW-BASIC
+  •  ETBASIC
+  •  GVBASIC
+	
+	
+无行号   •  QBASIC
+  •  QuickBASIC
+  •  True BASIC
+  •  Turbo BASIC
+  •  PowerBASIC
+  •  FreeBasic
+  •  DarkBASIC
+  •  Visual Basic
+  •  Gambas
+  •  Visual Basic .NET
+  •  VBScript
+  •  Visual Basic for Applications（VBA）
+  •  REALbasic
+  •  Small Basic
+	
+	
+Pascal/Delphi语言   •  Pascal
+  •  Turbo Pascal
+  •  Object Pascal
+  •  Free Pascal
+  •  Delphi
+  •  Lazarus
+	
+	
+数据库相关编程语言   •  xBase（英语：xBase） 
+  •  Clipper
+  •  Visual FoxPro
+  •  SQL 
+  •  PL/SQL
+  •  T-SQL
+  •  SQL/PSM（英语：SQL/PSM）
+  •  LINQ
+  •  XQuery（英语：XQuery）
+	
+	
+GPU用着色器语言   •  Cg
+  •  GLSL
+  •  HLSL
+	
+	
+函数式编程语言 	
+Lisp家族   •  LISP
+  •  Scheme
+  •  Common Lisp
+  •  Clojure
+	
+	
+ML家族   •  ML
+  •  Standard ML
+  •  OCaml
+  •  F#
+	
+	
+  •  Haskell
+  •  Scala
+  •  Erlang
+  •  Clean
+  •  Miranda
+	
+	
+专业工具语言 	
+科学与统计计算   •  FORTRAN
+  •  MATLAB
+  •  Scilab
+  •  GNU Octave
+  •  R
+  •  S-Plus
+  •  Mathematica
+  •  Maple
+  •  Julia
+	
+	
+工业与辅助设计   •  AutoCAD Lisp
+	
+	
+标记语言 	
+  •  Curl
+	
+	
+SGML家族 	
+  •  SGML
+  •  HTML
+	
+	
+XML家族   •  XML
+  •  SVG
+  •  XML Schema
+  •  XSLT
+  •  XHTML
+  •  MathML
+	
+	
+Java虚拟机上的语言   •  Java
+  •  Jython
+  •  JRuby
+  •  JScheme
+  •  Groovy
+  •  Kawa
+  •  Scala
+  •  Clojure
+	
+	
+视觉化程式设计语言   •  LabVIEW
+  •  Simulink
+	
+	
+脚本语言 	
+  •  Lua
+  •  Perl
+  •  PHP
+  •  Python
+  •  Ruby
+  •  ASP
+  •  JSP
+  •  Tcl/Tk
+  •  VBScript
+  •  AppleScript
+	
+	
+ECMAScript衍生语言   •  ActionScript
+  •  DMDScript
+  •  ECMAScript
+  •  JavaScript
+  •  JScript
+  •  TypeScript
+	
+	
+Shell语言   •  sh
+  •  bash
+  •  sed
+  •  awk
+  •  PowerShell
+  •  csh
+  •  tcsh
+  •  ksh
+	
+	
+其他编程语言   •  汇编语言
+  •  A+
+  •  ALGOL
+  •  APL/J
+  •  Ada
+  •  B
+  •  COBOL
+  •  D
+  •  Eiffel
+  •  Falcon
+  •  Forth
+  •  Go
+  •  Io
+  •  Jess
+  •  Logo
+  •  MUMPS
+  •  Nuva
+  •  PL/I
+  •  PostScript
+  •  Prolog
+  •  REXX
+  •  SAC
+  •  Self
+  •  Simula
+  •  Smalltalk
+  •  易语言
+	
+ 取自“http://zh.wikipedia.org/w/index.php?title=Scala&oldid=29610229” 分类：  •  函数式编程语言
+  •  面向对象的程序设计语言
+  •  静态类型的编程语言
+  •  JVM程式語言
+  •  .NET编程语言
+导航菜单
+个人工具
+  •  创建账户
+  •  登录
+名字空间
+  •  条目
+  •  讨论
+ 不转换 
+变种
+  •  不转换
+  •  简体
+  •  繁體
+  •  大陆简体
+  •  香港繁體
+  •  澳門繁體
+  •  马新简体
+  •  台灣正體
+查看
+  •  阅读
+  •  编辑
+  •  查看历史
+操作
+搜索
+  搜索    Special:搜索  导航
+  •  首页
+  •  分類索引
+  •  特色内容
+  •  新闻动态
+  •  最近更改
+  •  随机条目
+帮助
+  •  帮助
+  •  维基社群
+  •  方针与指引
+  •  互助客栈
+  •  询问处
+  •  字词转换
+  •  IRC即时聊天
+  •  联系我们
+  •  关于维基百科
+  •  资助维基百科
+工具
+  •  链入页面
+  •  相关更改
+  •  上传文件
+  •  特殊页面
+  •  打印页面
+  •  永久链接
+  •  页面信息
+  •  数据项
+  •  引用本页
+其他语言
+  •  Català
+  •  Čeština
+  •  Dansk
+  •  Deutsch
+  •  Ελληνικά
+  •  English
+  •  Esperanto
+  •  Español
+  •  فارسی
+  •  Suomi
+  •  Français
+  •  Galego
+  •  עברית
+  •  Italiano
+  •  日本語
+  •  한국어
+  •  Lietuvių
+  •  Latviešu
+  •  Nederlands
+  •  Norsk bokmål
+  •  Polski
+  •  Português
+  •  Română
+  •  Русский
+  •  Svenska
+  •  తెలుగు
+  •  Türkçe
+  •  Українська
+  •  Tiếng Việt
+  •  
+  •  编辑链接
+  •   本页面最后修订于2013年12月23日 (星期一) 15:49。
+
+  •  本站的全部文字在知识共享 署名-相同方式共享 3.0协议之条款下提供，附加条款亦可能应用。（请参阅使用条款）
+ Wikipedia®和维基百科标志是维基媒体基金会的注册商标；维基™是维基媒体基金会的商标。
+ 维基媒体基金会是在美国佛罗里达州登记的501(c)(3)免税、非营利、慈善机构。
+
+  •  隐私权政策
+  •  关于维基百科
+  •  免责声明
+  •  开发者
+  •  移动版视图
+  •     Wikimedia Foundation  
+  •     Powered by MediaWiki  
+    

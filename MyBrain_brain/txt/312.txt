@@ -1,0 +1,24 @@
+                    start - Citadel.org
+  CITADEL  	The leader in true open source email and collaboration		  search    Search  	
+Home	Download	News	FAQ / Knowledge Base	Screenshots	Documentation	Support	Site map	
+philosophical imaginary 
+Powerful and flexible
+
+ Citadel is easy, versatile, and powerful, thanks to its exclusive "rooms" based architecture. No other platform seamlessly combines so many different features using this familiar and consistent metaphor. 	Packed with features
+  •  email 
+  •  calendar/scheduling 
+  •  address books 
+  •  bulletin boards (forums) 
+  •  mailing list server 
+  •  instant messaging 
+  •  wiki and blog engines 
+  •  multiple domain support 
+  •  a powerful web interface 
+  •  rss aggregation 
+  •  see the full feature list...
+	True open source
+
+ Citadel is 100% open source software using the GNU General Public License. It's not a crippled, cut-down version of some expensive "enterprise" edition. The software you download here is the very best available, and it's all free software. 	
+ Copyright © 1987-2013 Uncensored Communications Group. All rights reserved.     Login (site admin)
+
+    

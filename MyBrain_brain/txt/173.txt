@@ -1,0 +1,191 @@
+                    经典书籍
+  •  首页
+  •  经典书籍
+经典书籍收藏-程序员
+这些推荐的书籍多是沉淀下来的极品，涵盖了C/C++，JAVA，Windows程序设计，MFC，数据结构和算法，软件工程，网络编程，Linux，OpenGL/D3D这些方向。大多经得起考验，多余的的话就不用说了，如果感兴趣，可以去当当网看看大家对这些书的评价，如果还有特别经典的书籍这里没有提到，欢迎大家在页面下方留言.
+电子版批量下载页面
+分类目录：
+  •  程序员面试必备
+  •  杂文推荐-易中天-韩寒-李承鹏
+  •  健康书籍
+  •  经典励志书籍
+  •  C/C++/STL
+  •  Windows程序设计/MFC
+  •  JAVA
+  •  数据结构/算法
+  •  软件工程（设计模式）
+  •  网络编程：MySQL+PHP
+  •  Linux
+  •  OpenGL/DirectX 3D
+更多图书搜索
+
+  •   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+回到目录 
+
+  •   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+回到目录 
+
+  •   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+回到目录 
+  •   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+回到目录 
+
+  •   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+回到目录 
+  •   
+
+
+
+
+
+
+
+
+
+回到目录 
+  •   
+
+
+
+
+
+
+
+
+
+回到目录
+  •   
+
+
+
+
+
+回到目录 
+ ﻿ 9 条评论
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+
+Warning: call_user_func(gtcn_basic_callback) [function.call-user-func]: First argument is expected to be a valid callback in /home/sousb/domains/sousb.com/public_html/wp-includes/comment-template.php on line 1333
+留下评论
+名字*
+邮箱*
+
+网站(可选)
+*   Anti-spam image  
+内容
+  提交评论    361  
+   

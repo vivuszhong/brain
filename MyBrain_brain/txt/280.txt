@@ -1,0 +1,74 @@
+                    ej-technologies - Java Profiler, Java Installer Builder, Java Tools
+ej-technologies   •   Company 
+  •   News 
+  •    Products 
+  •  JProfiler
+  •  install4j
+  •  exe4j
+  •    Download 
+  •  JProfiler
+  •  install4j
+  •  exe4j
+  •   Support 
+  •   Order 
+JProfiler
+  •  Download
+  •  Trial Key
+  •  Change Log
+Download JProfiler
+ The download matrix below offers installers and archives for all supported platforms. 
+Select a JProfiler Version Current: JProfiler 8 Archive: JProfiler 7 Archive: JProfiler 6 Archive: JProfiler 5.2 Archive: JProfiler 5.1 Archive: JProfiler 4  Version: 8.0.2 (2013-12-02) OS Downloads 
+64-bit Windows	Setup Executable with JRE (57 MB) 
+ZIP Archive (74 MB)  Supported architectures: x64/AMD64 
+Supported versions: Vista/7/8, Server 2012/2008/2003, XP 	
+32-bit Windows	Setup Executable with JRE (57 MB) 
+ZIP Archive (75 MB)  Supported architectures: x86, x64/AMD64 
+Supported versions: Vista/7/8, Server 2012/2008/2003, 2000/XP 	
+Mac OS X	DMG Archive with JRE (61 MB) 
+DMG Archive for Apple JRE 1.6 (30 MB)  Supported architectures: x86, x64/AMD64, PPC 
+Supported versions: 10.9, 10.8, 10.7, 10.6, 10.5, 10.4 	
+Linux	Setup Executable (30 MB) 
+RPM (50 MB) 
+TAR.GZ Archive (49 MB)  Supported architectures: x86, x64/AMD64, PPC, PPC64, ARMv7 	
+Solaris	Setup Executable (39 MB) 
+TAR.GZ Archive (73 MB)  Supported architectures: SPARC, SPARC V9, x86, x64/AMD64 
+Supported versions: 11, 10, 9, 8 	
+AIX	Setup Executable (39 MB) 
+TAR.GZ Archive (73 MB)  Supported architectures: PPC, PPC64 
+Supported versions: 7.1, 6.1, 5.2, 5.3 	
+FreeBSD	Setup Executable (39 MB) 
+TAR.GZ Archive (73 MB)  Supported architectures: x86, x64/AMD64 
+Supported versions: 8, 7 	
+HP-UX	Setup Executable (39 MB) 
+TAR.GZ Archive (73 MB)  Supported architectures: PA_RISC, PA_RISC2.0W, Itanium ia64n, Itanium ia64w 
+Supported versions: 11i 	
+  
+Installation Notes for TAR-Archives (Linux/Unix)
+ All files are contained in an enclosing folder named jprofiler. Unpack the distribution file with
+
+gunzip filename
+tar xf filename
+
+ Start JProfiler by executing the shell script
+
+jprofiler/bin/jprofiler
+
+ Unix users are recommended to use gzip and GNU tar. For Solaris, the full set of GNU tools is available at http://www.sunfreeware.com. 
+Installation Notes for RPM-Archives (Linux)
+ Install the rpm with rpm -i <download_filename> or your favorite rpm tool. Execute jprofiler at the command line or use the kde/gnome desktop file /opt/jprofiler/jprofiler.desktop. 
+Unattended Installations
+ To perform an unattended installation, execute the installer with the -q command line argument. To set licensing information in that case, pass -Vjprofiler.licenseKey=[license key] -Vjprofiler.licenseName=[user name] and optionally -Vjprofiler.licenseCompany=[company name] as command line arguments. If you have a floating license, please use FLOAT:[server name or IP address] instead of the license key. A console installer mode is also available if you pass the -c command line argument. 
+How to Upgrade
+ You may install a new version of JProfiler on top of an older version. Your configuration will not be lost. JProfiler automatically imports settings from previous major versions. You can install different major versions of JProfiler side by side. 
+Latest Versions
+  •   JProfiler 8.0.2 
+ 2013-12-02 Change log 
+  •   install4j 5.1.7 
+ 2013-11-11 Change log 
+  •   exe4j 4.5.2 
+ 2013-01-15 Change log 
+Awards
+JProfiler 
+ Best Java Profiling / Testing Tool ej-technologies © Copyright 2001-2013 ej-technologies GmbH.
+Blog | Contact | Terms of Use 
+    

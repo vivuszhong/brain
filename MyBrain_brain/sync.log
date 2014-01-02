@@ -1,0 +1,16 @@
+Tue Oct 22 10:15:00 CST 2013 .. **********************************************
+Tue Oct 22 10:15:00 CST 2013 .. ==============================================
+Tue Oct 22 10:15:00 CST 2013 .. Retry #0 for sync - brain guid = 6A3E1955-EDCB-6885-3683-D3385E0C0A7A
+Tue Oct 22 10:15:00 CST 2013 .. Difference in seconds between local and remote clocks = 35
+Tue Oct 22 10:15:00 CST 2013 .. Downloading sync points from server
+Tue Oct 22 10:15:01 CST 2013 .. Brain is not present - forcing complete upload
+Tue Oct 22 10:15:01 CST 2013 .. Sync GUID = E298AEE6-955B-7E74-D0E2-729C562482A2
+Tue Oct 22 10:15:01 CST 2013 .. Export Folder = C:\Users\ADMINI~1\AppData\Local\Temp\TheBrain
+Tue Oct 22 10:15:01 CST 2013 .. Never synced - using BrainZip
+Tue Oct 22 10:15:10 CST 2013 .. BrainZip created at C:\Users\ADMINI~1\AppData\Local\Temp\TheBrain\E298AEE6-955B-7E74-D0E2-729C562482A2.syncOut.brainzip
+Tue Oct 22 10:15:10 CST 2013 .. trueLastSyncTime:null
+Tue Oct 22 10:22:25 CST 2013 .. Received from server:
+==================
+
+==================
+Tue Oct 22 10:22:25 CST 2013 .. Changes uploaded to https://webbrain.com/syncUpload

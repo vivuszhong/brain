@@ -1,0 +1,60 @@
+                    Apache Qpid™: Open Source AMQP Messaging
+Apache Qpid™
+Open Source AMQP Messaging
+Apache Qpid
+  •  Home
+  •  Download
+  •  Getting Started
+  •  License
+  •  FAQ
+Documentation
+  •  Latest Release
+  •  Trunk
+  •  Archive
+Community
+  •  Getting Involved
+  •  Source Repository
+  •  Mailing Lists
+  •  Wiki
+  •  Issue Reporting
+  •  People
+  •  Acknowledgements
+Developers
+  •  Building Qpid
+  •  Developer Pages
+About AMQP
+  •  What is AMQP?
+About Apache
+  •  Home
+  •  Sponsorship
+  •  Thanks
+  •  Security
+Introduction
+Apache Qpid™ is a cross-platform Enterprise Messaging system which implements the Advanced Message Queuing Protocol (AMQP), providing message brokers written in C++ and Java, along with clients for C++, Java JMS, .Net, Python, and Ruby.
+Enterprise Messaging systems let programs communicate by exchanging messages, much as people communicate by exchanging email. Unlike email, enterprise messaging systems provide guaranteed delivery, speed, security, and freedom from spam. Until recently, there was no open standard for Enterprise Messaging systems, so programmers either wrote their own, or used expensive proprietary systems.
+AMQP is the first open standard for Enterprise Messaging. It is designed to support messaging for just about any distributed or business application. Routing can be configured flexibly, easily supporting common messaging paradigms like point-to-point, fanout, publish-subscribe, and request-response.
+Apache Qpid implements the latest AMQP specification, providing transaction management, queuing, distribution, security, management, clustering, federation and heterogeneous multi-platform support and a lot more. And Apache Qpid is extremely fast. Apache Qpid aims to be 100% AMQP Compliant.
+This is a project of the Apache Software Foundation.
+AMQP Brokers
+  •  
+Java Implementation
+  •  
+C++ Implementation
+
+
+AMQP Client APIs
+  •  Java (JMS 1.1 compliant)
+  •  C++ (Linux/Windows)
+  •  C# .NET
+  •  WCF Adapter (Windows Only)
+  •  Python
+  •  Ruby
+Qpid Management
+  •  QMF Python API
+  •  QMF C++ API 
+  •  Python tools
+  •  JMX
+ © 2004-2012 The Apache Software Foundation.
+ Apache Qpid, Qpid, Apache, the Apache feather logo, and the Apache Qpid project logo are trademarks of The Apache Software Foundation.
+ All other marks mentioned may be trademarks or registered trademarks of their respective owners. 
+    

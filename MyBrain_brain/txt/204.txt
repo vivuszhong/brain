@@ -1,0 +1,991 @@
+                    SWT Tutorial
+  •   vogella.com 
+  •    Tutorials 
+  •    Training 
+  •    Books 
+  •    Contact us 
+  vogella.com    partner-pub-3851443674951530:3991491935    FORID:10    UTF-8    Search  
+
+ Free tutorial, donate to support 
+
+  _s-xclick    10463995    Donation  
+  About Lars Vogel  
+by Lars Vogel
+
+
+
+
+
+ Back to top 
+  vogella training  Training Books 
+  Follow me on twitter    Lars Vogel on Google+  SWT Tutorial 
+Lars Vogel
+
+Version 3.1
+
+Copyright © 2010, 2011, 2012, 2013 Lars Vogel
+15.10.2013
+Revision History 
+Revision 0.1 - 3.1 	21.05.2010 - 15.10.2013	Lars
+Vogel
+	created, bufixes and enhancements 	
+SWT
+ This tutorial describes SWT the user interface toolkit used by the Eclipse IDE. This article was written using Eclipse 4.2 (Juno). 
+Table of Contents
+1. SWT Overview 1.1. What is SWT? 1.2. Eclipse plug-in development and SWT 1.3. Display and Shell 1.4. Event loop 2. Using SWT in Java projects 3. Using SWT in a plug-in project 4. Using SWT in a standard Java project 5. SWT Widgets 5.1. Available widgets in the SWT library 5.2. Memory management 5.3. Constructing widgets 5.4. Basic containers 6. Event Listener 7. Example: Create plug-in project with dependency to SWT 8. Exercise: Create a simple SWT program 9. Label and Text 10. Exercise: SWT Button 11. Layout Manager in SWT 11.1. The role of a layout manager 11.2. Layout Data 11.3. FillLayout 11.4. RowLayout 11.5. GridLayout 12. Example: Using layout manager 13. Tab order of elements 14. SWT snippets, examples and more widgets 15. DateTime widget 16. Image 17. Table 18. Tree and Menu 19. CTabFolder 20. Drag and Drop 21. Define a global keylistener for your Display 22. Relationship to JFace 23. Learn more about Eclipse 4 RCP development 24. Thank you 25. Questions and Discussion 26. Links and Literature 26.1. Source Code 26.2. Eclipse SWT resources 26.3. vogella Resources 1. SWT Overview 
+1.1. What is SWT? 
+ The Standard Widget Toolkit (SWT) is the user interface library used by Eclipse. It provides widgets, e.g. buttons and text fields, as well as layout managers. Layout managers are used to arrange the widgets according to a certain rule set. 
+ SWT supports several platforms, e.g. Windows, Linux and Mac OS X. The design target of SWT is to stay closely to the operating system (OS) and the SWT API (Application Programming Interface) is very close to the native API of the OS. 
+ SWT uses the native widgets of the platform whenever possible. The native widgets of the OS are accessed by the SWT framework via the Java Native Interface  (JNI) framework. JNI is a programming framework that enables Java code running in a Java Virtual Machine (JVM) to call, and to be called by, native applications and libraries written in other languages such as C, C++ and assembler. 
+ The approach of using native widgets can also be found in AWT, a standard user interface library available in Java. In comparison SWT provides more widgets than AWT , as AWT does not provide widgets if they are not natively available on all platforms. In case a widget is not available on one platform but on another, SWT will emulate this widget on the first and uses the native widget on the latter. For example AWT does not have table or tree widgets included, while SWT has. 
+1.2. Eclipse plug-in development and SWT 
+ Eclipse applications typically use SWT for the user interface. But it is possible to use other user interface toolkits, like JavaFX. This is possible because the Eclipse 4 platform provides a flexible rendering framework which allows you to replace the user interface toolkit. 
+Note
+ If you develop Eclipse plug-ins which extend the Eclipse IDE itself, you have to use SWT as the Eclipse IDE Workbench uses an SWT renderer. 
+1.3. Display and Shell 
+ The Display and Shell classes are key components of SWT applications. 
+ A org.eclipse.swt.widgets.Shell class represents a window. 
+ The org.eclipse.swt.widgets.Display class is responsible for managing event loops, fonts, colors and for controlling the communication between the UI thread and other threads. Display is the base for all SWT capabilities. 
+ Every SWT application requires at least one Display and one or more Shell instances. The main Shell gets, as a default parameter, a Display as a constructor argument. Each Shell is constructed with a Display and if none is provided during construction it will use either the Display which is currently used or a default one. 
+1.4. Event loop 
+An event loop is needed to transfer user input events from the underlying native operating system widgets to the SWT event system. 
+ SWT does not provide its own event loop. This means that the programmer explicitly starts and checks the event loop to update the user interface. The loop executes the readAndDispatch() method which reads events from the native OS event queue and dispatches them to the SWT event system. The loop is executed until the main shell is closed. If this loop would be left out, the application would terminate immediately 
+ For example the following creates a SWT application which creates and executes the event loop. 
+
+Display display = new Display();
+Shell shell = new Shell(display);
+shell.open();
+
+// run the event loop as long as the window is open
+while (!shell.isDisposed()) {
+    // read the next OS event queue and transfer it to a SWT event 
+  if (!display.readAndDispatch())
+   {
+  // if there are currently no other OS event to process
+  // sleep until the next OS event is available 
+    display.sleep();
+   }
+}
+
+// disposes all associated windows and their components
+display.dispose(); 
+ If SWT is used in an Eclipse Plug-in or an Eclipse RCP application, this event loop is provided by the Eclipse framework. 
+2. Using SWT in Java projects 
+ SWT is not restricted to Eclipse based programs. To use it in normal Java programs you have to add the JAR files, which contain the SWT implementation for the corresponding OS, to the classpath of your Java application. 
+3. Using SWT in a plug-in project 
+ The Eclipse IDE ships with the SWT library and you can use this library in your project. The SWT library is packaged as an Eclipse component (plug-in). 
+ If you create an Eclipse plug-in and specify a dependency to org.eclipse.swt in the MANIFEST.MF file, the Eclipse IDE automatically adds the corresponding JAR file to your project classpath. 
+
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: My SWT-based Plug-in
+Bundle-SymbolicName: de.vogella.swt
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.swt
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6 
+ This is a simple way of developing your SWT stand-alone application. 
+4. Using SWT in a standard Java project 
+ It is possible to use SWT for stand-alone applications. 
+ To use SWT in stand-alone applications, you need to have the SWT library available. There are several ways of doing this. You can either download the SWT library or create an Eclipse plug-in project and define a dependency in this project. 
+ Download the SWT library from the following URL: 
+
+http://www.eclipse.org/swt/ 
+ This ZIP file contains a swt.jar file which you need to add to the classpath of your SWT project. 
+5. SWT Widgets 
+5.1. Available widgets in the SWT library 
+ SWT widgets are located in the packages org.eclipse.swt.widgets and org.eclipse.swt.custom. Widgets extend either the Widget or the Control class. Several of these widgets are depicted in the following graphic. This graphic is a screenshot of the SWT widget homepage . 
+
+  Overview of the SWT widgets  
+ While SWT tries to use native widgets as much as possible, it can not fulfill all common requirements with the native widgets. Therefore some widgets extend the capabilities of the native platform. These are part of the org.eclipse.swt.custom package and usually start with the additional prefix C to indicate that they are custom widgets, e.g. CCombo. 
+ Compared to the Combo class, the CCombo class provides the ability to set the height of the widget. 
+ Another example is StyledText, a class which provides advanced features for displaying text, e.g. drawing a background. 
+ Widgets from the package org.eclipse.swt.custom are implemented in pure Java while widgets from org.eclipse.swt.widgets use native code. Custom widgets are not supposed to use the internal classes of SWT as these classes may be different on the various platforms. Every custom widget must extend the Composite or Canvas class. API compliance is guaranteed only for these base classes. 
+ If the new custom widget is supposed to contain other widgets, it should extend Composite. Otherwise it should extend the Canvas class. 
+In this tutorial the words "widget" and "control" are used interchangeable for user interface elements. 
+5.2. Memory management 
+ SWT widgets are not automatically garbage collected. If you release an SWT widget, you have to call its dispose() method. Fortunately a container, e.g. a Shell, also releases all its children. 
+ The automatic release does not work for Color, Cursor, Display, Font, GC, Image, Printer, Region, Widget and subclasses. All of these SWT objects need to be manually disposed. 
+5.3. Constructing widgets 
+ SWT widgets, except the Shell object, are always constructed with a parent widget which contains them. This is similar to AWT and different to Swing, where the add() method is used. 
+ The second parameter of the widget constructor contains the stylebits. Depending on the provided stylebits the widget adjusts its look and feel as well as its behavior. Each widget documents the supported stylebits in its Javadoc. 
+ The possible stylebits are predefined in the SWT class. If no special style is required you can pass SWT.NONE. 
+ For example the following code snippet creates a push button. 
+
+new Button(shell, SWT.PUSH); 
+ The following example creates a checkbox button. The only difference is the usage of another stylebit. 
+
+new Button(shell, SWT.CHECK); 
+5.4. Basic containers 
+ The Composite class is a container which is capable of containing other widgets. The Group class is another container which is able to contain other widgets but it additionally draws a border around itself and allows you to set a header for the grouped widgets. 
+6. Event Listener 
+ You can register listeners for specific events on SWT controls, e.g. a ModifyListener to listen to changes in a Text widget or a SelectionLister for selection (click) events on a Button widget. The following code demonstrates the implementation, it uses SelectionAdapter which is a implementation of the SelectionLister interface. 
+
+Button button =  new Button(shell, SWT.PUSH);
+
+//register listener for the selection event
+button.addSelectionListener(new SelectionAdapter() {
+    @Override
+    public void widgetSelected(SelectionEvent e) {
+        System.out.println("Called!");
+    }
+}); 
+FocusListener is another examples for such a listener interface. 
+Tip
+ The Listener interfaces sometimes contain several methods and you only want to implement one of them. For this purpose Eclipse provides empty default implementations for these interfaces. This allows you to implement only the methods you are interested in. These implementations follow the naming convention: 
+Name Listener  → Name Adapter 
+ For example SelectionListener has the abstract class SelectionAdapter which pre-implements the methods of SelectionListener. 
+ If you want to add a listener to the whole application, you can use the Display class. For example to add a global mouse listener use addFilter(SWT.MouseMove, listener). If you add filters to the Display you may interfere with existing listeners. Ensure to test your code accordingly. 
+7. Example: Create plug-in project with dependency to SWT 
+ Create a new plug-in project called com.examle.swt.widgets via File → New → Other... → Plug-in Development → New Plug-in Project. 
+ Enter the data in the wizard similar to the screenshot below. Make sure you deselect the This plug-in will make contributions to the UI and Generate an activator, a Java class that controls the plug-in's life cycle  checkboxes. 
+
+  New Plug-in Projec Wizard Page 1  
+
+  New Plug-in Projec Wizard Page 2  
+ Press the Finish button on the second page of the wizard. 
+ Open the MANIFEST.MF file in the META-INF folder and select the Dependencies tab. 
+ Press the Add... button in the Required Plug-ins part and enter org.eclipse.swt as dependency. 
+
+  Adding the dependency to SWT in the Plug-in project  
+8. Exercise: Create a simple SWT program 
+ Continue to use the com.examle.swt.widgets project. 
+ Create the following class for a simple SWT application. 
+
+package com.example.swt.widgets;
+
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+
+public class FirstSWTApplication {
+
+    public static void main(String[] args) {
+        Display display = new Display();
+
+        Shell shell = new Shell(display);
+        
+        // the layout manager handle the layout
+        // of the widgets in the container
+        shell.setLayout(new FillLayout());
+        
+        //TODO add some widgets to the Shell
+        shell.open();
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch())
+                display.sleep();
+        }
+        display.dispose();
+    }
+} 
+ To start your application, right-click on your Java class, and select Run-As → Java Application. You will receive an empty window (Shell). 
+ Change the TODO in the code to the following. Make sure you use org.eclipse.swt and not java.awt when adding the missing imports. 
+
+// Shell can be used as container
+Label label = new Label(shell, SWT.BORDER);
+label.setText("This is a label:");
+label.setToolTipText("This is the tooltip of this label");
+
+Text text = new Text(shell, SWT.NONE);
+text.setText("This is the text in the text widget");
+text.setBackground(display.getSystemColor(SWT.COLOR_BLACK));
+text.setForeground(display.getSystemColor(SWT.COLOR_WHITE));
+
+// set widgets size to their preferred size
+text.pack();
+label.pack(); 
+ If you now start the application you will get a Shell with two Widgets included. 
+
+  First running SWT application  
+9. Label and Text 
+ Add a Label and a Text widget to your application. 
+
+// Shell can be used as container
+Label label = new Label(shell, SWT.BORDER);
+label.setText("This is a label:");
+label.setToolTipText("This is the tooltip of this label");
+
+Text text = new Text(shell, SWT.NONE);
+text.setText("This is the text in the text widget");
+text.setBackground(display.getSystemColor(SWT.COLOR_BLACK));
+text.setForeground(display.getSystemColor(SWT.COLOR_WHITE));
+
+// set widgets size to their preferred size
+text.pack();
+label.pack(); 
+ If you now start the application you will get a small Shell with two Widgets included. 
+
+
+10. Exercise: SWT Button 
+ Add a Button widget to your application and assign a SelectionListener to it. If the button is pressed, write "Called!" to the console. 
+
+Button button =  new Button(shell, SWT.PUSH);
+
+//register listener for the selection event
+button.addSelectionListener(new SelectionAdapter() {
+    @Override
+    public void widgetSelected(SelectionEvent e) {
+        System.out.println("Called!");
+    }
+}); 
+11. Layout Manager in SWT 
+11.1. The role of a layout manager 
+ A layout manager is responsible for arranging the user interface components of a container, e.g. a Composite, on the screen. SWT offers several standard layout managers. The following table gives an overview of them. It is sorted by complexity of the layout manager, i.e. the simplest layout manager is listed first and the most complex one as the last entry. 
+Table 1. Layout Manager
+Layout Manager Description 
+AbsoluteLayout	Allows you to specify the exact position, the width and the height of components. As user interfaces may be used on screens with different sizes this layout manager should be avoided. 	
+FillLayout	Arranges equal-sized widgets in a single row or column. 	
+RowLayout	Puts the widgets in rows or columns and allows you to control the layout with options, e.g. wrap, spacing, fill and so on. 	
+GridLayout	Arranges widgets in a grid. 	
+FormLayout	Arranges the widgets with the help of the associated attachments. 	
+
+
+11.2. Layout Data 
+ Each SWT widget can have a layout specific settings class assigned to it, e.g. GridData for a GridLayout. This allows the developer to control the arrangement of the widgets within the layout. 
+ In the following example you specify that a certain widget should take two columns in a GridLayout. 
+
+button = new Button(parent, SWT.PUSH);
+GridData gridData = new GridData();
+gridData.horizontalSpan = 2;
+button.setLayoutData(gridData); 
+Warning
+ The used layout data must match the layout manager, otherwise an exception is thrown at runtime. 
+ The layout will be automatically calculated when the container is displayed. You can tell a Composite to recalculate the layout with the composite.layout() method. 
+Warning
+ Layout data objects should not be reused as the layout manager expects that every user interface element has a unique layout data object. 
+11.3. FillLayout 
+FillLayout divides the available space provided by the container equally to all widgets and can be set to arrange the widgets either horizontally (SWT.HORIZONTAL) or vertically (SWT.VERTICAL). It also allows you to set the space between the widgets (attribute spacing) and the margins of the widgets to the container via the marginWidth and marginHeight attributes. 
+11.4. RowLayout 
+RowLayout orders UI components in a row (SWT.HORIZONTAL) or in a column (SWT.VERTICAL). RowLayout supports wrapping of fields (field wrap) by default. You can define if widgets should have their preferred size (default) or if they should grab the available space via the field pack. It is also possible to set margins at the top, bottom, left and right. If you set justify, the widgets will be spread through the available space. 
+ Each element can define its height and width via a RowData element. 
+11.5. GridLayout 
+GridLayout allows you to arrange the user interface components in a Grid with a certain number of columns. It is also possible to specify column and row spanning. 
+ You can use new GridData() and assign properties to the new object. Alternatively you can use one of its richer constructors to define certain attributes during construction. For example via the following constructor. 
+
+new GridData(horizontalAlignment,
+    verticalAlignment,
+    grabExcessHorizontalSpace, 
+    grabExcessVerticalSpace, 
+    horizontalSpan,
+    verticalSpan) 
+ The most important attributes are defined in the following table. 
+Table 2. GridData
+Parameter Description 
+horizontalAlignment	 Defines how the control is positioned horizontally within a cell (one of: SWT.LEFT, SWT.CENTER, SWT.RIGHT, or SWT.FILL). 	
+verticalAlignment	 Defines how the control is positioned vertically within a cell (one of: SWT.TOP, SWT.CENTER, SWT.END, SWT.BOTTOM (treated the same as SWT.END), or SWT.FILL). 	
+grabExcessHorizontalSpace	Defines whether the control is extended by the layout manager to take all the remaining horizontal space. 	
+grabExcessVerticalSpace	Defines whether the control grabs any remaining vertical space. 	
+horizontalSpan	 Defines the number of column cells that the control will take up. 	
+verticalSpan	Defines the number of row cells that the control will take up. 	
+heightHint 	Defines the preferred height in pixels. 	
+widthHint 	Defines the preferred width in pixels. 	
+
+
+ If the widget has the grabExcessHorizontalSpace attribute set to true, it will grab available space in its container. SWT.FILL tells the widget to fill the available space. Therefore, grabExcessHorizontalSpace and SWT.FILL are often used together. 
+Tip
+ The GridDataFactory class provides static methods for creating GridData objects. The Javadoc of this class contains several examples for it. 
+12. Example: Using layout manager 
+ The following shows an example for the usage of the GridLayout class in the com.example.swt.widgets project. 
+
+package com.example.swt.widgets.layouts;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Spinner;
+import org.eclipse.swt.widgets.Text;
+
+public class GridLayoutSWT {
+  public static void main(String[] args) {
+    Display display = new Display();
+    Shell shell = new Shell(display);
+
+    // create a new GridLayout with two columns
+    // of different size
+    GridLayout layout = new GridLayout(2, false);
+
+    // set the layout to the shell
+    shell.setLayout(layout);
+    
+    // create a label and a button
+    Label label = new Label(shell, SWT.NONE);
+    label.setText("A label");
+    Button button = new Button(shell, SWT.PUSH);
+    button.setText("Press Me");
+
+    // create a new label that will span two columns
+    label = new Label(shell, SWT.BORDER);
+    label.setText("This is a label");
+    // create new layout data
+    GridData data = new GridData(SWT.FILL, SWT.TOP, true, false, 2, 1);
+    label.setLayoutData(data);
+
+    // create a new label which is used as a separator
+    label = new Label(shell, SWT.SEPARATOR | SWT.HORIZONTAL);
+    
+    // create new layout data
+    data = new GridData(SWT.FILL, SWT.TOP, true, false);
+    data.horizontalSpan = 2;
+    label.setLayoutData(data);
+
+    // create a right aligned button
+    Button b = new Button(shell, SWT.PUSH);
+    b.setText("New Button");
+
+    data = new GridData(SWT.LEFT, SWT.TOP, false, false, 2, 1);
+    b.setLayoutData(data);
+    
+     // create a spinner with min value 0 and max value 1000
+    Spinner spinner = new Spinner(shell, SWT.READ_ONLY);
+    spinner.setMinimum(0);
+    spinner.setMaximum(1000);
+    spinner.setSelection(500);
+    spinner.setIncrement(1);
+    spinner.setPageIncrement(100);
+    GridData gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+    gridData.widthHint = SWT.DEFAULT;
+    gridData.heightHint = SWT.DEFAULT;
+    gridData.horizontalSpan = 2;
+    spinner.setLayoutData(gridData);
+
+    Composite composite = new Composite(shell, SWT.BORDER);
+    gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+    gridData.horizontalSpan = 2;
+    composite.setLayoutData(gridData);
+    composite.setLayout(new GridLayout(1, false));
+
+    Text txtTest = new Text(composite, SWT.NONE);
+    txtTest.setText("Testing");
+    gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+    txtTest.setLayoutData(gridData);
+
+    Text txtMoreTests = new Text(composite, SWT.NONE);
+    txtMoreTests.setText("Another test");
+    
+    Group group = new Group(shell, SWT.NONE);
+    group.setText("This is my group");
+    gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+    gridData.horizontalSpan = 2;
+    group.setLayoutData(gridData);
+    group.setLayout(new RowLayout(SWT.VERTICAL));
+    Text txtAnotherTest = new Text(group, SWT.NONE);
+    txtAnotherTest.setText("Another test");
+
+    shell.pack();
+    shell.open();
+    while (!shell.isDisposed()) {
+      if (!display.readAndDispatch()) {
+        display.sleep();
+      }
+    }
+    display.dispose();
+  }
+
+} 
+ Start your application, it should look similar to the following screenshot. 
+
+
+Resize the window and see how the arrangement of the widgets change. 
+13. Tab order of elements 
+ You can specify the tab order of controls via the setTabList() method of a Composite. For this you provide an array of the controls where the order of the controls in the array specify the tab order. 
+
+package com.example.swt.widgets
+
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+
+public class TabExample {
+    public static void main(String[] args) {
+        Display display = Display.getDefault();
+        Shell shell = new Shell(display);
+        shell.setLayout(new RowLayout());
+        Button b1 = new Button(shell, SWT.PUSH);
+        b1.setText("Button1");
+        Button b2 = new Button(shell, SWT.PUSH);
+        b2.setText("Button2");
+        Button b3 = new Button(shell, SWT.PUSH);
+        b3.setText("Button3");
+
+        Control[] controls = new Control[] { b2, b1, b3 };
+        shell.setTabList(controls);
+        shell.pack();
+        shell.open();
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch()) {
+                display.sleep();
+            }
+        }
+        display.dispose();
+    }
+} 
+Tip
+Defining a tab order for your controls is important to increase the accessibility and to allow advanced users a quick navigation. 
+14. SWT snippets, examples and more widgets 
+ The SWT Snippets are examples for stand-alone SWT applications using different kinds of SWT widgets. The SWT Snippet site is located at the following URL: http://www.eclipse.org/swt/snippets/. 
+You can copy these snippets and paste them directly into a Java package inside of the Eclipse IDE. Eclipse creates automatically the Java class based on the content of the clipboard for you. 
+ If you do this on a project which has SWT already available, the snippet can be started immediately. 
+ The SWT Examples page provides useful programs that are written in SWT. These are typically much larger and more comprehensive than the SWT Snippets. 
+ In the Eclipse Nebula project provides additional widgets for SWT. 
+ Another source for SWT widgets is the Opal widget homepage . 
+15. DateTime widget 
+ SWT provides DateTime widgets. Create the following class. 
+
+package de.vogella.swt.widgets;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.DateTime;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+
+public class DateTimeExample {
+
+    public static void main(String[] args) {
+
+        // setup the SWT window
+        Display display = new Display();
+        final Shell shell = new Shell(display);
+        shell.setLayout(new RowLayout());
+
+        // initialize a parent composite with a grid layout manager
+        Composite parent = new Composite(shell, SWT.NONE);
+        GridLayout gridLayout = new GridLayout();
+        gridLayout.numColumns = 1;
+        parent.setLayout(gridLayout);
+        DateTime calendar = new DateTime(parent, SWT.CALENDAR);
+        DateTime date = new DateTime(parent, SWT.DATE);
+        DateTime time = new DateTime(parent, SWT.TIME);
+        // Date Selection as a drop-down
+        DateTime dateD = new DateTime(parent, SWT.DATE | SWT.DROP_DOWN);
+
+        shell.pack();
+        shell.open();
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch())
+                display.sleep();
+        }
+        // tear down the SWT window
+        display.dispose();
+    }
+} 
+
+  Date Time Widget  
+ Please note that the SWT DateTime widget requires a selection, i.e. you cannot use this widget without a date selection. 
+16. Image 
+Images can be displayed via labels. The following class demonstrates that using some system images. 
+
+
+package de.vogella.swt.widgets;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+
+public class Photo {
+
+    public static void main(String[] args) {
+
+        // setup the SWT window
+        Display display = new Display();
+        final Shell shell = new Shell(display);
+        shell.setLayout(new RowLayout());
+        shell.setText("Photo Application");
+
+        // initialize a parent composite with a grid layout manager
+        // with 5x columns
+        Composite parent = new Composite(shell, SWT.NONE);
+        GridLayout gridLayout = new GridLayout();
+        gridLayout.numColumns = 5;
+        parent.setLayout(gridLayout);
+
+        // Get the Display default icons
+        List<Image> imageList = new ArrayList<Image>();
+
+        imageList.
+            add(Display.getDefault().getSystemImage(SWT.ICON_WARNING));
+        imageList.
+            add(Display.getDefault().getSystemImage(SWT.ICON_WORKING));
+        imageList.
+            add(Display.getDefault().getSystemImage(SWT.ICON_QUESTION));
+        imageList
+                .add(Display.getDefault().getSystemImage(SWT.ICON_INFORMATION));
+        imageList.
+            add(Display.getDefault().getSystemImage(SWT.ICON_ERROR));
+
+        for (Image image : imageList) {
+            Label label = new Label(parent, SWT.NONE);
+            label.setImage(image);
+        }
+        // show the SWT window
+
+        shell.pack();
+        shell.open();
+
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch())
+                display.sleep();
+        }
+        // tear down the SWT window
+        display.dispose();
+        // if you do not use system images you would have to release them
+        // not necessary in this example
+        // for (Image image : imageList) {
+        //    if (image != null) {
+        //     image.dispose();
+        //    }
+        //    }
+    }
+} 
+ The result should look similar to the following. 
+
+
+17. Table 
+ Create the following class. 
+
+package de.vogella.swt.table;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
+
+public class SWTTable {
+    public static void main(String[] args) {
+        Display display = new Display();
+        Shell shell = new Shell(display);
+        
+        shell.setLayout(new GridLayout());
+
+
+        Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
+        table.setLinesVisible(true);
+        table.setHeaderVisible(true);
+        GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
+        data.heightHint = 200;
+        table.setLayoutData(data);
+
+        String[] titles = { "First Name", "Last Name", "Age" };
+        for (int i = 0; i < titles.length; i++) {
+            TableColumn column = new TableColumn(table, SWT.NONE);
+            column.setText(titles[i]);
+            table.getColumn(i).pack();
+        }
+        
+        for (int i = 0 ; i<= 50 ; i++){
+            TableItem item = new TableItem(table, SWT.NONE);
+            item.setText (0, "Person " +i);
+            item.setText (1, "LastName " +i);
+            item.setText (2, String.valueOf(i));
+        }
+        
+        for (int i=0; i<titles.length; i++) {
+            table.getColumn (i).pack ();
+        }    
+        shell.pack ();
+        shell.open ();
+
+        shell.open();
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch()) {
+                display.sleep();
+            }
+        }
+    }
+} 
+ If you run this application a table will be displayed. 
+18. Tree and Menu 
+ Create the following class. 
+
+package de.vogella.swt.widgets;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
+
+public class TreeMenuTest {
+    public static void main(String[] args) {
+        Display display = Display.getDefault();
+        Shell shell = new Shell(display);
+        shell.setLayout(new FillLayout());
+        final Tree tree = new Tree(shell, SWT.V_SCROLL);
+        for (int i=0; i<5;i++) {
+            TreeItem item = new TreeItem(tree, SWT.NONE);
+            item.setText(String.valueOf(i));
+            for (int j=0; j<3;j++) {
+                TreeItem subItem = new TreeItem(item, SWT.NONE);
+                subItem.setText(String.valueOf(i) + " " + String.valueOf(j));
+            }
+        }
+        tree.pack();
+        Menu menu = new Menu(tree);
+        MenuItem menuItem = new MenuItem(menu, SWT.NONE);
+        menuItem.setText("Print Element");
+        menuItem.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent event) {
+                System.out.println(tree.getSelection()[0].getText());
+            }
+        });
+        tree.setMenu(menu);
+        shell.pack();
+        shell.open();
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch()) {
+                display.sleep();
+            }
+        }
+    }
+} 
+ If you run this application a tree will be display with a menu attached to it. If you select the menu the text of the selected item will be printed to the console. 
+19. CTabFolder 
+ CTabFolder and CTabItem allow to create the folder experience with different tabs. 
+
+
+package de.vogella.swt.widgets;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+
+public class CTabFolderExample {
+    public static void main(String[] args) {
+        Display display = new Display();
+        Shell shell = new Shell(display);
+
+        shell.setLayout(new GridLayout());
+        // SWT.BOTTOM to show at the bottom
+        CTabFolder folder = new CTabFolder(shell, SWT.BOTTOM);
+        GridData data = new GridData(SWT.FILL, 
+                SWT.FILL, true, true,
+                2, 1);
+        folder.setLayoutData(data);
+        CTabItem cTabItem1 = new CTabItem(folder, SWT.NONE);
+        cTabItem1.setText("Tab1");
+        CTabItem cTabItem2 = new CTabItem(folder, SWT.NONE);
+        cTabItem2.setText("Tab2");
+        CTabItem cTabItem3 = new CTabItem(folder, SWT.NONE);
+        cTabItem3.setText("Tab3");
+
+        Text text = new Text(folder, SWT.BORDER);
+        text.setText("Hello");
+        cTabItem1.setControl(text);
+
+        shell.pack();
+        shell.open();
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch()) {
+                display.sleep();
+            }
+        }
+    }
+} 
+ If you run this application you will see several register cards with tabs on them. The SWT.BOTTOM stylebit on the folder widget, makes the tab appear at the bottom. 
+
+
+20. Drag and Drop 
+Create the following class. 
+
+package de.vogella.swt.dnd;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.DragSource;
+import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.dnd.TextTransfer;
+import org.eclipse.swt.dnd.Transfer;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+
+import de.vogella.swt.dnd.MyDragSourceListener;
+import de.vogella.swt.dnd.MyDropTargetListener;
+
+
+
+public class PhotoShuffler {
+
+    public static void main(String[] args) {
+
+        // setup the SWT window
+        Display display = new Display();
+        final Shell shell = new Shell(display);
+        shell.setSize(520, 200);
+        shell.setLayout(new RowLayout());
+        shell.setText("Photo Shuffler");
+
+        // initialize a parent composite with a grid layout manager
+        // since the demo application uses 4x pictures the grid has exactly
+        // 4x columns
+        Composite parent = new Composite(shell, SWT.NONE);
+        GridLayout gridLayout = new GridLayout();
+        gridLayout.numColumns = 4;
+        parent.setLayout(gridLayout);
+
+        // determine the path where the pictures are stored
+        String path = System.getProperty("user.dir") + "/images/";
+        // initialize an array with the photograph names
+        String[] imgNames = new String[] { "lars.png", "andre.png",
+                "matthias.png", "arne.png" };
+
+        // loop over the photo array and establish all listeners
+        for (int i = 0; i < imgNames.length; i++) {
+            // labels serve as containers for the images
+            Label label = new Label(parent, SWT.NONE);
+            Image img = new Image(display, path + imgNames[i]);
+            label.setImage(img);
+
+            // enable each label to be draggable
+            DragSource source = new DragSource(label, DND.DROP_NONE);
+            source.setTransfer(new Transfer[] { TextTransfer.getInstance() });
+            // add a drag listener
+            source.addDragListener(new MyDragSourceListener(parent, source));
+
+            // enable each label to be a drop target
+            DropTarget target = new DropTarget(label, DND.DROP_NONE);
+            target.setTransfer(new Transfer[] { TextTransfer.getInstance() });
+            // add a drop listener
+            target.addDropListener(new MyDropTargetListener(parent, target));
+        }
+
+        // show the SWT window
+        shell.open();
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch())
+                display.sleep();
+        }
+        // tear down the SWT window
+        display.dispose();
+    }
+} 
+Create the following DragSource and DragTarget Listener.
+
+package de.vogella.swt.dnd;
+
+import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.dnd.DropTargetEvent;
+import org.eclipse.swt.dnd.DropTargetListener;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+
+public class MyDropTargetListener implements DropTargetListener {
+
+    private Composite parentComposite;
+    private DropTarget target;
+
+    /**
+     * @param parentComposite
+     *            - the composite that holds all pictures
+     * @param target
+     *            - the drop target
+     */
+    public MyDropTargetListener(Composite parentComposite, DropTarget target) {
+        this.parentComposite = parentComposite;
+        this.target = target;
+    }
+
+    public void dragEnter(DropTargetEvent event) {
+    }
+
+    public void dragOver(DropTargetEvent event) {
+    }
+
+    public void dragLeave(DropTargetEvent event) {
+    }
+
+    public void dropAccept(DropTargetEvent event) {
+    }
+
+    public void dragOperationChanged(DropTargetEvent event) {
+    }
+
+    /**
+     * This method moves the dragged picture to the new position and shifts the
+     * old picture to the right or left.
+     */
+    public void drop(DropTargetEvent event) {
+
+        // retrieve the stored index
+        int sourceIndex = Integer.valueOf(event.data.toString());
+
+        // compute the index of target control
+        Control targetControl = target.getControl();
+        int targetIndex = -1;
+        for (int i = 0; i < parentComposite.getChildren().length; i++) {
+            if (parentComposite.getChildren()[i].equals(targetControl)) {
+                targetIndex = i;
+                break;
+            }
+        }
+
+        Control sourceControl = parentComposite.getChildren()[sourceIndex];
+        // do not do anything if the dragged photo is dropped at the same
+        // position
+        if (targetIndex == sourceIndex)
+            return;
+
+        // if dragged from left to right
+        // shift the old picture to the left
+        if (targetIndex > sourceIndex)
+            sourceControl.moveBelow(targetControl);
+        // if dragged from right to left
+        // shift the old picture to the right
+        else
+            sourceControl.moveAbove(targetControl);
+
+        // repaint the parent composite
+        parentComposite.layout();
+    }
+
+} 
+
+package de.vogella.swt.dnd;
+
+import org.eclipse.swt.dnd.DragSource;
+import org.eclipse.swt.dnd.DragSourceEvent;
+import org.eclipse.swt.dnd.DragSourceListener;
+import org.eclipse.swt.widgets.Composite;
+
+public class MyDragSourceListener implements DragSourceListener {
+
+    private Composite parentComposite;
+    private DragSource source;
+
+    /**
+     * @param parentComposite
+     *            - the composite that holds all pictures
+     * @param source
+     *            - the drag source
+     * 
+     */
+    public MyDragSourceListener(Composite parentComposite, DragSource source) {
+        this.parentComposite = parentComposite;
+        this.source = source;
+    }
+
+    public void dragStart(DragSourceEvent event) {
+    }
+
+    public void dragFinished(DragSourceEvent event) {
+    }
+
+    /**
+     * The method computes the position / index of the source control (label) in
+     * the children array of the parent composite. This index is passed to the
+     * drop target using the data field of the drag source event.
+     */
+    public void dragSetData(DragSourceEvent event) {
+        for (int i = 0; i < parentComposite.getChildren().length; i++) {
+            if (parentComposite.getChildren()[i].equals(source.getControl())) {
+                event.data = new Integer(i).toString();
+                break;
+            }
+        }
+    }
+
+} 
+21. Define a global keylistener for your Display 
+You can define a global keylistener on your display to listen globally to all key events as long as your application has focus. The following demonstrates this. 
+
+package de.vogella.swt.listener;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
+
+public class GlobalListener {
+
+    public static void main(String[] args) {
+        Display display = new Display();
+        Shell shell = new Shell(display);
+        shell.open();
+        display.addFilter(SWT.KeyDown, new Listener() {
+            @Override
+            public void handleEvent(Event event) {
+                char c = event.character;
+                System.out.println(c);
+            }
+        });
+
+        while (!shell.isDisposed()) {
+            if (!display.readAndDispatch())
+                display.sleep();
+        }
+    }
+} 
+22. Relationship to JFace 
+JFace is a set of APIs which builds on top of SWT and provides higher level abstraction APIs and commonly used functions. 
+ JFace extends the SWT API for certain uses case but does not hide it. Therefore you need a solid understanding of SWT if you work with JFace . 
+23. Learn more about Eclipse 4 RCP development 
+ I hope you enjoyed this part of the Eclipse 4 series. Of course there is much more, check out the "Eclipse 4 development" section under my lists of Eclipse Plug-in and Eclipse RCP Tutorials section. 
+You find a complete and extended description of Eclipse 4 RCP development in the upcoming Eclipse 4 RCP book of Lars Vogel. 
+24. Thank you 
+
+
+ Please help me to support this article: 
+  Flattr this  	  _s-xclick    10463995    PayPal - The safer, easier way to pay online!  	
+
+25. Questions and Discussion 
+ If you find errors in this tutorial, please notify me (see the top of the page). Please note that due to the high volume of feedback I receive, I cannot answer questions to your implementation. Ensure you have read the  vogella FAQ as I don't respond to questions already answered there. 
+26. Links and Literature 
+26.1. Source Code 
+Source Code of Examples 
+26.2. Eclipse SWT resources 
+ SWT Widgets 
+ SWT Snippets (Examples) 
+ Understanding Layout in SWT by Wayne Beaton 
+ SWT design 
+ SWT Snippets (Examples) 
+ Eclipse Nebula Project with additional SWT widgets 
+ SWT Graphics 
+ YARI tool suite to debug, spy, spider, inspect and navigate Eclipse based application GUIs (Workbench or RCP). 
+ SWT Development Tools, include Sleak (analyze memory leaks in SWT graphic resources) and SWT Spy plug-in which prints out the info about the SWT widget under the cursor. 
+26.3. vogella Resources 
+vogella Training Android and Eclipse Training from the vogella team 
+Android Tutorial Introduction to Android Programming 
+GWT Tutorial Program in Java, compile to JavaScript and HTML 
+Eclipse RCP Tutorial Create native applications in Java 
+JUnit Tutorial Test your application 
+Git Tutorial Put all your files in a distributed version control system 
+   

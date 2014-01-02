@@ -1,0 +1,45 @@
+                    Comet Daily 
+  Comet Daily    •  Articles 
+  •  Musings & News 
+  •  Contributors 
+  •  About 
+  •  Contact
+	  Free Liberator  	  SitePen Support  	
+Articles
+  Alessandro Alinone  10 Years of Push Technology, Comet, and WebSockets
+by Alessandro AlinoneJuly 6th, 2011 More than ten years have passed since the creation of Lightstreamer. Now that Lightstreamer 4.0 is generally available, it is a good moment to look back at what happened in the history of Push/Comet and to share a short analysis of the current trends.
+Continue Reading | No Comments
+  Greg Wilkins  CometD Annotations
+by Greg WilkinsApril 7th, 2011 CometD 2.1 now supports annotations to define CometD services and clients. Annotations greatly reduces the boiler plate code required to write a CometD service and also links well with new CometD 2.x features such as channel initializers and Authorizers.
+Continue Reading | No Comments
+  Greg Wilkins  Is WebSocket Chat Easier?
+by Greg WilkinsApril 6th, 2011 A year ago I wrote an article asking Is WebSocket Chat Simple?, where I highlighted the deficiencies of this much touted protocol for implementing simple comet applications like chat.
+Continue Reading | No Comments
+  Alessandro Alinone  Comet for the World Bike Tour
+by Alessandro AlinoneJanuary 17th, 2011 The World Bike Tour uses Comet to show real-time positions and telemetry of cyclists.
+Continue Reading | No Comments
+  Mihai Rotaru  The Five Key Metrics of a High-Performance Comet Server
+by Mihai RotaruJanuary 17th, 2011 Today, many Comet servers come with vague information regarding their performance. However, performance is one of the most important features of a Comet server, which gives it the reason to exist besides a traditional web server.
+Continue Reading | 5 Comments
+  Dylan Schiemann  State of WebSocket Support
+by Dylan SchiemannNovember 4th, 2010 Things are stabilizing and still changing in the realm of WebSocket support. I’ll quickly summarize the current state of WebSocket support in various browsers and highlight the differences in versions.
+Continue Reading | 9 Comments
+  Michael Carter  A Fast Introduction to Hookbox
+by Michael CarterJuly 26th, 2010 Hookbox is the web-push server that integrates directly with PHP, Django, Rails, Java servlets, ASP.Net, and any other HTTP-based application framework. This visual tutorial guides you through ten simple steps, giving you an idea of Hookbox’s capabilities. It will only take you a few minutes to work through, and no installation is required!
+Continue Reading | 15 Comments
+  Jerod Venema  Comet: the New Communication Platform?
+by Jerod VenemaJuly 12th, 2010 One of the most interesting things I have seen from our clients over the past few months is the myriad of ways in which they use Comet technology. We had a very specific problem in mind when we build WebSync, namely real-time updates in a browser with ASP.NET and IIS, and it solves that problem admirably.
+Continue Reading | 3 Comments
+  Michael Carter  Introduction to Comet Session Protocol
+by Michael CarterJune 21st, 2010 I’m excited that the WebSocket protocol is picking up so much steam — it’s a great abstraction for real-time web programming, and I can’t wait to see it in every browser. CSP is a current-day architectural drop in for WebSocket until it reaches ubiquity.
+Continue Reading | No Comments
+  Alessandro Alinone  “Hello World” for Flex AMF with Lightstreamer
+by Alessandro AlinoneMarch 7th, 2010 In this fourth installment of the “Hello World with Lightstreamer” series, we will focus on a new feature that was released with Lightstreamer Server version 3.6: Action Message Format (AMF) support for Flex applications.
+Continue Reading | 5 Comments
+« Previous Entries Recent Musings
+NASA and Lightstreamer for Project Morpheusby Alessandro Alinone September 28th, 2011 NASA's Undergraduate Student Research Program recently published an interesting paper by Matthew Noyes and Robert Hirsh: Rendering Flight Telemetry in Platform-Independent Three-Dimensional Touch-Interactive Simulations.
+Read more Lightstreamer 4.0 Releasedby Alessandro Alinone July 6th, 2011  The new major release of Lightstreamer, codenamed Duomo, is now generally available. The package includes version 4.0 of Lightstreamer Server, and updated versions for all the client SDKs, plus brand new client SDKs for mobile platforms.
+Read more Scaling Server-Side Event Driven Applicationsby Dylan Schiemann April 11th, 2011 Simone Bordet of CometD recently talked about CometD and WebSocket web applications at the CodeMotion conference in Rome.
+Read more Comet for HbbTV-Compliant Browsersby Mihai Rotaru April 5th, 2011 Hybrid Broadcast Broadband TV (HbbTV) is a new industry standard offering to TV viewers both TV and Web content.
+Read more Advertisements   Webtide    SitePen, Inc. Comet Services  Search
+  Search   Copyright 2013 Comet Daily, LLC. All Rights Reserved     

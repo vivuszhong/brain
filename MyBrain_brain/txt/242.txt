@@ -1,0 +1,34 @@
+                    Querydsl
+Querydsl
+  •  Home
+  •  Modules
+  •  Docs
+  •  Releases
+  •  Downloads
+  •  Support
+Querydsl
+Querydsl is a framework which enables the construction of type-safe SQL-like queries for multiple backends including JPA, MongoDB and SQL in Java.
+Example for JPA:
+
+List<Customer> result = query.from(customer)
+    .where(customer.lastName.like("A%"), customer.active.eq(true))
+    .orderBy(customer.lastName.asc(), customer.firstName.desc())
+    .list(customer);    
+Compared to the alternatives Querydsl is more compact, safer and easier to learn. Try it today!
+Introduction video:
+Instead of writing queries as inline strings or externalizing them into XML files they are constructed via a fluent API.
+  •  Code completion in IDE (all properties, methods and operations can be expanded in your favorite Java IDE)
+  •  Almost no syntactically invalid queries allowed (type-safe on all levels)
+  •  Domain types and properties can be referenced safely (no Strings involved!)
+  •  Adopts better to refactoring changes in domain types
+  •  Incremental query definition is easier
+Since 2.3.0 Querydsl is released under the Apache License, version 2.0.
+Releases before 2.3.0 are licensed under the LGPL 2.1 license. 
+Get started
+ The following blog posts show Querydsl usage examples and will help you to get started. Reading relevant sections of the latest Reference Documentation will help you as well. 
+  •  Querying Hibernate with Querydsl
+  •  Querying in SQL with Querydsl
+  •  Querydsl as an alternative to the JPA 2 Criteria API
+  •  Using in Querydsl in Eclipse
+  •  MongoDB with Querydsl
+Download Download Querydsl 3.2.4 from the packaged releases or via the central Maven repository. If you are unsure if an upgrade is necessary, see the Release History. Learn Read the tutorials and guides of the Reference documentation, or browse the Documentation. Get Help The best way to get help with Querydsl is to post a thread on our Google Group or to post a bug on GitHub. Support  Querydsl is developed and backed by Mysema and we provide commercial support for Querydsl. See Support for an overview of our commercial services for Querydsl. Donate  Support Querydsl by donating via PayPal   _s-xclick    AXKUZ9ZEBYX7S    PayPal - The safer, easier way to pay online!  Contribute  Check out the source from GitHub and get in touch with us. Contributions can be made via patches, pull requests, bug reports and emails. © 2008 - 2013 Mysema. All Rights Reserved. Mysema    

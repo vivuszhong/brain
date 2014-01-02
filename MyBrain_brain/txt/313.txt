@@ -1,0 +1,157 @@
+                    8 superpowers hidden inside your browser | PCWorld
+PCWorld Macworld TechHive   Search    •    ▲ Learn more about PCWorld's Digital Editions   PCWorld Magazine Cover  Subscribe
+  •  Sign In
+  •  Join
+▲   •  
+  •  Follow @PCWorld 
+ Facebook  Twitter Home   •  News
+  •  Reviews
+  •  How-To
+  •  Video
+  •  Business 
+  •  Laptops 
+  •  Computers 
+  •  Phones 
+  •  Printers 
+  •  Security 
+  •  Software 
+  •  Windows 
+  •  Subscribe
+  •  Desktops
+  •  Phones
+  •  Printers
+  •  Tablet PCs
+  •  Ultrabooks
+  •  Antivirus software
+  •  Cameras
+  •  Components
+  •  Computer accessories
+  •  Consumer advice
+  •  Displays
+  •  E-Readers
+  •  Flash drives
+  •  Graphics cards
+  •  Hard drives
+  •  Home theater
+  •  Input devices
+  •  Keyboards
+  •  Laptop accessories
+  •  Mobile
+  •  Networking
+  •  Operating systems
+  •  Optical drives
+  •  Processors
+  •  Servers
+  •  Streaming services
+  •  Storage
+  •  Tablets
+  •  Windows 8
+Browsers   •  browsers, 
+  •  chrome, 
+  •  firefox, 
+  •  Internet Explorer
+8 superpowers hidden inside your browser
+ As our digital lives shift more and more to the cloud, more and more of the Web merges into the desktop. Consider the humble Web browser: Once a mere renderer of static HTML, today's browsers come chock-full of capabilities that can transform webpages into something downright desktopian. 
+ Think I'm laying it on thick? Check out these eight killer features found in modern browsers and see for yourself. Fair warning: When you're done, any preconceptions you have about the impossibility of living life in a browser may well be shattered. 
+Killer 3D graphics
+The Epic Citadel demo running in Firefox: Not too shabby, that. (Click to enlarge.)  Say goodbye to the colorful two-dimensional sprites of Maple Story. Today's browsers take full advantage of hardware acceleration and the powers of WebGL—a JavaScript API that lets your browser tap your graphics processor—to deliver robust 3D graphics with minimal hiccups and no plugins (assuming, of course, that your Internet connection is up to the task). Check out the Internet Explorer test drive page (especially Hover!), Google's Chrome Experiments (especially Cathedral!), or this nifty in-browser demo of the classic Quake 3 to see what WebGL and its brethren can do. 
+ Firefox, meanwhile, has recently been focusing on a JavaScript subset dubbed asm.js to turbo-charge its graphics. That endeavor has been so successful that the popular Unreal Engine now plays nice on the Web, as beautifully evidenced by Epic's gorgeous "Citadel" demo. 
+Face-to-face communications
+To use WebRTC, you first have to give your browser permission to use your hardware. (Click to enlarge.)  Forget the Skype app, too. Chrome, Firefox, and Opera all support the WebRTC API, which can deliver real-time voice and video chats and peer-to-peer file sharing in-browser via everyday HTML5, without the need for pesky plugins or desktop programs. You can see a demo of it below. 
+ A lot of folks are excited to see WebRTC become commonplace, but its widespread support among browsers is still fairly new. If you want to try the tech out for yourself, head over to talky.io for a free demonstration. (You'll need a buddy—or at least another PC—to play along.) Webmasters can head to WebRTC for info on how to add the cutting-edge protocol to their sites. 
+Native video playback
+ Speaking of ditching plug-ins and discrete programs, websites can now natively play video using HTML5, which could one day render Windows Media Player and Flash superfluous. Some big names are on the native bandwagon: YouTube offers an optional HTML5 mode, while Netflix leans on the language in Windows 8.1's Internet Explorer 11 browser—and that browser alone. 
+You can opt to default to HTML5 to watch YouTube videos. (Click to enlarge.)  Why the cold shoulder to all the other browsers in the land? Simple: HTML5 has no official media-protection support. The World Wide Web Consortium is working to change that with a new Encrypted Media Extensions addition, however—and it's doing so over the howls of the Electronic Frontier Foundation and Internet activists who loathe the idea of adding DRM to an open standard. IE 11 got the early Netflix nod because Microsoft included a yet-to-be-official implementation of EME in its PlayReady DRM. 
+Drag and drop
+Dragging and dropping desktop files into Gmail. (Click to enlarge.)  Dragging and dropping files—what's more desktop than that? Compiling source code, maybe. But while your browser may not be able to roll its own binaries just yet, it can let you drag local files into online webpages, thanks to some behind-the-scenes HTML5 magic. Watch the lines between online and offline blur as you drag and drop files into Google Drive, Imgur, your Facebook status, or email messages that you compose in Gmail or Outlook.com. 
+Notifications
+ For websites that want to get really fancy, Chrome and Firefox support the ability to push desktop notifications to users, popping up little windows in the lower-left corner of the screen. Users have to grant explicit permission for the feature, and few websites take advantage of it—but for the websites that do, it's a handy way to stay on top of things when you have a gajillion tabs open. 
+Hipchat and Gmail notifications pop up when activity occurs and you aren't actively looking at the relevant tab.  I've allowed Gmail and the HipChat website to push notifications to my desktop, and doing so has made my workdays easier. Rather than opening their respective tabs whenever new messages arrive, I just glance at the notification and continue on my merry way. 
+Edit docs, images, and more
+ Need a decently robust photo editor? Try the amazing Pixlr. Tune-twiddlers can perform basic tweaks with a website like Soundation or TwistedWave. When the boss comes a-calling, you can get docs, spreadsheets, and more done in Google Drive or Microsoft's Office Web apps, both of which also offer real-time collaboration. And did I mention Prezi's awesome presentation-making capabilities? 
+It's spelled 'Pixlr,' but I call it 'Photoshop who?' (Click to enlarge.)  Web apps used to be ho-hum also-rans that played second fiddle to tried-and-true desktop software. No more! The growing power of the Web makes all but the most demanding tasks doable in-browser. 
+Work offline
+ "Pfah," I hear you pfahing, "Get back to me when these supposedly wonderful Web apps work without an Internet connection." Consider this your wake-up call. 
+ Google now enables offline functionality for all sorts of apps in its Chrome browser. The entire Docs suite lets you view files offline—after some prep work—and you can even edit documents, spreadsheets, and drawings sans connectivity. Gmail can work offline, too. 
+Gliffy's diagram and flowchart might look like traditional desktop software, but Gliffy is an offline Chrome App.  Chrome's offline functionality doesn't end with Google-sanctioned tools, though. Any developer can create an  offline-capable Chrome App, complete with the ability to do desktop-ish things like storing data locally and interacting with your PC's hardware. (Bluetooth compatibility? Check.) Google even released a Start Menu–esque App Launcher to let you launch Chrome Apps right from your taskbar. 
+ Want to try the best the offline Web has to offer? Take a look at PCWorld's list of the best no-Net-needed Chrome Apps available today. 
+Be an operating system unto itself: ChromeOS
+The HP Chromebook 11 runs Google's ChromeOS in a cute and portable package.  With that, we come to the pinnacle of the Web browsing mountain: ChromeOS. Google's operating system is essentially a glorified Chrome browser (surprise!) and powers a legion of low-cost notebooks that are among the few bright spots in today's PC market. 
+ ChromeOS loses some functionality when you're away from the Web, and it won't run traditional Windows desktop programs. But glancing over the potent browser features highlighted in this article, you have to ask yourself: How much longer will that matter? 
+ For now it does. Many of the nifty browser tricks mentioned here involve relatively young technology that is far from widely adopted. But as time marches on and Web browsers become even more potent, Chromebooks will become all the more viable—and the line between the browser and the desktop will become increasingly blurry. Online? Offline? Before long, the distinction might be moot. 
+  •  Share on Facebook
+  •  Share on Twitter
+  •  Share on Google+
+  •  Share on LinkedIn
+  •  Share on Pinterest
+  •  
+Brad Chacos @BradChacos   •  Nov 14, 2013 3:00 AM
+  •  print
+  Brad Chacos  Brad ChacosSenior Writer, PCWorld   Follow me on Twitter    Follow me on Google+  
+Brad Chacos spends the days jamming to Spotify, digging through desktop PCs and covering everything from BYOD tablets to DIY tesla coils.
+More by Brad Chacos
+recommended for you The new Chrome App Launcher: Google's backdoor into the offline...
+Read more » Subscribe to the Windows Tips & Trends Newsletter 
+  1    NL_MODULE    toaster    nav    210    Windows Tips & Trends    Subscribe  Add Your Comment
+  user avatar  Add Your Comment close   8 superpowers hidden inside your...    http://www.pcworld.com/article/2063182/8-superpowers-hidden-inside-your-browser.html  Email "8 superpowers hidden inside your..."
+  •   From: 
+  •   To: 
+  •   Message: 
+  send   Thank you for sharing this page.
+ Sorry! There was an error emailing this page
+Latest Videos
+PCWorld presents the top 5 tech products of 2013
+
+How to buy the best Windows 8 device
+Facebook Status: Miserable
+Enjoy a digital Yule log on your HDTV
+View more PCWorld videos »
+Close
+PCWorld presents the top 5 tech products of 2013
+Dec 5, 2013 6:36 PM
+We test hundreds of products during the year, but here are the five that we just can't stop talking about.
+READ THE RELATED ARTICLE:<
+PCWorld presents the top 5 tech products of 2013
+  •  Share on Facebook
+  •  Share on Twitter
+  •  Share on Google+
+  •  Share on LinkedIn
+  •  Share on Pinterest
+  •  
+Subscribe to the Windows Tips & Trends Newsletter 
+  1    NL_MODULE    show    nav    210    Go  See All Newsletters » PCWorld PCWorld helps you navigate the PC ecosystem to find the products you want and the advice you need to get the job done.
+  •  About Us
+  •  Community Standards 
+  •  Contact Us
+  •  Magazine Customer Service
+  •    Ad Choices Ad Choices
+  •  Newsletters
+  •  Privacy Policy
+  •  Magazines, eBooks & Apps
+  •  RSS
+  •  Terms of Service Agreement
+  •  Forums
+PCWorld CATEGORIES
+  •  Business
+  •  Laptops
+  •  Mobile
+  •  PC Hardware
+  •  Printers
+  •  Security
+  •  Software
+  •  Videos
+  •  Windows
+IDG Network Sites
+  •  Advertise
+  •  Careers at IDG
+  •  Creative Lab
+  •  IDG
+  •  Permissions
+  •  IDG Consumer & SMB
+  •  Knowledge Hub
+  •  Macworld
+  •  TechHive
+  PCWorld Magazine Cover  Get PCWorld's Digital Editions
+Subscribe Now  Follow us Visit other IDG sites:
+Select One CIO Computerworld CSO DEMO IDG Connect IDG TechNetwork IDG.tv InfoWorld ITworld JavaWorld Network World The Industry Standard © 1998-2013, IDG Consumer & SMB
+    

@@ -1,0 +1,271 @@
+                    Kickstarter - 维基百科，自由的百科全书
+Kickstarter
+维基百科，自由的百科全书  跳转至： 导航、 搜索   本页使用了标题或全文手工转换  Kickstarter 股份有限公司   Kickstarter logo.svg  	
+網址 www.kickstarter.com	
+商業性質？ 盈利性	
+網站類型 公众集资	
+語言 英文	
+推出時間 2009年4月28日（首次是以KickStartr为名）	
+Kickstarter是一个於2009年在美国纽约成立、基于美国人的盈利性公司，它通过该网站进行公众集资以提供人们进行创意项目的筹集资金。[1]
+Kickstarter可以许多种创意项目募集资金，[2]譬如电影、音乐、舞台剧、漫画、新闻学、电视游戏以及与食物有关的项目。[3]但人们不能以Kickstarter为投资项目来赚钱。他们规定只能返还实物奖励或者独一无二的经验给资助者，像一本写着感谢的笔记、定制的T恤、与作家共进晚餐，或者一个新产品的最初体验。[4]
+目录
+  •  1 历史
+  •  2 模型 
+  •  2.1 项目
+  •  2.2 类别
+  •  2.3 准则
+  •  3 著名的项目及作者 
+  •  3.1 募集资金的热门项目
+  •  3.2 项目中止
+  •  4 争议
+  •  5 专利纠纷
+  •  6 参见
+  •  7 参考文献
+  •  8 外部链接
+历史[编辑]
+Kickstarter于2009年4月28日在Perry Chen、Yancey Strickler和Charles Adler的合作下所创建。[5] 《纽约时报》将Kickstarter称作“人民的NEA（英语：National Endowment for the Arts）”.[6] 《时代》将其称作“2010年最佳发明”[7]与“2011年最佳网站”。[8]据报导，Kickstarter的支持者募集了包括总部设在纽约的联合广场（Union Square）风险投资公司和天使投资者所投资资金在内的超过1000万美元的资金，如杰克·多西、Zach Klein（英语：Zach Klein）与Caterina Fake（英语：Caterina Fake）。[9]该公司总部设在曼哈顿的下东城。[10]
+直到2010年11月前，Andy Baio（英语：Andy Baio）担任该网站的CTO，而之后他加入了专家实验室（英语：Expert Labs）。[11]Lance·常春藤自网站推出以来都进行着网站的首席开发工作。[12] 在2013年2月14日，Kickstarter推出了名叫Kickstarter for iPhone的iOS版移动应用。[13]该应用程序的目的是帮助用户创建和备份项目，属于Kickstarter发布的首款官方手机应用程序。[14]
+模型[编辑]
+Kickstarter是一个绕过了传统投资渠道的，面对公众募集小额资金的一个平台。[15][16]在该网站如果创建项目，需选择最后期限和最低资金为目标。如果目标在截止日期前没有被实现，则该网站会有一个退还募集资金的保证契约（英语：Assurance contract）。[17]捐赠者的钱通过亚马逊支付（英语：Amazon Payments）来实现。[18]该平台对全世界各地的捐助者开放以及对美国和英国的创设者开放。[19]
+Kickstarter收取募集资金5%的佣金。[20]亚马逊收取额外的3～5%.[21]不像很多论坛的筹款或投资，Kickstarter声称对项目和他们生产的作品无所有权。在该网站上推出的项目都将被永久存档和向公众开放。募集资金完成后，项目和上载的媒体资料均不能被编辑或从网站上删除。[22]
+但谁也不能保证在Kickstarter上发布的项目的筹款将全部用于实现这项项目，或满足支持者的期望。捐助者们也没有办法直接确认该项目的情况，除非直接询问该项目的拥有者或者本身已被Kickstarter所提供的稍许质量控制。[23][24][25]Kickstarter建议赞助者们用自己的判断来支持一个项目。他们还警告项目的拥有者，如果未能兑现承诺将可能会被判处对赞助者进行损害赔偿（英语：legal damages）。[26]项目也可以失败，即使在成功之后，由于创设者低估所需的总成本或技术上遇到难以克服的困难从而经费得到提高。[23][27]
+项目[编辑]
+在2012年6月21日， Kickstarter开始统计所发布的项目。[28]在2012年10月10日，该网站拥有73,620个启动项目（3,426个正在进行）成功率为43.85%，累计捐款资金达3.81亿美元。[29]
+在其早年的业务增长十分迅速。在2010年，Kickstarter就有3,910个成功项目，捐款27,638,318美元，项目的成功率为43%。在2011年，相应的数字分别为11,836，99,344,381美元和46%。[30]
+在2012年2月9日，Kickstarter的标志性事件发生。 为iPhone设计扩展坞的凯西·霍普金斯大学第一个Kickstarter项目就突破了百万美元的捐款。 几个小时后，一个电脑游戏开发商Double Fine Productions（英语：Double Fine Productions）资助一个新的冒险游戏（英语：Broken Age）突破了相同的捐款额，在推出不到24小时的时间里完成了超过300万美元的捐款。[31]这也是Kickstarter首次单日募集超过一百万美元的捐款。[32]2012年5月18日，Pebble: E-Paper Watch 募集总额为10,266,845美元，成为在Kickstarter历史中最多捐款的项目。[33]
+在2012年7月，沃顿商学院的教授伊桑Mollick和Jeanne Pi进行一个如何有助于Kickstarter上的项目的成功或失败的研究。分析的结果标明，成功的一些关键下列因素有关：目标额的增加与成功率成负相关，有特色的项目有89%的成功率，相比较而言无特色的为30%，而那些平均为一万美元，为期30天的项目有35％的成功率，而其他因素不变，变为60天则成功率下降至29%。[34]
+以下会列出Kickstarter的前十位项目募集资金。在成功的项目中，大多数是介于1,000美元到9999美元之间。在设计，游戏和技术类项目里，这些金额已下降至不到一半。然而，后两类的募集金额中位数仍然在四位数范围内。属于不同类别的项目成功率有很大的变化。超过三分之二的舞蹈项目已完成并取得成功。相比之下，只有不到30％的时装项目已完成并达到他们的目标。大多数失败的项目未能达到他们的目标的20％，而且这一趋势适用于所有的类别。事实上，超过80％的项目，达到他们目标的20％大关。[29]
+类别[编辑]
+创设者将他们的项目分为13大类和36小类。[35] 他们是：艺术、漫画、舞蹈、设计、时尚、影视、食物，音乐、游戏、摄影、出版、技术和喜剧。这些类别中，影视与音乐是最大的类别并吸引了大部份的捐助。这两类就占了Kickstarter的项目中的一半以上。如果算上游戏，则拥有超过一半的募捐。[29]
+准则[编辑]
+为了保持Kickstarter平台作为创新项目融资的焦点，所有项目创建者遵循以下三个准则：可以只有创设者捐助项目；项目必须符合这个网站的13大类别；创设者必须遵守该网站的禁止行为，包括慈善和宣传活动。Kickstarter的硬件和产品设计项目有额外的要求，包括：[36][37]
+  •  禁止使用照片般逼真的效果图和模拟演示产品
+  •  限制对单个项目或对“一套想法”项目捐献的数额（例如，多个电灯泡的房子）
+  •  需要实物原型
+  •  需要制造计划
+该准则旨在巩固Kickstarter的政策，即为人们所支持项目的完成而募集，而不是一个产品订货。Kickstarter同时强调了一个概念，即是一个项目属于创设者和募捐者属于共同协作，所有类别的项目都要描述创作过程中所面临的风险与挑战。这个项目的目标亦在教育公众并鼓励其对社会做贡献。[38]
+著名的项目及作者[编辑]
+在Kickstarter上，已有多种创意作品被资助后获得好评和赞誉。纪录短片“un Come Up”和“Incident in New Baghdad”分别为奥斯卡奖提名；[39][40]当代艺术项目“EyeWriter”和“Hip-Hop Word Count”都被选在2011年现代艺术博物馆展出；[41]电影制片人Matt Porterfield的电影“Putty Hill”被选中在2012年惠特尼双年展播出；[42]作者Rob Walker的Hypothetical Futures项目在第13届威尼斯国际建筑双年展展出；[43]音乐家Amanda Palmer的专辑“Theatre is Evil”在No. 10 on the Billboard 200首次亮相；[44]设计师Scott Wilson的TikTok+ LunaTik项目获得了由史密森学会库珀 - 休伊特国家设计博物馆举办的国家设计奖；[45]并且圣丹斯电影节、SXSW音乐节和翠贝卡电影节所接纳的电影的大约10%是在Kickstarter获得资助的项目。[46][47]
+众多知名的作者使用Kickstarter来生产出他们的作品，其中包括：音乐家阿曼达·帕尔默[48]、Daniel Johnston（英语：Daniel Johnston）[49]、Stuart Murdoch（英语：Stuart Murdoch (musician)）[50]以及Tom Rush（英语：Tom Rush）[51]；制片人和演员Bret Easton Ellis（英语：Bret Easton Ellis）[52]、柯林·漢克斯[53]、Ed Begley, Jr.（英语：Ed Begley, Jr.）[54]、Gary Hustwit（英语：Gary Hustwit）[55]、Hal Hartley（英语：Hal Hartley）[56]、Jennie Livingston（英语：Jennie Livingston）[57]、Mark Duplass（英语：Mark Duplass）[58]、Matthew Modine（英语：Matthew Modine）[59] 、Paul Schrader（英语：Paul Schrader）[60]、Ricki Lake（英语：Ricki Lake）[61]、乌比·戈德堡[62]以及Zana Briski（英语：Zana Briski）；作家丹·哈蒙[63]、凯文·凯利[64]、尼尔·斯蒂芬森[65]以及Seth Godin（英语：Seth Godin）[66]；摄影师斯潘塞·图尼克[67]与Gerd Ludwig（英语：Gerd Ludwig）[68]；游戏开发者Tim Schafer（英语：Tim Schafer）[69]与Brian Fargo（英语：Brian Fargo）[70]；设计师施德明[71]；动画制作者John Kricfalusi（英语：John Kricfalusi）；星空奇遇记演员John de Lancie（英语：John de Lancie）和喜剧演员Eugene Mirman（英语：Eugene Mirman）。[72]
+募集资金的热门项目[编辑]
+已成功完成的Kickstarter项目的募捐总额前十名（只含上市作品） 排名 美元总额 项目名称 创设者 分类  % 募捐率 募捐人数 募捐结束日 
+1	10,266,845	Pebble: E-Paper Watch for iPhone and Android	Pebble Technology	设计	10,266	68,928	2012-05-18	
+2	8,596,474	OUYA：一个新的视频游戏控制台	Ouya Inc.	电视游戏	905	63,416	2012-08-09	
+3	5,702,153	电影美眉校探[73]	Rob Thomas（英语：Rob Thomas (writer)）[74]	影视	285	91,585	2013-04-12	
+4	4,188,927	Torment: Tides of Numenera（英语：Torment: Tides of Numenera）	InXile Entertainment（英语：InXile Entertainment）	电视游戏	465	74,405	2013-04-05	
+5	3,986,929	Project Eternity（英语：Project Eternity）	黑曜石娱乐	电视游戏	362	73,986	2012-10-16	
+6	3,429,235	收割者的微型骨骼：一个进化类的小型赌博游戏[75]	Reaper Miniatures（英语：Reaper Miniatures）	游戏	11,430	17,744	2012-08-25	
+7	3,336,371	双人真实冒险（英语：Broken Age）	Double Fine（英语：Double Fine）与2位玩家（英语：2 Player Productions）	电视游戏	834	87,142	2012-03-13	
+8	3,105,473	“希望我在这里”[76]	Zach Braff（英语：Zach Braff）	故事片	155	46,520	2013-05-24	
+9	2,945,885	FORM 1：实惠、专业的3D打印机[77]	Formlabs	技术	2,945	2,068	2012-10-26	
+10	2,933,252	Wasteland 2（英语：Wasteland 2）	InXile Entertainment（英语：InXile Entertainment）	电视游戏	325	61,290	2012-04-17	
+项目中止[编辑]
+Kickstarter与项目创建者双方都曾因似乎存在欺诈而取消了项目。在互联网各相关项目的社群里提到了关于这样一些问题。这些人关注的是：明显是从其他来源拷贝的图形；不切实际的性能或价格声明；失败的项目发起人并未兑现之前在Kickstarter上所做的承诺。
+取消的项目的小清单:
+  •  配备Eye3相机的无人驾驶直升机对性能约定有着不切实际的承诺，照片是从其他商业作品中拷贝的，在Kickstarter上早期资金调度就遭遇失败。[78]
+  •  “Mythic: The Story of Gods and Men”冒险类游戏，不切实际的宣传，图像是从其他游戏的图形中拷贝的，创作者提出了一个8万美元的目标，但在4739美元时便取消了该项目。[79]
+  •  Tech-Sync电力系统，项目创建者未能提供项目原型的照片便突然离去。[80]
+  •  Tentacle Bento，是一个关于日本女子学生的触手强奸漫画，在网上媒体被批评其含有不适宜的内容。[81]
+  •  Kobe Red，一个以神户牛为原料制作牛肉干，在捐款达到12,0309美元的时候取消了该项目，涉嫌欺诈。[82]
+此外，超过15个项目已被不同于一般情况的完全取消。[83]如在Kickstarter出现侵犯著作权或者其他严重违反条款的项目。[84][85]
+争议[编辑]
+在2011年5月，纽约大学名叫Matias Shimada的电影系的学生，筹集了1726美元用于拍一部电影，但被发现是抄袭自另一部电影，后来他公开道歉。[86][87]
+2012年，阿曼达·帕尔默在Kickstarter筹集了120万美元. 她写了关于她是如何用这笔钱，但是其他一些音乐家看后认为不需要这么多费用，并说他们是浪费，也可能是欺诈。她进一步批评有音乐家在她筹到这一大笔钱后试图和她一起免费旅游。[88]
+在2013年4月，电影制作者Zach Braff（英语：Zach Braff）使用Kickstarter为他的电影花园之州（英语：Garden State (film)）筹集资金，在3天内共筹集了约2,000,000美元，援引罗伯·汤玛斯在Kickstarter上的美眉校探的成功为他的创作灵感。有人批评他使用该网站，说名人使用本网站后，将使人们的注意力远离一般的电影工作者和其他没有知名度的创作人，[89]此前一直就有在游戏行业使用Kickstarter数额过大的批评（比如说理查·蓋瑞特，在Kickstarter上获得了超过100万美元的财富。[90]）。但是Kickstarter质疑这些观点，认为大牌项目往往会吸引更多的人，反过来，不知名的项目很难吸引到人。[91][92]
+专利纠纷[编辑]
+  •  2011年9月30日，Kickstarter接到了针对ArtistShare（英语：ArtistShare）的关于专利 US patent 7885887 的宣告判决（英语：declaratory judgment）[93]，提出“Methods and apparatuses for financing and marketing a creative work（融资和营销一个创造性作品的方法和设备）”的指控。 Kickstarter认为该份专利无效，或者至少认为Kickstarter不应承担侵权责任。[94] 在2012年2月，Kickstarter就该问题作出回应，提出驳回诉讼。他们否认专利侵害诉讼威胁，“ArtistShare只是接近Kickstarter的自己的平台，包括专利权。” “而非回应ArtistShare的反建议请求，Kickstarter提出此项诉讼。”[95]然而，法官裁定此项诉讼可以继续下去。 ArtistShare回应并提出反索赔，指控Kickstarter的确实侵犯其专利。[96]
+  •  2012年11月21日，3D Systems（英语：3D Systems）公司提起了专利侵权诉讼指出Formlabs和Kickstarter了其专利3D打印机 US patent 5,597,520 ，“Simultaneous multiple layer curing in stereolithography（同时多层光固化）。”Formlabs向Kickstarter提出了290万美元的有关其3D打印机的索赔。[97] 该公司表示，Kickstarter的Form1打印机对其造成“无法弥补的伤害和损失”，并考虑削减对其5%的捐赠。[98]
+参见[编辑]
+  •  保证契约（英语：Assurance contract）
+  •  众筹
+参考文献[编辑]
+  •  ^ Villano, Matt. Small Donations in Large Numbers, With Online Help. The New York Times. 14 March 2010 [29 November 2012]. 
+  •  ^ Levy, Shawn. Kickstarter raises money online for artistic endeavors, tapping into Portland ethos. The Oregonian. May 29, 2010. 
+  •  ^ Wortham, Jenna. A Few Dollars at a Time, Patrons Support Artists on the Web. The New York Times. August 24, 2009. 
+  •  ^ Walker, Rob. The Trivialities and Transcendence of Kickstarter. The New York Times Magazine. August 5, 2011. 
+  •  ^ Wauters, Robin. Kickstarter Launches Another Social Fundraising Platform. April 29, 2009. 
+  •  ^ Walker, Rob. The Trivialities and Transcendence of Kickstarter. The New York Times. August 5, 2011 [June 20, 2012]. 
+  •  ^ Snyder, Steven James. The 50 Best Inventions of 2010. TIME. November 11, 2010 [June 20, 2012]. 
+  •  ^ McCracken, Harry. The 50 Best Websites of 2011. TIME. August 16, 2011 [June 20, 2012]. 
+  •  ^ Kafka, Peter. Kickstarter Fesses Up: The Crowdsourced Funding Start-Up Has Funding, Too. All Things D. Dow Jones & Company Inc. [February 7, 2012]. 
+  •  ^ Kickstarter - Team http://www.kickstarter.com/team
+  •  ^ Andy Baio. Joining Expert Labs. waxy.org. [November 17, 2010]. 
+  •  ^ crunchbase.com. Kickstarter CrunchBase Profile. November 30, 2010. 
+  •  ^ Kickstarter for iPhone for iPhone 3GS, iPhone 4, iPhone 4S, iPhone 5, iPod touch (3rd generation), iPod touch (4th generation), iPod touch (5th generation) and iPad on the iTunes App Store:. [February 15, 2013]. 
+  •  ^ Dredge, Stuart. Kickstarter? There's now an official iPhone app for that. The Guardian. January 14, 2013 [February 15, 2013]. 
+  •  ^ Villano, Matt. Small Donations in Large Numbers, With Online Help. The New York Times. March 14, 2010. 
+  •  ^ Gould, Emily. Start me up. Technology Review (MIT). [January 20, 2011]. 
+  •  ^ Musgrove, Mike. At Play: Kickstarter is a Web site for the starving artist. The Washington Post. March 7, 2010. 
+  •  ^ Stross, Randall. You, Too, Can Bankroll a Rock Band. The New York Times. April 2, 2010. 
+  •  ^ Kickstarter starts welcoming UK creators with projects launching Oct. 31. GigaOM. October 10, 2012. 
+  •  ^ Creators – Freuquently Asked Questions (FAQ). Kickstarter.com. [July 13, 2012]. 
+  •  ^ Creators – Freuquently Asked Questions (FAQ). Kickstarter.com. [July 13, 2012]. 
+  •  ^ Official website. Kickstarter.com FAQ. Retrieved 2010. 
+  •  ^ 23.0 23.1 Adrianne Jeffries, "Jellyfish Tanks, Funded 54 Times Over on Kickstarter, Turn Out to Be Jellyfish Death Traps UPDATED", BetaBeat, March 15, 2012
+  •  ^ Joe Brown, "We're Done With Kickstarter", Gizmodo, March 29, 2012
+  •  ^ Ryan Tate, "End Online Panhandling Forever!", Gawker, November 10, 2011
+  •  ^ Kickstarter FAQ If I am unable to complete my project as listed, what should I do?. kickstarter.com. 
+  •  ^ Kevin Stout, "Kickstarter, Pros and Cons", 148Apps.biz, April 23, 2012
+  •  ^ Strickler, Yancey. Kickstarter Stats. 
+  •  ^ 29.0 29.1 29.2 Kickstarter Stats. Kickstarter. [October 10, 2012]. 
+  •  ^ "2011: The Stats", January 9, 2012, Kickstarter.com, accessed February 3, 2012.
+  •  ^ "Double Fine Kickstarter hits 3 million, drive closing on Ustream", Joystiq, March 13, 2012, Retrieved March 13, 2012.
+  •  ^ Carl Franzen "Crowd-Funding Website Kickstarter Has Double Million Dollar Day", TPM, February 10, 2012, Retrieved February 11, 2012
+  •  ^ Update #5: Most Funded Kickstarter Ever! Thank You!. 
+  •  ^ Mollick, Ethan. The Dynamics of Crowdfunding: Determinants of Success and Failure. Social Science Research Network. July 15, 2012. 
+  •  ^ Discover – Kickstarter. Kickstarter.com. [June 20, 2012]. 
+  •  ^ Eric Blattberg, "Kickstarter Bans Project Renderings, Adds ‘Risks and Challenges’ Section, Crowdsourcing.org 21 September 2012
+  •  ^ Mark Milian, "After Raising Money on Kickstarter, Side Project Lands Another $3 million", Blomberg Tech Deals, 6 September 2012
+  •  ^ Kickstarter Is Not a Store. 
+  •  ^ Staff, NPR. The Love Sory Behind Oscar Nominee Sun Come Up. NPR. February 26, 2011. 
+  •  ^ Montgomery, David. Incident in New Baghdad: What Happened in Iraq?. The Washington Post. February 21, 2012. 
+  •  ^ Talk to Me – MoMA. MoMA.org. [July 2, 2012]. 
+  •  ^ Matt Porterfield. whitney.org. [July 2, 2012]. 
+  •  ^ Titunik, Vera. Real Designs For Fake Buildings Are Going to Venice. The New York Times. May 15, 2012. 
+  •  ^ Caulfield, Keith. Dave Matthews Band Debuts at No. 1 on Billboard 200. Billboard. September 19, 2012. 
+  •  ^ National Design Awards. CooperHewitt.org. [July 2, 2012]. 
+  •  ^ Carr, David. At Sundance, Kickstarter Resembled a Movie Studio, but Without the Egos. The New York Times. January 30, 2012. 
+  •  ^ Watercutter, Angela. When SXSW Money Crunch Hits, Kickstarter Comes to the Rescue. Wired. March 9, 2012. 
+  •  ^ Sisario, Ben. Giving Love, Lots of It, To Her Fans. The New York Times. June 5, 2012. 
+  •  ^ McCarter, Reid. The Weekly Kickstarter: Daniel Johnston and the Comic Book. The Social Times. January 27, 2011. 
+  •  ^ Eanet, Lindsay. You Can Help Stuart Murdoch From Belle & Sebastian Make a Movie. BlackBook. January 13, 2012. 
+  •  ^ Young, Robin. Folk Singer Tom Rush Kickstarts 50th Anniversary Concert. NPR. May 15, 2012. 
+  •  ^ Carlson, Erin. Bret Easton Ellis Is Using Kickstarter to Finance 'The Canyons' Indie. The Hollywood Reporter. May 4, 2012. 
+  •  ^ Aswad, Jem. Colin Hanks Uses Kickstarter to Help Fund His Tower Records Doc. The Hollywood Reporter. June 2, 2011. 
+  •  ^ d'Estries, Michael. To Build America's Greenest Home, Actor Ed Begley Jr. Needs Your Help. Forbes. February 17, 2012. 
+  •  ^ Jr, Core. Gary Hustwit's Urbanized on Kickstarter + Trailer Preview. Core77. February 2012. 
+  •  ^ Anderson, John. Sundance Offers a Web Afterlife for Its Alumni. The New York Times. January 4, 2012. 
+  •  ^ Renninger, Bryce. In the Works: New Doc from "Paris is Burning" Director, Sundance's "Pariah," Chicago Mob Boss & More. IndieWire. January 6, 2011. 
+  •  ^ Prigge, Matt. Mark Duplass Talks About His Newest Film, "Jeff Who Lives at Home". Philadelphia Weekly. March 15, 2012. 
+  •  ^ Herbert, Chris. Kickstarter Project: "Full Metal Jacket Diary" – The iPad App. MacStories. April 21, 2011. 
+  •  ^ Tiku, Nitasha. Bret Easton Ellis and Paul Schrader are Raising Money for Their Upcoming Thriller The Canyons on Kickstarter. The New York Observer. May 3, 2012. 
+  •  ^ Ricki Lake Teaches Us Even More About Birth. Parenting.com. July 8, 2011. 
+  •  ^ Smith, Nigel. Why Whoopi Goldberg is Using Kickstarter to Fund Her Directorial Debut. IndieWire. June 27, 2012. 
+  •  ^ Strecker, Erin. Charlie Kaufman, Dan Harmon use Kickstarter to fund next movie. Entertainment Weekly. July 12, 20112. 
+  •  ^ Frauenfelder, Mark. The Silver Cord by Kevin Kelly. Boing Boing. June 20, 2012. 
+  •  ^ Kain, Erik. Neal Stephenson's Clang Is a Kickstarter Devoted to Sword Fighting. Forbes. June 13, 2012. 
+  •  ^ Trachtenberg, Jeffrey. Giving Book Readers a Say. The Wall Street Journal. June 24, 2012. 
+  •  ^ Laster, Paul. Spencer Tunick: On Stealing Cameras, Controversy, and Kickstarter. The 99 Percent. February 16, 2012. 
+  •  ^ Ismael Ruiz, Matthew. Kickstarter: How the Web Is Helping Photographers Fund Their Work. Popular Photography. March 19, 2012. 
+  •  ^ Netburn, Deborah. Double Fine Raises $3.25 Million on Kickstarter for New Game. Los Angeles Times. March 13, 2012. 
+  •  ^ Orland, Kyle. Interplay's Brian Fargo Finds Fan Funding for Wasteland Sequel. Ars Technica. March 15, 2012. 
+  •  ^ Drumm, Perrin. Best of Kickstarter, 9/12: The Happy Film. Sundance Channel. September 12, 2011. 
+  •  ^ McGlynn, Katia. Eugene Mirman Comedy Festival Using Kickstarter to Fund Awkward Party BUs, Sex Pit & More. The Huffington Post. July 12, 2011. 
+  •  ^ The Veronica Mars Movie Project
+  •  ^ Fans pledge $3 million for 'Veronica Mars' movie in 2 days – Series creator Rob Thomas on the latest with the Kickstarter campaign
+  •  ^ Reaper Miniatures Bones: An Evolution Of Gaming Miniatures
+  •  ^ Wish I Was Here
+  •  ^ FORM 1: An affordable, professional 3D printer
+  •  ^ Evan Ackerman “Update:Eye3 Drone Officially Too Good to be True”, IEEE Spectrum January 31, 2012.
+  •  ^ Adrianne Jeffries. This Is What a Kickstarter Scam Looks Like. Betabeat. 
+  •  ^ Adrian Jeffries, “When Kickstarter Goes Wrong: Were 419 Backers Almost Taken for a $27,637 Ride?”, BetaBeat, September 15, 2011.
+  •  ^ Kirk Hamilton “Creator of ‘Satirical’ Tentacle-Rape Game Apologizes”, Kotaku, May 17, 2012
+  •  ^ Pepitone, Julianne, “Kickstarter pulls plug on scam minutes before $120,000 heist”, CNN Money, 17 June 2013
+  •  ^ Kicktraq reports deleted projects. Kicktraq. May 1, 2012. 
+  •  ^ Despite claiming otherwise, Kickstarter quietly removes projects, Dan Misener, September 20, 2012
+  •  ^ Kicked to the Curb: Kickstarter’s Hidden Wasteheap of Killed Projects, Wired, September 23, 2012
+  •  ^ Tanzer, Myles. NYU Tisch Student Makes Plagiarized Film To Win Festival Prize After Raising $1,700 On Kickstarter · NYU Local. NYU Local. May 9, 2011 [June 23, 2011]. 
+  •  ^ Sam Biddle. NYU Film Student Plagiarizes His Way to Kickstarter Fame. Gizmodo. 
+  •  ^ Clover, Joshua. The Amanda Palmer Kickstarter Scandal. The New Yorker. [2013-06-03]. 
+  •  ^ Amos Barshad. Thanks to Kickstarter, Zach Braff Finally Has Millions of Dollars. 
+  •  ^ Steven Bogos. The Escapist : News : Richard Garriott Explains Why He Needs a $1 Million Kickstarter. Escapistmagazine.com. 2013-03-12 [2013-06-03]. 
+  •  ^ March 29, 2012 · 35 comments. Blockbuster Effects » The Kickstarter Blog — Kickstarter. Kickstarter.com. 2012-03-29 [2013-06-03]. 
+  •  ^ Best Inventions of 2010. Who is Kickstarter for? » The Kickstarter Blog — Kickstarter. Kickstarter.com. 2013-05-09 [2013-06-03]. 
+  •  ^ Jan Wolfe, “ArtistShare Can't Show Kickstarter Infringes Crowd-Funding Patent” The AM Law Litigation Daily, 19 February 2013.
+  •  ^ Sarah Jacobsson Purewal. Kickstarter Faces Patent Suit Over Funding Idea. PCWorld. October 5, 2011 [October 6, 2011]. 
+  •  ^ Eriq Gardner. Hollywood Docket: Comedy Club Documentary Lawsuit; Michael Jordan vs. 1st Amendment. The Hollywood Reporter. February 16, 2012 [March 23, 2012]. 
+  •  ^ Jeffries, Adrianne. Kickstarter Wins Small Victory in Patent Lawsuit With 2000-Era Crowdfunding Site. BetaBeat. The New York Observer. May 14, 2012 [May 17, 2012]. 
+  •  ^ Joseph Flaherty, “3D Systems Sues Formlabs and Kickstarter for Patent Infringement” Wired, 21 November 2012
+  •  ^ “Kickstarter Sued: Formlabs 3D Printer Accused Of Patent Breach” Huffington Post, 21 November 2012
+外部链接[编辑]
+  •  官方网站
+  •  Kickstarter Blog
+ 取自“http://zh.wikipedia.org/w/index.php?title=Kickstarter&oldid=28900108” 3个分类：  •  互联网公司
+  •  2009年成立的公司
+  •  美国公司
+导航菜单
+个人工具
+  •  创建账户
+  •  登录
+名字空间
+  •  条目
+  •  讨论
+ 不转换 
+变种
+  •  不转换
+  •  简体
+  •  繁體
+  •  大陆简体
+  •  香港繁體
+  •  澳門繁體
+  •  马新简体
+  •  台灣正體
+查看
+  •  阅读
+  •  编辑
+  •  查看历史
+操作
+搜索
+  搜索    Special:搜索  导航
+  •  首页
+  •  分類索引
+  •  特色内容
+  •  新闻动态
+  •  最近更改
+  •  随机条目
+帮助
+  •  帮助
+  •  维基社群
+  •  方针与指引
+  •  互助客栈
+  •  询问处
+  •  字词转换
+  •  IRC即时聊天
+  •  联系我们
+  •  关于维基百科
+  •  资助维基百科
+工具
+  •  链入页面
+  •  相关更改
+  •  上传文件
+  •  特殊页面
+  •  打印页面
+  •  永久链接
+  •  页面信息
+  •  数据项
+  •  引用本页
+其他语言
+  •  Česky
+  •  Deutsch
+  •  English
+  •  Español
+  •  Suomi
+  •  Français
+  •  עברית
+  •  Hrvatski
+  •  Italiano
+  •  日本語
+  •  한국어
+  •  Latina
+  •  Norsk bokmål
+  •  Polski
+  •  Português
+  •  Русский
+  •  Türkçe
+  •  Українська
+  •  
+  •  编辑链接
+  •   本页面最后修订于2013年10月13日 (星期日) 06:55。
+
+  •  本站的全部文字在知识共享 署名-相同方式共享 3.0协议之条款下提供，附加条款亦可能应用。（请参阅使用条款）
+ Wikipedia®和维基百科标志是维基媒体基金会的注册商标；维基™是维基媒体基金会的商标。
+ 维基媒体基金会是在美国佛罗里达州登记的501(c)(3)免税、非营利、慈善机构。
+
+  •  隐私权政策
+  •  关于维基百科
+  •  免责声明
+  •  开发者
+  •  移动版视图
+  •     Wikimedia Foundation  
+  •     Powered by MediaWiki  
+    

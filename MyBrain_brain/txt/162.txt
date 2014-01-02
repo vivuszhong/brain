@@ -1,0 +1,76 @@
+                    Home | AMQP
+Skip to main content   AMQP logo  AMQP
+Search form
+Search   Search    form-7VdKtuAIDUbAR-ySaQ50BS2fO1qYT__oVpu90UHhT-U    search_block_form  User login
+Username * Password *   •  Create new account
+  •  Request new password
+  form-yft4_a0l6zwK9UAhTwZ4fHjK-3Gd_8jGSVJSaHqN8MU    user_login_block    Log in  Secondary menu
+  •  Login
+  •  Contact
+  •  About
+  •  
+  •  About
+  •  Events
+  •  Members
+  •  Governance
+  •  Join
+  •  
+  •  Getting Involved
+  •  Product
+  •  
+  •  The Problem We Solve
+  •  Features
+  •  Overview
+  •  Architecture
+  •  Business Drivers
+  •  AMQP Differentiated
+  •  AMQP Products and Success Stories
+  •  Resources
+  •  
+  •  Videos
+  •  Financial Services and AMQP
+  •  Business FAQ's
+  •  Developer FAQ's
+  •  AMQP Version 1.0
+  •  AMQP Protocol Downloads
+  •  Legal
+  •  
+  •  Legal
+  •  Forums
+  •    
+OUR VISION:
+To become the standard protocol for interoperability between all messaging middleware
+Find out more   AMQP logo    •    
+Implement AMQP
+Learn how you can integrate
+AMQP 1.0 into new products
+and existing systems
+Learn more   cogs    •    
+Join the Working Group
+Join companies working toward the common goal of a platform agnostic message protocol
+Become a Member   puzzle    •    
+Latest News from AMQP
+Review all of the latest news and AMQP protocol specification updates
+Go to Community Board   mast    •  AMQP
+OVERVIEW
+  •  IMPLEMENT
+AMQP
+  •  JOIN THE AMQP WORKING GROUP
+  •  LATEST NEWS FROM AMQP
+Advanced Message Queuing Protocol 1.0 becomes OASIS Standard
+Click above for the press release.  The final Standard can be down loaded here.
+See the executive briefing paper on the value proposition of OASIS AMQP to learn more.
+ 
+ Announcements/Activities View All 
+  •    OpenMAMA 2.1 takes advantage of AMQP Bridge Date: Mon, 05/07/2012 The Linux Foundation announced the first release of the open-source Middleware Agnostic Messaging API. It leverages the AMQP Bridge, which integrates... 
+  •    IIT Software announces SwiftMQ 9.0 with AMQP 1.0 Date: Wed, 01/11/2012 IIT Software is offering full implementation of the Advanced Message Queuing Protocol (AMQP) specification 1.0 with its messaging system SwiftMQ and as... 
+  •    OASIS Forms AMQP Technical Committee to Advance Business Messaging Interoperability Within Middleware, Mobile, and Cloud Environments Date: Tue, 11/01/2011 OASIS Forms AMQP Technical Committee to Advance Business Messaging Interoperability Within Middleware, Mobile, and Cloud Environments Axway,... 
+  •    Sept 15th Webcast Now Available - Changing the Future of Mainstream Business Messaging Date: Fri, 08/26/2011   Sept 15th Webcast NOW AVAILABLE - Changing the Future of Mainstream Business Messaging WATCH IT NOW!  (Recorded September 15TH, 2011)  ... 
+  •    AMQP Working Group Transitions to OASIS Member Section Date: Thu, 08/18/2011 International Open Standards Consortium Expands to Include Initiative for Business Messaging Interoperability within Middleware, Mobile, and Cloud-based... 
+  Bank of America    Barclays    Credit Suisse    JP Morgan Chase & Co    Goldman Sachs    TWIST    CISCO    Informatica    Wso2    INETCO    Microsoft    Progress Software    Redhat    Vmware    Solace Systems    Tervela    http://www.thales-esecurity.com/    Storm MQ    Hcl    •  About
+  •  Join
+  •  Product
+  •  Resources
+  •  Legal
+  •  Forums
+ © Copyright 2013 OASIS®. All Rights Reserved. OASIS trademark, IPR, and other policies apply. Powered by Drupal     

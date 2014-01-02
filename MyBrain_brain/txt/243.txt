@@ -1,0 +1,189 @@
+                    OpenStack - 维基百科，自由的百科全书
+OpenStack
+维基百科，自由的百科全书  跳转至： 导航、 搜索 OpenStack
+截图 
+	
+穩定版本 Folsom / 2012年9月27日；13個月前 (2012-09-27)	
+编程语言 Python	
+类型 雲端運算	
+许可协议 Apache許可證	
+網站 http://openstack.org/	
+OpenStack是一個美國太空總署和Rackspace合作研發的雲端運算‎軟件，以Apache許可證授權，並且是一個自由軟件和開放原始碼項目。
+目录
+  •  1 運用範圍
+  •  2 技術資料
+  •  3 項目
+  •  4 廠商支援
+  •  5 商業版本
+  •  6 市場趨向
+  •  7 大型用戶
+  •  8 參考文獻
+  •  9 外部連結 
+  •  9.1 網上視頻
+運用範圍[编辑]
+美國太空總署的Nebula運算平台。 OpenStack是IaaS（基礎設施即服務）‎軟件，讓任何人都可以自行建立和提供雲端運算服務。
+此外，OpenStack也用作建立防火牆內的「私有雲」（Private Cloud），提供機構或企業內各部門共享資源。
+技術資料[编辑]
+  •  以Python程式語言編寫
+  •  整合Tornado網頁伺服器、Nebula運算平台
+  •  使用Twisted軟件框架
+  •  遵循Open Virtualization Format、AMQP、SQLAlchemy等標準
+  •  虛擬機器軟件支援包括：KVM、Xen、VirtualBox、VMware、Hyper-V
+項目[编辑]
+  •  Nova運算項目[1]
+  •  Swift物件導向數據存貯項目[2]
+  •  Glance虛擬機器磁碟映像檔（Virtual Machine Image）傳送服務[3] [4]
+  •  Dashboard 網絡應用程序－ 提供簡易Web界面和管理控制台[5]
+廠商支援[编辑]
+ 思科CTO談論OpenStack及NaaS 現時已表示支持OpenStack項目的大型硬件廠商包括：AMD、Intel、惠普和戴爾等。[6]
+微軟在2010年10月表示支持OpenStack與Windows Server 2008 R2的整合。[7]
+Ubuntu在版本11.04加入OpenStack。[8]
+2011年2月，思科系統正式加盟OpenStack項目，重點研製OpenStack的網絡服務。[9] 2011年4月，思科提議新的Network as a Service（NaaS）。[10] [11] [12]
+商業版本[编辑]
+戴爾在2011年7月推出OpenStack參考架構、PowerEdge C伺服器和Crowbar軟件；戴爾的OpenStack解決方案能使用戶快速地建立私有雲。[13] [14]
+市場趨向[编辑]
+Rackspace以OpenStack為基礎的私有雲業務每年7億美元，增長率超過了20%。[15]
+大型用戶[编辑]
+  •  美國太空總署
+  •  加拿大半官方機構CANARIE網絡的DAIR（Digital Accelerator for Innovation and Research）項目，向大學與中小型企業提供研究和開發雲端運算‎環境；DAIR用戶可以按需要快速建立網絡拓撲。[16] [17]
+  •  Rackspace Cloud [18]
+  •  惠普雲（使用Ubuntu Linux）[19]
+  •  MercadoLibre的IT基礎設施雲，現時以OpenStack管理超過6000台虛擬機器。[20]
+  •  AT&T的「Cloud Architect」，將在美國的達拉斯、聖地牙哥和新澤西州對外提供雲端服務。[21]
+參考文獻[编辑]
+  •  ^ OpenStack Compute
+  •  ^ OpenStack Object Storage
+  •  ^ Welcome to Glance's documentation!
+  •  ^ OpenStack Image Registry and Delivery Service (Glance)
+  •  ^ Dashboard for OpenStack
+  •  ^ Participating Companies
+  •  ^ OpenStack Is Now Open for Windows Server
+  •  ^ Canonical joins the OpenStack community
+  •  ^ Cisco joins OpenStack Community
+  •  ^ NetworkContainers
+  •  ^ NetworkService
+  •  ^   YouTube  YouTube上的「Velocity 2011: Lew Tucker, "﻿﻿Cisco and Open Stack"」视频
+  •  ^ Dell Cloud Solution for OpenStack Solutions: Reference Architecture
+  •  ^ Dell wants to make OpenStack as easy as 1-2-3
+  •  ^ Rackspace：開源雲平台即將進軍大陸市場
+  •  ^ Rackspace does the Red Hat thing with 'Linux for the clouds' OpenStack handholding
+  •  ^ The Digital Accelerator for Innovation and Research
+  •  ^ OpenStack Compute enters testing stage at Rackspace
+  •  ^ Ubuntu Powers HP Public Cloud
+  •  ^   YouTube  YouTube上的「OpenStack: Enabling the Open Cloud Era」视频
+  •  ^ A better cloud for developers
+外部連結[编辑]
+	维基共享资源中相关的多媒体资源：OpenStack	
+  •  （英文） OpenStack官方網站
+  •  （英文） DevStack官方網站 - 快速部署OpenStack的應用程式
+網上視頻[编辑]
+  •  （英文）   YouTube  YouTube上的「OpenStack: Building a Free Massively Scalable Cloud Computing Platform」视频
+  •  （中文）   YouTube  YouTube上的「A virtual storage appliance based on GlusterFS and OpenStack」视频－講者：翟本喬,吳志偉 （土豆網上的備份）
+	
+  •  查
+  •  论
+  •  编
+云计算 
+	
+客户端 网页浏览器 · 智能手机 · 上网本 · Nettop 	
+	
+应用 SAP OnDemand Solutions  · Google Apps  · Microsoft Online  · NetSuite  · SalesForce 	
+	
+平台 App Engine  · Windows Azure  · Engine Yard  · Force.com  · Heroku  · MTurk  · RightScale  · Amazon S3  · SimpleDB  · SQS 	
+	
+基础设施 EC2  · Eucalyptus  · FlexiScale  · GoGrid  · Nimbus  · OpenStack  · Rackspace Cloud  · VPC 	
+	
+類型 SaaS  · PaaS  · IaaS  · CaaS 	
+	
+技术 网络  · 数据中心  · 分散式檔案系統 · 硬件虚拟化  · Web服务  · 虚拟设备  · 多租戶技術 	
+	
+标准 Ajax · Atom · HTML5 · REST · XMPP · BitTorrent 	
+ 取自“http://zh.wikipedia.org/w/index.php?title=OpenStack&oldid=28570978” 2个分类：  •  雲端運算
+  •  分散式計算
+导航菜单
+个人工具
+  •  创建账户
+  •  登录
+名字空间
+  •  条目
+  •  讨论
+ 不转换 
+变种
+  •  不转换
+  •  简体
+  •  繁體
+  •  大陆简体
+  •  香港繁體
+  •  澳門繁體
+  •  马新简体
+  •  台灣正體
+查看
+  •  阅读
+  •  编辑
+  •  查看历史
+操作
+搜索
+  搜索    Special:搜索  导航
+  •  首页
+  •  分類索引
+  •  特色内容
+  •  新闻动态
+  •  最近更改
+  •  随机条目
+帮助
+  •  帮助
+  •  维基社群
+  •  方针与指引
+  •  互助客栈
+  •  询问处
+  •  字词转换
+  •  IRC即时聊天
+  •  联系我们
+  •  关于维基百科
+  •  资助维基百科
+工具
+  •  链入页面
+  •  相关更改
+  •  上传文件
+  •  特殊页面
+  •  打印页面
+  •  永久链接
+  •  页面信息
+  •  数据项
+  •  引用本页
+其他语言
+  •  العربية
+  •  Deutsch
+  •  English
+  •  Español
+  •  فارسی
+  •  Français
+  •  עברית
+  •  Magyar
+  •  Italiano
+  •  日本語
+  •  한국어
+  •  Polski
+  •  Português
+  •  Русский
+  •  Српски / srpski
+  •  தமிழ்
+  •  Türkçe
+  •  Українська
+  •  Oʻzbekcha
+  •  
+  •  编辑链接
+  •   本页面最后修订于2013年9月8日 (星期日) 14:29。
+
+  •  本站的全部文字在知识共享 署名-相同方式共享 3.0协议之条款下提供，附加条款亦可能应用。（请参阅使用条款）
+ Wikipedia®和维基百科标志是维基媒体基金会的注册商标；维基™是维基媒体基金会的商标。
+ 维基媒体基金会是在美国佛罗里达州登记的501(c)(3)免税、非营利、慈善机构。
+
+  •  隐私权政策
+  •  关于维基百科
+  •  免责声明
+  •  开发者
+  •  移动版视图
+  •     Wikimedia Foundation  
+  •     Powered by MediaWiki  
+    

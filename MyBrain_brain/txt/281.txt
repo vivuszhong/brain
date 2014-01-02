@@ -1,0 +1,41 @@
+                    QRCODE barcode masking
+  RedTitan Logo  QRCODE block layout
+ The "payload" of a QRCODE symbol is a number of data bits followed by ECC parity bits. (See Reed-Solomon calculator). Galois arithmetic limits the number of data plus ECC bytes(codewords) to a maximum total of 255. Larger barcodes are presented as a series of blocks each less than 255 bytes. 
+
+ Example of version 5 - quality H layout showing Data/ECC grouping per block  	col 1	col 2	..	col 11	col 12	col 13	col 14	..	col 34	
+BLOCK 1	Data1 ,	Data2 ,	..	Data11,	------,	ECC1 ,	ECC2 ,	.. 	ECC22	
+BLOCK 2	Data12,	Data13,	..	Data22,	------,	ECC23,	ECC24,	.. 	ECC44	
+BLOCK 3	Data23,	Data24,	..	Data33,	Data34,	ECC45,	ECC46,	.. 	ECC66	
+BLOCK 4	Data36,	Data37,	..	Data45,	Data46,	ECC67,	ECC68,	.. 	ECC88	
+
+
+Systematic layout.
+ Layouts of this form cannot be deduced by program! They have to be looked up in the 2005 QRCode ISO standard (Table 7) using the Version and the Quality as the key. The number of ECC codewords/bytes per block (in this case 22), is regular. The number of data codewords per block *may* vary - short "data" blocks come first. (In this case, Blocks 1,2 contain 11 data bytes, Blocks 3,4 contain 12 data bytes) Reed Solomon ECC
+ The Reed Solomon calculations are computed for each block. e.g Block 1 data Data1, Data2, .. Data11 has parity bytes in ECC1, ECC2 .. ECC22 etc. See Reed Solomon Calculator Row/Column transform
+ The final byte stream to be injected into the QRCODE symbol is created by re-packing the DATA or ECC bytes a column at a time - unused codewords (shown as "-----") are ignored. 
+
+ The completed byte stream payload for 5-H is -  Data1, Data12, Data23, Data36, Data2, Data13 ... Data33, Data45, Data34, Data46, ECC1, ECC23, ECC45, ECC67, ECC2, ... ECC66, ECC88  Note:  This is the final codeword/byte format! The symbol module/bit format as it appears in the symbol, however, requires a further navigation and folding process as described in http://www.pclviewer.com/rs2/qrtopology.htm 
+
+  •  About us . . .
+  •  Search . . .
+  •  Contact the team . . .
+  •  EscapeE home . . .
+  •  Galois fields and error correction . . .
+  •  QRCODE layout . . .
+  •  QRCODE home
+QRCODE bit masking
+ The following barcodes all have the same content (and are equally valid) but each bit is masked using a number of formula depending on the bit row and column position. The final symbols are then scanned for unwanted "artefacts" and rated accordingly. The symbol with the least number of deprecated features is selected as the final symbol and the MASK INDEX used (in this case 5) is recorded in the appropriate part of the symbol. This process is computationally expensive and many vendors simply skip this stage and select a mask index at random. In a "noisy" reader enviroment this may make recognition difficult. 
+
+Mask Index	formula	symbol	
+000	(i + j) mod 2 = 0	  QRCODE mask 0 example  	
+001	i mod 2 = 0	  QRCODE mask 1 example  	
+010	j mod 3 = 0	  QRCODE mask 2 example  	
+011	(i + j) mod 3 = 0	  QRCODE mask 3 example  	
+100	((i div 2) + (j div 3)) mod 2 = 0	  QRCODE mask 4 example  	
+101	(i j) mod 2 + (i j) mod 3 = 0	  QRCODE mask 5 example  	
+110	((i j) mod 2 + (i j) mod 3) mod 2 = 0	  QRCODE mask 6 example  	
+111	((i+j) mod 2 + (i j) mod 3) mod 2 = 0	  QRCODE mask 7 example  	
+
+
+
+© 2011 RedTitan Technology Ltd All rights reserved 

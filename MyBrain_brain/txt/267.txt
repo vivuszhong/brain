@@ -1,0 +1,7 @@
+                    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 您的访问请求被拒绝 - ITeye技术社区
+您的访问请求被拒绝
+您可能使用了网络爬虫抓取ITeye网站页面！
+ITeye网站不允许您使用网络爬虫对ITeye进行恶意的网页抓取，请您立刻停止该抓取行为！
+如果您的网络爬虫不属于恶意抓取行为，希望ITeye网站允许你进行网页抓取，请和ITeye管理员联系，取得授权: webmaster  Email iteye.com
+如果您确实使用浏览器访问，但是被错误的识别为网络爬虫，请将您浏览器发送的“User Agent”信息告知我们，帮助我们解决错误: webmaster  Email iteye.com
+    

@@ -1,0 +1,288 @@
+                    Chapter 27. QR (2D-Barcode)
+Chapter 27. QR (2D-Barcode)
+ 	Part VI. Barcodes 	
+Chapter 27. QR (2D-Barcode)
+Table of Contents
+27.1. Principle of QR Barcodes27.1.1. Summary of library features27.1.2. Limitation in the JpGraph QR implementation27.1.3. QR Standard27.1.4. Structure and capacity of QR barcodes27.1.5. QR versions and symbol size27.1.6. Error correction level27.1.7. Comparing the visual output with other QR-generating software27.2. Creating barcodes27.2.1. Getting started27.2.2. Error handling27.2.3. Creating an encoder27.2.4. Encodation of input data options27.2.5. Reading input data from a file27.2.6. Creating different backends27.2.7. Generic backend methods27.2.8. Image backend methods27.2.9. Postscript backend methods27.2.10. A template to create barcodes27.2.11. Sample application27.3. Example scripts27.3.1. Example 1 - Store QR code to file27.3.2. Example 2 - Specified error correction level27.3.3. Example 3 - Manual specified encoding27.3.4. Example 4 - JPEG image format27.3.5. Example 5 - Multiple manual encoding27.3.6. Example 6 - Reading data from file27.3.7. Example 7 - Adjusting colors27.3.8. Example 8 - Setting error correction level27.3.9. Example 9 - Generating ASCII output Principle of QR Barcodes
+Note
+This module is only available in the pro-version of the library.
+QR is currently the highest capacity general two-dimensional matrix symbology available (up to ~7Kb numeric data can be encoded) and it is designed to encode the full 256 byte ASCII character set as well as the Kanji (Shift-JIS character set). QR code belongs to the modern 2 dimensional codes that is designed for both high capacity as well as to be efficient for scanner equipment to process and this is also the reason for its name - Quick Response code.
+An advantage with QR code is also there relatively small size for a given amount of information 
+The QR code is available in 40 different square sizes each with a user selectable error correction level in four steps (referred to as error correction level L,M,Q and H). With the highest level of error correction used up to ~30% of the codewords can be damaged and still be restored.
+QR code is extensively used in some Asian countries and is finding more an more usage to transfer medium sized information onto mobile phones where the QR codes are interpretated by first taking a photo of the barcode with the mobile and then running a QR decoding program on the cell phone. This has currently become the most expansive usage of QR codes and some mobile manufactures are providing software to aid in interpreting QR codes for free.
+
+Note
+QR codes are also finding there way into public information sharing. For example in Texas in US some cities are using QR codes to display public information.
+
+
+Note
+QR Codes can be freely used without royalties. QR Codes are copyrighted by:
+DENSO WAVE NCORPORATED.
+
+In Figure 27.1. QR Code high level structure we have amended a large version of a basic QR code. In this figure the special finding patterns and timing patterns have been highlighted in red and blue. 
+Figure 27.1. QR Code high level structure
+  QR Code high level structure  
+The images below shows some real-life creative use of QR barcodes.
+
+Figure 27.2. Creative usage of QR Barcodes
+  Creative usage of QR Barcodes  	  Creative usage of QR Barcodes  	  Creative usage of QR Barcodes  	
+
+
+Summary of library features
+
+  •   
+Output format
+
+  •   
+Image format
+  •   
+Postscript and encapsulated postscript
+  •   
+ASCII
+
+  •   
+Encodation formats
+
+  •   
+Numeric
+  •   
+Alphanumeric
+  •   
+Binary
+
+  •   
+Supports all specified symbol sizes
+  •   
+Supports both auto and user selectable encodation 
+  •   
+Supports both auto and user selectable symbol size 
+  •   
+Supports user specified module size 
+  •   
+Supports custom color specification (foreground, background) 
+  •   
+Symbols can be written directly to a file or sent back as an image to the browser 
+
+Limitation in the JpGraph QR implementation
+This implementation is a faithful implementation of the ISO/IEC 18004E International Standard with one important exception. Version 1.0 does not support the encoding of 2 byte Shift-JIS character set. This means that two byte Kanji can only be encoded using binary data format which is less efficient than the native Kanji encoding. 
+
+Caution
+The computational complexity of the encodation process makes QR code generation slightly slower than both PDF417 and Datamatrix. The technical reason for most of the time is the final necessary evaluation of a bitmap mask which is chosen to give as close to 50% mix of black and white areas in the code as possible. Unfortunately this evaluation take time proportional to the square of the size of the matrix. This time can be noticeable when using "large" symbol sizes. There are existing QR code libraries that cheat on this final step and just randomly selects a bit mask to avoid this computational intensive evaluation. This is also the cause for the visual difference between this libraries final result and some other. 
+In this case we claim that this library implements the proper standard much more faithfully than some other libraries that exists.
+
+QR Standard
+The QR code standard is fully described in the ISO/IEC 18004E International Standard and is available for purchase from the ISO Standard Organization. for a nominal fee.
+Structure and capacity of QR barcodes
+All QR barcode have square layout made up of equal spaced square modules. Depending on the size of the QR code a certain number of finder patterns are included in the code to aid in scanner decoding. The standard specifies 40 versions (sizes) of the QR code from the smallest 21x21 up to 177x177 modules in size. 
+Examples of two basic QR codes are shown in Figure 27.3. A small sized QR Code (version=2)  and Figure 27.4. A medium sized QR code (version=13)
+
+Figure 27.3. A small sized QR Code (version=2) 
+  A small sized QR Code (version=2)  
+	Figure 27.4. A medium sized QR code (version=13)
+  A medium sized QR code (version=13)  
+	
+
+Depending on the actual data there are several compaction schema that can be used in order to achieve the greatest possible compression. The standard specifies four different principal schema, Numeric, Alphanumeric, Binary and Kanji. 
+Depending on the application the user of the library may chose to either select a fixed encodation mode or let the library automatically chose the most efficient encodation method. It is usually best to let the library automatically select a combination of encodation schema that will give the smallest possible symbol size. 
+The maximum capacity for QR codes dependent on the encodation schema (using the lowest possible error correction overhead) are given in Table 27.1. QR Data capacity
+
+Table 27.1. QR Data capacity
+Encoding modeMaximum capacity
+Numeric	7089 digits (Datamatrix=3116)	
+Alphanumeric	4296 characters (Datamatrix=2335)	
+Binary	2953 (Datamatrix=1555)	
+Kanji	1817 (Datamatrix NA)	
+
+
+The exact number of characters that can fit in a QR symbol depends on the actual encoding (or compaction) schema used. In short this is used to more efficiently encode ASCII characters to fit more data into a fixed number of bytes. For example if only numeric data is to be encoded then instead of using one byte to hold each digit three digits is stored in 10 bits. Which gives the equivalent capacity that 12 digits takes only 5 bytes to encode. 
+To encode data into a QR symbol the following principal steps are taken. 
+
+  •   
+The input string (which can be any ASCII values between 0-255) is encoded using the selected encoding or encodings (it is possible to switch encoding mid-way through the string). The primary purpose of the encoding is to compress the data into a much shorter form. 
+  •   
+If needed the data is padded to fill up to the capacity of the selected symbol size. 
+  •   
+Once the string has been encoded (and possible padded) a number of error correcting code words are added so that the data can be recovered even if part of the printed symbol have been destroyed (perhaps a corner has been teared off). 
+  •   
+Finally the encoded data and the error correcting words are placed in the symbol according to an algorithm specified in the standard. This is done by placing each bit of every data byte in a specific position in the qr matrix symbol.
+
+The above explanation is by necessity simplified and for those interested into the specific details we refer to the official standard. It is also possible to review the code itself to understand the details. 
+QR versions and symbol size
+As mentioned in the previous section the QR standard specifies 40 different sizes of the QR code and the maximum data capacity will also vary depending on the size. Table 27.2. Maximum data capacity for the different symbol sizes in the QR-code. shows the defined sizes and for each size specifies the possible Error correction levels and the maximum data capacity depending on the compaction schema used.
+By default the symbol size will be chosen as the smallest possible. However some application require that usage of a fixed size symbol. The symbol size is a parameter of the encodation schema and is adjusted in the creation of the QREncoder. 
+Table 27.2. Maximum data capacity for the different symbol sizes in the QR-code. Version Modules ECC Level Data bits Numeric Alphanumeric Binary Kanji 
+1	21x21	L	152	41	25	17	10	
+M	128	34	20	14	8			
+Q	104	27	16	11	7			
+H	72	17	10	7	4			
+ 2	 25x25	 L	 272	 77	 47	 32	 20	
+ M	 224	 63	 38	 26	 16			
+ Q	 176	 48	 29	 20	 12			
+ H	 128	 34	 20	 14	 8			
+3	29x29	L	440	127	77	53	32	
+M	352	101	61	42	26			
+Q	272	77	47	32	20			
+H	208	58	35	24	15			
+ 4	 33x33	 L	 640	 187	 114	 78	 48	
+ M	 512	 149	 90	 62	 38			
+ Q	 384	 111	 67	 46	 28			
+ H	 288	 82	 50	 34	 21			
+5	37x37	L	864	255	154	106	65	
+M	688	202	122	84	52			
+Q	496	144	87	60	37			
+H	368	106	64	44	27			
+ 6	 41x41	 L	 1,088	 322	 195	 134	 82	
+ M	 864	 255	 154	 106	 65			
+ Q	 608	 178	 108	 74	 45			
+ H	 480	 139	 84	 58	 36			
+7	45x45	L	1,248	370	224	154	95	
+M	992	293	178	122	75			
+Q	704	207	125	86	53			
+H	528	154	93	64	39			
+ 8	 49x49	 L	 1,552	 461	 279	 192	 118	
+ M	 1,232	 365	 221	 152	 93			
+ Q	 880	 259	 157	 108	 66			
+ H	 688	 202	 122	 84	 52			
+9	53x53	L	1,856	552	335	230	141	
+M	1,456	432	262	180	111			
+Q	1,056	312	189	130	80			
+H	800	235	143	98	60			
+ 10	 57x57	 L	 2,192	 652	 395	 271	 167	
+ M	 1,728	 513	 311	 213	 131			
+ Q	 1,232	 364	 221	 151	 93			
+ H	 976	 288	 174	 119	 74			
+11	61x61	L	2,592	772	468	321	198	
+M	2,032	604	366	251	155			
+Q	1,440	427	259	177	109			
+H	1,120	331	200	137	85			
+ 12	 65x65	 L	 2,960	 883	 535	 367	 226	
+ M	 2,320	 691	 419	 287	 177			
+ Q	 1,648	 489	 296	 203	 125			
+ H	 1,264	 374	 227	 155	 96			
+13	69x69	L	3,424	1,022	619	425	262	
+M	2,672	796	483	331	204			
+Q	1,952	580	352	241	149			
+H	1,440	427	259	177	109			
+ 14	 73x73	 L	 3,688	 1,101	 667	 458	 282	
+ M	 2,920	 871	 528	 362	 223			
+ Q	 2,088	 621	 376	 258	 159			
+ H	 1,576	 468	 283	 194	 120			
+15	77x77	L	4,184	1,250	758	520	320	
+M	3,320	991	600	412	254			
+Q	2,360	703	426	292	180			
+H	1,784	530	321	220	136			
+ 16	 81x81	 L	 4,712	 1,408	 854	 586	 361	
+ M	 3,624	 1,082	 656	 450	 277			
+ Q	 2,600	 775	 470	 322	 198			
+ H	 2,024	 602	 365	 250	 154			
+17	85x85	L	5,176	1,548	938	644	397	
+M	4,056	1,212	734	504	310			
+Q	2,936	876	531	364	224			
+H	2,264	674	408	280	173			
+ 18	 89x89	 L	 5,768	 1,725	 1,046	 718	 442	
+ M	 4,504	 1,346	 816	 560	 345			
+ Q	 3,176	 948	 574	 394	 243			
+ H	 2,504	 746	 452	 310	 191			
+19	93x93	L	6,360	1,903	1,153	792	488	
+M	5,016	1,500	909	624	384			
+Q	3,560	1,063	644	442	272			
+H	2,728	813	493	338	208			
+ 20	 97x97	 L	 6,888	 2,061	 1,249	 858	 528	
+ M	 5,352	 1,600	 970	 666	 410			
+ Q	 3,880	 1,159	 702	 482	 297			
+ H	 3,080	 919	 557	 382	 235			
+21	101x101	L	7,456	2,232	1,352	929	572	
+M	5,712	1,708	1,035	711	438			
+Q	4,096	1,224	742	509	314			
+H	3,248	969	587	403	248			
+ 22	 105x105	 L	 8,048	 2,409	 1,460	 1,003	 618	
+ M	 6,256	 1,872	 1,134	 779	 480			
+ Q	 4,544	 1,358	 823	 565	 348			
+ H	 3,536	 1,056	 640	 439	 270			
+23	109x109	L	8,752	2,620	1,588	1,091	672	
+M	6,880	2,059	1,248	857	528			
+Q	4,912	1,468	890	611	376			
+H	3,712	1,108	672	461	284			
+ 24	 113x113	 L	 9,392	 2,812	 1,704	 1,171	 721	
+ M	 7,312	 2,188	 1,326	 911	 561			
+ Q	 5,312	 1,588	 963	 661	 407			
+ H	 4,112	 1,228	 744	 511	 315			
+25	117x117	L	10,208	3,057	1,853	1,273	784	
+M	8,000	2,395	1,451	997	614			
+Q	5,744	1,718	1,041	715	440			
+H	4,304	1,286	779	535	330			
+ 26	 121x121	 L	 10,960	 3,283	 1,990	 1,367	 842	
+ M	 8,496	 2,544	 1,542	 1,059	 652			
+ Q	 6,032	 1,804	 1,094	 751	 462			
+ H	 4,768	 1,425	 864	 593	 365			
+27	125x125	L	11,744	3,514	2,132	1,465	902	
+M	9,024	2,701	1,637	1,125	692			
+Q	6,464	1,933	1,172	805	496			
+H	5,024	1,501	910	625	385			
+ 28	 129x129	 L	 12,248	 3,669	 2,223	 1,528	 940	
+ M	 9,544	 2,857	 1,732	 1,190	 732			
+ Q	 6,968	 2,085	 1,263	 868	 534			
+ H	 5,288	 1,581	 958	 658	 405			
+29	133x133	L	13,048	3,909	2,369	1,628	1,002	
+M	10,136	3,035	1,839	1,264	778			
+Q	7,288	2,181	1,322	908	559			
+H	5,608	1,677	1,016	698	430			
+ 30	 137x137	 L	 13,880	 4,158	 2,520	 1,732	 1,066	
+ M	 10,984	 3,289	 1,994	 1,370	 843			
+ Q	 7,880	 2,358	 1,429	 982	 604			
+ H	 5,960	 1,782	 1,080	 742	 457			
+31	141x141	L	14,744	4,417	2,677	1,840	1132	
+M	11,640	3,486	2,113	1,452	894			
+Q	8,264	2,473	1,499	1,030	634			
+H	6,344	1,897	1,150	790	486			
+ 32	 145x145	 L	 15,640	 4,686	 2,840	 1,952	 1,201	
+ M	 12,328	 3,693	 2,238	 1,538	 947			
+ Q	 8,920	 2,670	 1,618	 1,112	 684			
+ H	 6,760	 2,022	 1,226	 842	 518			
+33	149x149	L	16,568	4,965	3,009	2,068	1,273	
+M	13,048	3,909	2,369	1,628	1,002			
+Q	9,368	2,805	1,700	1,168	719			
+H	7,208	2,157	1,307	898	553			
+ 34	 153x153	 L	 17,528	 5,253	 3,183	 2,188	 1,347	
+ M	 13,800	 4,134	 2,506	 1,722	 1,060			
+ Q	 9,848	 2,949	 1,787	 1,228	 756			
+ H	 7,688	 2,301	 1,394	 958	 590			
+35	157x157	L	18,448	5,529	3,351	2,303	1,417	
+M	14,496	4,343	2,632	1,809	1,113			
+Q	10,288	3,081	1,867	1,283	790			
+H	7,888	2,361	1,431	983	605			
+ 36	 161x161	 L	 19,472	 5,836	 3,537	 2,431	 1,496	
+ M	 15,312	 4,588	 2,780	 1,911	 1,176			
+ Q	 10,832	 3,244	 1,966	 1,351	 832			
+ H	 8,432	 2,524	 1,530	 1,051	 647			
+37	165x165	L	20,528	6,153	3,729	2,563	1,577	
+M	15,936	4,775	2,894	1,989	1,224			
+Q	11,408	3,417	2,071	1,423	876			
+H	8,768	2,625	1,591	1,093	673			
+ 38	 169x169	 L	 21,616	 6,479	 3,927	 2,699	 1,661	
+ M	 16,816	 5,039	 3,054	 2,099	 1,292			
+ Q	 12,016	 3,599	 2,181	 1,499	 923			
+ H	 9,136	 2,735	 1,658	 1,139	 701			
+39	173x173	L	22,496	6,743	4,087	2,809	1,729	
+M	17,728	5,313	3,220	2,213	1,362			
+Q	12,656	3,791	2,298	1,579	972			
+H	9,776	2,927	1,774	1,219	750			
+ 40	 177x177	 L	 23,648	 7,089	 4,296	 2,953	 1,817	
+ M	 18,672	 5,596	 3,391	 2,331	 1,435			
+ Q	 13,328	 3,993	 2,420	 1,663	 1,024			
+ H	 10,208	 3,057	 1,852	 1,273	 784			
+Error correction level
+As shown in Table 27.2. Maximum data capacity for the different symbol sizes in the QR-code. the QR standard specifies four different error correction levels. In the library the error correction can either be set to be chosen automatically or specified manually. The properties of the available error correction levels are given in Table 27.3. QR Error correction levels. The "Error correction capacity" column specifies how large percentage of the codewords that can be destroyed and the code still being decoded.
+
+Table 27.3. QR Error correction levels
+Error levelSymbolic constantError correction capacity
+L	QRCapacity::ErrL	5 %	
+M	QRCapacity::ErrM	15 %	
+Q	QRCapacity::ErrQ	25 %	
+H	QRCapacity::ErrH	30 %	
+
+
+Comparing the visual output with other QR-generating software
+It is possible that the JpGraph library gives a visually different result than some other available QR encoders. As a matter of fact many QR encoders gives a different visual result from the same input. This does not mean that one QR encoder is more correct than any other. This is a consequence of interpretation of the standard in a way that (without going into technical details) does not in any way affect the decoding of the barcode. It only affects the visual appearance.
+ 	Up	 	
+ 	Home	 	

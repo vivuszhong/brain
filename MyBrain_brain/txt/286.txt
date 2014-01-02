@@ -1,0 +1,58 @@
+
+ Copyright SimpleAct, Inc. ©2005-2006
+ This material is subject to SimpleAct's non-disclosure agreement.
+ QuickMark ӻ୕಻༊༟ࣘ v1.1
+ Page: 2
+ QR Code - Version 3 (29 x 29)  /  ECC: M  /  Mode: 8bit (UTF-8)
+ http://www.quickmark.com.tw
+ 5.80 mm²
+ 0.20 mod/mm
+ 7.25 mm²
+ 0.25 mod/mm
+ 8.70 mm²
+ 0.30 mod/mm
+ 10.15 mm²
+ 0.35 mod/mm
+ 11.60 mm²
+ 0.40 mod/mm
+ 13.05 mm²
+ 0.45 mod/mm
+ 14.50 mm²
+ 0.50 mod/mm
+ 15.95 mm²
+ 0.55 mod/mm
+ 17.40 mm²
+ 0.60 mod/mm
+ 18.85 mm²
+ 0.65 mod/mm
+ 20.30 mm²
+ 0.70 mod/mm
+ 21.75 mm²
+ 0.75 mod/mm
+ 23.20 mm²
+ 0.80 mod/mm
+ 24.65 mm²
+ 0.85 mod/mm
+ 26.10 mm²
+ 0.90 mod/mm
+ 27.55 mm²
+ 0.95 mod/mm
+ 29.00 mm²
+ 1.00 mod/mm
+ 30.45 mm²
+ 1.05 mod/mm
+ 31.90 mm²
+ 1.10 mod/mm
+ 33.35 mm²
+ 1.15 mod/mm
+ 34.80 mm²
+ 1.20 mod/mm
+ 36.25 mm²
+ 1.25 mod/mm
+ 37.70 mm²
+ 1.30 mod/mm
+ 39.15 mm²
+ 1.35 mod/mm
+
+
+

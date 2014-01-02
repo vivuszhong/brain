@@ -1,0 +1,78 @@
+                     mockito - simpler & better mocking - Google Project Hosting 
+My favorites ▼ | Sign in   Logo  	mockito simpler & better mocking 	  Search projects  	
+Project Home Downloads Wiki Issues Source Summary    People 		
+Project Information   •   Project feeds 
+  •   
+  •  Code license
+  •   MIT License 
+  •   
+  •    Labels
+java, mock, test, tdd, mockobjects, unittesting, testing 
+  •    Members szcze...@gmail.com 
+  •   7 committers 
+  •   3 contributors 
+  •    Featured Downloads 
+  •    mockito-1.9.5.zip 
+  •    mockito-all-1.9.5.jar 
+  •  Show all »
+  •    Wiki pages 
+  •   FAQ 
+  •   HowToContribute 
+  •   MockitoForOtherLanguages 
+  •   MockitoForPython 
+  •   MockitoVSEasyMock 
+  •   RelatedProjects 
+  •   ReleaseNotes 
+  •   Roadmap 
+  •  Show all »
+  •    Links 
+  •  Blogs
+  •   Szczepan on Mockito 
+  •   Brice's French coffee workshop 
+  •   
+  •  External links
+  •   Documentation 
+  •   Reference Card 
+  •   Browse source with Fisheye 
+  •   Checkout source 
+  •   Continuous integration 
+  •   
+  •  Groups
+  •   Mockito mailing list 
+  •    
+	Current release
+06-10-2012: Mockito 1.9.5 released! See the release notes. Should appear in maven central shortly. 
+
+Why drink it?
+Mockito is a mocking framework that tastes really good. It lets you write beautiful tests with clean & simple API. Mockito doesn't give you hangover because the tests are very readable and they produce clean verification errors. Read more about features & motivations. 
+     
+"We decided during the main conference that we should use JUnit 4 and Mockito because we think they are the future of TDD and mocking in Java" - Dan North, the originator of BDD 
+
+     
+More quotes
+
+     
+Over 15000 downloads of 1.9.0 version ('12), excluding maven/Gradle users. For latest figures see the downloads. 
+
+     
+More about the user base
+
+How do I drink it?
+Download mockito-all-x.x.x.jar and put it on the classpath. If you use a fancy build system with declarative dependencies like Gradle or Maven please -> Click HERE <- 
+Then you can verify interactions:
+
+Or stub method calls
+
+Click here for more documentation and examples. Remember all documentation lives in javadocs so you don’t need to visit that page too often. You can grab the RefCard here. 
+If you have any suggestions, find documentation unclear or you found a bug, write to our mailing list. You can report bugs here. 
+Who is your bartender?
+Mockito is served to you by Szczepan Faber and friends. First people who tried Mockito were developers of the Guardian project in London in early 2008. Here is how Szczepan explained why we need another mocking framework? 
+Firstly, hats down before EasyMock folks for their ideas on beautiful and refactorable mocking syntax. First hacks on Mockito were done on top of the EasyMock code. 
+Here are just some of my friends who contributed ideas to Mockito (apologize if I missed somebody): Igor Czechowski, Patric Fornasier, Jim Barritt, Felix Leipold, Liz Keogh, Bartosz Bańkowski 
+Special thanks to Steve Christou for setting up the continuous builds at his Hudson server. Previously, Erik Ramfelt hosted Mockito builds for a couple of years (big thanks!). 
+Thanks to Karol Poźniak for the logo (and a decent web page in future, hopefully :) 
+Finally, thanks to Erik Brakkee and Igor Czechowski for helping out with maven central stuff. 
+Thanks to YourKit for the profiler! 
+YourKit is kindly supporting open source projects with its full-featured Java Profiler. YourKit, LLC is the creator of innovative and intelligent tools for profiling Java and .NET applications. Take a look at YourKit's leading software products: YourKit Java Profiler, YourKit .NET Profiler 
+	
+Terms - Privacy - Project Hosting Help Powered by Google Project Hosting     
